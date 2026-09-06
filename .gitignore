@@ -1,2 +1,5 @@
 # Local Claude Code settings
 .claude/
+
+# Subagent-driven-development scratch workspace
+.superpowers/
