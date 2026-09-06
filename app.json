@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": ".tmp-scaffold",
-    "slug": ".tmp-scaffold",
+    "name": "practice-test-app",
+    "slug": "practice-test-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "tmpscaffold",
+    "scheme": "practicetestapp",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
