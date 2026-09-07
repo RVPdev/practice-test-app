@@ -49,6 +49,7 @@ const props = (over: Partial<React.ComponentProps<typeof RunnerView>> = {}) => (
   onNext: jest.fn(),
   onPrev: jest.fn(),
   onSubmit: jest.fn(),
+  onGoto: jest.fn(),
   ...over,
 });
 
@@ -104,5 +105,46 @@ describe('RunnerView in practice mode', () => {
     await render(<RunnerView {...props()} />);
     expect(screen.queryByTestId('timer')).toBeNull();
     expect(screen.queryByTestId('prev')).toBeNull();
+  });
+});
+
+describe('RunnerView in mock mode', () => {
+  const mockState = { ...baseState, mode: 'mock' as const, deadlineAt: '2026-09-06T14:30:00.000Z' };
+
+  it('shows the timer and the question grid', async () => {
+    await render(<RunnerView {...props({ state: mockState, remaining: 125000 })} />);
+    expect(screen.getByText('02:05')).toBeTruthy();
+    expect(screen.getAllByTestId(/^grid-cell-/)).toHaveLength(3);
+  });
+
+  it('shows no feedback even when a question is answered', async () => {
+    await render(
+      <RunnerView {...props({ state: { ...mockState, answers: { 'q-1': ['b'] } }, remaining: 60000 })} />,
+    );
+    expect(screen.queryByTestId('feedback')).toBeNull();
+  });
+
+  it('allows navigating back and forward', async () => {
+    const onPrev = jest.fn();
+    const onNext = jest.fn();
+    await render(<RunnerView {...props({ state: { ...mockState, index: 1 }, remaining: 60000, onPrev, onNext })} />);
+    await fireEvent.press(screen.getByTestId('prev'));
+    await fireEvent.press(screen.getByTestId('next'));
+    expect(onPrev).toHaveBeenCalled();
+    expect(onNext).toHaveBeenCalled();
+  });
+
+  it('offers submit from any question, not only the last', async () => {
+    const onSubmit = jest.fn();
+    await render(<RunnerView {...props({ state: mockState, remaining: 60000, onSubmit })} />);
+    await fireEvent.press(screen.getByTestId('submit-test'));
+    expect(onSubmit).toHaveBeenCalled();
+  });
+
+  it('names the number of unanswered questions on the submit control', async () => {
+    await render(
+      <RunnerView {...props({ state: { ...mockState, answers: { 'q-1': ['a'] } }, remaining: 60000 })} />,
+    );
+    expect(screen.getByText('Submit test (2 unanswered)')).toBeTruthy();
   });
 });

@@ -7,6 +7,7 @@ import { Feedback } from './Feedback';
 import { formatClock } from './format';
 import { ProgressBar } from './ProgressBar';
 import { QuestionCard } from './QuestionCard';
+import { QuestionGrid } from './QuestionGrid';
 import { Screen } from './Screen';
 import { spacing, type, useTheme } from './theme';
 
@@ -20,6 +21,7 @@ export function RunnerView({
   onNext,
   onPrev,
   onSubmit,
+  onGoto,
 }: {
   state: SessionState;
   question: Question;
@@ -30,6 +32,7 @@ export function RunnerView({
   onNext: () => void;
   onPrev: () => void;
   onSubmit: () => void;
+  onGoto: (index: number) => void;
 }) {
   const theme = useTheme();
   const total = state.questionIds.length;
@@ -38,6 +41,9 @@ export function RunnerView({
   const revealed = isRevealed(state, question.id);
   const isLast = state.index === total - 1;
   const practice = state.mode === 'practice';
+  const unanswered = state.questionIds.filter(
+    (id) => (state.answers[id] ?? []).length === 0,
+  ).length;
 
   return (
     <Screen>
@@ -87,23 +93,35 @@ export function RunnerView({
           />
         )
       ) : (
-        <View style={{ flexDirection: 'row', gap: spacing.sm }}>
-          <View style={{ flex: 1 }}>
-            <Button
-              title="Back"
-              variant="secondary"
-              onPress={onPrev}
-              disabled={state.index === 0}
-              testID="prev"
-            />
+        <View style={{ gap: spacing.md }}>
+          <QuestionGrid state={state} onGoto={onGoto} />
+          <View style={{ flexDirection: 'row', gap: spacing.sm }}>
+            <View style={{ flex: 1 }}>
+              <Button
+                title="Back"
+                variant="secondary"
+                onPress={onPrev}
+                disabled={state.index === 0}
+                testID="prev"
+              />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Button
+                title="Next"
+                variant="secondary"
+                onPress={onNext}
+                disabled={isLast}
+                testID="next"
+              />
+            </View>
           </View>
-          <View style={{ flex: 1 }}>
-            {isLast ? (
-              <Button title="Submit test" onPress={onSubmit} testID="submit" />
-            ) : (
-              <Button title="Next" onPress={onNext} testID="next" />
-            )}
-          </View>
+          <Button
+            title={
+              unanswered > 0 ? `Submit test (${unanswered} unanswered)` : 'Submit test'
+            }
+            onPress={onSubmit}
+            testID="submit-test"
+          />
         </View>
       )}
     </Screen>

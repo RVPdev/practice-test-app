@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
-import { Text } from 'react-native';
+import { Alert, Text } from 'react-native';
 import { Screen } from '@/ui/Screen';
 import { RunnerView } from '@/ui/RunnerView';
 import { useSessionRunner } from '@/ui/useSessionRunner';
@@ -15,6 +15,27 @@ export default function SessionScreen() {
       router.replace(`/results/${encodeURIComponent(runner.state.attemptId)}`);
     }
   }, [runner.state?.status, runner.state?.attemptId, router]);
+
+  const confirmSubmit = () => {
+    if (!runner.state) return;
+    if (runner.state.mode === 'practice') {
+      runner.submit();
+      return;
+    }
+    const unanswered = runner.state.questionIds.filter(
+      (id) => (runner.state!.answers[id] ?? []).length === 0,
+    ).length;
+    Alert.alert(
+      'Submit the test?',
+      unanswered > 0
+        ? `${unanswered} question(s) are unanswered and will be marked incorrect.`
+        : 'You have answered every question.',
+      [
+        { text: 'Keep working', style: 'cancel' },
+        { text: 'Submit', style: 'destructive', onPress: runner.submit },
+      ],
+    );
+  };
 
   if (runner.loading || !runner.state || !runner.question) {
     return (
@@ -34,7 +55,8 @@ export default function SessionScreen() {
       onReveal={runner.reveal}
       onNext={runner.next}
       onPrev={runner.prev}
-      onSubmit={runner.submit}
+      onGoto={runner.goto}
+      onSubmit={confirmSubmit}
     />
   );
 }
