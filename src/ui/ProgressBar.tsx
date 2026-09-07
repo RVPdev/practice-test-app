@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { radius, useTheme } from './theme';
+import { radius, spacing, useTheme } from './theme';
 
 export function ProgressBar({
   fraction,
@@ -21,6 +21,6 @@ export function ProgressBar({
 }
 
 const styles = StyleSheet.create({
-  track: { height: 8, borderRadius: radius.pill, overflow: 'hidden' },
+  track: { height: spacing.sm, borderRadius: radius.pill, overflow: 'hidden' },
   fill: { height: '100%', borderRadius: radius.pill },
 });
