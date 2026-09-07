@@ -40,7 +40,40 @@ describe('bundled sets', () => {
   it('is idempotent and keeps attempt history on re-seed', async () => {
     const repo = createStorageRepository(createMemoryKv());
     await seedBundledSets(repo);
+
+    // Save an attempt against the first bundled set
+    const setId = 'sample-cloud-basics';
+    const attempt = {
+      id: 'att_test_reseed',
+      setId,
+      setVersion: '1.0.0',
+      mode: 'mock' as const,
+      startedAt: '2026-09-06T14:00:00.000Z',
+      finishedAt: '2026-09-06T14:30:00.000Z',
+      config: {
+        questionCount: 1,
+        timeLimitMinutes: null,
+        passingScore: 70,
+        shuffleQuestions: true,
+        shuffleOptions: true,
+        seed: 1,
+      },
+      score: { correct: 1, total: 1, percent: 100, passed: true },
+      byTopic: [{ topicId: 'storage', correct: 1, total: 1 }],
+      answers: [{ questionId: 'cb-001', response: ['a'], correct: true, timeMs: 1000 }],
+    };
+    await repo.saveAttempt(attempt);
+
+    // Re-seed, which should replace set content in place
     await seedBundledSets(repo);
+
+    // Verify set count is unchanged
     expect(await repo.listSets()).toHaveLength(BUNDLED_SETS.length);
+
+    // Verify the attempt is still retrievable
+    const retrievedAttempt = await repo.getAttempt('att_test_reseed');
+    expect(retrievedAttempt).not.toBeNull();
+    expect(retrievedAttempt?.id).toBe('att_test_reseed');
+    expect(retrievedAttempt?.setId).toBe(setId);
   });
 });
