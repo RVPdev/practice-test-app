@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "sample-all-types",
+  "title": "Every Question Type — Sample Set",
+  "description": "One question of each supported type, for checking every renderer.",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "at-001",
+      "type": "single",
+      "prompt": "Pick the only correct answer.",
+      "options": [
+        { "id": "a", "text": "This one", "correct": true, "explanation": "Correct." },
+        { "id": "b", "text": "Not this one", "correct": false, "explanation": "Incorrect." }
+      ]
+    },
+    {
+      "id": "at-002",
+      "type": "multi",
+      "prompt": "Pick both correct answers.",
+      "options": [
+        { "id": "a", "text": "First correct", "correct": true, "explanation": "Correct." },
+        { "id": "b", "text": "Second correct", "correct": true, "explanation": "Correct." },
+        { "id": "c", "text": "Distractor", "correct": false, "explanation": "Incorrect." }
+      ]
+    },
+    {
+      "id": "at-003",
+      "type": "boolean",
+      "prompt": "This statement is true.",
+      "answer": true,
+      "explanation": "It says so."
+    },
+    {
+      "id": "at-004",
+      "type": "ordering",
+      "prompt": "Put these steps in order.",
+      "explanation": "Plan, then build, then ship.",
+      "items": [
+        { "id": "i1", "text": "Plan" },
+        { "id": "i2", "text": "Build" },
+        { "id": "i3", "text": "Ship" }
+      ],
+      "correctOrder": ["i1", "i2", "i3"]
+    },
+    {
+      "id": "at-005",
+      "type": "matching",
+      "prompt": "Match each term to its definition.",
+      "explanation": "Each term has exactly one definition.",
+      "left": [
+        { "id": "l1", "text": "Latency" },
+        { "id": "l2", "text": "Throughput" }
+      ],
+      "right": [
+        { "id": "r1", "text": "Time for one request" },
+        { "id": "r2", "text": "Requests per second" }
+      ],
+      "pairs": [
+        { "left": "l1", "right": "r1" },
+        { "left": "l2", "right": "r2" }
+      ]
+    }
+  ]
+}

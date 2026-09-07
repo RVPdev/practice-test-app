@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "sample-cloud-basics",
+  "title": "Cloud Basics — Sample Set",
+  "description": "A short sample set showing single, multiple and true/false questions.",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    { "id": "storage", "name": "Storage" },
+    { "id": "network", "name": "Networking" }
+  ],
+  "exam": {
+    "questionCount": 3,
+    "timeLimitMinutes": 5,
+    "passingScore": 70,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "cb-001",
+      "type": "single",
+      "topicId": "storage",
+      "difficulty": "easy",
+      "prompt": "Which storage type is best suited to serving static website files?",
+      "explanation": "Object storage is designed for large numbers of independent files served over HTTP.",
+      "options": [
+        { "id": "a", "text": "Object storage", "correct": true,
+          "explanation": "Correct — objects are addressed by key and served directly over HTTP." },
+        { "id": "b", "text": "Block storage", "correct": false,
+          "explanation": "Block storage attaches to one machine and has no HTTP interface of its own." },
+        { "id": "c", "text": "Archive storage", "correct": false,
+          "explanation": "Archive storage trades retrieval latency for cost — wrong for live pages." }
+      ]
+    },
+    {
+      "id": "cb-002",
+      "type": "multi",
+      "topicId": "network",
+      "difficulty": "medium",
+      "prompt": "Which two of these operate at the network layer?",
+      "explanation": "Routers and subnets are layer-3 concepts; the others are not.",
+      "options": [
+        { "id": "a", "text": "Router", "correct": true, "explanation": "Correct — routers forward packets between networks." },
+        { "id": "b", "text": "Subnet", "correct": true, "explanation": "Correct — a subnet is a layer-3 address range." },
+        { "id": "c", "text": "TLS certificate", "correct": false, "explanation": "TLS lives far above the network layer." }
+      ]
+    },
+    {
+      "id": "cb-003",
+      "type": "boolean",
+      "topicId": "network",
+      "prompt": "A public IP address is required for two machines in the same private subnet to talk to each other.",
+      "answer": false,
+      "explanation": "Machines in the same subnet reach each other on private addresses.",
+      "reference": { "label": "Private address ranges (RFC 1918)", "url": "https://datatracker.ietf.org/doc/html/rfc1918" }
+    }
+  ]
+}
