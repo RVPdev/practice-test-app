@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import type { OrderingQuestion } from '@/core/schema';
 import { radius, spacing, type, useTheme } from './theme';
@@ -18,6 +19,22 @@ export function OrderingInput({
   const theme = useTheme();
   const itemText = new Map(question.items.map((item) => [item.id, item.text]));
   const order = response.length === question.items.length ? response : initialOrder;
+  // Nothing was submitted for this question - review must not grade the rows.
+  const unanswered = revealed && response.length === 0;
+  const graded = revealed && !unanswered;
+
+  // The presented order is itself an assertion: a user who agrees with it must be able to
+  // submit without perturbing it first. Report it once per question so "did not touch
+  // anything" means "the shown order is my answer", the way a real ordering item works.
+  const seededFor = useRef<string | null>(null);
+  useEffect(() => {
+    if (revealed) return;
+    if (seededFor.current === question.id) return;
+    // Never overwrite an answer that is already there (resume, or a prior visit).
+    if (response.length > 0) return;
+    seededFor.current = question.id;
+    onChange(initialOrder);
+  }, [question.id, revealed, response.length, initialOrder, onChange]);
 
   const move = (index: number, delta: number) => {
     if (revealed) return;
@@ -31,10 +48,11 @@ export function OrderingInput({
   return (
     <View style={{ gap: spacing.sm, marginTop: spacing.sm }}>
       {order.map((itemId, index) => {
-        const rightPlace = revealed && question.correctOrder[index] === itemId;
+        const rightPlace = graded && question.correctOrder[index] === itemId;
         const label = [
           `${index + 1}. ${itemText.get(itemId) ?? itemId}`,
-          revealed ? (rightPlace ? 'correct position' : 'wrong position') : null,
+          unanswered ? 'not answered' : null,
+          graded ? (rightPlace ? 'correct position' : 'wrong position') : null,
         ]
           .filter(Boolean)
           .join(', ');
@@ -50,13 +68,13 @@ export function OrderingInput({
               gap: spacing.sm,
               padding: spacing.md,
               borderRadius: radius.md,
-              borderWidth: revealed ? 2 : 1,
-              borderColor: revealed
+              borderWidth: graded ? 2 : 1,
+              borderColor: graded
                 ? rightPlace
                   ? theme.positive
                   : theme.negative
                 : theme.border,
-              backgroundColor: revealed
+              backgroundColor: graded
                 ? rightPlace
                   ? theme.positiveSurface
                   : theme.negativeSurface

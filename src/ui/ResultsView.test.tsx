@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react-native';
 import type { QuestionSet } from '@/core/schema';
+import { orderedItemIds, orderedOptionIds } from '@/core/session';
 import type { Attempt } from '@/core/types';
 import { ResultsView } from './ResultsView';
 
@@ -106,5 +107,90 @@ describe('ResultsView', () => {
       <ResultsView attempt={{ ...attempt, setVersion: '0.9.0' }} set={set} onDone={() => {}} />,
     );
     expect(screen.getByTestId('version-warning')).toBeTruthy();
+  });
+
+  // Spec 6.5: the review must show the run as the user saw it, rebuilt from the seed.
+  it('rebuilds the shuffled option order from the attempt seed', async () => {
+    await render(<ResultsView attempt={attempt} set={set} onDone={() => {}} />);
+    const expected = orderedOptionIds(set.questions[0], attempt.config);
+    // Guards the guard: a seed that happened to be a no-op would prove nothing.
+    expect(expected).not.toEqual(['a', 'b']);
+    const rendered = screen
+      .getAllByTestId(/^option-/)
+      .map((node) => node.props.testID as string)
+      .filter((id) => id === 'option-a' || id === 'option-b');
+    expect(rendered).toEqual(expected.map((id) => `option-${id}`));
+  });
+});
+
+describe('ResultsView reviewing an ordering question', () => {
+  const orderingSet: QuestionSet = {
+    schemaVersion: 1,
+    id: 'set-2',
+    title: 'Ordering',
+    questions: [
+      {
+        id: 'q-ord',
+        type: 'ordering',
+        prompt: 'Order these',
+        items: [
+          { id: 'i1', text: 'Plan' },
+          { id: 'i2', text: 'Build' },
+          { id: 'i3', text: 'Ship' },
+        ],
+        // The authored order is also the correct order - the case that made an
+        // unanswered question look green in review.
+        correctOrder: ['i1', 'i2', 'i3'],
+      },
+    ],
+  };
+
+  const orderingAttempt = (response: string[]): Attempt => ({
+    id: 'att_2',
+    setId: 'set-2',
+    setVersion: null,
+    mode: 'mock',
+    startedAt: '2026-09-06T14:00:00.000Z',
+    finishedAt: '2026-09-06T14:05:00.000Z',
+    config: {
+      questionCount: 1,
+      timeLimitMinutes: 30,
+      passingScore: 70,
+      shuffleQuestions: false,
+      shuffleOptions: true,
+      seed: 3,
+    },
+    score: { correct: 0, total: 1, percent: 0, passed: false },
+    byTopic: [{ topicId: 'uncategorized', correct: 0, total: 1 }],
+    answers: [{ questionId: 'q-ord', response, correct: response.length > 0, timeMs: 0 }],
+  });
+
+  it('never grades a row for a question that was never answered', async () => {
+    const attempt = orderingAttempt([]);
+    await render(<ResultsView attempt={attempt} set={orderingSet} onDone={() => {}} />);
+    const labels = screen
+      .getAllByTestId(/^order-row-/)
+      .map((node) => node.props.accessibilityLabel as string);
+    expect(labels.some((label) => label.includes('correct position'))).toBe(false);
+    expect(labels.every((label) => label.includes('not answered'))).toBe(true);
+  });
+
+  it('shows an unanswered question in the order the run presented it', async () => {
+    const attempt = orderingAttempt([]);
+    await render(<ResultsView attempt={attempt} set={orderingSet} onDone={() => {}} />);
+    const presented = orderedItemIds(orderingSet.questions[0], attempt.config);
+    const rows = screen.getAllByTestId(/^order-row-/).map((node) => node.props.testID as string);
+    expect(rows).toEqual(presented.map((id) => `order-row-${id}`));
+  });
+
+  it('shows an answered question in the order the user submitted, and grades it', async () => {
+    await render(
+      <ResultsView attempt={orderingAttempt(['i2', 'i1', 'i3'])} set={orderingSet} onDone={() => {}} />,
+    );
+    const rows = screen.getAllByTestId(/^order-row-/).map((node) => node.props.testID as string);
+    expect(rows).toEqual(['order-row-i2', 'order-row-i1', 'order-row-i3']);
+    expect(screen.getByTestId('order-row-i3').props.accessibilityLabel).toContain(
+      'correct position',
+    );
   });
 });

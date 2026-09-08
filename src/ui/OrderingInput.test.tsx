@@ -88,6 +88,94 @@ describe('OrderingInput', () => {
     expect(screen.getByTestId('move-down-i3').props.accessibilityState.disabled).toBe(true);
   });
 
+  it('reports the presented order as the answer before the user touches anything', async () => {
+    // Agreeing with the shown order is a real answer, so it must be submittable as-is.
+    const onChange = jest.fn();
+    await render(
+      <OrderingInput
+        question={question}
+        response={[]}
+        revealed={false}
+        initialOrder={['i3', 'i1', 'i2']}
+        onChange={onChange}
+      />,
+    );
+    expect(onChange).toHaveBeenCalledWith(['i3', 'i1', 'i2']);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not overwrite an answer that is already there', async () => {
+    const onChange = jest.fn();
+    await render(
+      <OrderingInput
+        question={question}
+        response={['i2', 'i1', 'i3']}
+        revealed={false}
+        initialOrder={['i3', 'i1', 'i2']}
+        onChange={onChange}
+      />,
+    );
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('reports nothing once the question is revealed', async () => {
+    const onChange = jest.fn();
+    await render(
+      <OrderingInput
+        question={question}
+        response={[]}
+        revealed
+        initialOrder={['i3', 'i1', 'i2']}
+        onChange={onChange}
+      />,
+    );
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('reports the presented order again when it is shown a different question', async () => {
+    const onChange = jest.fn();
+    const view = await render(
+      <OrderingInput
+        question={question}
+        response={[]}
+        revealed={false}
+        initialOrder={['i3', 'i1', 'i2']}
+        onChange={onChange}
+      />,
+    );
+    // The runner reuses this instance across questions, so the seeding is per question id.
+    const next = { ...question, id: 'q-ord-2' };
+    await view.rerender(
+      <OrderingInput
+        question={next}
+        response={[]}
+        revealed={false}
+        initialOrder={['i2', 'i3', 'i1']}
+        onChange={onChange}
+      />,
+    );
+    expect(onChange).toHaveBeenNthCalledWith(1, ['i3', 'i1', 'i2']);
+    expect(onChange).toHaveBeenNthCalledWith(2, ['i2', 'i3', 'i1']);
+  });
+
+  it('grades no row when a revealed question was never answered', async () => {
+    await render(
+      <OrderingInput
+        question={question}
+        response={[]}
+        revealed
+        initialOrder={['i1', 'i2', 'i3']}
+        onChange={() => {}}
+      />,
+    );
+    const labels = screen
+      .getAllByTestId(/^order-row-/)
+      .map((node) => node.props.accessibilityLabel as string);
+    expect(labels.some((label) => label.includes('correct position'))).toBe(false);
+    expect(labels.some((label) => label.includes('wrong position'))).toBe(false);
+    expect(labels.every((label) => label.includes('not answered'))).toBe(true);
+  });
+
   it('locks the controls and marks correct positions once revealed', async () => {
     const onChange = jest.fn();
     await render(

@@ -1,5 +1,6 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { useState } from 'react';
 import type { Question } from '@/core/schema';
 import type { SessionState } from '@/core/types';
 import { RunnerView } from './RunnerView';
@@ -146,5 +147,44 @@ describe('RunnerView in mock mode', () => {
       <RunnerView {...props({ state: { ...mockState, answers: { 'q-1': ['a'] } }, remaining: 60000 })} />,
     );
     expect(screen.getByText('Submit test (2 unanswered)')).toBeTruthy();
+  });
+});
+
+describe('RunnerView with an ordering question', () => {
+  const orderingQuestion: Question = {
+    id: 'q-1',
+    type: 'ordering',
+    prompt: 'Order these',
+    items: [
+      { id: 'i1', text: 'Plan' },
+      { id: 'i2', text: 'Build' },
+      { id: 'i3', text: 'Ship' },
+    ],
+    correctOrder: ['i1', 'i2', 'i3'],
+  };
+
+  /** A minimal stand-in for the session runner, so answers actually round-trip. */
+  function Harness({ itemOrder }: { itemOrder: string[] }) {
+    const [answers, setAnswers] = useState<Record<string, string[]>>({});
+    return (
+      <RunnerView
+        {...props({
+          state: { ...baseState, answers },
+          question: orderingQuestion,
+          optionOrder: [],
+          itemOrder,
+          onAnswer: (response: string[]) =>
+            setAnswers((prev) => ({ ...prev, [orderingQuestion.id]: response })),
+        })}
+      />
+    );
+  }
+
+  it('lets a user who agrees with the presented order submit without perturbing it', async () => {
+    await render(<Harness itemOrder={['i3', 'i1', 'i2']} />);
+    // No taps at all: the presented order is already the recorded answer.
+    expect(screen.getByTestId('reveal').props.accessibilityState.disabled).toBe(false);
+    const rows = screen.getAllByTestId(/^order-row-/).map((n) => n.props.testID);
+    expect(rows).toEqual(['order-row-i3', 'order-row-i1', 'order-row-i2']);
   });
 });

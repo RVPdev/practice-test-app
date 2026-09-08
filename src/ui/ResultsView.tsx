@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native';
 import type { QuestionSet } from '@/core/schema';
 import { UNCATEGORIZED } from '@/core/scoring';
+import { orderedItemIds, orderedOptionIds } from '@/core/session';
 import type { Attempt } from '@/core/types';
 import { Button } from './Button';
 import { Card } from './Card';
@@ -96,8 +97,11 @@ export function ResultsView({
               question={question}
               response={answer.response}
               revealed
-              optionOrder={[]}
-              itemOrder={answer.response}
+              // Spec 6.5: review shows what the user saw, rebuilt from the attempt's seed.
+              // For ordering, `answer.response` wins inside OrderingInput whenever the
+              // question was answered, so this order only shows through when it was not.
+              optionOrder={orderedOptionIds(question, attempt.config)}
+              itemOrder={orderedItemIds(question, attempt.config)}
               onChange={() => {}}
             />
             <Feedback question={question} response={answer.response} />
