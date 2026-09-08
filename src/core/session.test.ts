@@ -1,9 +1,10 @@
 import { describe, expect, it } from '@jest/globals';
 import { resolveRunConfig } from './config';
-import type { QuestionSet } from './schema';
+import type { OrderingQuestion, QuestionSet } from './schema';
 import {
   currentQuestionId,
   isRevealed,
+  orderedItemIds,
   orderedOptionIds,
   remainingMs,
   sessionReducer,
@@ -204,5 +205,49 @@ describe('orderedOptionIds', () => {
     const config = mockConfig();
     const orders = set.questions.map((q) => orderedOptionIds(q, config).join(''));
     expect(new Set(orders).size).toBeGreaterThan(1);
+  });
+});
+
+describe('orderedItemIds', () => {
+  const ordering: OrderingQuestion = {
+    id: 'q-ord',
+    type: 'ordering',
+    prompt: 'Put these in order',
+    items: Array.from({ length: 8 }, (_, i) => ({ id: `i${i}`, text: `Item ${i}` })),
+    correctOrder: Array.from({ length: 8 }, (_, i) => `i${i}`),
+  };
+
+  it('is deterministic for a seed and question', () => {
+    const config = mockConfig();
+    expect(orderedItemIds(ordering, config)).toEqual(orderedItemIds(ordering, config));
+  });
+
+  it('returns every item id exactly once', () => {
+    const order = orderedItemIds(ordering, mockConfig());
+    expect([...order].sort()).toEqual(ordering.items.map((i) => i.id).sort());
+    expect(new Set(order).size).toBe(ordering.items.length);
+  });
+
+  it('shuffles rather than returning the authored order', () => {
+    // The authored order IS the answer, so presenting it unshuffled would give it away.
+    const authored = ordering.items.map((i) => i.id);
+    const seeds = [1, 2, 3, 4, 5, 6, 7, 8];
+    const orders = seeds.map((seed) => orderedItemIds(ordering, mockConfig({ seed })));
+    expect(orders.some((order) => order.join('') !== authored.join(''))).toBe(true);
+  });
+
+  it('gives different seeds different orderings', () => {
+    const a = orderedItemIds(ordering, mockConfig({ seed: 11 }));
+    const b = orderedItemIds(ordering, mockConfig({ seed: 12 }));
+    expect(a.join('')).not.toEqual(b.join(''));
+  });
+
+  it('ignores shuffleOptions - ordering items are always shuffled', () => {
+    const off = orderedItemIds(ordering, mockConfig({ shuffleOptions: false }));
+    expect(off).toEqual(orderedItemIds(ordering, mockConfig({ shuffleOptions: true })));
+  });
+
+  it('returns nothing for a question that is not an ordering question', () => {
+    expect(orderedItemIds(set.questions[0], mockConfig())).toEqual([]);
   });
 });
