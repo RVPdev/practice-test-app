@@ -24,6 +24,9 @@ export function useSessionRunner() {
   const [loaded, dispatch] = useReducer(reducer, null);
   const [loading, setLoading] = useState(true);
   const [remaining, setRemaining] = useState<number | null>(null);
+  // Set only once the attempt is durably written - callers navigate on this, never on
+  // `state.status`, which flips a full async round-trip before the attempt is readable.
+  const [finishedAttemptId, setFinishedAttemptId] = useState<string | null>(null);
   const finished = useRef(false);
 
   useEffect(() => {
@@ -70,13 +73,18 @@ export function useSessionRunner() {
       const attempt = buildAttempt(state, set.questions, Date.now());
       await repository.saveAttempt(attempt);
       await repository.saveInProgress(null);
+      setFinishedAttemptId(attempt.id);
     },
     [repository],
   );
 
   // Covers both the explicit submit and the timer's auto-submit.
   useEffect(() => {
-    if (loaded?.state.status === 'submitted') void finish(loaded.state, loaded.set);
+    if (loaded?.state.status === 'submitted') {
+      finish(loaded.state, loaded.set).catch((error) => {
+        console.error('Failed to save the finished attempt', error);
+      });
+    }
   }, [loaded, finish]);
 
   const question: Question | null = useMemo(() => {
@@ -103,6 +111,7 @@ export function useSessionRunner() {
     optionOrder,
     itemOrder,
     remaining,
+    finishedAttemptId,
     answer: (response: string[]) => {
       if (question) dispatch({ type: 'ANSWER', questionId: question.id, response });
     },

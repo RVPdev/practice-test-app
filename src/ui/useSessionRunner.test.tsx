@@ -70,4 +70,21 @@ describe('useSessionRunner', () => {
     expect(attempts).toHaveLength(1);
     expect(attempts[0].answers).toHaveLength(2);
   });
+
+  // The results screen navigates on this id and immediately reads the attempt back, so
+  // the id must not appear until the write has actually landed.
+  it('reports a finished attempt id only once the attempt is readable', async () => {
+    const { repository, wrapper } = await harness();
+    const { result } = await renderHook(() => useSessionRunner(), { wrapper });
+    await waitFor(() => expect(result.current.loading).toBe(false));
+    expect(result.current.finishedAttemptId).toBeNull();
+
+    await act(async () => result.current.answer(['true']));
+    await act(async () => result.current.submit());
+
+    await waitFor(() => expect(result.current.finishedAttemptId).not.toBeNull());
+    const saved = await repository.getAttempt(result.current.finishedAttemptId!);
+    expect(saved).not.toBeNull();
+    expect(await repository.getInProgress()).toBeNull();
+  });
 });

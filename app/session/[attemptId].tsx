@@ -9,12 +9,14 @@ export default function SessionScreen() {
   const router = useRouter();
   const runner = useSessionRunner();
 
-  // When the session submits, the attempt has been written - go read it.
+  // Navigate on the write completing, not on the reducer flipping to `submitted` - the
+  // results screen reads the attempt back, so it must already be on disk.
+  const finishedAttemptId = runner.finishedAttemptId;
   useEffect(() => {
-    if (runner.state?.status === 'submitted') {
-      router.replace(`/results/${encodeURIComponent(runner.state.attemptId)}`);
+    if (finishedAttemptId) {
+      router.replace(`/results/${encodeURIComponent(finishedAttemptId)}`);
     }
-  }, [runner.state?.status, runner.state?.attemptId, router]);
+  }, [finishedAttemptId, router]);
 
   const confirmSubmit = () => {
     if (!runner.state) return;
