@@ -71,6 +71,17 @@ export const booleanQuestionSchema = z
 
 export const itemSchema = z.object({ id: idSchema, text: nonEmpty }).strict();
 
+// A matching response is carried as `left:right` strings, so a colon inside either id
+// would make the pair unparseable. Only matching is constrained - every other id stays
+// free-form, because nothing else packs two ids into one string.
+const matchingIdSchema = idSchema.refine((id) => !id.includes(':'), {
+  message: 'a matching item id must not contain ":"',
+});
+
+export const matchingItemSchema = z
+  .object({ id: matchingIdSchema, text: nonEmpty })
+  .strict();
+
 export const orderingQuestionSchema = z
   .object({
     ...questionHead,
@@ -84,9 +95,11 @@ export const matchingQuestionSchema = z
   .object({
     ...questionHead,
     type: z.literal('matching'),
-    left: z.array(itemSchema).min(1),
-    right: z.array(itemSchema).min(1),
-    pairs: z.array(z.object({ left: idSchema, right: idSchema }).strict()).min(1),
+    left: z.array(matchingItemSchema).min(1),
+    right: z.array(matchingItemSchema).min(1),
+    pairs: z
+      .array(z.object({ left: matchingIdSchema, right: matchingIdSchema }).strict())
+      .min(1),
   })
   .strict();
 

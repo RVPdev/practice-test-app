@@ -162,6 +162,39 @@ describe('ordering and matching questions', () => {
     const bad = { ...matching, pairs: [{ left: 'l1', right: 'r1' }, { left: 'l1', right: 'r2' }] };
     expect(questionSetSchema.safeParse(wrap([bad])).success).toBe(false);
   });
+
+  // A matching response travels as `left:right`, so a colon in either id would corrupt it.
+  it('rejects a matching left id containing a colon', () => {
+    const bad = {
+      ...matching,
+      left: [{ id: 'l:1', text: 'S3' }],
+      pairs: [{ left: 'l:1', right: 'r1' }],
+    };
+    const result = questionSetSchema.safeParse(wrap([bad]));
+    expect(result.success).toBe(false);
+    expect(JSON.stringify(result.error?.issues)).toContain('must not contain');
+  });
+
+  it('rejects a matching right id containing a colon', () => {
+    const bad = {
+      ...matching,
+      right: [{ id: 'r:1', text: 'Object storage' }],
+      pairs: [{ left: 'l1', right: 'r:1' }],
+    };
+    expect(questionSetSchema.safeParse(wrap([bad])).success).toBe(false);
+  });
+
+  it('still allows a colon in ids that are never packed into a pair string', () => {
+    const withColons = {
+      ...ordering,
+      items: [
+        { id: 'i:1', text: 'First' },
+        { id: 'i:2', text: 'Second' },
+      ],
+      correctOrder: ['i:1', 'i:2'],
+    };
+    expect(questionSetSchema.safeParse(wrap([withColons])).success).toBe(true);
+  });
 });
 
 describe('cross-field rules', () => {
