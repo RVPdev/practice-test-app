@@ -1,5 +1,5 @@
 import { describe, expect, it, jest } from '@jest/globals';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, within } from '@testing-library/react-native';
 import type { SetSummary } from '@/data/repository';
 import { LibraryView } from './LibraryView';
 
@@ -59,5 +59,40 @@ describe('LibraryView', () => {
     await render(<LibraryView sets={[]} loading onOpenSet={() => {}} onImport={() => {}} />);
     expect(screen.queryByText(/No question sets yet/)).toBeNull();
     expect(screen.getByTestId('library-loading')).toBeTruthy();
+  });
+});
+
+describe('LibraryView resume banner', () => {
+  const inProgress = { attemptId: 'att_1', setTitle: 'Cloud Basics', mode: 'mock' as const };
+
+  const base = {
+    sets: [summary()],
+    loading: false,
+    onOpenSet: () => {},
+    onImport: () => {},
+  };
+
+  it('shows nothing when there is no in-progress session', async () => {
+    await render(<LibraryView {...base} inProgress={null} onResume={() => {}} onDiscard={() => {}} />);
+    expect(screen.queryByTestId('resume-banner')).toBeNull();
+  });
+
+  it('offers to resume an interrupted attempt by set name', async () => {
+    const onResume = jest.fn();
+    await render(
+      <LibraryView {...base} inProgress={inProgress} onResume={onResume} onDiscard={() => {}} />,
+    );
+    expect(within(screen.getByTestId('resume-banner')).getByText(/Cloud Basics/)).toBeTruthy();
+    await fireEvent.press(screen.getByTestId('resume-session'));
+    expect(onResume).toHaveBeenCalled();
+  });
+
+  it('offers to discard it', async () => {
+    const onDiscard = jest.fn();
+    await render(
+      <LibraryView {...base} inProgress={inProgress} onResume={() => {}} onDiscard={onDiscard} />,
+    );
+    await fireEvent.press(screen.getByTestId('discard-session'));
+    expect(onDiscard).toHaveBeenCalled();
   });
 });

@@ -46,6 +46,22 @@ export default function SetDetailScreen() {
   }
 
   const start = async (mode: RunMode, overrides: RunOverrides) => {
+    const existing = await repository.getInProgress();
+    if (existing) {
+      Alert.alert(
+        'Discard your unfinished attempt?',
+        'You can only have one attempt in progress at a time.',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'Discard and start', style: 'destructive', onPress: () => void begin(mode, overrides) },
+        ],
+      );
+      return;
+    }
+    await begin(mode, overrides);
+  };
+
+  const begin = async (mode: RunMode, overrides: RunOverrides) => {
     const config = resolveRunConfig(set, mode, overrides, randomSeed());
     const session = startSession(set, mode, config, Date.now());
     await repository.saveInProgress(session);

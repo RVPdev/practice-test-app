@@ -1,4 +1,5 @@
 import { ActivityIndicator, Text, View } from 'react-native';
+import type { RunMode } from '@/core/types';
 import type { SetSummary } from '@/data/repository';
 import { Button } from './Button';
 import { Card } from './Card';
@@ -11,11 +12,17 @@ export function LibraryView({
   loading,
   onOpenSet,
   onImport,
+  inProgress = null,
+  onResume = () => {},
+  onDiscard = () => {},
 }: {
   sets: SetSummary[];
   loading: boolean;
   onOpenSet: (setId: string) => void;
   onImport: () => void;
+  inProgress?: { attemptId: string; setTitle: string; mode: RunMode } | null;
+  onResume?: () => void;
+  onDiscard?: () => void;
 }) {
   const theme = useTheme();
 
@@ -27,6 +34,22 @@ export function LibraryView({
           Pick a set to practise, or import your own JSON.
         </Text>
       </View>
+
+      {inProgress ? (
+        <Card testID="resume-banner">
+          <Text style={[type.heading, { color: theme.text }]}>Unfinished attempt</Text>
+          <Text style={[type.caption, { color: theme.textMuted }]}>
+            {`You have a ${inProgress.mode === 'mock' ? 'mock test' : 'practice run'} in progress on "${inProgress.setTitle}".`}
+          </Text>
+          <Button title="Resume" onPress={onResume} testID="resume-session" />
+          <Button
+            title="Discard it"
+            variant="secondary"
+            onPress={onDiscard}
+            testID="discard-session"
+          />
+        </Card>
+      ) : null}
 
       <Button title="Import a set" onPress={onImport} variant="secondary" testID="import-button" />
 
