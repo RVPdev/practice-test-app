@@ -1,5 +1,5 @@
 import * as DocumentPicker from 'expo-document-picker';
-import * as FileSystem from 'expo-file-system';
+import { File } from 'expo-file-system';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Platform } from 'react-native';
@@ -12,7 +12,9 @@ async function readFile(uri: string): Promise<string> {
     const response = await fetch(uri);
     return response.text();
   }
-  return FileSystem.readAsStringAsync(uri);
+  // The root export's `readAsStringAsync` is a deprecated shim that throws at runtime in
+  // SDK 57 - the modern `File` class is the supported native read path.
+  return new File(uri).text();
 }
 
 export default function ImportScreen() {
