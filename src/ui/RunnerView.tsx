@@ -15,6 +15,7 @@ export function RunnerView({
   state,
   question,
   optionOrder,
+  itemOrder = [],
   remaining,
   onAnswer,
   onReveal,
@@ -26,6 +27,7 @@ export function RunnerView({
   state: SessionState;
   question: Question;
   optionOrder: string[];
+  itemOrder?: string[];
   remaining: number | null;
   onAnswer: (response: string[]) => void;
   onReveal: () => void;
@@ -72,6 +74,7 @@ export function RunnerView({
         response={response}
         revealed={revealed}
         optionOrder={optionOrder}
+        itemOrder={itemOrder}
         onChange={onAnswer}
       />
 

@@ -97,6 +97,7 @@ export function ResultsView({
               response={answer.response}
               revealed
               optionOrder={[]}
+              itemOrder={answer.response}
               onChange={() => {}}
             />
             <Feedback question={question} response={answer.response} />

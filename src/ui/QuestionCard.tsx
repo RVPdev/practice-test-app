@@ -1,6 +1,7 @@
 import { Image, Pressable, Text, View } from 'react-native';
 import type { Question } from '@/core/schema';
 import { Card } from './Card';
+import { OrderingInput } from './OrderingInput';
 import { radius, spacing, type, useTheme, type Theme } from './theme';
 
 type Choice = { id: string; text: string; correct: boolean };
@@ -10,15 +11,32 @@ export function QuestionCard({
   response,
   revealed,
   optionOrder,
+  itemOrder = [],
   onChange,
 }: {
   question: Question;
   response: string[];
   revealed: boolean;
   optionOrder: string[];
+  itemOrder?: string[];
   onChange: (response: string[]) => void;
 }) {
   const theme = useTheme();
+
+  if (question.type === 'ordering') {
+    return (
+      <Card>
+        <Text style={[type.body, { color: theme.text }]}>{question.prompt}</Text>
+        <OrderingInput
+          question={question}
+          response={response}
+          revealed={revealed}
+          initialOrder={itemOrder.length > 0 ? itemOrder : question.items.map((i) => i.id)}
+          onChange={onChange}
+        />
+      </Card>
+    );
+  }
 
   return (
     <Card>

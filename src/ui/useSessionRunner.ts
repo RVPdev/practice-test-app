@@ -3,6 +3,7 @@ import type { Question, QuestionSet } from '@/core/schema';
 import { buildAttempt } from '@/core/scoring';
 import {
   currentQuestionId,
+  orderedItemIds,
   orderedOptionIds,
   remainingMs,
   sessionReducer,
@@ -89,12 +90,18 @@ export function useSessionRunner() {
     [loaded, question],
   );
 
+  const itemOrder = useMemo(
+    () => (loaded && question ? orderedItemIds(question, loaded.state.config) : []),
+    [loaded, question],
+  );
+
   return {
     loading,
     state: loaded?.state ?? null,
     set: loaded?.set ?? null,
     question,
     optionOrder,
+    itemOrder,
     remaining,
     answer: (response: string[]) => {
       if (question) dispatch({ type: 'ANSWER', questionId: question.id, response });

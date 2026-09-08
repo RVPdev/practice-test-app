@@ -50,6 +50,7 @@ export default function SessionScreen() {
       state={runner.state}
       question={runner.question}
       optionOrder={runner.optionOrder}
+      itemOrder={runner.itemOrder}
       remaining={runner.remaining}
       onAnswer={runner.answer}
       onReveal={runner.reveal}

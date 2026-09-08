@@ -28,6 +28,15 @@ const ordering: Question = {
   correctOrder: ['i1', 'i2'],
 };
 
+const matching: Question = {
+  id: 'q-5',
+  type: 'matching',
+  prompt: 'Match these',
+  left: [{ id: 'l1', text: 'Left one' }],
+  right: [{ id: 'r1', text: 'Right one' }],
+  pairs: [{ left: 'l1', right: 'r1' }],
+};
+
 describe('QuestionCard', () => {
   it('renders the prompt', async () => {
     await render(
@@ -100,8 +109,25 @@ describe('QuestionCard', () => {
 
   it('states plainly when a type has no renderer yet', async () => {
     await render(
-      <QuestionCard question={ordering} response={[]} revealed={false} optionOrder={[]} onChange={() => {}} />,
+      <QuestionCard question={matching} response={[]} revealed={false} optionOrder={[]} onChange={() => {}} />,
     );
     expect(screen.getByTestId('unsupported-question')).toBeTruthy();
+  });
+});
+
+describe('QuestionCard with an ordering question', () => {
+  it('renders the ordering controls instead of the unsupported notice', async () => {
+    await render(
+      <QuestionCard
+        question={ordering}
+        response={[]}
+        revealed={false}
+        optionOrder={[]}
+        itemOrder={['i2', 'i1']}
+        onChange={() => {}}
+      />,
+    );
+    expect(screen.queryByTestId('unsupported-question')).toBeNull();
+    expect(screen.getAllByTestId(/^order-row-/)).toHaveLength(2);
   });
 });
