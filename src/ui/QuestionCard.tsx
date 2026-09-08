@@ -1,6 +1,7 @@
 import { Image, Pressable, Text, View } from 'react-native';
 import type { Question } from '@/core/schema';
 import { Card } from './Card';
+import { MatchingInput } from './MatchingInput';
 import { OrderingInput } from './OrderingInput';
 import { radius, spacing, type, useTheme, type Theme } from './theme';
 
@@ -32,6 +33,20 @@ export function QuestionCard({
           response={response}
           revealed={revealed}
           initialOrder={itemOrder.length > 0 ? itemOrder : question.items.map((i) => i.id)}
+          onChange={onChange}
+        />
+      </Card>
+    );
+  }
+
+  if (question.type === 'matching') {
+    return (
+      <Card>
+        <Text style={[type.body, { color: theme.text }]}>{question.prompt}</Text>
+        <MatchingInput
+          question={question}
+          response={response}
+          revealed={revealed}
           onChange={onChange}
         />
       </Card>

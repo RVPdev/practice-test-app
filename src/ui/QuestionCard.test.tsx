@@ -37,6 +37,10 @@ const matching: Question = {
   pairs: [{ left: 'l1', right: 'r1' }],
 };
 
+// A deliberately bogus type: none of the five shipped types reach `unsupported-question`
+// any more, so this exercises the guard for a future schema version.
+const futureType: Question = { ...single, id: 'q-6', type: 'future-type' } as unknown as Question;
+
 describe('QuestionCard', () => {
   it('renders the prompt', async () => {
     await render(
@@ -109,7 +113,7 @@ describe('QuestionCard', () => {
 
   it('states plainly when a type has no renderer yet', async () => {
     await render(
-      <QuestionCard question={matching} response={[]} revealed={false} optionOrder={[]} onChange={() => {}} />,
+      <QuestionCard question={futureType} response={[]} revealed={false} optionOrder={[]} onChange={() => {}} />,
     );
     expect(screen.getByTestId('unsupported-question')).toBeTruthy();
   });
@@ -129,5 +133,15 @@ describe('QuestionCard with an ordering question', () => {
     );
     expect(screen.queryByTestId('unsupported-question')).toBeNull();
     expect(screen.getAllByTestId(/^order-row-/)).toHaveLength(2);
+  });
+});
+
+describe('QuestionCard with a matching question', () => {
+  it('renders the matching controls instead of the unsupported notice', async () => {
+    await render(
+      <QuestionCard question={matching} response={[]} revealed={false} optionOrder={[]} onChange={() => {}} />,
+    );
+    expect(screen.queryByTestId('unsupported-question')).toBeNull();
+    expect(screen.getByTestId('left-l1')).toBeTruthy();
   });
 });
