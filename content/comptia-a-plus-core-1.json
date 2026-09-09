@@ -1,0 +1,2928 @@
+{
+  "schemaVersion": 1,
+  "id": "comptia-a-plus-core-1-220-1201",
+  "title": "CompTIA A+ Core 1 (220-1201) — Practice Exam",
+  "description": "An original, full-length practice exam aligned to the official CompTIA A+ Core 1 (220-1201) exam objectives (Version 2.0, launched March 2025). This is an independently authored study aid, not official CompTIA content, and is not affiliated with or endorsed by CompTIA. Questions are proportioned across the five official domains by their published exam weight: Mobile Devices (13%), Networking (23%), Hardware (25%), Virtualization and Cloud Computing (11%), and Hardware and Network Troubleshooting (28%).",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    {
+      "id": "mobile-devices",
+      "name": "Mobile Devices"
+    },
+    {
+      "id": "networking",
+      "name": "Networking"
+    },
+    {
+      "id": "hardware",
+      "name": "Hardware"
+    },
+    {
+      "id": "virtualization-cloud",
+      "name": "Virtualization and Cloud Computing"
+    },
+    {
+      "id": "troubleshooting",
+      "name": "Hardware and Network Troubleshooting"
+    }
+  ],
+  "exam": {
+    "timeLimitMinutes": 90,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "md-001",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "medium",
+      "prompt": "A technician must replace a swollen battery in a modern smartphone that has a glass back panel glued to the frame, with no user-removable cover. What is the safest approach?",
+      "explanation": "A swollen lithium battery is a fire and chemical hazard. It should never be punctured, bent, or pried with sharp metal tools. Gently warming the adhesive with a heat gun or heat mat softens the glue so the back can be lifted with a plastic pry tool and suction cup, minimizing pressure on the cell.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Power the device off, gently warm the adhesive to loosen it, and lift the back panel with a plastic pry tool and suction cup while watching for further swelling",
+          "correct": true,
+          "explanation": "Correct. Low, even heat plus non-conductive plastic tools minimizes the risk of puncturing or short-circuiting a compromised battery."
+        },
+        {
+          "id": "b",
+          "text": "Use a flat metal screwdriver to pry the glass back off as quickly as possible",
+          "correct": false,
+          "explanation": "Metal tools can puncture or short the swollen cell, and speed increases the risk of cracking the glass into the battery."
+        },
+        {
+          "id": "c",
+          "text": "Puncture the battery first to relieve internal pressure before opening the case",
+          "correct": false,
+          "explanation": "Puncturing a lithium battery can cause it to ignite or vent toxic gas. Never puncture a battery."
+        },
+        {
+          "id": "d",
+          "text": "Leave the device powered on and charging while you work so you can test progress",
+          "correct": false,
+          "explanation": "A swollen battery should be powered off immediately; continuing to charge it increases fire risk."
+        }
+      ]
+    },
+    {
+      "id": "md-002",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "easy",
+      "prompt": "A user's laptop passes a full software network reset but Wi-Fi signal strength remains poor only on that machine, while other devices nearby get full bars. Which internal component is the most likely cause once drivers are ruled out?",
+      "explanation": "When software-side fixes (driver reinstall, network reset) do not help and the problem is isolated to one machine, a physical fault in the antenna lead or its connector to the wireless card is a common hardware cause of chronically weak signal.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The Wi-Fi antenna connector or antenna cable",
+          "correct": true,
+          "explanation": "Correct. A loose or damaged antenna connector reduces received signal strength independent of software configuration."
+        },
+        {
+          "id": "b",
+          "text": "The system RAM",
+          "correct": false,
+          "explanation": "RAM does not affect wireless signal strength."
+        },
+        {
+          "id": "c",
+          "text": "The keyboard backlight controller",
+          "correct": false,
+          "explanation": "Unrelated to wireless connectivity."
+        },
+        {
+          "id": "d",
+          "text": "The optical drive",
+          "correct": false,
+          "explanation": "Unrelated to wireless connectivity."
+        }
+      ]
+    },
+    {
+      "id": "md-003",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "easy",
+      "prompt": "A laptop's fingerprint reader in the palm rest stopped registering prints after a thorough cleaning, though it powers on and is detected in the OS. Which category of component is most likely at fault?",
+      "explanation": "Fingerprint readers and other login-related sensors are grouped under physical privacy and security components. A sensor that is detected but non-functional typically needs to be reseated or replaced.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A biometric physical security component",
+          "correct": true,
+          "explanation": "Correct. Fingerprint and facial-recognition hardware fall under physical privacy/security components on mobile devices."
+        },
+        {
+          "id": "b",
+          "text": "The trackpad",
+          "correct": false,
+          "explanation": "The trackpad handles cursor movement, not authentication."
+        },
+        {
+          "id": "c",
+          "text": "The wireless card",
+          "correct": false,
+          "explanation": "Unrelated to biometric authentication."
+        },
+        {
+          "id": "d",
+          "text": "The digitizer",
+          "correct": false,
+          "explanation": "The digitizer senses touch input on the screen, not fingerprints on a separate sensor."
+        }
+      ]
+    },
+    {
+      "id": "md-004",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "easy",
+      "prompt": "A user wants to charge a new flagship phone and transfer files at the highest possible speed using its native port. Which connector should the replacement cable use?",
+      "explanation": "Current flagship Android and many other modern devices standardized on USB-C, which supports higher power delivery and data throughput than the legacy micro-USB and mini-USB connectors.",
+      "options": [
+        {
+          "id": "a",
+          "text": "USB-C",
+          "correct": true,
+          "explanation": "Correct. USB-C is the current standard connector offering the best combination of charging speed and data throughput on modern devices."
+        },
+        {
+          "id": "b",
+          "text": "Mini-USB",
+          "correct": false,
+          "explanation": "Mini-USB is an older, slower, lower-power legacy connector rarely used on current phones."
+        },
+        {
+          "id": "c",
+          "text": "Micro-USB",
+          "correct": false,
+          "explanation": "Micro-USB is a legacy connector superseded by USB-C on most modern flagship devices."
+        },
+        {
+          "id": "d",
+          "text": "RJ11",
+          "correct": false,
+          "explanation": "RJ11 is a telephone-line connector, not used for charging or syncing mobile devices."
+        }
+      ]
+    },
+    {
+      "id": "md-005",
+      "type": "multi",
+      "topicId": "mobile-devices",
+      "difficulty": "medium",
+      "prompt": "Which TWO statements correctly describe near-field communication (NFC) on a mobile device?",
+      "explanation": "NFC is a very short-range wireless technology (a few centimeters) commonly used for contactless payments and for quickly initiating a pairing handshake with another device, such as tapping to pair a Bluetooth speaker.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It operates at a very short range of only a few centimeters",
+          "correct": true,
+          "explanation": "Correct. NFC requires devices to be held very close together."
+        },
+        {
+          "id": "b",
+          "text": "It is commonly used for contactless payments and tap-to-pair setup",
+          "correct": true,
+          "explanation": "Correct. Mobile wallets and quick Bluetooth pairing are classic NFC use cases."
+        },
+        {
+          "id": "c",
+          "text": "It provides reliable connectivity at a range of several hundred feet",
+          "correct": false,
+          "explanation": "NFC range is measured in centimeters, not hundreds of feet."
+        },
+        {
+          "id": "d",
+          "text": "It requires an active cellular data plan to function",
+          "correct": false,
+          "explanation": "NFC works independently of any cellular subscription."
+        }
+      ]
+    },
+    {
+      "id": "md-006",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "medium",
+      "prompt": "A user connects a laptop to a desk accessory that not only exposes the laptop's existing ports but also adds extra USB, Ethernet, and video outputs that the laptop does not natively support. What type of accessory is this?",
+      "explanation": "A docking station adds functionality beyond what the laptop itself provides (extra ports, sometimes additional graphics output), whereas a port replicator merely duplicates the laptop's own existing ports for convenience.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A docking station",
+          "correct": true,
+          "explanation": "Correct. Docking stations typically add capability, not just replicate existing ports."
+        },
+        {
+          "id": "b",
+          "text": "A port replicator",
+          "correct": false,
+          "explanation": "A port replicator only extends the laptop's existing ports; it does not add new capabilities."
+        },
+        {
+          "id": "c",
+          "text": "A trackpad",
+          "correct": false,
+          "explanation": "A trackpad is a pointing device, unrelated to port expansion."
+        },
+        {
+          "id": "d",
+          "text": "A stylus",
+          "correct": false,
+          "explanation": "A stylus is an input accessory for touchscreens, unrelated to port expansion."
+        }
+      ]
+    },
+    {
+      "id": "md-007",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "easy",
+      "prompt": "A technician enables a feature on a user's phone so a laptop without cellular capability can browse the internet by connecting to the phone's Wi-Fi. What feature was enabled?",
+      "explanation": "Tethering (mobile hotspot) shares a mobile device's cellular data connection with other nearby devices, typically over Wi-Fi, Bluetooth, or USB.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tethering / mobile hotspot",
+          "correct": true,
+          "explanation": "Correct. This shares the phone's cellular connection with other devices."
+        },
+        {
+          "id": "b",
+          "text": "NFC pairing",
+          "correct": false,
+          "explanation": "NFC is used for very short-range payments and pairing handshakes, not for sharing an internet connection at range."
+        },
+        {
+          "id": "c",
+          "text": "Location services",
+          "correct": false,
+          "explanation": "Location services provide GPS/positioning data, not internet sharing."
+        },
+        {
+          "id": "d",
+          "text": "Mobile device synchronization",
+          "correct": false,
+          "explanation": "Synchronization keeps data like contacts and calendars up to date; it does not share an internet connection."
+        }
+      ]
+    },
+    {
+      "id": "md-008",
+      "type": "multi",
+      "topicId": "mobile-devices",
+      "difficulty": "medium",
+      "prompt": "A company enrolls employee-owned phones in a bring-your-own-device (BYOD) program using mobile device management (MDM). Which TWO capabilities are typical of the MDM policy applied to those devices?",
+      "explanation": "MDM platforms commonly enforce security policy (such as remote wipe of corporate data if a device is lost) and control which corporate applications are provisioned, without necessarily controlling personal-app installation on a BYOD device.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The ability to remotely wipe corporate data from the device if it is lost or stolen",
+          "correct": true,
+          "explanation": "Correct. Remote wipe is a core MDM security capability, often scoped to the corporate profile on BYOD devices."
+        },
+        {
+          "id": "b",
+          "text": "Enforcement of a corporate application catalog and configuration profile",
+          "correct": true,
+          "explanation": "Correct. MDM commonly pushes required corporate apps and configuration settings."
+        },
+        {
+          "id": "c",
+          "text": "Physically replacing the device battery when it degrades",
+          "correct": false,
+          "explanation": "MDM is software-based policy management; it does not perform physical hardware service."
+        },
+        {
+          "id": "d",
+          "text": "Automatically upgrading the device to a new phone model each year",
+          "correct": false,
+          "explanation": "MDM manages software policy and configuration, not hardware refresh cycles."
+        }
+      ]
+    },
+    {
+      "id": "md-009",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "medium",
+      "prompt": "What is a key operational advantage of an eSIM over a traditional physical SIM card?",
+      "explanation": "An eSIM is embedded in the device and can be provisioned or switched between carriers remotely, without needing to physically swap a card, which is especially useful for devices without a SIM tray or for quickly changing plans while traveling.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It can be provisioned or reassigned to a different carrier remotely, without a physical card swap",
+          "correct": true,
+          "explanation": "Correct. eSIM profiles are managed electronically instead of via a removable card."
+        },
+        {
+          "id": "b",
+          "text": "It provides unlimited data regardless of the carrier plan",
+          "correct": false,
+          "explanation": "eSIM is a provisioning technology; it does not change the terms of a data plan."
+        },
+        {
+          "id": "c",
+          "text": "It eliminates the need for cellular coverage entirely",
+          "correct": false,
+          "explanation": "A device still needs to be within a carrier's coverage area regardless of SIM type."
+        },
+        {
+          "id": "d",
+          "text": "It only works with Wi-Fi calling and cannot use cellular data",
+          "correct": false,
+          "explanation": "eSIM devices use standard cellular data and voice service just like physical SIMs."
+        }
+      ]
+    },
+    {
+      "id": "md-010",
+      "type": "single",
+      "topicId": "mobile-devices",
+      "difficulty": "easy",
+      "prompt": "A company wants the ability to see a lost corporate phone's approximate location on a map and optionally draw a virtual boundary that triggers an alert if the device leaves a work site. Which feature enables this?",
+      "explanation": "GPS-based location services provide device positioning, which MDM platforms use for locating lost devices and for geofencing (triggering actions when a device enters or leaves a defined area).",
+      "options": [
+        {
+          "id": "a",
+          "text": "Location services (GPS)",
+          "correct": true,
+          "explanation": "Correct. GPS location services underpin both device-finding and geofencing features."
+        },
+        {
+          "id": "b",
+          "text": "Bluetooth pairing",
+          "correct": false,
+          "explanation": "Bluetooth pairing connects nearby accessories; it does not provide location tracking at this scope."
+        },
+        {
+          "id": "c",
+          "text": "Mobile device synchronization",
+          "correct": false,
+          "explanation": "Synchronization updates data like contacts and calendars, not device location."
+        },
+        {
+          "id": "d",
+          "text": "Tethering",
+          "correct": false,
+          "explanation": "Tethering shares an internet connection; it is unrelated to location tracking."
+        }
+      ]
+    },
+    {
+      "id": "md-011",
+      "type": "boolean",
+      "topicId": "mobile-devices",
+      "difficulty": "medium",
+      "prompt": "True or false: Mobile device management (MDM) platforms are generally limited to installing corporate apps and cannot enforce device passcode or screen-lock policies.",
+      "explanation": "This is false. MDM platforms commonly enforce a range of security policies beyond app deployment, including mandatory passcodes, screen-lock timeouts, encryption requirements, and remote wipe.",
+      "answer": false
+    },
+    {
+      "id": "net-001",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "easy",
+      "prompt": "A technician needs to open a firewall port so administrators can securely open an encrypted remote command-line session to a Linux server. Which port should be allowed?",
+      "explanation": "SSH (Secure Shell) uses TCP port 22 by default and provides an encrypted remote terminal session, commonly used to administer Linux and network devices.",
+      "options": [
+        {
+          "id": "a",
+          "text": "22",
+          "correct": true,
+          "explanation": "Correct. Port 22 is the default for SSH."
+        },
+        {
+          "id": "b",
+          "text": "23",
+          "correct": false,
+          "explanation": "Port 23 is Telnet, which is unencrypted."
+        },
+        {
+          "id": "c",
+          "text": "21",
+          "correct": false,
+          "explanation": "Port 21 is the FTP control port, not SSH."
+        },
+        {
+          "id": "d",
+          "text": "25",
+          "correct": false,
+          "explanation": "Port 25 is SMTP, used for email relay, not remote shell access."
+        }
+      ]
+    },
+    {
+      "id": "net-002",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "An email client can receive mail normally but fails whenever it tries to send a message. Which protocol and port combination is most likely misconfigured?",
+      "explanation": "SMTP (Simple Mail Transfer Protocol), traditionally port 25, handles outgoing mail submission and relay. Receiving protocols like POP3 or IMAP are separate services, so a send-only failure points to SMTP.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SMTP on port 25",
+          "correct": true,
+          "explanation": "Correct. SMTP is responsible for sending/relaying outgoing mail."
+        },
+        {
+          "id": "b",
+          "text": "POP3 on port 110",
+          "correct": false,
+          "explanation": "POP3 is used to retrieve (download) mail, not send it."
+        },
+        {
+          "id": "c",
+          "text": "IMAP on port 143",
+          "correct": false,
+          "explanation": "IMAP is used to retrieve and manage mail on the server, not send it."
+        },
+        {
+          "id": "d",
+          "text": "DNS on port 53",
+          "correct": false,
+          "explanation": "DNS resolves names to addresses; it does not transport email content."
+        }
+      ]
+    },
+    {
+      "id": "net-003",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "easy",
+      "prompt": "Which port does a web server use by default to serve encrypted HTTPS traffic?",
+      "explanation": "HTTPS (HTTP over TLS) uses TCP port 443 by default, while plain unencrypted HTTP uses port 80.",
+      "options": [
+        {
+          "id": "a",
+          "text": "443",
+          "correct": true,
+          "explanation": "Correct. Port 443 is the default for HTTPS."
+        },
+        {
+          "id": "b",
+          "text": "80",
+          "correct": false,
+          "explanation": "Port 80 is used for unencrypted HTTP."
+        },
+        {
+          "id": "c",
+          "text": "389",
+          "correct": false,
+          "explanation": "Port 389 is LDAP, a directory access protocol, not web traffic."
+        },
+        {
+          "id": "d",
+          "text": "3389",
+          "correct": false,
+          "explanation": "Port 3389 is RDP, used for remote desktop, not web traffic."
+        }
+      ]
+    },
+    {
+      "id": "net-004",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "Compared to the 2.4GHz and 5GHz Wi-Fi bands, what is the main advantage of the 6GHz band introduced with Wi-Fi 6E/7?",
+      "explanation": "The 6GHz band opened up a large amount of new spectrum, providing many more non-overlapping channels and less interference from legacy devices, at the cost of shorter range and reduced ability to penetrate walls compared to 2.4GHz.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It offers significantly more non-overlapping channels and less congestion from legacy devices",
+          "correct": true,
+          "explanation": "Correct. The wide 6GHz allocation greatly increases available non-overlapping channels."
+        },
+        {
+          "id": "b",
+          "text": "It penetrates walls and obstacles better than 2.4GHz",
+          "correct": false,
+          "explanation": "Higher frequencies generally have shorter range and worse penetration through obstacles, not better."
+        },
+        {
+          "id": "c",
+          "text": "It is compatible with older 2.4GHz-only client devices",
+          "correct": false,
+          "explanation": "Legacy 2.4GHz-only devices cannot connect to 6GHz networks."
+        },
+        {
+          "id": "d",
+          "text": "It eliminates the need for any wireless security configuration",
+          "correct": false,
+          "explanation": "Frequency band has no bearing on whether encryption/authentication is required."
+        }
+      ]
+    },
+    {
+      "id": "net-005",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "easy",
+      "prompt": "A technician is placing a wireless access point to cover a large home with several interior walls, and maximum range is more important than peak throughput. Which frequency band should the client devices primarily use?",
+      "explanation": "2.4GHz has a longer wavelength than 5GHz or 6GHz, allowing it to travel farther and pass through walls and obstacles more effectively, at the cost of lower maximum throughput and more crowding from other devices.",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.4GHz",
+          "correct": true,
+          "explanation": "Correct. 2.4GHz offers the best range and wall penetration of the three common Wi-Fi bands."
+        },
+        {
+          "id": "b",
+          "text": "5GHz",
+          "correct": false,
+          "explanation": "5GHz offers higher throughput but shorter range and worse wall penetration than 2.4GHz."
+        },
+        {
+          "id": "c",
+          "text": "6GHz",
+          "correct": false,
+          "explanation": "6GHz has the shortest range and weakest obstacle penetration of the three bands."
+        },
+        {
+          "id": "d",
+          "text": "None of these bands can pass through interior walls",
+          "correct": false,
+          "explanation": "All three bands can pass through typical interior walls to some degree; 2.4GHz does so best."
+        }
+      ]
+    },
+    {
+      "id": "net-006",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "A group of servers occasionally show a small but inconsistent difference between their system clocks, causing authentication and logging problems. Which service should be configured to correct this?",
+      "explanation": "NTP (Network Time Protocol) synchronizes device clocks across a network to a common, accurate time source, which is important for authentication protocols and consistent log timestamps.",
+      "options": [
+        {
+          "id": "a",
+          "text": "NTP (Network Time Protocol)",
+          "correct": true,
+          "explanation": "Correct. NTP keeps networked device clocks synchronized."
+        },
+        {
+          "id": "b",
+          "text": "DHCP",
+          "correct": false,
+          "explanation": "DHCP assigns IP addressing information, not time synchronization."
+        },
+        {
+          "id": "c",
+          "text": "Syslog",
+          "correct": false,
+          "explanation": "Syslog centralizes log messages; it does not synchronize clocks."
+        },
+        {
+          "id": "d",
+          "text": "LDAP",
+          "correct": false,
+          "explanation": "LDAP is a directory access protocol, unrelated to time synchronization."
+        }
+      ]
+    },
+    {
+      "id": "net-007",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "A small business wants a single edge appliance that combines firewall filtering, antivirus scanning, and intrusion prevention into one device to simplify management. What type of device are they describing?",
+      "explanation": "A unified threat management (UTM) appliance bundles multiple security functions, such as firewalling, antivirus/anti-malware scanning, and intrusion prevention, into a single device.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A unified threat management (UTM) appliance",
+          "correct": true,
+          "explanation": "Correct. UTM devices consolidate multiple security functions into one appliance."
+        },
+        {
+          "id": "b",
+          "text": "A patch panel",
+          "correct": false,
+          "explanation": "A patch panel is a passive cable-organization device with no security functionality."
+        },
+        {
+          "id": "c",
+          "text": "A load balancer",
+          "correct": false,
+          "explanation": "A load balancer distributes traffic across servers; it does not perform threat inspection on its own."
+        },
+        {
+          "id": "d",
+          "text": "A cable modem",
+          "correct": false,
+          "explanation": "A cable modem provides internet connectivity over a cable ISP line; it is not a security appliance."
+        }
+      ]
+    },
+    {
+      "id": "net-008",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "Which DNS record type maps a hostname directly to an IPv6 address?",
+      "explanation": "An AAAA record maps a hostname to an IPv6 address, analogous to how an A record maps a hostname to an IPv4 address.",
+      "options": [
+        {
+          "id": "a",
+          "text": "AAAA",
+          "correct": true,
+          "explanation": "Correct. AAAA records hold IPv6 addresses."
+        },
+        {
+          "id": "b",
+          "text": "A",
+          "correct": false,
+          "explanation": "A records map hostnames to IPv4 addresses, not IPv6."
+        },
+        {
+          "id": "c",
+          "text": "CNAME",
+          "correct": false,
+          "explanation": "CNAME creates an alias pointing to another hostname, not an IP address directly."
+        },
+        {
+          "id": "d",
+          "text": "MX",
+          "correct": false,
+          "explanation": "MX records identify a domain's mail servers, not host addresses."
+        }
+      ]
+    },
+    {
+      "id": "net-009",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "An administrator wants to publish a policy in DNS that tells receiving mail servers which IP addresses are authorized to send email on behalf of a domain. Which DNS record type is used to publish this SPF policy?",
+      "explanation": "SPF (Sender Policy Framework) policies, along with DKIM keys and DMARC policies, are published as TXT records in DNS for the domain.",
+      "options": [
+        {
+          "id": "a",
+          "text": "TXT",
+          "correct": true,
+          "explanation": "Correct. SPF, DKIM, and DMARC values are all published as DNS TXT records."
+        },
+        {
+          "id": "b",
+          "text": "MX",
+          "correct": false,
+          "explanation": "MX records specify which servers handle mail for a domain; they do not carry SPF policy text."
+        },
+        {
+          "id": "c",
+          "text": "PTR",
+          "correct": false,
+          "explanation": "PTR records perform reverse DNS lookups (IP to name); they are not used to publish SPF policy."
+        },
+        {
+          "id": "d",
+          "text": "CNAME",
+          "correct": false,
+          "explanation": "CNAME creates a hostname alias; it does not carry SPF policy data."
+        }
+      ]
+    },
+    {
+      "id": "net-010",
+      "type": "multi",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "Which TWO of the following are implemented as DNS TXT records specifically to help combat email spoofing?",
+      "explanation": "SPF and DKIM are both published as DNS TXT records: SPF lists which mail servers may send for a domain, and DKIM publishes a public key used to verify a cryptographic signature on outgoing mail. An MX record just points to mail servers, and an A record just maps a name to an IPv4 address; neither authenticates senders.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SPF (Sender Policy Framework)",
+          "correct": true,
+          "explanation": "Correct. SPF is published as a DNS TXT record listing authorized sending servers."
+        },
+        {
+          "id": "b",
+          "text": "DKIM (DomainKeys Identified Mail)",
+          "correct": true,
+          "explanation": "Correct. DKIM publishes a public signing key as a DNS TXT record."
+        },
+        {
+          "id": "c",
+          "text": "MX record",
+          "correct": false,
+          "explanation": "An MX record identifies mail servers for a domain; it does not itself authenticate senders."
+        },
+        {
+          "id": "d",
+          "text": "A record",
+          "correct": false,
+          "explanation": "An A record maps a hostname to an IPv4 address and has no role in email sender authentication."
+        }
+      ]
+    },
+    {
+      "id": "net-011",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "A DHCP scope for 192.168.1.10-192.168.1.200 needs a handful of addresses in that range reserved exclusively for statically-configured printers, so the DHCP server never hands them out to other clients. What should the administrator configure?",
+      "explanation": "A DHCP exclusion removes specific addresses from within an otherwise active scope so the server will never lease them, which is useful for addresses that are manually/statically assigned elsewhere.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A DHCP exclusion for those addresses",
+          "correct": true,
+          "explanation": "Correct. Exclusions carve addresses out of a scope so DHCP will not lease them."
+        },
+        {
+          "id": "b",
+          "text": "A DHCP reservation matching every possible MAC address",
+          "correct": false,
+          "explanation": "Reservations bind one specific address to one specific MAC address; they are not used to block a whole range from every client."
+        },
+        {
+          "id": "c",
+          "text": "A new AAAA record",
+          "correct": false,
+          "explanation": "AAAA records map names to IPv6 addresses; they play no role in reserving a DHCPv4 range."
+        },
+        {
+          "id": "d",
+          "text": "A VLAN for the printers",
+          "correct": false,
+          "explanation": "A VLAN segments broadcast domains; it does not by itself withhold specific addresses from a DHCP scope."
+        }
+      ]
+    },
+    {
+      "id": "net-012",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "A network administrator wants to logically separate voice traffic from data traffic on the same physical switches, without running separate cabling. What should be configured?",
+      "explanation": "A VLAN (virtual LAN) logically segments a single physical switch (or set of switches) into multiple separate broadcast domains, allowing traffic types such as voice and data to be isolated without additional physical cabling.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A VLAN",
+          "correct": true,
+          "explanation": "Correct. VLANs create logical separation on shared physical switching hardware."
+        },
+        {
+          "id": "b",
+          "text": "A VPN",
+          "correct": false,
+          "explanation": "A VPN creates an encrypted tunnel typically over the internet; it does not segment a local switch."
+        },
+        {
+          "id": "c",
+          "text": "A loopback plug",
+          "correct": false,
+          "explanation": "A loopback plug is a diagnostic tool for testing a port, not a segmentation mechanism."
+        },
+        {
+          "id": "d",
+          "text": "A patch panel",
+          "correct": false,
+          "explanation": "A patch panel is a passive cable termination point; it provides no logical segmentation."
+        }
+      ]
+    },
+    {
+      "id": "net-013",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "easy",
+      "prompt": "A remote employee needs to securely access internal file shares at the office over the public internet as if their laptop were physically on the office network. What should be configured on their laptop?",
+      "explanation": "A VPN (virtual private network) creates an encrypted tunnel over the internet to the corporate network, letting a remote device reach internal resources securely.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A VPN connection",
+          "correct": true,
+          "explanation": "Correct. A VPN encrypts remote traffic to the corporate network over the internet."
+        },
+        {
+          "id": "b",
+          "text": "A VLAN assignment",
+          "correct": false,
+          "explanation": "VLANs segment traffic on local physical infrastructure; they do not extend access over the public internet."
+        },
+        {
+          "id": "c",
+          "text": "A DHCP reservation",
+          "correct": false,
+          "explanation": "A DHCP reservation only affects local address assignment, not remote secure access."
+        },
+        {
+          "id": "d",
+          "text": "Port forwarding on the employee's home router only",
+          "correct": false,
+          "explanation": "Port forwarding alone does not create an encrypted tunnel and exposes the internal service directly to the internet."
+        }
+      ]
+    },
+    {
+      "id": "net-014",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "What is the key functional difference between a managed switch and an unmanaged switch?",
+      "explanation": "A managed switch supports configuration features such as VLANs, port mirroring, link aggregation, and monitoring through a management interface, while an unmanaged switch simply forwards traffic with no configuration options.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A managed switch supports configuration like VLANs and port monitoring; an unmanaged switch does not",
+          "correct": true,
+          "explanation": "Correct. Manageability is the defining difference."
+        },
+        {
+          "id": "b",
+          "text": "An unmanaged switch supports more ports than a managed switch",
+          "correct": false,
+          "explanation": "Port count is independent of whether a switch is managed or unmanaged."
+        },
+        {
+          "id": "c",
+          "text": "A managed switch cannot forward Ethernet frames",
+          "correct": false,
+          "explanation": "Both managed and unmanaged switches forward Ethernet frames; that is the basic function of any switch."
+        },
+        {
+          "id": "d",
+          "text": "An unmanaged switch requires a static IP address to operate",
+          "correct": false,
+          "explanation": "Unmanaged switches typically have no IP configuration at all since they offer no management interface."
+        }
+      ]
+    },
+    {
+      "id": "net-015",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "A wireless access point needs to be mounted on a ceiling far from any electrical outlet, and the existing switch does not supply power over its Ethernet ports. What device lets the AP receive both data and power over a single existing Ethernet run?",
+      "explanation": "A PoE (Power over Ethernet) injector adds power onto an Ethernet cable at a point between a non-PoE switch and a powered device, allowing devices like access points or cameras to receive both power and data over one cable run.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A PoE injector",
+          "correct": true,
+          "explanation": "Correct. A PoE injector adds power to a data-only Ethernet link."
+        },
+        {
+          "id": "b",
+          "text": "A cable modem",
+          "correct": false,
+          "explanation": "A cable modem provides WAN connectivity from an ISP; it does not inject power onto a LAN Ethernet run."
+        },
+        {
+          "id": "c",
+          "text": "A patch panel",
+          "correct": false,
+          "explanation": "A patch panel is a passive termination point; it supplies no power."
+        },
+        {
+          "id": "d",
+          "text": "An ONT (optical network terminal)",
+          "correct": false,
+          "explanation": "An ONT converts a fiber signal to Ethernet for the ISP handoff; it does not power downstream LAN devices."
+        }
+      ]
+    },
+    {
+      "id": "net-016",
+      "type": "single",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "A residential customer has fiber-optic internet service. What device converts the incoming fiber signal from the ISP into an Ethernet connection the customer's router can use?",
+      "explanation": "An ONT (optical network terminal) sits at the customer premises and converts the optical fiber signal from the ISP into an electrical Ethernet signal for the customer's router or switch.",
+      "options": [
+        {
+          "id": "a",
+          "text": "ONT (optical network terminal)",
+          "correct": true,
+          "explanation": "Correct. The ONT is the fiber-to-Ethernet conversion point at the customer premises."
+        },
+        {
+          "id": "b",
+          "text": "DSL modem",
+          "correct": false,
+          "explanation": "A DSL modem works over copper telephone lines, not fiber."
+        },
+        {
+          "id": "c",
+          "text": "Cable modem",
+          "correct": false,
+          "explanation": "A cable modem works over coaxial cable, not fiber."
+        },
+        {
+          "id": "d",
+          "text": "Punchdown block",
+          "correct": false,
+          "explanation": "A punchdown block terminates twisted-pair copper wiring; it does not convert an optical signal."
+        }
+      ]
+    },
+    {
+      "id": "net-017",
+      "type": "multi",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "Which TWO of the following are internet-facing appliances typically deployed at the network edge to filter or optimize traffic?",
+      "explanation": "A spam gateway filters unwanted/malicious email before it reaches internal mail servers, and a load balancer distributes incoming requests across multiple servers. A patch panel and a punchdown tool are passive cabling components with no traffic-filtering role.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Spam gateway",
+          "correct": true,
+          "explanation": "Correct. A spam gateway filters incoming/outgoing mail for spam and threats."
+        },
+        {
+          "id": "b",
+          "text": "Load balancer",
+          "correct": true,
+          "explanation": "Correct. A load balancer distributes traffic across multiple backend servers."
+        },
+        {
+          "id": "c",
+          "text": "Patch panel",
+          "correct": false,
+          "explanation": "A patch panel is a passive cable termination panel with no traffic-processing capability."
+        },
+        {
+          "id": "d",
+          "text": "Punchdown tool",
+          "correct": false,
+          "explanation": "A punchdown tool is a hand tool used to terminate wires on a block, not a network appliance."
+        }
+      ]
+    },
+    {
+      "id": "net-018",
+      "type": "multi",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "Which TWO statements correctly match a network type to its typical scope?",
+      "explanation": "A PAN (personal area network) connects a person's own nearby devices, such as a phone and a smartwatch over Bluetooth. A MAN (metropolitan area network) spans a larger area such as a city or large campus, bigger than a single LAN but smaller than a WAN. A LAN does not typically span multiple countries, and a SAN (storage area network) is used for high-speed block storage access, not keyboard/mouse connectivity.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A PAN typically connects a person's own nearby devices, such as a phone and a smartwatch",
+          "correct": true,
+          "explanation": "Correct. PAN describes very short-range personal connectivity."
+        },
+        {
+          "id": "b",
+          "text": "A MAN typically spans a city or a large campus, larger than a single building LAN",
+          "correct": true,
+          "explanation": "Correct. MAN sits between LAN and WAN in geographic scope."
+        },
+        {
+          "id": "c",
+          "text": "A LAN typically spans multiple countries",
+          "correct": false,
+          "explanation": "Spanning multiple countries describes a WAN, not a LAN."
+        },
+        {
+          "id": "d",
+          "text": "A SAN is used primarily for connecting wireless keyboards and mice",
+          "correct": false,
+          "explanation": "A SAN (storage area network) provides high-speed access to block storage, unrelated to input peripherals."
+        }
+      ]
+    },
+    {
+      "id": "net-019",
+      "type": "boolean",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "True or false: An APIPA address in the 169.254.x.x range is automatically assigned by a DHCP server and guarantees the device has internet access.",
+      "explanation": "This is false. APIPA addresses are self-assigned by the client operating system when it cannot reach a DHCP server, and they only allow communication with other APIPA-addressed devices on the same local segment — they do not provide a default gateway or internet access.",
+      "answer": false
+    },
+    {
+      "id": "net-020",
+      "type": "matching",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "Match each protocol to its default well-known port number.",
+      "explanation": "FTP's control channel uses port 21, DNS uses port 53 for name resolution queries, HTTP serves unencrypted web traffic on port 80, and RDP (Remote Desktop Protocol) uses port 3389 for remote GUI sessions.",
+      "left": [
+        {
+          "id": "p-ftp",
+          "text": "FTP (File Transfer Protocol)"
+        },
+        {
+          "id": "p-dns",
+          "text": "DNS (Domain Name System)"
+        },
+        {
+          "id": "p-http",
+          "text": "HTTP (Hypertext Transfer Protocol)"
+        },
+        {
+          "id": "p-rdp",
+          "text": "RDP (Remote Desktop Protocol)"
+        }
+      ],
+      "right": [
+        {
+          "id": "port-21",
+          "text": "Port 21"
+        },
+        {
+          "id": "port-53",
+          "text": "Port 53"
+        },
+        {
+          "id": "port-80",
+          "text": "Port 80"
+        },
+        {
+          "id": "port-3389",
+          "text": "Port 3389"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "p-ftp",
+          "right": "port-21"
+        },
+        {
+          "left": "p-dns",
+          "right": "port-53"
+        },
+        {
+          "left": "p-http",
+          "right": "port-80"
+        },
+        {
+          "left": "p-rdp",
+          "right": "port-3389"
+        }
+      ]
+    },
+    {
+      "id": "net-021",
+      "type": "ordering",
+      "topicId": "networking",
+      "difficulty": "medium",
+      "prompt": "A technician is performing the initial setup of a brand-new SOHO wireless router straight out of the box. Arrange the steps in the correct order, from unboxing to a secured, ready-to-use network.",
+      "explanation": "After physically connecting and powering on the router, the technician logs in with the factory default credentials, then immediately changes the default administrator password before doing anything else, configures the SSID and strong wireless encryption, and finally updates the firmware and connects client devices.",
+      "items": [
+        {
+          "id": "i1",
+          "text": "Connect the router to the modem and power it on"
+        },
+        {
+          "id": "i2",
+          "text": "Log in to the router's administration page using the default factory credentials"
+        },
+        {
+          "id": "i3",
+          "text": "Change the default administrator username and password"
+        },
+        {
+          "id": "i4",
+          "text": "Configure the SSID and enable WPA2/WPA3 wireless encryption"
+        },
+        {
+          "id": "i5",
+          "text": "Update the router firmware and connect client devices"
+        }
+      ],
+      "correctOrder": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5"
+      ]
+    },
+    {
+      "id": "hw-001",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "easy",
+      "prompt": "A graphic designer needs a laptop display with the widest, most color-accurate viewing angles for professional photo editing. Which LCD panel type should be recommended?",
+      "explanation": "IPS (in-plane switching) panels are known for wide viewing angles and more accurate, consistent color reproduction compared to TN panels, which sacrifice color accuracy and viewing angle for faster response times.",
+      "options": [
+        {
+          "id": "a",
+          "text": "IPS (in-plane switching)",
+          "correct": true,
+          "explanation": "Correct. IPS panels prioritize color accuracy and wide viewing angles."
+        },
+        {
+          "id": "b",
+          "text": "TN (twisted nematic)",
+          "correct": false,
+          "explanation": "TN panels are fast and inexpensive but have narrower viewing angles and weaker color accuracy."
+        },
+        {
+          "id": "c",
+          "text": "VA panels used strictly for their fastest response time",
+          "correct": false,
+          "explanation": "VA panels are valued for higher contrast, not primarily for color accuracy versus IPS."
+        },
+        {
+          "id": "d",
+          "text": "Any panel type, since color accuracy is identical across LCD technologies",
+          "correct": false,
+          "explanation": "Color accuracy varies meaningfully between LCD panel technologies."
+        }
+      ]
+    },
+    {
+      "id": "hw-002",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "Which display characteristic is unique to OLED technology compared to traditional LCD panels?",
+      "explanation": "OLED pixels emit their own light individually and can turn off completely, producing true blacks with no backlight bleed, unlike LCD panels which rely on a separate backlight shining through a liquid-crystal layer.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Each pixel emits its own light and can turn off entirely, producing true blacks",
+          "correct": true,
+          "explanation": "Correct. Per-pixel illumination without a backlight is the defining trait of OLED."
+        },
+        {
+          "id": "b",
+          "text": "It requires a separate fluorescent backlight panel",
+          "correct": false,
+          "explanation": "That describes older LCD backlighting, not OLED, which has no separate backlight layer."
+        },
+        {
+          "id": "c",
+          "text": "It cannot display color, only grayscale",
+          "correct": false,
+          "explanation": "OLED panels display full color; this describes neither OLED nor common laptop displays."
+        },
+        {
+          "id": "d",
+          "text": "It uses a physically rotating polarizing filter",
+          "correct": false,
+          "explanation": "LCDs use static polarizing filters and liquid crystals; OLED uses neither."
+        }
+      ]
+    },
+    {
+      "id": "hw-003",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A tablet's screen displays images correctly, but taps register in the wrong location or are not detected at all. Which component should be replaced?",
+      "explanation": "The digitizer is the touch-sensing layer over the display. When touch input is inaccurate or unresponsive while the image itself renders correctly, the digitizer (or its connector) is the most likely faulty component.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The digitizer",
+          "correct": true,
+          "explanation": "Correct. The digitizer senses touch; a fault here causes inaccurate or missing touch response with a normal-looking image."
+        },
+        {
+          "id": "b",
+          "text": "The inverter",
+          "correct": false,
+          "explanation": "An inverter powers a CCFL backlight in older LCDs; it has no role in touch sensing."
+        },
+        {
+          "id": "c",
+          "text": "The RAM module",
+          "correct": false,
+          "explanation": "RAM does not affect touchscreen accuracy."
+        },
+        {
+          "id": "d",
+          "text": "The battery",
+          "correct": false,
+          "explanation": "A battery issue would affect power/runtime, not touch accuracy specifically."
+        }
+      ]
+    },
+    {
+      "id": "hw-004",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A technician is running new network cabling through the open space above a drop ceiling that is also used to return air to the HVAC system. What type of cable jacket rating is required by fire code for this installation?",
+      "explanation": "Plenum-rated cable uses a jacket material that produces less smoke and toxic fumes when burned, and is required by fire code for runs through air-handling spaces (plenums) such as above drop ceilings or below raised floors used for HVAC return air.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Plenum-rated cable",
+          "correct": true,
+          "explanation": "Correct. Plenum cable is required in air-handling spaces due to its low-smoke, fire-resistant jacket."
+        },
+        {
+          "id": "b",
+          "text": "Direct burial cable",
+          "correct": false,
+          "explanation": "Direct burial cable is designed for underground runs, not indoor air-handling spaces."
+        },
+        {
+          "id": "c",
+          "text": "Riser-rated cable only",
+          "correct": false,
+          "explanation": "Riser cable is intended for vertical runs between floors, not for spaces used as an HVAC air plenum."
+        },
+        {
+          "id": "d",
+          "text": "Any standard PVC-jacketed cable",
+          "correct": false,
+          "explanation": "Standard PVC-jacketed cable releases more toxic smoke when burned and is not permitted in plenum spaces."
+        }
+      ]
+    },
+    {
+      "id": "hw-005",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A campus needs a fiber run of several kilometers between two buildings. Which type of fiber-optic cable is best suited for this long-distance link?",
+      "explanation": "Single-mode fiber uses a much smaller core and a laser light source, allowing signals to travel much farther (kilometers) with less attenuation than multimode fiber, which uses LEDs/VCSELs and is intended for shorter runs typical within a single building.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Single-mode fiber",
+          "correct": true,
+          "explanation": "Correct. Single-mode fiber is designed for long-distance runs using a laser light source."
+        },
+        {
+          "id": "b",
+          "text": "Multimode fiber",
+          "correct": false,
+          "explanation": "Multimode fiber is intended for shorter distances, typically within a building or campus, not multi-kilometer runs."
+        },
+        {
+          "id": "c",
+          "text": "Unshielded twisted pair (UTP)",
+          "correct": false,
+          "explanation": "Copper UTP has much shorter maximum run lengths than fiber, generally around 100 meters."
+        },
+        {
+          "id": "d",
+          "text": "Coaxial cable",
+          "correct": false,
+          "explanation": "Coaxial cable is not designed for multi-kilometer data links between buildings."
+        }
+      ]
+    },
+    {
+      "id": "hw-006",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "easy",
+      "prompt": "Which RAM form factor is designed for the compact space inside a laptop, rather than a desktop motherboard?",
+      "explanation": "SODIMM (Small Outline Dual In-line Memory Module) is a physically smaller RAM form factor designed for laptops and other compact systems, while standard DIMMs are used in desktop and server motherboards.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SODIMM",
+          "correct": true,
+          "explanation": "Correct. SODIMM modules are the compact form factor used in laptops."
+        },
+        {
+          "id": "b",
+          "text": "Full-size DIMM",
+          "correct": false,
+          "explanation": "Full-size DIMMs are used in desktop and server motherboards, not typical laptops."
+        },
+        {
+          "id": "c",
+          "text": "M.2",
+          "correct": false,
+          "explanation": "M.2 is a storage/expansion card form factor, not a RAM module form factor."
+        },
+        {
+          "id": "d",
+          "text": "ATX",
+          "correct": false,
+          "explanation": "ATX is a motherboard/power-supply form factor, not a memory module type."
+        }
+      ]
+    },
+    {
+      "id": "hw-007",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "hard",
+      "prompt": "A workstation used for financial modeling requires memory that can detect and automatically correct single-bit memory errors to reduce the risk of silent data corruption. What type of RAM should be installed?",
+      "explanation": "ECC (error-correcting code) RAM includes extra bits used to detect and correct single-bit memory errors on the fly, which is valued in servers and workstations running long, data-sensitive workloads. Non-ECC RAM offers no such protection.",
+      "options": [
+        {
+          "id": "a",
+          "text": "ECC RAM",
+          "correct": true,
+          "explanation": "Correct. ECC RAM can detect and correct single-bit errors automatically."
+        },
+        {
+          "id": "b",
+          "text": "Standard non-ECC RAM",
+          "correct": false,
+          "explanation": "Non-ECC RAM has no built-in error detection or correction."
+        },
+        {
+          "id": "c",
+          "text": "SODIMM RAM",
+          "correct": false,
+          "explanation": "SODIMM describes physical form factor, not error-correction capability."
+        },
+        {
+          "id": "d",
+          "text": "Dual-channel RAM without ECC support",
+          "correct": false,
+          "explanation": "Dual-channel configuration improves bandwidth, not error correction."
+        }
+      ]
+    },
+    {
+      "id": "hw-008",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "Why would an NVMe SSD typically outperform a SATA-based SSD of similar capacity in sustained transfer speed?",
+      "explanation": "NVMe SSDs communicate directly over the PCIe bus with many more available lanes and much higher bandwidth than the aging SATA interface, which was originally designed around mechanical hard drive speeds.",
+      "options": [
+        {
+          "id": "a",
+          "text": "NVMe drives communicate over PCIe, which offers far greater bandwidth than the SATA interface",
+          "correct": true,
+          "explanation": "Correct. The PCIe interface is the main reason NVMe drives outperform SATA SSDs."
+        },
+        {
+          "id": "b",
+          "text": "NVMe drives spin at a higher RPM than SATA SSDs",
+          "correct": false,
+          "explanation": "Neither NVMe nor SATA SSDs have spinning platters; RPM does not apply to solid-state drives."
+        },
+        {
+          "id": "c",
+          "text": "NVMe drives use a larger form factor than SATA drives",
+          "correct": false,
+          "explanation": "Physical form factor is not what drives the performance difference; interface bandwidth does."
+        },
+        {
+          "id": "d",
+          "text": "SATA SSDs always have more storage capacity than NVMe SSDs",
+          "correct": false,
+          "explanation": "Capacity is independent of the interface used; both are available in a wide range of capacities."
+        }
+      ]
+    },
+    {
+      "id": "hw-009",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A server uses two drives configured as a mirrored pair for redundancy. If one drive in this RAID 1 array fails, what happens to the data?",
+      "explanation": "RAID 1 mirrors data identically across two drives. If one drive fails, the array continues operating from the surviving mirror with no data loss, though usable capacity is only equal to a single drive since the second drive is a full copy, not additional space.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The array keeps running with no data loss, using the surviving mirrored drive",
+          "correct": true,
+          "explanation": "Correct. RAID 1 tolerates a single drive failure because both drives hold identical data."
+        },
+        {
+          "id": "b",
+          "text": "All data on the array is immediately lost",
+          "correct": false,
+          "explanation": "RAID 1 is specifically designed to survive a single-drive failure without data loss."
+        },
+        {
+          "id": "c",
+          "text": "The array automatically doubles its usable capacity",
+          "correct": false,
+          "explanation": "RAID 1 usable capacity equals a single drive's capacity, not double, because the second drive is a full copy."
+        },
+        {
+          "id": "d",
+          "text": "The array converts itself into a RAID 5 array",
+          "correct": false,
+          "explanation": "RAID levels do not automatically convert; a failed RAID 1 member simply needs to be replaced and re-mirrored."
+        }
+      ]
+    },
+    {
+      "id": "hw-010",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "hard",
+      "prompt": "An administrator wants fault tolerance for a single drive failure while using at least three drives more storage-efficiently than mirroring. Which RAID level uses striping with distributed parity across the drives to achieve this?",
+      "explanation": "RAID 5 stripes data across all member drives and distributes parity information across them as well, requiring a minimum of three drives and tolerating the loss of exactly one drive while offering better storage efficiency than RAID 1 mirroring.",
+      "options": [
+        {
+          "id": "a",
+          "text": "RAID 5",
+          "correct": true,
+          "explanation": "Correct. RAID 5 uses striping with distributed parity and needs at least three drives."
+        },
+        {
+          "id": "b",
+          "text": "RAID 0",
+          "correct": false,
+          "explanation": "RAID 0 stripes data with no parity or redundancy at all; a single drive failure loses the entire array."
+        },
+        {
+          "id": "c",
+          "text": "RAID 1",
+          "correct": false,
+          "explanation": "RAID 1 mirrors data across exactly two drives and is less storage-efficient than RAID 5 for the same fault tolerance."
+        },
+        {
+          "id": "d",
+          "text": "A single standalone drive with no RAID",
+          "correct": false,
+          "explanation": "A standalone drive offers no redundancy at all."
+        }
+      ]
+    },
+    {
+      "id": "hw-011",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "When selecting a replacement M.2 SSD for a laptop, why is it important to check the module's keying and interface type rather than just its physical M.2 length?",
+      "explanation": "M.2 modules can use different key notches and support either the SATA protocol or NVMe over PCIe; a module with the wrong keying or an unsupported interface may not fit or work in a given M.2 slot even if the physical card length matches.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because the module's key notch and interface (SATA vs. NVMe/PCIe) must match what the slot supports",
+          "correct": true,
+          "explanation": "Correct. Keying and interface compatibility matter as much as physical size for M.2 modules."
+        },
+        {
+          "id": "b",
+          "text": "Because all M.2 modules are electrically identical regardless of keying",
+          "correct": false,
+          "explanation": "M.2 modules with different keys and interfaces are not universally interchangeable."
+        },
+        {
+          "id": "c",
+          "text": "Because M.2 modules never support NVMe, only SATA",
+          "correct": false,
+          "explanation": "Many M.2 modules do support NVMe over PCIe, in addition to SATA-based options."
+        },
+        {
+          "id": "d",
+          "text": "Because M.2 length has no standardized sizes",
+          "correct": false,
+          "explanation": "M.2 modules do come in standardized lengths (for example, 2242, 2260, 2280), which is a separate compatibility factor from keying."
+        }
+      ]
+    },
+    {
+      "id": "hw-012",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A company wants to enable full-disk encryption on its laptops with the encryption keys protected by a dedicated hardware component that also supports Secure Boot key storage. Which motherboard component provides this capability?",
+      "explanation": "A TPM (Trusted Platform Module) is a dedicated hardware chip that securely stores cryptographic keys used for full-disk encryption (such as BitLocker) and for Secure Boot validation, keeping keys isolated from the general-purpose OS environment.",
+      "options": [
+        {
+          "id": "a",
+          "text": "TPM (Trusted Platform Module)",
+          "correct": true,
+          "explanation": "Correct. TPM securely stores encryption and Secure Boot keys in dedicated hardware."
+        },
+        {
+          "id": "b",
+          "text": "A discrete video card",
+          "correct": false,
+          "explanation": "A video card handles graphics rendering; it has no role in key storage or encryption."
+        },
+        {
+          "id": "c",
+          "text": "A sound card",
+          "correct": false,
+          "explanation": "A sound card handles audio processing, unrelated to encryption key storage."
+        },
+        {
+          "id": "d",
+          "text": "An M.2 Wi-Fi card",
+          "correct": false,
+          "explanation": "A Wi-Fi card provides wireless connectivity; it does not store encryption keys."
+        }
+      ]
+    },
+    {
+      "id": "hw-013",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "easy",
+      "prompt": "What is the primary purpose of the 20+4 pin connector between a power supply and a motherboard?",
+      "explanation": "The 20+4 pin connector delivers the main power rails (such as 3.3V, 5V, and 12V) from the power supply to the motherboard, powering the board and the components connected to it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It supplies the main power rails from the PSU to the motherboard",
+          "correct": true,
+          "explanation": "Correct. This connector carries the primary DC power feeds to the board."
+        },
+        {
+          "id": "b",
+          "text": "It carries video output from the GPU to the monitor",
+          "correct": false,
+          "explanation": "Video output uses connectors like HDMI, DisplayPort, or DVI, not the motherboard power connector."
+        },
+        {
+          "id": "c",
+          "text": "It transmits SATA data between the drive and motherboard",
+          "correct": false,
+          "explanation": "SATA data uses a separate thin data cable, distinct from the PSU's 20+4 pin power connector."
+        },
+        {
+          "id": "d",
+          "text": "It provides a diagnostic loopback signal for POST testing",
+          "correct": false,
+          "explanation": "A loopback plug, not the main power connector, is used for that kind of diagnostic testing."
+        }
+      ]
+    },
+    {
+      "id": "hw-014",
+      "type": "single",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A print shop needs a printer driver language that reliably reproduces complex vector graphics and custom fonts identically across different printer models, which is important for its graphic-design output. Which page description language is the better fit compared to PCL?",
+      "explanation": "PostScript is a full page description language built to precisely and consistently render complex vector graphics, gradients, and fonts across different printer hardware, which is why it is favored in graphic arts and publishing workflows, whereas PCL is simpler and optimized for fast everyday text/office printing.",
+      "options": [
+        {
+          "id": "a",
+          "text": "PostScript",
+          "correct": true,
+          "explanation": "Correct. PostScript is designed for precise, consistent handling of complex graphics and fonts."
+        },
+        {
+          "id": "b",
+          "text": "PCL (Printer Control Language)",
+          "correct": false,
+          "explanation": "PCL is optimized for speed on typical office text documents rather than complex vector graphics fidelity."
+        },
+        {
+          "id": "c",
+          "text": "SMB",
+          "correct": false,
+          "explanation": "SMB is a network file/printer sharing protocol, not a page description language."
+        },
+        {
+          "id": "d",
+          "text": "ADF scanning mode",
+          "correct": false,
+          "explanation": "ADF (automatic document feeder) is a scanning feature, unrelated to how print output is described."
+        }
+      ]
+    },
+    {
+      "id": "hw-015",
+      "type": "multi",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A laser printer's output quality has degraded and it is due for scheduled service. Which TWO actions are appropriate parts of routine laser printer maintenance?",
+      "explanation": "Laser printer maintenance typically includes replacing the toner cartridge and running the printer's built-in cleaning cycle, as well as replacing the maintenance kit (which includes rollers and often the fuser) at the page-count interval the manufacturer recommends. Wiping print heads with alcohol and replacing a ribbon are maintenance tasks for inkjet and impact printers, respectively, not laser printers.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Replace the toner cartridge and run the built-in cleaning cycle when quality degrades",
+          "correct": true,
+          "explanation": "Correct. This is standard laser printer maintenance for quality issues."
+        },
+        {
+          "id": "b",
+          "text": "Replace the maintenance kit components (such as rollers and fuser) at the manufacturer's recommended page count",
+          "correct": true,
+          "explanation": "Correct. Maintenance kits are replaced on a page-count schedule to prevent wear-related defects."
+        },
+        {
+          "id": "c",
+          "text": "Wipe the print heads with isopropyl alcohol on a weekly schedule",
+          "correct": false,
+          "explanation": "Print head cleaning with alcohol is an inkjet printer maintenance task, not applicable to laser printers."
+        },
+        {
+          "id": "d",
+          "text": "Replace the ribbon when text becomes faint",
+          "correct": false,
+          "explanation": "Ribbons are used in impact printers, not laser printers, which use toner instead."
+        }
+      ]
+    },
+    {
+      "id": "hw-016",
+      "type": "multi",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "Which TWO statements accurately compare solid-state drives (SSDs) to traditional mechanical hard drives (HDDs)?",
+      "explanation": "SSDs have no moving parts, giving them consistent, near-instant seek times, and their lack of moving parts also makes them more resistant to damage from drops or vibration than HDDs. SSDs do not have a spindle speed measured in RPM (that applies to HDDs), and SSDs are not limited to only the SATA interface — many use NVMe over PCIe instead.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SSDs have no moving parts and provide consistent, near-instant seek times",
+          "correct": true,
+          "explanation": "Correct. The absence of moving parts is the defining SSD advantage."
+        },
+        {
+          "id": "b",
+          "text": "SSDs are generally more resistant to damage from physical shock than HDDs",
+          "correct": true,
+          "explanation": "Correct. No spinning platters or moving heads means less sensitivity to shock and vibration."
+        },
+        {
+          "id": "c",
+          "text": "SSDs have a spindle speed measured in RPM, just like HDDs",
+          "correct": false,
+          "explanation": "Spindle RPM applies to mechanical hard drives; SSDs have no spindle at all."
+        },
+        {
+          "id": "d",
+          "text": "SSDs are always limited to the SATA interface",
+          "correct": false,
+          "explanation": "Many SSDs use NVMe over PCIe rather than SATA, offering much higher performance."
+        }
+      ]
+    },
+    {
+      "id": "hw-017",
+      "type": "multi",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "A technician has just installed a new CPU, but the system will not POST. Which TWO checks should be performed first regarding the CPU installation itself?",
+      "explanation": "A CPU that fails to POST after installation is often not fully seated, with its socket retention lever not locked, or the separate CPU power connector (commonly 4-pin or 8-pin) may not be connected to the motherboard, both of which prevent the system from powering the processor correctly.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Confirm the CPU is fully seated and the socket retention lever is locked",
+          "correct": true,
+          "explanation": "Correct. An improperly seated CPU is a common cause of failure to POST."
+        },
+        {
+          "id": "b",
+          "text": "Verify the CPU power connector (4-pin or 8-pin) is connected to the motherboard",
+          "correct": true,
+          "explanation": "Correct. Without dedicated CPU power, the system typically will not POST even if the main 24-pin connector is attached."
+        },
+        {
+          "id": "c",
+          "text": "Check the toner level in the office printer",
+          "correct": false,
+          "explanation": "Printer toner is unrelated to a motherboard failing to POST."
+        },
+        {
+          "id": "d",
+          "text": "Verify the network interface card's MAC address",
+          "correct": false,
+          "explanation": "A NIC's MAC address has no bearing on whether the system completes POST."
+        }
+      ]
+    },
+    {
+      "id": "hw-018",
+      "type": "multi",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "Which TWO statements about power supply units (PSUs) are correct?",
+      "explanation": "A modular PSU lets a builder attach only the cables actually needed, reducing case clutter, and PSUs must be set or rated for the correct regional input voltage range (commonly 110-120VAC or 220-240VAC) to operate safely and correctly. PSU wattage rating absolutely affects system stability under load, and the 20+4 pin connector carries power, not data.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A modular power supply lets you attach only the cables you need, reducing clutter",
+          "correct": true,
+          "explanation": "Correct. Modular PSUs use detachable cables so unused ones can be left out entirely."
+        },
+        {
+          "id": "b",
+          "text": "The PSU must support the correct input voltage range for the region, such as 110-120VAC or 220-240VAC",
+          "correct": true,
+          "explanation": "Correct. Using the wrong input voltage range can damage the PSU or fail to power the system."
+        },
+        {
+          "id": "c",
+          "text": "PSU wattage rating has no effect on overall system stability",
+          "correct": false,
+          "explanation": "An undersized wattage rating for the installed components can cause instability, unexpected shutdowns, or failure to power on."
+        },
+        {
+          "id": "d",
+          "text": "20+4 pin connectors carry data signals rather than power",
+          "correct": false,
+          "explanation": "The 20+4 pin connector carries DC power rails to the motherboard; it does not carry data."
+        }
+      ]
+    },
+    {
+      "id": "hw-019",
+      "type": "boolean",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "True or false: A capacitive touchscreen digitizer can be reliably operated using a standard graphite pencil, the same way a resistive touchscreen can.",
+      "explanation": "This is false. Capacitive touchscreens detect the electrical properties of a conductive object, such as a bare finger or a capacitive stylus; a plain graphite pencil is not reliably detected. Resistive touchscreens, by contrast, respond to physical pressure from nearly any pointed object.",
+      "answer": false
+    },
+    {
+      "id": "hw-020",
+      "type": "matching",
+      "topicId": "hardware",
+      "difficulty": "medium",
+      "prompt": "Match each connector or cable type to its most appropriate primary use.",
+      "explanation": "HDMI carries combined digital video and audio to a display; SATA connects internal drives to a motherboard; RJ11 terminates analog telephone or DSL lines; and SC is a fiber-optic connector used to terminate single-mode or multimode fiber runs.",
+      "left": [
+        {
+          "id": "c-hdmi",
+          "text": "HDMI"
+        },
+        {
+          "id": "c-sata",
+          "text": "SATA"
+        },
+        {
+          "id": "c-rj11",
+          "text": "RJ11"
+        },
+        {
+          "id": "c-sc",
+          "text": "SC (fiber connector)"
+        }
+      ],
+      "right": [
+        {
+          "id": "u-video",
+          "text": "Carrying combined digital video and audio from a PC to a monitor or TV"
+        },
+        {
+          "id": "u-drive",
+          "text": "Connecting an internal hard drive or SSD to a motherboard"
+        },
+        {
+          "id": "u-phone",
+          "text": "Connecting an analog telephone or DSL line"
+        },
+        {
+          "id": "u-fiber",
+          "text": "Terminating single-mode or multimode fiber-optic cable"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "c-hdmi",
+          "right": "u-video"
+        },
+        {
+          "left": "c-sata",
+          "right": "u-drive"
+        },
+        {
+          "left": "c-rj11",
+          "right": "u-phone"
+        },
+        {
+          "left": "c-sc",
+          "right": "u-fiber"
+        }
+      ]
+    },
+    {
+      "id": "hw-021",
+      "type": "ordering",
+      "topicId": "hardware",
+      "difficulty": "hard",
+      "prompt": "Arrange the six stages of the laser printer imaging (electrophotographic) process in the correct order, from receiving the print job to permanently fixing the image on the page.",
+      "explanation": "The laser printing process begins when the printer processes the incoming print data, then charges the drum, exposes it with the laser to form a latent image, develops that image with toner, transfers the toner to the paper, and finally fuses it permanently with heat and pressure.",
+      "items": [
+        {
+          "id": "i1",
+          "text": "Processing: the printer rasterizes the incoming print job into an image in its memory"
+        },
+        {
+          "id": "i2",
+          "text": "Charging: a charging roller applies a uniform electrostatic charge to the drum"
+        },
+        {
+          "id": "i3",
+          "text": "Exposing: a laser selectively discharges areas of the drum to form a latent image"
+        },
+        {
+          "id": "i4",
+          "text": "Developing: toner is attracted to the discharged areas of the drum"
+        },
+        {
+          "id": "i5",
+          "text": "Transferring: a transfer roller moves the toner image from the drum onto the paper"
+        },
+        {
+          "id": "i6",
+          "text": "Fusing: heat and pressure permanently bond the toner to the paper"
+        }
+      ],
+      "correctOrder": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6"
+      ]
+    },
+    {
+      "id": "vc-001",
+      "type": "single",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "What is the key architectural difference between a Type 1 and a Type 2 hypervisor?",
+      "explanation": "A Type 1 (bare-metal) hypervisor runs directly on the physical hardware without a host operating system underneath it, while a Type 2 (hosted) hypervisor runs as an application on top of an existing host operating system.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A Type 1 hypervisor runs directly on the hardware; a Type 2 hypervisor runs on top of a host operating system",
+          "correct": true,
+          "explanation": "Correct. This bare-metal vs. hosted distinction defines Type 1 vs. Type 2 hypervisors."
+        },
+        {
+          "id": "b",
+          "text": "A Type 1 hypervisor can only run one virtual machine at a time",
+          "correct": false,
+          "explanation": "Type 1 hypervisors commonly run many simultaneous virtual machines; the type is about architecture, not VM count."
+        },
+        {
+          "id": "c",
+          "text": "A Type 2 hypervisor requires no host operating system at all",
+          "correct": false,
+          "explanation": "That describes a Type 1, bare-metal hypervisor, not a Type 2 hosted hypervisor."
+        },
+        {
+          "id": "d",
+          "text": "There is no meaningful difference; the terms are interchangeable",
+          "correct": false,
+          "explanation": "Type 1 and Type 2 hypervisors have a clear architectural distinction regarding whether a host OS is present."
+        }
+      ]
+    },
+    {
+      "id": "vc-002",
+      "type": "single",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "How does a container fundamentally differ from a traditional virtual machine?",
+      "explanation": "Containers share the host operating system's kernel and isolate only the application and its dependencies, making them much more lightweight and faster to start than a full virtual machine, which includes its own complete guest operating system.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Containers share the host OS kernel, while a VM runs its own complete guest operating system",
+          "correct": true,
+          "explanation": "Correct. Kernel sharing is what makes containers lighter weight than full VMs."
+        },
+        {
+          "id": "b",
+          "text": "Containers require dedicated physical hardware for each instance",
+          "correct": false,
+          "explanation": "Containers are specifically designed to run multiple isolated instances on shared hardware and a shared kernel."
+        },
+        {
+          "id": "c",
+          "text": "A VM cannot run more than one application at a time",
+          "correct": false,
+          "explanation": "A VM runs a full OS and can host multiple applications, just like a physical machine."
+        },
+        {
+          "id": "d",
+          "text": "Containers always require a Type 1 hypervisor to function",
+          "correct": false,
+          "explanation": "Containers run on a container engine on top of an OS kernel; they do not require a hypervisor at all."
+        }
+      ]
+    },
+    {
+      "id": "vc-003",
+      "type": "single",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "A cloud provider automatically adds more compute instances during a traffic spike and removes them once demand drops, without manual intervention. What cloud characteristic does this describe?",
+      "explanation": "Elasticity is the ability of a cloud environment to automatically scale resources up or down to match current demand, helping control cost while maintaining performance.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Elasticity",
+          "correct": true,
+          "explanation": "Correct. Elasticity describes automatic scaling of resources to match demand."
+        },
+        {
+          "id": "b",
+          "text": "Multitenancy",
+          "correct": false,
+          "explanation": "Multitenancy describes multiple customers sharing the same underlying infrastructure, not automatic scaling."
+        },
+        {
+          "id": "c",
+          "text": "File synchronization",
+          "correct": false,
+          "explanation": "File synchronization keeps files consistent across devices/locations, unrelated to scaling compute resources."
+        },
+        {
+          "id": "d",
+          "text": "A private cloud deployment",
+          "correct": false,
+          "explanation": "Private cloud describes a deployment model dedicated to one organization, not a scaling behavior."
+        }
+      ]
+    },
+    {
+      "id": "vc-004",
+      "type": "single",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "A security researcher wants to run and observe a suspicious executable without any risk to the host system or network. What is the best use of virtualization for this purpose?",
+      "explanation": "Running the file inside an isolated virtual machine sandbox lets a researcher safely observe suspicious or untrusted software, since the VM can be isolated from the host and network and discarded afterward.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Run it inside an isolated virtual machine sandbox",
+          "correct": true,
+          "explanation": "Correct. A VM sandbox isolates untrusted software from the host system."
+        },
+        {
+          "id": "b",
+          "text": "Run it directly on the host operating system with antivirus disabled",
+          "correct": false,
+          "explanation": "Running untrusted software directly on the host, especially with protections disabled, risks infecting or damaging the host."
+        },
+        {
+          "id": "c",
+          "text": "Email the file to a coworker to test on their machine",
+          "correct": false,
+          "explanation": "This spreads risk to another system rather than containing it."
+        },
+        {
+          "id": "d",
+          "text": "Run it as a scheduled task with administrator privileges on the host",
+          "correct": false,
+          "explanation": "Elevated privileges on the host increase the potential damage from malicious software rather than containing it."
+        }
+      ]
+    },
+    {
+      "id": "vc-005",
+      "type": "single",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "A company wants to rent virtualized servers, storage, and networking from a provider, while its own staff install and manage the operating systems, middleware, and applications on top. Which cloud service model best matches this arrangement?",
+      "explanation": "IaaS (Infrastructure as a Service) provides the underlying virtualized compute, storage, and networking infrastructure, while the customer remains responsible for managing the OS, runtime, and applications running on it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "IaaS (Infrastructure as a Service)",
+          "correct": true,
+          "explanation": "Correct. IaaS provides infrastructure while the customer manages the OS upward."
+        },
+        {
+          "id": "b",
+          "text": "SaaS (Software as a Service)",
+          "correct": false,
+          "explanation": "SaaS delivers a complete, ready-to-use application; the customer does not manage servers or the OS."
+        },
+        {
+          "id": "c",
+          "text": "PaaS (Platform as a Service)",
+          "correct": false,
+          "explanation": "PaaS provides a managed application platform/runtime, going further than IaaS by also managing the OS layer."
+        },
+        {
+          "id": "d",
+          "text": "A community cloud specifically",
+          "correct": false,
+          "explanation": "Community cloud is a deployment model shared among organizations with common concerns, not a service model describing what layer is managed."
+        }
+      ]
+    },
+    {
+      "id": "vc-006",
+      "type": "multi",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "Which TWO are common business reasons an organization adopts desktop virtualization (VDI)?",
+      "explanation": "VDI centralizes desktop images in the datacenter, simplifying management and improving control over security and patching, and it lets users access a consistent desktop experience from a variety of thin clients or personal devices. VDI still requires network connectivity to reach the hosted desktop, and it does not guarantee lower client-side CPU usage regardless of workload.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Centralizing management and security of desktop images in the datacenter",
+          "correct": true,
+          "explanation": "Correct. Centralized management is a primary VDI driver."
+        },
+        {
+          "id": "b",
+          "text": "Allowing users to access a consistent desktop environment from various thin clients or devices",
+          "correct": true,
+          "explanation": "Correct. VDI decouples the desktop experience from any specific physical endpoint."
+        },
+        {
+          "id": "c",
+          "text": "Eliminating the need for any network connectivity to use the desktop",
+          "correct": false,
+          "explanation": "VDI depends on network connectivity to reach the hosted virtual desktop; it does not eliminate that requirement."
+        },
+        {
+          "id": "d",
+          "text": "Guaranteeing lower CPU usage on the client device regardless of the workload",
+          "correct": false,
+          "explanation": "VDI shifts processing to the datacenter but does not guarantee any specific client-side CPU usage figure for every workload."
+        }
+      ]
+    },
+    {
+      "id": "vc-007",
+      "type": "multi",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "Which TWO statements about cloud computing concepts are accurate?",
+      "explanation": "Multitenancy allows multiple customers to share the same underlying infrastructure while their data and configurations remain logically separated, and metered utilization bills customers based on actual measured consumption, including ingress/egress network traffic. A public cloud does not dedicate entirely separate physical hardware per customer (that is closer to a private/dedicated model), and community cloud is shared among multiple organizations with common concerns, not restricted to a single organization.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Multitenancy allows multiple customers to share underlying infrastructure with their data kept logically separate",
+          "correct": true,
+          "explanation": "Correct. This is the definition of multitenancy in cloud computing."
+        },
+        {
+          "id": "b",
+          "text": "Metered utilization means a customer is billed based on actual measured resource consumption, such as ingress/egress traffic",
+          "correct": true,
+          "explanation": "Correct. Metered billing charges for what is actually consumed."
+        },
+        {
+          "id": "c",
+          "text": "A public cloud dedicates entirely separate physical hardware to each individual customer",
+          "correct": false,
+          "explanation": "Dedicated separate hardware per customer is a hallmark of private/dedicated hosting, not the typical shared-infrastructure public cloud model."
+        },
+        {
+          "id": "d",
+          "text": "A community cloud is available only to a single organization",
+          "correct": false,
+          "explanation": "A community cloud is shared among multiple organizations with common needs or concerns, not limited to one organization."
+        }
+      ]
+    },
+    {
+      "id": "vc-008",
+      "type": "boolean",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "True or false: A private cloud deployment is hosted for the general public over the internet by a third-party provider, with infrastructure shared openly among unrelated customers.",
+      "explanation": "This is false. That description matches a public cloud. A private cloud is provisioned for the exclusive use of a single organization, whether hosted on-premises or by a third party on dedicated infrastructure.",
+      "answer": false
+    },
+    {
+      "id": "vc-009",
+      "type": "matching",
+      "topicId": "virtualization-cloud",
+      "difficulty": "medium",
+      "prompt": "Match each cloud service model to the description that best fits it.",
+      "explanation": "IaaS provides virtualized infrastructure that the customer builds on top of; PaaS provides a managed platform and runtime for deploying applications without managing the underlying servers; and SaaS delivers a complete, ready-to-use application over the internet.",
+      "left": [
+        {
+          "id": "csm-iaas",
+          "text": "IaaS"
+        },
+        {
+          "id": "csm-paas",
+          "text": "PaaS"
+        },
+        {
+          "id": "csm-saas",
+          "text": "SaaS"
+        }
+      ],
+      "right": [
+        {
+          "id": "d-iaas",
+          "text": "Provides virtualized servers, storage, and networking; the customer manages the OS and everything above it"
+        },
+        {
+          "id": "d-paas",
+          "text": "Provides a managed platform and runtime so developers can deploy applications without managing servers"
+        },
+        {
+          "id": "d-saas",
+          "text": "Provides a complete, ready-to-use application accessed over the internet, such as webmail"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "csm-iaas",
+          "right": "d-iaas"
+        },
+        {
+          "left": "csm-paas",
+          "right": "d-paas"
+        },
+        {
+          "left": "csm-saas",
+          "right": "d-saas"
+        }
+      ]
+    },
+    {
+      "id": "ts-001",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A desktop PC produces a continuous repeating beep code on startup, with no video output at all. The technician has already confirmed the power supply is functioning. What should be checked first?",
+      "explanation": "A repeating beep code with no video is a classic symptom of a memory problem. Reseating the RAM modules (and testing them one at a time in different slots) is the standard first step, since improperly seated or failed RAM is a very common cause of this symptom.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reseat the RAM modules and test them one at a time",
+          "correct": true,
+          "explanation": "Correct. Beep codes with no video commonly indicate a memory seating or failure issue."
+        },
+        {
+          "id": "b",
+          "text": "Replace the printer toner cartridge",
+          "correct": false,
+          "explanation": "A printer's toner cartridge has no relationship to a desktop's POST beep codes."
+        },
+        {
+          "id": "c",
+          "text": "Update the router firmware",
+          "correct": false,
+          "explanation": "Router firmware has no effect on a local desktop's POST sequence."
+        },
+        {
+          "id": "d",
+          "text": "Increase the printer's paper tray capacity",
+          "correct": false,
+          "explanation": "Unrelated to a desktop failing to complete POST."
+        }
+      ]
+    },
+    {
+      "id": "ts-002",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "While inspecting a desktop motherboard for a suspected hardware fault, a technician notices several capacitors near the CPU socket that are visibly bulging and slightly discolored at the top. What does this most likely indicate?",
+      "explanation": "Bulging or leaking capacitors are a well-known sign of capacitor failure, often causing symptoms like random instability, failure to POST, or spontaneous reboots. Once capacitors are visibly swollen, the motherboard should generally be replaced.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Failing capacitors, which often cause instability and should prompt motherboard replacement",
+          "correct": true,
+          "explanation": "Correct. Bulging capacitors are a recognized hardware failure indicator on motherboards."
+        },
+        {
+          "id": "b",
+          "text": "A normal cosmetic variation with no functional impact",
+          "correct": false,
+          "explanation": "Bulging capacitors are a genuine failure indicator, not a harmless cosmetic variation."
+        },
+        {
+          "id": "c",
+          "text": "A sign that the CPU needs new thermal paste",
+          "correct": false,
+          "explanation": "Thermal paste condition affects CPU temperatures, not capacitor appearance."
+        },
+        {
+          "id": "d",
+          "text": "A sign that the RAM needs to be reseated",
+          "correct": false,
+          "explanation": "RAM seating issues do not cause physical capacitor bulging."
+        }
+      ]
+    },
+    {
+      "id": "ts-003",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "hard",
+      "prompt": "A user reports their desktop shuts down randomly under load and there is a faint burning smell coming from the case. What should the technician do first?",
+      "explanation": "A burning smell combined with random shutdowns suggests a potential electrical fault (such as a failing power supply or component) that poses a fire or safety risk. The system should be powered off and unplugged immediately before any further diagnosis, rather than continuing to run it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Power off and unplug the system immediately, then inspect for a failed component before further use",
+          "correct": true,
+          "explanation": "Correct. A burning smell indicates a possible safety hazard that requires immediately removing power before continuing."
+        },
+        {
+          "id": "b",
+          "text": "Keep the system running so the fault can be reproduced under load for diagnosis",
+          "correct": false,
+          "explanation": "Continuing to run a system with a burning smell risks fire or further component damage."
+        },
+        {
+          "id": "c",
+          "text": "Increase the case fan speed and continue normal use",
+          "correct": false,
+          "explanation": "This does not address a potential electrical fault and risks continued operation of unsafe hardware."
+        },
+        {
+          "id": "d",
+          "text": "Reinstall the operating system to resolve the smell",
+          "correct": false,
+          "explanation": "A burning smell indicates a hardware issue, which a software reinstall cannot fix."
+        }
+      ]
+    },
+    {
+      "id": "ts-004",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A desktop's system clock resets to a default date every time it is unplugged from power, even though the date is correctly set each time it is powered back on. What is the most likely cause?",
+      "explanation": "The motherboard's CMOS battery (typically a CR2032 coin cell) maintains the real-time clock and BIOS/UEFI settings when the system is unpowered. A depleted CMOS battery causes the clock to reset whenever main power is removed.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A depleted CMOS battery",
+          "correct": true,
+          "explanation": "Correct. The CMOS battery keeps the clock running when the system is unplugged; when it dies, the date resets."
+        },
+        {
+          "id": "b",
+          "text": "A failing network interface card",
+          "correct": false,
+          "explanation": "A NIC has no role in maintaining the system clock."
+        },
+        {
+          "id": "c",
+          "text": "An outdated printer driver",
+          "correct": false,
+          "explanation": "Printer drivers are unrelated to the motherboard's real-time clock."
+        },
+        {
+          "id": "d",
+          "text": "A corrupted print spooler",
+          "correct": false,
+          "explanation": "The print spooler manages print jobs and has no connection to the system clock."
+        }
+      ]
+    },
+    {
+      "id": "ts-005",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A desktop hard drive is making a repeated clicking noise and is no longer detected in the system BIOS. What should the technician conclude and do?",
+      "explanation": "A clicking noise combined with the drive disappearing from BIOS strongly suggests a mechanical failure (such as a head crash). The priority is to avoid further power cycling that could worsen the damage, and to attempt data recovery/backup, if possible, before replacing the drive.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The drive has likely suffered a mechanical failure; avoid further use, attempt recovery if possible, and replace the drive",
+          "correct": true,
+          "explanation": "Correct. Clicking plus disappearance from BIOS points to a mechanical failure requiring drive replacement."
+        },
+        {
+          "id": "b",
+          "text": "The issue is a routine software glitch that will resolve after a reboot",
+          "correct": false,
+          "explanation": "A clicking noise combined with the drive vanishing from BIOS is a hardware symptom, not something a reboot fixes."
+        },
+        {
+          "id": "c",
+          "text": "The drive simply needs a firmware update to resume normal operation",
+          "correct": false,
+          "explanation": "This symptom pattern indicates a mechanical fault, not something a firmware update can correct."
+        },
+        {
+          "id": "d",
+          "text": "The issue is caused by a bad network cable",
+          "correct": false,
+          "explanation": "A network cable has no effect on a locally attached hard drive's detection or noise."
+        }
+      ]
+    },
+    {
+      "id": "ts-006",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "In a RAID 5 array of four drives, one drive reports a failed status, but the volume remains online and accessible to users, just noticeably slower than usual. What is happening?",
+      "explanation": "This describes a RAID 5 array running in a degraded state: it can still serve reads and writes by reconstructing data from parity, but with reduced performance and no more fault tolerance until the failed drive is replaced and the array is rebuilt.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The array is running in a degraded state, using parity to serve data until the failed drive is replaced and rebuilt",
+          "correct": true,
+          "explanation": "Correct. RAID 5 tolerates one drive failure by reconstructing data from parity, at reduced performance."
+        },
+        {
+          "id": "b",
+          "text": "All data on the array has already been permanently lost",
+          "correct": false,
+          "explanation": "RAID 5 is specifically designed to survive exactly one drive failure without data loss."
+        },
+        {
+          "id": "c",
+          "text": "The array has automatically converted to RAID 0",
+          "correct": false,
+          "explanation": "RAID levels do not spontaneously convert; the array remains RAID 5, just degraded."
+        },
+        {
+          "id": "d",
+          "text": "The slowdown is unrelated to the drive failure and should be ignored",
+          "correct": false,
+          "explanation": "The performance drop is a direct, expected consequence of running in a degraded RAID 5 state."
+        }
+      ]
+    },
+    {
+      "id": "ts-007",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A server's monitoring dashboard shows a S.M.A.R.T. failure warning on one of its drives, although the drive is still readable and shows no other symptoms yet. What should the technician do?",
+      "explanation": "A S.M.A.R.T. warning is a predictive indicator that a drive is likely to fail soon, even if it currently still works. The correct response is to back up its data immediately and plan for proactive replacement, rather than waiting for the drive to fail outright.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Back up the drive's data immediately and plan for proactive replacement",
+          "correct": true,
+          "explanation": "Correct. S.M.A.R.T. warnings predict impending failure, so acting before the drive actually fails is the safest response."
+        },
+        {
+          "id": "b",
+          "text": "Ignore the warning since the drive is still readable",
+          "correct": false,
+          "explanation": "A S.M.A.R.T. warning indicates a meaningfully elevated risk of near-term failure and should not be ignored."
+        },
+        {
+          "id": "c",
+          "text": "Immediately reformat the drive to clear the warning",
+          "correct": false,
+          "explanation": "Reformatting does not address the underlying hardware degradation and risks losing data that has not been backed up."
+        },
+        {
+          "id": "d",
+          "text": "Update the motherboard BIOS to resolve the warning",
+          "correct": false,
+          "explanation": "A BIOS update does not repair degrading drive hardware reported by S.M.A.R.T."
+        }
+      ]
+    },
+    {
+      "id": "ts-008",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A monitor connected over an analog VGA cable displays a persistently fuzzy, slightly blurry image even at its native resolution, while the same monitor looks sharp when connected to a different PC via HDMI. What is the most likely explanation?",
+      "explanation": "VGA is an analog signal, and analog video is more susceptible to signal degradation from cable quality, length, or connector wear, which can produce a soft or fuzzy image. Switching to a digital connection like HDMI or DisplayPort avoids this analog signal degradation entirely.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Analog signal degradation over the VGA connection; switching to a digital input like HDMI or DisplayPort should resolve it",
+          "correct": true,
+          "explanation": "Correct. VGA's analog nature makes it more prone to this kind of softness compared to digital connections."
+        },
+        {
+          "id": "b",
+          "text": "The monitor's backlight has failed",
+          "correct": false,
+          "explanation": "A failed backlight would typically cause a dim or blank image, not a soft/fuzzy but otherwise visible one."
+        },
+        {
+          "id": "c",
+          "text": "The monitor's digitizer needs replacement",
+          "correct": false,
+          "explanation": "A standard external monitor does not have a touch digitizer, and this symptom is a video signal issue, not a touch issue."
+        },
+        {
+          "id": "d",
+          "text": "The system RAM is failing",
+          "correct": false,
+          "explanation": "RAM issues would not selectively affect only the analog VGA video quality this way."
+        }
+      ]
+    },
+    {
+      "id": "ts-009",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "An OLED monitor that has displayed the same static taskbar and window borders for extended periods now shows a faint, permanent ghost of that content even when displaying other images. What is this phenomenon called?",
+      "explanation": "Burn-in occurs on OLED (and some plasma) displays when static content is shown for very long periods, causing uneven pixel aging that leaves a faint permanent ghost image visible under other content.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Burn-in",
+          "correct": true,
+          "explanation": "Correct. Burn-in is caused by prolonged display of static content on OLED panels."
+        },
+        {
+          "id": "b",
+          "text": "Dead pixels",
+          "correct": false,
+          "explanation": "Dead pixels are individual pixels that fail to light at all, not a ghost pattern from prior static content."
+        },
+        {
+          "id": "c",
+          "text": "Screen tearing",
+          "correct": false,
+          "explanation": "Screen tearing is a frame-synchronization artifact during motion, unrelated to long-term static image damage."
+        },
+        {
+          "id": "d",
+          "text": "Color gamut mismatch",
+          "correct": false,
+          "explanation": "Color gamut describes the range of colors a display can reproduce, not a burned-in ghost image."
+        }
+      ]
+    },
+    {
+      "id": "ts-010",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A conference room projector shuts itself off unexpectedly a few minutes into every presentation, then can be turned back on again after cooling briefly. What is the most likely cause?",
+      "explanation": "Projectors have thermal protection circuits that automatically shut the unit down if it overheats, commonly caused by blocked air vents or a dirty/clogged air filter restricting airflow. Cleaning or replacing the filter and ensuring clear ventilation typically resolves this.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The projector is overheating, likely due to a blocked vent or dirty air filter, triggering thermal shutdown",
+          "correct": true,
+          "explanation": "Correct. Repeated shutdown-after-a-few-minutes with recovery after cooling is a classic thermal protection symptom."
+        },
+        {
+          "id": "b",
+          "text": "The projector's lamp needs a firmware update",
+          "correct": false,
+          "explanation": "Projector lamps do not receive firmware updates, and this would not explain a thermal-shutdown pattern."
+        },
+        {
+          "id": "c",
+          "text": "The HDMI cable is the wrong length",
+          "correct": false,
+          "explanation": "Cable length does not cause a projector to overheat and shut down."
+        },
+        {
+          "id": "d",
+          "text": "The room's Wi-Fi signal is too weak",
+          "correct": false,
+          "explanation": "Wi-Fi signal strength has no effect on a projector's thermal shutdown behavior."
+        }
+      ]
+    },
+    {
+      "id": "ts-011",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "hard",
+      "prompt": "A smartphone feels unusually warm, has rapidly declining battery life, and the back cover appears slightly raised in the middle. What should the technician do?",
+      "explanation": "A visibly raised or bulging back cover combined with heat and poor battery life strongly suggests a swollen lithium battery. The device should be powered off and not charged further, and the battery should be replaced by a qualified technician using proper precautions; it should never be punctured or bent.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Power the device off, stop charging it, and have the swollen battery professionally replaced without puncturing it",
+          "correct": true,
+          "explanation": "Correct. A swollen battery is a safety hazard that requires careful, prompt replacement."
+        },
+        {
+          "id": "b",
+          "text": "Continue charging the device normally since battery swelling is cosmetic only",
+          "correct": false,
+          "explanation": "Battery swelling indicates a genuine safety hazard and should not be treated as purely cosmetic."
+        },
+        {
+          "id": "c",
+          "text": "Puncture the raised area to relieve pressure before removing the battery",
+          "correct": false,
+          "explanation": "Puncturing a swollen lithium battery can cause fire or the release of hazardous gas."
+        },
+        {
+          "id": "d",
+          "text": "Place the device in a freezer to reduce the swelling",
+          "correct": false,
+          "explanation": "Freezing a swollen lithium battery does not safely resolve the hazard and is not a recommended repair step."
+        }
+      ]
+    },
+    {
+      "id": "ts-012",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A tablet's on-screen cursor/touch point drifts or registers touches on its own without the user touching the screen. What is this issue called, and what is a common remedy?",
+      "explanation": "This symptom is commonly known as touch or cursor drift and is often addressed by running the device's touch/digitizer calibration routine; if calibration does not resolve it, the digitizer itself may need replacement.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cursor/touch drift, typically addressed with touch calibration or digitizer replacement",
+          "correct": true,
+          "explanation": "Correct. Touch drift is resolved through calibration first, and digitizer replacement if that fails."
+        },
+        {
+          "id": "b",
+          "text": "A battery charging issue, resolved by replacing the charging cable",
+          "correct": false,
+          "explanation": "A charging cable has no effect on erratic touch input behavior."
+        },
+        {
+          "id": "c",
+          "text": "A Wi-Fi antenna issue, resolved by reseating the antenna",
+          "correct": false,
+          "explanation": "Wi-Fi antenna issues affect wireless connectivity, not touch input accuracy."
+        },
+        {
+          "id": "d",
+          "text": "A normal, unfixable characteristic of all touchscreens",
+          "correct": false,
+          "explanation": "Touch drift is a fixable hardware/calibration symptom, not an unavoidable universal characteristic."
+        }
+      ]
+    },
+    {
+      "id": "ts-013",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A laptop's Wi-Fi connection frequently drops and reconnects while the user is at their desk, but the connection is rock-solid when standing right next to the access point. What is the most likely cause?",
+      "explanation": "Intermittent connectivity that improves near the access point commonly points to weak signal strength at distance, often worsened by interference from other 2.4GHz devices or channel congestion, or by a partially degraded antenna.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Weak signal strength at distance, likely worsened by interference or channel congestion",
+          "correct": true,
+          "explanation": "Correct. Distance-dependent intermittent connectivity is a classic signal-strength/interference symptom."
+        },
+        {
+          "id": "b",
+          "text": "A corrupted print spooler on the laptop",
+          "correct": false,
+          "explanation": "The print spooler manages print jobs and has no relationship to Wi-Fi signal behavior."
+        },
+        {
+          "id": "c",
+          "text": "An expired DNS TXT record",
+          "correct": false,
+          "explanation": "DNS TXT records are unrelated to physical-layer wireless signal strength."
+        },
+        {
+          "id": "d",
+          "text": "A RAID array rebuild in progress on the laptop",
+          "correct": false,
+          "explanation": "A typical laptop does not run a RAID array, and this would not explain distance-dependent Wi-Fi symptoms."
+        }
+      ]
+    },
+    {
+      "id": "ts-014",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Users on a VoIP phone system report that calls sound choppy, with words periodically dropping out or arriving out of order. Network monitoring shows highly variable packet delay. What networking issue does this describe?",
+      "explanation": "Jitter refers to variation in packet arrival delay over time. High jitter is especially disruptive for real-time traffic like VoIP, causing choppy or garbled audio even when overall bandwidth appears adequate.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Jitter (variable latency)",
+          "correct": true,
+          "explanation": "Correct. Jitter describes inconsistent packet delay, which is especially harmful to real-time voice traffic."
+        },
+        {
+          "id": "b",
+          "text": "A DNS TXT record misconfiguration",
+          "correct": false,
+          "explanation": "A TXT record issue would not cause variable packet delay affecting call audio quality."
+        },
+        {
+          "id": "c",
+          "text": "A RAID array failure",
+          "correct": false,
+          "explanation": "RAID failures affect storage arrays, not real-time network packet timing."
+        },
+        {
+          "id": "d",
+          "text": "A depleted CMOS battery",
+          "correct": false,
+          "explanation": "A CMOS battery affects the system clock/BIOS settings, not network jitter."
+        }
+      ]
+    },
+    {
+      "id": "ts-015",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A specific switch port repeatedly shows as up, then down, then up again in the switch logs, even though nothing appears to have physically changed. What are the most likely causes to investigate?",
+      "explanation": "Port flapping like this is frequently caused by a marginal or damaged cable/connector, or by a duplex/speed mismatch between the switch port and the connected device, either of which can cause the link to repeatedly drop and re-establish.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A bad cable/connector or a duplex/speed mismatch on that port",
+          "correct": true,
+          "explanation": "Correct. These are the most common causes of a flapping switch port."
+        },
+        {
+          "id": "b",
+          "text": "The printer connected elsewhere on the network is low on toner",
+          "correct": false,
+          "explanation": "Printer toner level has no relationship to a switch port's link state."
+        },
+        {
+          "id": "c",
+          "text": "The building's HVAC plenum rating",
+          "correct": false,
+          "explanation": "Cable plenum rating is a fire-code requirement, not a cause of link flapping."
+        },
+        {
+          "id": "d",
+          "text": "A CMOS battery failure on a nearby desktop",
+          "correct": false,
+          "explanation": "A desktop's CMOS battery has no effect on a switch port's link status."
+        }
+      ]
+    },
+    {
+      "id": "ts-016",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A laser printer produces a thin, repeating vertical defect line down every printed page at the same position. What is the most likely cause?",
+      "explanation": "A repeating vertical line at a consistent position on every page is a classic symptom of a scratch, groove, or other defect on the imaging drum. Since the drum is usually part of the toner cartridge assembly, replacing that cartridge/imaging unit typically resolves it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A scratched or damaged imaging drum, usually resolved by replacing the toner cartridge/imaging unit",
+          "correct": true,
+          "explanation": "Correct. A repeating defect at a fixed interval matches the circumference of a damaged drum."
+        },
+        {
+          "id": "b",
+          "text": "A loose network cable",
+          "correct": false,
+          "explanation": "A network cable issue would affect the print job reaching the printer, not create a repeating physical print defect."
+        },
+        {
+          "id": "c",
+          "text": "Low input voltage from the wall outlet",
+          "correct": false,
+          "explanation": "Voltage issues would more likely cause the printer to malfunction entirely, not produce a precise repeating line pattern."
+        },
+        {
+          "id": "d",
+          "text": "An outdated wireless driver on the print server",
+          "correct": false,
+          "explanation": "A driver issue would not produce a physically repeating defect tied to the drum's rotation."
+        }
+      ]
+    },
+    {
+      "id": "ts-017",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "An inkjet printer's output has become noticeably faded and streaky compared to normal. What should the technician try first?",
+      "explanation": "Faded, streaky inkjet output commonly results from clogged print head nozzles or a nearly empty ink cartridge. Running the printer's built-in head-cleaning cycle, and replacing the cartridge if needed, is the standard first response.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Run the printer's head-cleaning cycle and check/replace the ink cartridge",
+          "correct": true,
+          "explanation": "Correct. Clogged nozzles and low ink are the most common causes of faded, streaky inkjet output."
+        },
+        {
+          "id": "b",
+          "text": "Replace the imaging drum",
+          "correct": false,
+          "explanation": "Imaging drums are a laser printer component; inkjet printers do not use them."
+        },
+        {
+          "id": "c",
+          "text": "Update the DNS server's TXT record",
+          "correct": false,
+          "explanation": "DNS configuration has no effect on physical print quality."
+        },
+        {
+          "id": "d",
+          "text": "Increase the network switch's PoE budget",
+          "correct": false,
+          "explanation": "PoE power budget on a switch is unrelated to inkjet print head or ink cartridge condition."
+        }
+      ]
+    },
+    {
+      "id": "ts-018",
+      "type": "multi",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Which TWO symptoms are strong indicators of a failing power supply unit (PSU)?",
+      "explanation": "Random shutdowns under load and a burning smell from the case are both classic warning signs of a failing power supply. Faded printer output and dead monitor pixels are unrelated symptoms tied to a printer and a display panel, not the PSU.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Random shutdowns under load",
+          "correct": true,
+          "explanation": "Correct. Unexpected shutdowns under load are a common PSU failure symptom."
+        },
+        {
+          "id": "b",
+          "text": "A burning smell coming from the case",
+          "correct": true,
+          "explanation": "Correct. A burning smell can indicate a failing PSU or other electrical component."
+        },
+        {
+          "id": "c",
+          "text": "Faded output on printed pages",
+          "correct": false,
+          "explanation": "Faded print output points to a printer consumable/head issue, not the PC's power supply."
+        },
+        {
+          "id": "d",
+          "text": "Dead pixels on an external monitor",
+          "correct": false,
+          "explanation": "Dead pixels are a display panel defect, unrelated to the power supply."
+        }
+      ]
+    },
+    {
+      "id": "ts-019",
+      "type": "multi",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Which TWO symptoms are most consistent with a hard drive that is beginning to fail?",
+      "explanation": "Grinding or clicking noises during operation and a S.M.A.R.T. failure warning at boot are both classic indicators of an ailing hard drive. Screen burn-in and switch port flapping are unrelated symptoms tied to a display panel and network hardware, respectively.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Grinding or clicking noises during operation",
+          "correct": true,
+          "explanation": "Correct. Unusual mechanical noise often indicates a failing hard drive."
+        },
+        {
+          "id": "b",
+          "text": "A S.M.A.R.T. failure warning at boot",
+          "correct": true,
+          "explanation": "Correct. S.M.A.R.T. warnings are a predictive indicator of drive failure."
+        },
+        {
+          "id": "c",
+          "text": "Burn-in on the display",
+          "correct": false,
+          "explanation": "Burn-in is a display panel issue, unrelated to hard drive health."
+        },
+        {
+          "id": "d",
+          "text": "A switch port flapping up and down",
+          "correct": false,
+          "explanation": "Port flapping is a network hardware/cabling symptom, unrelated to a hard drive's condition."
+        }
+      ]
+    },
+    {
+      "id": "ts-020",
+      "type": "multi",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Which TWO factors commonly cause poor or intermittent wireless connectivity on a mobile device?",
+      "explanation": "A physically damaged antenna or charging/data port that also carries antenna traces can degrade signal reception, and interference from other nearby wireless devices operating on overlapping channels can disrupt connectivity. A printer's toner level and an unrelated RAID rebuild on a server have no effect on a mobile device's wireless connection.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A physically damaged antenna or port",
+          "correct": true,
+          "explanation": "Correct. Physical antenna damage directly degrades wireless reception."
+        },
+        {
+          "id": "b",
+          "text": "Interference from other nearby wireless devices",
+          "correct": true,
+          "explanation": "Correct. Overlapping channels and RF interference commonly disrupt wireless connectivity."
+        },
+        {
+          "id": "c",
+          "text": "A low toner level in an office printer",
+          "correct": false,
+          "explanation": "Printer toner level has no relationship to a mobile device's wireless connectivity."
+        },
+        {
+          "id": "d",
+          "text": "A RAID array rebuilding on an unrelated file server",
+          "correct": false,
+          "explanation": "A server-side RAID rebuild does not directly cause a mobile device's wireless connectivity problems."
+        }
+      ]
+    },
+    {
+      "id": "ts-021",
+      "type": "multi",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A network printer is producing garbled, nonsensical characters instead of the intended document text. Which TWO causes should be investigated first?",
+      "explanation": "Garbled print output most often traces back to an outdated or incorrect print driver that is miscommunicating the page description language with the printer, or to a corrupt/incompatible spool file for that job. A loose network cable would more likely prevent the job from printing at all, and low toner produces faded output, not garbled text.",
+      "options": [
+        {
+          "id": "a",
+          "text": "An outdated or incorrect print driver installed for the printer",
+          "correct": true,
+          "explanation": "Correct. A mismatched driver is a leading cause of garbled print output."
+        },
+        {
+          "id": "b",
+          "text": "A damaged or corrupt spool file for the print job",
+          "correct": true,
+          "explanation": "Correct. Spooler corruption can cause a job to print as garbled data."
+        },
+        {
+          "id": "c",
+          "text": "A loose network cable causing the print job to queue",
+          "correct": false,
+          "explanation": "A loose cable would more likely prevent the job from printing at all rather than cause garbled characters."
+        },
+        {
+          "id": "d",
+          "text": "A low remaining toner level",
+          "correct": false,
+          "explanation": "Low toner typically causes faded or light print, not garbled text."
+        }
+      ]
+    },
+    {
+      "id": "ts-022",
+      "type": "boolean",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "True or false: A desktop that shows a completely blank screen with no POST beep and no fan spin immediately after pressing the power button is most likely suffering from a corrupted print spooler.",
+      "explanation": "This is false. A completely blank screen with no beep and no fan activity at power-on points to a power delivery problem (such as a failed PSU, a loose power connector, or a dead motherboard), not a software-level issue like the print spooler, which would only matter after the OS has fully booted.",
+      "answer": false
+    },
+    {
+      "id": "ts-023",
+      "type": "single",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user reports that internal file shares on the local network work fine, but no websites will load, even though the computer has a valid IP address, subnet mask, and gateway. What should be checked first?",
+      "explanation": "When local (LAN) resources work but internet resources fail despite valid IP configuration, DNS resolution failure or a problem with the router/gateway's WAN connection to the ISP are the most likely causes, since local traffic does not depend on either of those.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Whether DNS resolution is working and whether the gateway has a working WAN connection to the ISP",
+          "correct": true,
+          "explanation": "Correct. Local resources bypass DNS/WAN dependency, so a failure isolated to internet access points to DNS or the WAN uplink."
+        },
+        {
+          "id": "b",
+          "text": "Whether the printer's maintenance kit needs replacement",
+          "correct": false,
+          "explanation": "Printer maintenance is unrelated to a computer's internet access."
+        },
+        {
+          "id": "c",
+          "text": "Whether the CPU is properly seated in its socket",
+          "correct": false,
+          "explanation": "A seating issue would typically prevent the system from booting at all, not selectively block internet access while LAN access works."
+        },
+        {
+          "id": "d",
+          "text": "Whether the RAID array needs to be rebuilt",
+          "correct": false,
+          "explanation": "A RAID array issue on unrelated storage would not selectively block internet access while leaving local file shares reachable."
+        }
+      ]
+    },
+    {
+      "id": "ts-024",
+      "type": "ordering",
+      "topicId": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A technician is following the standard troubleshooting methodology while resolving a user's reported issue. Arrange the phases of this methodology in the correct order, from first contact with the problem to final closure.",
+      "explanation": "The generally accepted troubleshooting methodology starts with identifying the problem by gathering information, then forming and testing a theory of probable cause, then establishing and implementing a plan of action, then verifying full functionality, and finally documenting the findings and outcome for future reference.",
+      "items": [
+        {
+          "id": "i1",
+          "text": "Identify the problem by gathering information from the user and the system"
+        },
+        {
+          "id": "i2",
+          "text": "Establish a theory of probable cause, questioning the obvious first"
+        },
+        {
+          "id": "i3",
+          "text": "Test the theory to determine the actual cause"
+        },
+        {
+          "id": "i4",
+          "text": "Establish a plan of action and implement the solution"
+        },
+        {
+          "id": "i5",
+          "text": "Verify full system functionality and implement preventive measures if applicable"
+        },
+        {
+          "id": "i6",
+          "text": "Document findings, actions taken, and outcomes"
+        }
+      ],
+      "correctOrder": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6"
+      ]
+    }
+  ]
+}
