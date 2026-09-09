@@ -58,7 +58,11 @@ export default function LibraryScreen() {
       onOpenSet={(setId) => router.push(`/set/${setId}`)}
       onImport={() => router.push('/import')}
       inProgress={inProgress}
-      onResume={() => router.push(`/session/${encodeURIComponent(inProgress!.attemptId)}`)}
+      onResume={
+        inProgress
+          ? () => router.push(`/session/${encodeURIComponent(inProgress.attemptId)}`)
+          : undefined
+      }
       onDiscard={() => {
         Alert.alert('Discard this attempt?', 'Your progress will be lost.', [
           { text: 'Keep it', style: 'cancel' },
