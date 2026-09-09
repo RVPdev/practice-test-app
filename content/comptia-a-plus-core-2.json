@@ -1,0 +1,1267 @@
+{
+  "schemaVersion": 1,
+  "id": "comptia-a-plus-core-2-220-1202",
+  "title": "CompTIA A+ Core 2 (220-1202) — Practice Exam",
+  "description": "An original, full-length practice exam aligned to the official CompTIA A+ Core 2 (220-1202) exam objectives (Version 3.0, V15, launched March 2025). This is an independently authored study aid, not official CompTIA content, and is not affiliated with or endorsed by CompTIA. Questions are proportioned across the four official domains by their published exam weight: Operating Systems (28%), Security (28%), Software Troubleshooting (23%), and Operational Procedures (21%).",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    { "id": "operating-systems", "name": "Operating Systems" },
+    { "id": "security", "name": "Security" },
+    { "id": "software-troubleshooting", "name": "Software Troubleshooting" },
+    { "id": "operational-procedures", "name": "Operational Procedures" }
+  ],
+  "exam": {
+    "timeLimitMinutes": 90,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "os-001",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A small business wants a workstation OS with the widest support for commercial productivity and vertical-market business software, and staff are only trained on that ecosystem. Which OS type is the most appropriate baseline choice?",
+      "explanation": "Windows remains the workstation OS with the broadest catalog of commercial and vertical-market business applications, making it the safest default when compatibility with existing commercial software and familiar user training matters most.",
+      "options": [
+        { "id": "a", "text": "Windows", "correct": true, "explanation": "Correct. Windows has the widest compatibility with commercial and vertical-market business applications." },
+        { "id": "b", "text": "Linux", "correct": false, "explanation": "Linux is powerful and flexible but has far less commercial vertical-market software support and a steeper learning curve for untrained staff." },
+        { "id": "c", "text": "Chrome OS", "correct": false, "explanation": "Chrome OS is lightweight and browser-centric, but it cannot run most traditional desktop business applications." },
+        { "id": "d", "text": "iPadOS", "correct": false, "explanation": "iPadOS is a mobile/tablet OS, not a general workstation OS for legacy desktop business software." }
+      ]
+    },
+    {
+      "id": "os-002",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician is formatting an internal drive that will hold the Windows system volume, including per-user NTFS permissions, file encryption, and support for very large files. Which file system should be used?",
+      "explanation": "NTFS supports file- and folder-level permissions, journaling, EFS encryption, and very large file/volume sizes, which is why it is the standard choice for a Windows system volume, unlike FAT32 or exFAT.",
+      "options": [
+        { "id": "a", "text": "NTFS", "correct": true, "explanation": "Correct. NTFS supports permissions, encryption, journaling, and large file sizes needed for a Windows system volume." },
+        { "id": "b", "text": "FAT32", "correct": false, "explanation": "FAT32 lacks native permissions and encryption and caps individual files at 4 GB." },
+        { "id": "c", "text": "exFAT", "correct": false, "explanation": "exFAT is designed for large removable flash media across OSes; it lacks NTFS-style permissions and journaling." },
+        { "id": "d", "text": "ext4", "correct": false, "explanation": "ext4 is a Linux file system, not natively used for a Windows system volume." }
+      ]
+    },
+    {
+      "id": "os-003",
+      "type": "matching",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "Match each file system to the trait that best describes it.",
+      "explanation": "NTFS is the native Windows file system with permissions, encryption, and journaling; exFAT is a lightweight, cross-platform file system popular for large flash drives with no practical file-size cap; ext4 is the common Linux file system; and APFS is Apple's modern file system for macOS and iOS, optimized for flash/SSD storage and snapshots.",
+      "left": [
+        { "id": "fs-ntfs", "text": "NTFS" },
+        { "id": "fs-exfat", "text": "exFAT" },
+        { "id": "fs-ext4", "text": "ext4 (Fourth Extended Filesystem)" },
+        { "id": "fs-apfs", "text": "APFS (Apple File System)" }
+      ],
+      "right": [
+        { "id": "t-ntfs", "text": "Native Windows file system with file/folder permissions, journaling, and EFS encryption support" },
+        { "id": "t-exfat", "text": "Lightweight, cross-platform file system popular for large USB flash drives, without NTFS-style permissions" },
+        { "id": "t-ext4", "text": "The common native journaling file system used by most Linux distributions" },
+        { "id": "t-apfs", "text": "Apple's modern file system optimized for SSD/flash storage, with native snapshot support" }
+      ],
+      "pairs": [
+        { "left": "fs-ntfs", "right": "t-ntfs" },
+        { "left": "fs-exfat", "right": "t-exfat" },
+        { "left": "fs-ext4", "right": "t-ext4" },
+        { "left": "fs-apfs", "right": "t-apfs" }
+      ]
+    },
+    {
+      "id": "os-004",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A user wants an OS made specifically for a large-screen Apple tablet, distinct from the OS used on Apple's phones. Which mobile OS is it?",
+      "explanation": "iPadOS is Apple's tablet-optimized operating system, derived from iOS but tailored for the larger iPad screen and multitasking, while iOS runs on iPhones and Android runs on a wide range of other vendors' devices.",
+      "options": [
+        { "id": "a", "text": "iPadOS", "correct": true, "explanation": "Correct. iPadOS is Apple's tablet-specific mobile OS." },
+        { "id": "b", "text": "iOS", "correct": false, "explanation": "iOS is Apple's OS for iPhones, not the iPad-specific variant." },
+        { "id": "c", "text": "Android", "correct": false, "explanation": "Android is Google's mobile OS used by many other manufacturers, not Apple's tablet OS." },
+        { "id": "d", "text": "Chrome OS", "correct": false, "explanation": "Chrome OS is a browser-centric desktop/laptop OS, not Apple's tablet OS." }
+      ]
+    },
+    {
+      "id": "os-005",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "An organization is still running an OS version that vendor documentation lists as having reached end-of-life (EOL). What is the primary risk of continuing to run it in production?",
+      "explanation": "Once an OS reaches its vendor-defined end-of-life, it stops receiving security patches and updates, leaving newly discovered vulnerabilities permanently unpatched and increasing the organization's exposure to compromise.",
+      "options": [
+        { "id": "a", "text": "The OS will no longer receive security updates, leaving new vulnerabilities unpatched", "correct": true, "explanation": "Correct. EOL means the vendor stops shipping security and feature updates." },
+        { "id": "b", "text": "The OS will automatically uninstall itself after the EOL date", "correct": false, "explanation": "EOL does not trigger automatic removal; the OS keeps running, just without vendor support." },
+        { "id": "c", "text": "The hardware will refuse to POST once the OS is past EOL", "correct": false, "explanation": "Hardware POST is unrelated to OS support lifecycle." },
+        { "id": "d", "text": "All installed applications will stop launching immediately", "correct": false, "explanation": "Applications generally continue to run; the concern is the lack of ongoing security patching." }
+      ]
+    },
+    {
+      "id": "os-006",
+      "type": "ordering",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician is performing a clean install of Windows on a brand-new blank internal drive. Arrange the general steps in the correct order, from boot to a usable desktop.",
+      "explanation": "The technician first boots the installer from external media, creates and formats a partition on the target drive using the correct partition style, copies over and installs the OS files, then finishes by installing device drivers and applying available updates so the system is fully functional and current.",
+      "items": [
+        { "id": "i1", "text": "Boot the installation media (for example, a USB flash drive) and launch Windows Setup" },
+        { "id": "i2", "text": "Create and format a new partition on the target drive" },
+        { "id": "i3", "text": "Allow Setup to copy installation files and install the operating system" },
+        { "id": "i4", "text": "Install device drivers for hardware not covered by in-box drivers" },
+        { "id": "i5", "text": "Check for and apply the latest available Windows updates" }
+      ],
+      "correctOrder": ["i1", "i2", "i3", "i4", "i5"]
+    },
+    {
+      "id": "os-007",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "An IT department wants to reimage 200 new lab computers overnight without inserting removable media into each one. Which boot method best supports this scenario?",
+      "explanation": "A network boot (PXE) lets a machine's NIC request a boot image from a network server, enabling zero-touch, unattended imaging of many machines at once without anyone inserting removable media at each device.",
+      "options": [
+        { "id": "a", "text": "Network (PXE) boot to a remote imaging server", "correct": true, "explanation": "Correct. Network boot enables remote, unattended imaging across many machines." },
+        { "id": "b", "text": "Booting from an internal hard drive partition on each machine individually", "correct": false, "explanation": "This still requires per-machine setup and doesn't scale for unattended mass imaging." },
+        { "id": "c", "text": "Booting from a USB flash drive inserted into each machine", "correct": false, "explanation": "This requires physically visiting and inserting media into every machine, which the scenario wants to avoid." },
+        { "id": "d", "text": "Booting into multiboot menu selection at each workstation", "correct": false, "explanation": "Multiboot assumes an OS is already installed and selectable; it doesn't help with mass unattended imaging." }
+      ]
+    },
+    {
+      "id": "os-008",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician is partitioning a new 4 TB drive for a modern UEFI-based system and needs to support more than four primary partitions along with reliable partition-table redundancy. Which partition style should be used?",
+      "explanation": "GPT (GUID Partition Table) supports drives larger than 2 TB, allows far more than four partitions, and stores redundant copies of the partition table, making it the correct choice for a modern large drive on UEFI firmware, unlike the legacy MBR scheme.",
+      "options": [
+        { "id": "a", "text": "GPT (GUID Partition Table)", "correct": true, "explanation": "Correct. GPT supports large drives, many partitions, and redundant partition-table data." },
+        { "id": "b", "text": "MBR (Master Boot Record)", "correct": false, "explanation": "MBR is limited to four primary partitions and 2 TB addressable space, and lacks partition-table redundancy." },
+        { "id": "c", "text": "exFAT", "correct": false, "explanation": "exFAT is a file system, not a disk partitioning scheme." },
+        { "id": "d", "text": "NTFS", "correct": false, "explanation": "NTFS is a file system used on a volume; it is not the partition table scheme itself." }
+      ]
+    },
+    {
+      "id": "os-009",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician is about to perform an in-place upgrade of a user's Windows installation to a newer version. Which two actions should be completed beforehand? (Choose two.)",
+      "explanation": "Before any OS upgrade, best practice is to back up user files and preferences in case of failure, and verify that installed applications and drivers are compatible with the new version so nothing critical breaks after the upgrade.",
+      "options": [
+        { "id": "a", "text": "Back up the user's files and preferences", "correct": true, "explanation": "Correct. A backup protects data if the upgrade fails or causes data loss." },
+        { "id": "b", "text": "Verify application and driver compatibility with the new OS version", "correct": true, "explanation": "Correct. Confirming compatibility avoids broken software or hardware after the upgrade." },
+        { "id": "c", "text": "Physically destroy the old installation media", "correct": false, "explanation": "There is no reason to destroy media as part of a routine in-place upgrade." },
+        { "id": "d", "text": "Disable the drive's partition table so Setup creates a new one", "correct": false, "explanation": "An in-place upgrade keeps the existing partition and data; there is no need to touch the partition table." }
+      ]
+    },
+    {
+      "id": "os-010",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "An engineering firm needs a Windows edition intended for high-end workstations that supports advanced hardware such as ReFS storage volumes and higher RAM limits than mainstream editions. Which edition fits best?",
+      "explanation": "Windows Pro for Workstations is the edition targeted at high-end workstation hardware, adding support for features like ReFS and higher RAM/CPU limits beyond what standard Windows Pro supports.",
+      "options": [
+        { "id": "a", "text": "Windows Pro for Workstations", "correct": true, "explanation": "Correct. This edition targets high-end workstation hardware with expanded resource limits and ReFS support." },
+        { "id": "b", "text": "Windows Home", "correct": false, "explanation": "Windows Home is the consumer-focused edition and lacks workstation-class features and domain join support." },
+        { "id": "c", "text": "Windows Enterprise", "correct": false, "explanation": "Enterprise focuses on large-scale corporate deployment and management features, not high-end single-workstation hardware limits." },
+        { "id": "d", "text": "Windows Pro", "correct": false, "explanation": "Standard Pro does not include the extended hardware limits/ReFS support of Pro for Workstations." }
+      ]
+    },
+    {
+      "id": "os-011",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A user's older desktop fails Windows 11's hardware compatibility check due to a missing security chip. Which requirement is most likely not being met?",
+      "explanation": "Windows 11 requires a Trusted Platform Module (TPM) version 2.0 for hardware-backed security features; a system lacking a TPM chip (or with it disabled in firmware) will fail the Windows 11 upgrade compatibility check.",
+      "options": [
+        { "id": "a", "text": "Trusted Platform Module (TPM) 2.0", "correct": true, "explanation": "Correct. TPM 2.0 is a mandatory Windows 11 hardware requirement." },
+        { "id": "b", "text": "A discrete GPU", "correct": false, "explanation": "Windows 11 does not require a discrete graphics card." },
+        { "id": "c", "text": "A minimum of 32 GB of RAM", "correct": false, "explanation": "Windows 11's minimum RAM requirement is far lower than 32 GB." },
+        { "id": "d", "text": "A 5G cellular modem", "correct": false, "explanation": "Cellular connectivity is not a Windows 11 system requirement." }
+      ]
+    },
+    {
+      "id": "os-012",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "In a small office with no central server, ten computers each manage their own local user accounts and share printers and folders directly with each other. What networking model is this?",
+      "explanation": "A workgroup is a peer-to-peer networking model where each computer maintains its own local accounts and resources, as opposed to a domain, where a central server (domain controller) manages accounts and shared resources.",
+      "options": [
+        { "id": "a", "text": "Workgroup", "correct": true, "explanation": "Correct. A workgroup is a peer-to-peer model with locally managed accounts on each machine." },
+        { "id": "b", "text": "Domain", "correct": false, "explanation": "A domain relies on a central domain controller to manage accounts, which this office lacks." },
+        { "id": "c", "text": "Active Directory forest", "correct": false, "explanation": "A forest is a collection of domains, which requires domain controllers this office does not have." },
+        { "id": "d", "text": "VPN tunnel", "correct": false, "explanation": "A VPN is a secure remote connection technology, not a local network account model." }
+      ]
+    },
+    {
+      "id": "os-013",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician needs to review a detailed log of application errors and system warnings that occurred overnight on a Windows machine. Which tool should be used?",
+      "explanation": "Event Viewer (eventvwr.msc) is the Microsoft Management Console snap-in used to review Windows Application, System, and Security logs, including error and warning events recorded over time.",
+      "options": [
+        { "id": "a", "text": "Event Viewer (eventvwr.msc)", "correct": true, "explanation": "Correct. Event Viewer displays detailed logged system and application events." },
+        { "id": "b", "text": "Disk Cleanup (cleanmgr.exe)", "correct": false, "explanation": "Disk Cleanup removes unnecessary files; it does not show event logs." },
+        { "id": "c", "text": "Task Scheduler (taskschd.msc)", "correct": false, "explanation": "Task Scheduler manages scheduled tasks, not historical error/warning logs." },
+        { "id": "d", "text": "Disk Defragment (dfrgui.exe)", "correct": false, "explanation": "Disk Defragment optimizes file placement on disk; it doesn't show logs." }
+      ]
+    },
+    {
+      "id": "os-014",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A technician wants to temporarily disable non-essential startup services and programs to help isolate a boot problem, and then easily restore normal startup afterward. Which tool is designed for this?",
+      "explanation": "System Configuration (msconfig.exe) provides a Selective/Diagnostic startup mode to disable startup items and services temporarily for troubleshooting, with a straightforward way to switch back to Normal startup afterward.",
+      "options": [
+        { "id": "a", "text": "System Configuration (msconfig.exe)", "correct": true, "explanation": "Correct. msconfig offers Selective/Diagnostic startup modes for isolating boot issues." },
+        { "id": "b", "text": "Resource Monitor (resmon.exe)", "correct": false, "explanation": "Resource Monitor shows live resource usage; it doesn't toggle startup items." },
+        { "id": "c", "text": "Certificate Manager (certmgr.msc)", "correct": false, "explanation": "Certificate Manager manages digital certificates, unrelated to startup troubleshooting." },
+        { "id": "d", "text": "Local Users and Groups (lusrmgr.msc)", "correct": false, "explanation": "This manages local accounts and groups, not startup behavior." }
+      ]
+    },
+    {
+      "id": "os-015",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician is troubleshooting a workstation that cannot reach the internet. Which two Windows command-line tools would help diagnose basic network connectivity? (Choose two.)",
+      "explanation": "ipconfig reveals the machine's current IP configuration (address, gateway, DNS), and ping tests basic reachability to another host, making both fundamental first steps for network connectivity troubleshooting.",
+      "options": [
+        { "id": "a", "text": "ipconfig", "correct": true, "explanation": "Correct. ipconfig shows the current IP address, subnet mask, and gateway configuration." },
+        { "id": "b", "text": "ping", "correct": true, "explanation": "Correct. ping tests basic reachability to a target host or gateway." },
+        { "id": "c", "text": "chkdsk", "correct": false, "explanation": "chkdsk checks disk integrity, not network connectivity." },
+        { "id": "d", "text": "robocopy", "correct": false, "explanation": "robocopy copies files/directories; it does not test network reachability." }
+      ]
+    },
+    {
+      "id": "os-016",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician needs to copy an entire folder structure to a new server, automatically retrying on transient network errors and preserving file permissions. Which command-line tool is best suited?",
+      "explanation": "robocopy (Robust File Copy) is designed for reliable bulk file/folder copying, including automatic retry on failure and options to preserve attributes and permissions, making it more suitable than basic file-management commands for this task.",
+      "options": [
+        { "id": "a", "text": "robocopy", "correct": true, "explanation": "Correct. robocopy is built for robust, resumable bulk copy operations." },
+        { "id": "b", "text": "md", "correct": false, "explanation": "md only creates a new directory; it does not copy files." },
+        { "id": "c", "text": "rmdir", "correct": false, "explanation": "rmdir removes directories; it doesn't copy data." },
+        { "id": "d", "text": "hostname", "correct": false, "explanation": "hostname just displays the computer's network name." }
+      ]
+    },
+    {
+      "id": "os-017",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A user needs to add a new network printer and manage existing printer drivers and default printers on a Windows PC. Which Control Panel item should they open?",
+      "explanation": "Devices and Printers is the Control Panel item used to add, remove, and manage printers and other peripheral devices, including setting a default printer.",
+      "options": [
+        { "id": "a", "text": "Devices and Printers", "correct": true, "explanation": "Correct. This is where printers and other devices are added and managed." },
+        { "id": "b", "text": "Indexing Options", "correct": false, "explanation": "Indexing Options controls what content Windows Search indexes, unrelated to printers." },
+        { "id": "c", "text": "Sound", "correct": false, "explanation": "Sound manages audio devices and playback settings, not printers." },
+        { "id": "d", "text": "Network and Sharing Center", "correct": false, "explanation": "This manages network connections and sharing settings, not printer installation directly." }
+      ]
+    },
+    {
+      "id": "os-018",
+      "type": "boolean",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "True or false: Windows' Fast Startup feature performs a full shutdown that completely closes the kernel session every time the computer is powered off.",
+      "answer": false,
+      "explanation": "This is false. Fast Startup actually hibernates the kernel session (saving it to disk) rather than fully closing it, so the next boot resumes faster. This is also why Fast Startup can interfere with actions like disk changes that expect a true full shutdown."
+    },
+    {
+      "id": "os-019",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A company is deploying an internal file server whose address must never change so that other systems can reliably reference it. What IP addressing approach should be used for that server?",
+      "explanation": "Servers and other infrastructure that other systems depend on by address should use a static IP configuration so their address never changes, unlike client workstations, which typically use DHCP-assigned dynamic addresses.",
+      "options": [
+        { "id": "a", "text": "A static IP address configured on the server", "correct": true, "explanation": "Correct. A static address guarantees the server's IP never changes." },
+        { "id": "b", "text": "A dynamic IP address leased from DHCP", "correct": false, "explanation": "A DHCP lease can change or expire, which is undesirable for a server other systems depend on by address." },
+        { "id": "c", "text": "An APIPA address in the 169.254.x.x range", "correct": false, "explanation": "APIPA addresses are self-assigned fallback addresses used only when DHCP is unavailable; they are not routable and not appropriate for a server." },
+        { "id": "d", "text": "A loopback address", "correct": false, "explanation": "127.0.0.1 (loopback) only refers to the local machine and can't be used by other systems to reach the server." }
+      ]
+    },
+    {
+      "id": "os-020",
+      "type": "boolean",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "True or false: When a Windows network connection is set as a metered connection, Windows may restrict background data usage such as automatic app and OS updates to conserve bandwidth.",
+      "answer": true,
+      "explanation": "This is true. Marking a connection as metered signals Windows to limit background data consumption, including deferring some automatic updates and syncing, to help avoid overage charges on limited data plans."
+    },
+    {
+      "id": "os-021",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A user wants to ensure that if their MacBook is lost or stolen, the data on its internal drive cannot be read without the correct credentials. Which macOS feature should be enabled?",
+      "explanation": "FileVault is macOS's built-in full-disk encryption feature, which protects data at rest so the internal drive's contents cannot be read without the correct password or recovery key, even if removed and connected to another machine.",
+      "options": [
+        { "id": "a", "text": "FileVault", "correct": true, "explanation": "Correct. FileVault provides full-disk encryption for macOS." },
+        { "id": "b", "text": "Time Machine", "correct": false, "explanation": "Time Machine is macOS's backup feature, not an encryption feature." },
+        { "id": "c", "text": "Mission Control", "correct": false, "explanation": "Mission Control is a window/desktop management feature, unrelated to encryption." },
+        { "id": "d", "text": "Spotlight", "correct": false, "explanation": "Spotlight is macOS's system-wide search feature, unrelated to disk encryption." }
+      ]
+    },
+    {
+      "id": "os-022",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are native macOS features for organizing open windows and quickly finding files or launching apps? (Choose two.)",
+      "explanation": "Mission Control gives a bird's-eye view of open windows and virtual desktops for organization, while Spotlight is macOS's fast, system-wide search used to find files, launch apps, and perform quick calculations.",
+      "options": [
+        { "id": "a", "text": "Mission Control", "correct": true, "explanation": "Correct. Mission Control organizes and displays open windows and spaces." },
+        { "id": "b", "text": "Spotlight", "correct": true, "explanation": "Correct. Spotlight is macOS's system-wide search and quick-launch tool." },
+        { "id": "c", "text": "Disk Management", "correct": false, "explanation": "Disk Management is a Windows MMC snap-in, not a macOS feature." },
+        { "id": "d", "text": "Group Policy Editor", "correct": false, "explanation": "Group Policy Editor is a Windows administrative tool, not part of macOS." }
+      ]
+    },
+    {
+      "id": "os-023",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "On a Linux system, a script file needs to be made executable by its owner. Which command accomplishes this?",
+      "explanation": "chmod changes a file's permission bits, including the executable bit; running something like chmod +x scriptname or chmod 744 scriptname makes the file executable for the owner.",
+      "options": [
+        { "id": "a", "text": "chmod", "correct": true, "explanation": "Correct. chmod modifies file permissions, including the executable bit." },
+        { "id": "b", "text": "chown", "correct": false, "explanation": "chown changes file ownership, not the permission bits." },
+        { "id": "c", "text": "grep", "correct": false, "explanation": "grep searches text for patterns; it does not change permissions." },
+        { "id": "d", "text": "mv", "correct": false, "explanation": "mv moves or renames files; it does not alter permissions." }
+      ]
+    },
+    {
+      "id": "os-024",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A vendor's application requires more than 4 GB of RAM to be usable by a single process and needs to run natively rather than under a compatibility layer. Which type of application build is required?",
+      "explanation": "A 64-bit application can natively address far more memory than the roughly 4 GB ceiling of a 32-bit process, so an application requiring more than 4 GB per process must be a native 64-bit build.",
+      "options": [
+        { "id": "a", "text": "A 64-bit application", "correct": true, "explanation": "Correct. 64-bit applications can natively address memory well beyond the 32-bit limit." },
+        { "id": "b", "text": "A 32-bit application", "correct": false, "explanation": "32-bit applications are generally limited to about 4 GB of addressable memory per process." },
+        { "id": "c", "text": "A browser-based web application only", "correct": false, "explanation": "The scenario specifies a native application requirement, not a browser-hosted one." },
+        { "id": "d", "text": "A 16-bit legacy application", "correct": false, "explanation": "16-bit applications have an even smaller addressable memory space and are largely obsolete on modern OSes." }
+      ]
+    },
+    {
+      "id": "os-025",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "When provisioning a new employee's account in a cloud-based productivity suite (such as hosted email and office apps), which two tasks are part of a typical setup? (Choose two.)",
+      "explanation": "Setting up cloud productivity tools for a user typically involves synchronizing their identity (so the same login works across services) and assigning them the correct license, which unlocks the apps and storage they are entitled to use.",
+      "options": [
+        { "id": "a", "text": "Configuring identity synchronization for the user's account", "correct": true, "explanation": "Correct. Identity synchronization keeps the user's credentials consistent across on-premises and cloud systems." },
+        { "id": "b", "text": "Assigning the appropriate software license to the user", "correct": true, "explanation": "Correct. License assignment grants the user access to the cloud apps and storage included in their plan." },
+        { "id": "c", "text": "Physically reimaging the user's local hard drive", "correct": false, "explanation": "Reimaging a local drive is unrelated to provisioning a cloud productivity account." },
+        { "id": "d", "text": "Replacing the user's network interface card", "correct": false, "explanation": "Hardware replacement has nothing to do with cloud account provisioning." }
+      ]
+    },
+    {
+      "id": "sec-001",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "A data center wants a physical security control that only allows one person to pass through a small enclosed space at a time, with the second door not opening until the first is closed. What is this control called?",
+      "explanation": "An access control vestibule (sometimes called a mantrap) is a small enclosed space with two interlocked doors, ensuring only one person can pass through at a time and preventing tailgating into a secure area.",
+      "options": [
+        { "id": "a", "text": "Access control vestibule", "correct": true, "explanation": "Correct. This interlocking double-door design prevents more than one person entering at once." },
+        { "id": "b", "text": "Bollard", "correct": false, "explanation": "A bollard is a sturdy post used to stop vehicles, not a personnel entry control." },
+        { "id": "c", "text": "Badge reader", "correct": false, "explanation": "A badge reader authenticates a badge but doesn't by itself prevent more than one person entering." },
+        { "id": "d", "text": "Motion sensor", "correct": false, "explanation": "A motion sensor detects movement for alarms/lighting; it does not physically control entry." }
+      ]
+    },
+    {
+      "id": "sec-002",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A security team wants to redesign access so that no user or device is trusted by default, even if it is already inside the corporate network, and every request must be verified. Which model are they adopting?",
+      "explanation": "The Zero Trust model assumes no implicit trust for any user or device, inside or outside the network perimeter, and requires continuous verification for every access request, contrasting with older perimeter-based trust models.",
+      "options": [
+        { "id": "a", "text": "Zero Trust model", "correct": true, "explanation": "Correct. Zero Trust requires verification for every request, regardless of network location." },
+        { "id": "b", "text": "Principle of least privilege applied only to guest accounts", "correct": false, "explanation": "Least privilege is a related but distinct concept about minimizing granted rights, not about eliminating implicit network trust." },
+        { "id": "c", "text": "Single sign-on (SSO)", "correct": false, "explanation": "SSO is an authentication convenience feature, not a trust model for verifying every request." },
+        { "id": "d", "text": "Directory services replication", "correct": false, "explanation": "Directory replication synchronizes directory data between servers; it is unrelated to a zero-trust access model." }
+      ]
+    },
+    {
+      "id": "sec-003",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A company is enabling multifactor authentication (MFA) for its VPN login. Which two of the following are valid additional authentication factors to pair with a password? (Choose two.)",
+      "explanation": "MFA combines factors from different categories: something you know (a password), something you have (a hardware token or an authenticator app code), and something you are (biometrics). A time-based one-time password from an authenticator app and a hardware token are both valid \"something you have\" factors.",
+      "options": [
+        { "id": "a", "text": "A time-based one-time password (TOTP) from an authenticator app", "correct": true, "explanation": "Correct. A TOTP code is a valid \"something you have\" possession factor." },
+        { "id": "b", "text": "A hardware security token", "correct": true, "explanation": "Correct. A hardware token is a classic possession factor for MFA." },
+        { "id": "c", "text": "Typing the same password a second time", "correct": false, "explanation": "Repeating the same password is still only the \"something you know\" factor, not an additional factor." },
+        { "id": "d", "text": "Entering the username again", "correct": false, "explanation": "A username is an identifier, not an authentication factor at all." }
+      ]
+    },
+    {
+      "id": "sec-004",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An organization wants employees to log in once and gain access to multiple cloud applications without re-entering credentials for each one. Which concept enables this?",
+      "explanation": "Single sign-on (SSO) lets a user authenticate once and then access multiple connected applications and services without logging in again separately for each one, often implemented using standards like SAML.",
+      "options": [
+        { "id": "a", "text": "Single sign-on (SSO)", "correct": true, "explanation": "Correct. SSO allows one authentication event to grant access across multiple applications." },
+        { "id": "b", "text": "Access control list (ACL)", "correct": false, "explanation": "An ACL defines permissions on a resource; it doesn't consolidate logins across apps." },
+        { "id": "c", "text": "Data loss prevention (DLP)", "correct": false, "explanation": "DLP prevents sensitive data from leaving an organization; it is unrelated to consolidated login." },
+        { "id": "d", "text": "Mobile device management (MDM)", "correct": false, "explanation": "MDM manages and secures mobile devices; it does not itself provide cross-application single sign-on." }
+      ]
+    },
+    {
+      "id": "sec-005",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A folder is shared over the network with Share permissions set to \"Full Control\" for a group, while the underlying NTFS permissions for the same group are set to \"Read.\" When a user in that group accesses the folder remotely over the network, what is their effective permission?",
+      "explanation": "When NTFS and share permissions differ for the same access path, the more restrictive of the two applies. Here, NTFS Read is more restrictive than Share Full Control, so the effective network access is Read only.",
+      "options": [
+        { "id": "a", "text": "Read only, because the more restrictive of the two permission sets applies", "correct": true, "explanation": "Correct. The most restrictive combination of NTFS and share permissions determines effective access." },
+        { "id": "b", "text": "Full Control, because share permissions always override NTFS permissions", "correct": false, "explanation": "Share permissions do not simply override NTFS permissions; the more restrictive setting wins." },
+        { "id": "c", "text": "Full Control, because NTFS permissions only apply to local logons", "correct": false, "explanation": "NTFS permissions also apply to remote/network access to the same files, not just local logons." },
+        { "id": "d", "text": "No access at all, because the settings conflict", "correct": false, "explanation": "Conflicting permissions do not result in no access; the more restrictive permission (Read) is granted, not a total block." }
+      ]
+    },
+    {
+      "id": "sec-006",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "A standard user attempts to install new software, and Windows displays a prompt asking for administrator credentials before the installation proceeds. Which Windows security feature is responsible for this prompt?",
+      "explanation": "User Account Control (UAC) intercepts actions that require elevated privileges and prompts for administrator approval or credentials, helping prevent unauthorized or accidental system-level changes.",
+      "options": [
+        { "id": "a", "text": "User Account Control (UAC)", "correct": true, "explanation": "Correct. UAC prompts for elevation before allowing privileged actions." },
+        { "id": "b", "text": "BitLocker", "correct": false, "explanation": "BitLocker encrypts drive volumes; it does not prompt for elevation during software installs." },
+        { "id": "c", "text": "Windows Defender Firewall", "correct": false, "explanation": "The firewall controls network traffic, not privilege elevation prompts." },
+        { "id": "d", "text": "Encrypting File System (EFS)", "correct": false, "explanation": "EFS encrypts individual files/folders; it is unrelated to the UAC elevation prompt." }
+      ]
+    },
+    {
+      "id": "sec-007",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A user wants to encrypt a single sensitive folder for their own account, without requiring a TPM chip or encrypting the entire drive. Which Windows feature fits this need?",
+      "explanation": "Encrypting File System (EFS) allows encryption of individual files and folders tied to a specific user account, unlike BitLocker, which encrypts an entire volume and typically leverages a TPM for key protection.",
+      "options": [
+        { "id": "a", "text": "Encrypting File System (EFS)", "correct": true, "explanation": "Correct. EFS encrypts individual files/folders per user account without requiring full-volume encryption." },
+        { "id": "b", "text": "BitLocker", "correct": false, "explanation": "BitLocker performs full-volume encryption and commonly relies on a TPM, which the scenario wants to avoid." },
+        { "id": "c", "text": "BitLocker To Go", "correct": false, "explanation": "BitLocker To Go encrypts entire removable drives, not a single folder on an internal disk." },
+        { "id": "d", "text": "Windows Defender Firewall", "correct": false, "explanation": "The firewall filters network traffic; it does not provide file/folder encryption." }
+      ]
+    },
+    {
+      "id": "sec-008",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A new employee's computer is being joined to the corporate Active Directory domain. Which two of the following are typical parts of that onboarding configuration? (Choose two.)",
+      "explanation": "Joining a domain typically includes assigning the user's account to the correct organizational unit with applicable Group Policy, and configuring items like a login script or home folder as part of centralized account management in Active Directory.",
+      "options": [
+        { "id": "a", "text": "Joining the computer to the appropriate domain", "correct": true, "explanation": "Correct. Domain join is the foundational step for centralized account management." },
+        { "id": "b", "text": "Assigning a login script and/or home folder to the user account", "correct": true, "explanation": "Correct. Login scripts and home folders are commonly configured through Active Directory user objects." },
+        { "id": "c", "text": "Formatting the drive using FAT32 for domain compatibility", "correct": false, "explanation": "Domain join does not require FAT32; NTFS is standard and required for many AD-related features like EFS and permissions." },
+        { "id": "d", "text": "Disabling the network adapter permanently", "correct": false, "explanation": "Disabling networking would prevent the machine from communicating with the domain controller at all." }
+      ]
+    },
+    {
+      "id": "sec-009",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An organization is upgrading its wireless network encryption and wants the strongest currently available Wi-Fi security protocol, replacing an older WPA2 deployment. Which protocol should it adopt?",
+      "explanation": "WPA3 is the newest and strongest Wi-Fi security protocol, improving on WPA2 with stronger encryption and protections against offline password-guessing attacks, and should be preferred over WPA2 or the older, deprecated TKIP.",
+      "options": [
+        { "id": "a", "text": "WPA3", "correct": true, "explanation": "Correct. WPA3 is the current strongest standard Wi-Fi security protocol." },
+        { "id": "b", "text": "WPA2", "correct": false, "explanation": "WPA2 is still reasonably secure but has been superseded by the stronger WPA3." },
+        { "id": "c", "text": "TKIP", "correct": false, "explanation": "TKIP is an older, deprecated encryption protocol with known weaknesses." },
+        { "id": "d", "text": "An open network with no encryption", "correct": false, "explanation": "An open network provides no wireless encryption at all and should never be used for a secured deployment." }
+      ]
+    },
+    {
+      "id": "sec-010",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A company wants a centralized authentication, authorization, and accounting (AAA) service so that network administrators must authenticate against a central server before making changes on routers and switches. Which protocol is purpose-built for device administration AAA?",
+      "explanation": "TACACS+ is designed specifically for network device administration, separating authentication, authorization, and accounting and encrypting the entire packet payload, which is why it's commonly preferred over RADIUS for controlling administrative access to routers and switches.",
+      "options": [
+        { "id": "a", "text": "TACACS+", "correct": true, "explanation": "Correct. TACACS+ is purpose-built for AAA in network device administration." },
+        { "id": "b", "text": "Kerberos", "correct": false, "explanation": "Kerberos is a ticket-based authentication protocol commonly used in Windows domains, not primarily for device admin AAA." },
+        { "id": "c", "text": "WPA2", "correct": false, "explanation": "WPA2 is a wireless encryption protocol, not an AAA protocol for device administration." },
+        { "id": "d", "text": "AES", "correct": false, "explanation": "AES is a symmetric encryption algorithm, not an authentication/authorization protocol." }
+      ]
+    },
+    {
+      "id": "sec-011",
+      "type": "matching",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Match each type of malware to the description that best fits it.",
+      "explanation": "Ransomware encrypts a victim's files and demands payment for the decryption key; a keylogger secretly records keystrokes to steal credentials; a rootkit hides itself deep in the OS to maintain covert, privileged access; and spyware quietly monitors user activity and exfiltrates information without consent.",
+      "left": [
+        { "id": "m-ransom", "text": "Ransomware" },
+        { "id": "m-key", "text": "Keylogger" },
+        { "id": "m-rootkit", "text": "Rootkit" },
+        { "id": "m-spy", "text": "Spyware" }
+      ],
+      "right": [
+        { "id": "d-ransom", "text": "Encrypts a victim's files and demands payment for the decryption key" },
+        { "id": "d-key", "text": "Secretly records a user's keystrokes to capture passwords and other sensitive input" },
+        { "id": "d-rootkit", "text": "Conceals itself deep within the OS to maintain hidden, privileged access" },
+        { "id": "d-spy", "text": "Quietly monitors user activity and sends information to a third party without consent" }
+      ],
+      "pairs": [
+        { "left": "m-ransom", "right": "d-ransom" },
+        { "left": "m-key", "right": "d-key" },
+        { "left": "m-rootkit", "right": "d-rootkit" },
+        { "left": "m-spy", "right": "d-spy" }
+      ]
+    },
+    {
+      "id": "sec-012",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A security team wants a tool that continuously monitors endpoint behavior, can automatically isolate a compromised host, and provides investigators with detailed forensic timelines, going beyond simple signature-based scanning. Which tool category fits best?",
+      "explanation": "Endpoint detection and response (EDR) tools continuously monitor endpoint behavior, detect suspicious activity beyond static signatures, and support automated containment and forensic investigation, unlike traditional antivirus, which mainly relies on signature matching.",
+      "options": [
+        { "id": "a", "text": "Endpoint detection and response (EDR)", "correct": true, "explanation": "Correct. EDR provides continuous behavioral monitoring, containment, and forensic capability." },
+        { "id": "b", "text": "Traditional signature-based antivirus alone", "correct": false, "explanation": "Basic antivirus mainly detects known malware signatures and lacks the behavioral monitoring and forensic depth described." },
+        { "id": "c", "text": "A pop-up blocker", "correct": false, "explanation": "A pop-up blocker only suppresses browser pop-up windows; it has no endpoint monitoring capability." },
+        { "id": "d", "text": "A password manager", "correct": false, "explanation": "A password manager stores and generates credentials; it does not monitor endpoint behavior." }
+      ]
+    },
+    {
+      "id": "sec-013",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Which two of the following social engineering attacks are specifically carried out over voice calls or SMS text messages rather than email? (Choose two.)",
+      "explanation": "Vishing is phishing conducted over a voice call, and smishing is phishing conducted via SMS text message. Spear phishing and whaling are both email-based, targeted phishing variants rather than voice/SMS attacks.",
+      "options": [
+        { "id": "a", "text": "Vishing", "correct": true, "explanation": "Correct. Vishing is voice-call-based phishing." },
+        { "id": "b", "text": "Smishing", "correct": true, "explanation": "Correct. Smishing is SMS-text-based phishing." },
+        { "id": "c", "text": "Spear phishing", "correct": false, "explanation": "Spear phishing is a targeted, typically email-based attack, not specifically voice or SMS." },
+        { "id": "d", "text": "Whaling", "correct": false, "explanation": "Whaling targets high-profile executives, typically via email, not specifically voice or SMS." }
+      ]
+    },
+    {
+      "id": "sec-014",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "An attacker closely watches an employee's fingers and screen from a nearby seat on public transit in order to learn their phone's unlock PIN. What social engineering technique is this?",
+      "explanation": "Shoulder surfing is the technique of directly observing someone entering credentials, a PIN, or other sensitive information by watching over their shoulder or from a nearby vantage point.",
+      "options": [
+        { "id": "a", "text": "Shoulder surfing", "correct": true, "explanation": "Correct. Shoulder surfing is directly observing someone entering sensitive information." },
+        { "id": "b", "text": "Tailgating", "correct": false, "explanation": "Tailgating is following an authorized person through a secured physical door without their own credentials." },
+        { "id": "c", "text": "Dumpster diving", "correct": false, "explanation": "Dumpster diving involves searching discarded trash for sensitive information, not visual observation." },
+        { "id": "d", "text": "Impersonation", "correct": false, "explanation": "Impersonation means pretending to be someone else, not visually observing a PIN entry." }
+      ]
+    },
+    {
+      "id": "sec-015",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An attacker intercepts traffic between a user and a legitimate website by positioning themselves between the two, secretly relaying and possibly altering the communication without either party's knowledge. What type of attack is this?",
+      "explanation": "An on-path attack (formerly called a man-in-the-middle attack) occurs when an attacker secretly positions themselves between two communicating parties to intercept, relay, or alter their traffic.",
+      "options": [
+        { "id": "a", "text": "On-path attack", "correct": true, "explanation": "Correct. An on-path attack intercepts and relays traffic between two parties." },
+        { "id": "b", "text": "Denial of service (DoS)", "correct": false, "explanation": "A DoS attack aims to make a service unavailable, not to intercept traffic between two parties." },
+        { "id": "c", "text": "Dictionary attack", "correct": false, "explanation": "A dictionary attack tries a list of likely passwords against an account; it does not intercept ongoing traffic." },
+        { "id": "d", "text": "Zero-day attack", "correct": false, "explanation": "A zero-day attack exploits a previously unknown vulnerability; it doesn't describe traffic interception specifically." }
+      ]
+    },
+    {
+      "id": "sec-016",
+      "type": "ordering",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A technician confirms that a SOHO desktop is infected with malware. Arrange the following remediation steps in the correct order.",
+      "explanation": "The standard remediation flow starts by confirming and investigating the symptoms, then isolating the infected machine from the network so the infection cannot spread, disabling System Restore in Windows Home so a clean restore point isn't poisoned by old infected snapshots, updating anti-malware definitions and running scans/removal, and finally re-enabling System Restore with a fresh restore point and educating the end user to help prevent reinfection.",
+      "items": [
+        { "id": "i1", "text": "Investigate and verify the reported malware symptoms" },
+        { "id": "i2", "text": "Quarantine (isolate) the infected system from the network" },
+        { "id": "i3", "text": "Disable System Restore in Windows Home" },
+        { "id": "i4", "text": "Update anti-malware software and run scans to remediate the infection" },
+        { "id": "i5", "text": "Schedule follow-up scans and enable updates" },
+        { "id": "i6", "text": "Enable System Restore, create a new restore point, and educate the end user" }
+      ],
+      "correctOrder": ["i1", "i2", "i3", "i4", "i5", "i6"]
+    },
+    {
+      "id": "sec-017",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A company's password policy currently only requires 6 characters with no complexity rules. Which change would most improve resistance to brute-force and dictionary attacks?",
+      "explanation": "Increasing minimum password length combined with requiring varied character types (uppercase, lowercase, numbers, symbols) dramatically increases the possible combinations an attacker must try, making brute-force and dictionary attacks far less practical.",
+      "options": [
+        { "id": "a", "text": "Require a longer minimum length and a mix of character types", "correct": true, "explanation": "Correct. Longer, more complex passwords greatly increase the search space attackers must brute-force." },
+        { "id": "b", "text": "Allow the same password to be reused indefinitely without expiration", "correct": false, "explanation": "Removing expiration and reuse restrictions weakens password hygiene rather than strengthening it." },
+        { "id": "c", "text": "Reduce the minimum length to make passwords easier to remember", "correct": false, "explanation": "Shorter passwords are easier to brute-force, weakening security." },
+        { "id": "d", "text": "Allow the password to be identical to the username", "correct": false, "explanation": "Allowing the username as the password is a well-known, trivially guessable weakness." }
+      ]
+    },
+    {
+      "id": "sec-018",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "As part of hardening a new workstation image before deployment, which two actions reduce its attack surface? (Choose two.)",
+      "explanation": "Disabling AutoRun prevents removable media from automatically executing potentially malicious code, and disabling unused services reduces the number of running processes an attacker could exploit. Both are standard workstation hardening steps.",
+      "options": [
+        { "id": "a", "text": "Disable AutoRun for removable media", "correct": true, "explanation": "Correct. Disabling AutoRun prevents automatic execution of code from removable media." },
+        { "id": "b", "text": "Disable unused services", "correct": true, "explanation": "Correct. Turning off unnecessary services reduces the attack surface." },
+        { "id": "c", "text": "Enable the built-in guest account with no password", "correct": false, "explanation": "Enabling a passwordless guest account increases attack surface rather than reducing it." },
+        { "id": "d", "text": "Remove all account lockout thresholds", "correct": false, "explanation": "Removing lockout thresholds makes brute-force login attempts easier, weakening security." }
+      ]
+    },
+    {
+      "id": "sec-019",
+      "type": "boolean",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "True or false: As a workstation hardening best practice, the default administrator account's username and password on a router or workstation should be changed immediately after initial setup.",
+      "answer": true,
+      "explanation": "This is true. Default credentials are widely known or easily guessed, so changing the default administrator username and password immediately after setup is a fundamental hardening step for both network devices and workstations."
+    },
+    {
+      "id": "sec-020",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A company laptop is reported stolen, and it contains sensitive client data with no full-disk encryption enabled. Which action should be taken immediately to protect the data on the device?",
+      "explanation": "A remote wipe erases the device's data as soon as it next connects to a network (or immediately, if already connected), which is the fastest way to protect sensitive data on a lost or stolen device that isn't already fully encrypted.",
+      "options": [
+        { "id": "a", "text": "Issue a remote wipe command through the mobile device/endpoint management platform", "correct": true, "explanation": "Correct. A remote wipe erases data on the device to prevent unauthorized access." },
+        { "id": "b", "text": "Wait for the device to be physically recovered before taking any action", "correct": false, "explanation": "Waiting leaves sensitive data exposed for as long as the device remains missing." },
+        { "id": "c", "text": "Change the Wi-Fi password on the office router only", "correct": false, "explanation": "Changing the office Wi-Fi password does not protect data already stored on the missing device." },
+        { "id": "d", "text": "Disable the company's email server entirely", "correct": false, "explanation": "Shutting down email service is disproportionate and does not address data already on the stolen device." }
+      ]
+    },
+    {
+      "id": "sec-021",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are effective methods for securing company-owned mobile devices against unauthorized access? (Choose two.)",
+      "explanation": "Requiring a screen lock (PIN, pattern, or biometric) prevents casual unauthorized access if the device is picked up, and enforcing regular OS and application patch management closes known security vulnerabilities that attackers could otherwise exploit.",
+      "options": [
+        { "id": "a", "text": "Enforcing a screen lock (PIN, pattern, or biometric)", "correct": true, "explanation": "Correct. A screen lock is a baseline control against casual unauthorized access." },
+        { "id": "b", "text": "Enforcing regular OS and application patch management", "correct": true, "explanation": "Correct. Timely patching closes known vulnerabilities on the device." },
+        { "id": "c", "text": "Disabling all screen lock requirements for convenience", "correct": false, "explanation": "Disabling screen locks removes a fundamental protection rather than adding one." },
+        { "id": "d", "text": "Allowing unrestricted installation from any unofficial app store", "correct": false, "explanation": "Allowing unrestricted sideloading from unofficial sources increases risk rather than securing the device." }
+      ]
+    },
+    {
+      "id": "sec-022",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A company must dispose of several failed hard drives that contained highly sensitive data, and needs a method that renders the drives' data unrecoverable using specialized recovery equipment, without necessarily destroying the physical platters. Which method best fits?",
+      "explanation": "Degaussing uses a powerful magnetic field to scramble the magnetic domains on a hard drive's platters, rendering the stored data unrecoverable, without necessarily physically destroying the drive itself the way shredding or drilling does.",
+      "options": [
+        { "id": "a", "text": "Degaussing", "correct": true, "explanation": "Correct. Degaussing magnetically erases data without necessarily destroying the physical drive." },
+        { "id": "b", "text": "Standard formatting", "correct": false, "explanation": "A standard format typically only clears the file table and can often be reversed with recovery tools." },
+        { "id": "c", "text": "Low-level formatting from within the OS's disk utility only", "correct": false, "explanation": "OS-level formatting is not equivalent to certified data-destruction methods and may still leave recoverable data." },
+        { "id": "d", "text": "Renaming the files on the drive", "correct": false, "explanation": "Renaming files does nothing to the underlying data and offers no protection at all." }
+      ]
+    },
+    {
+      "id": "sec-023",
+      "type": "boolean",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "True or false: When disposing of old batteries and toner cartridges, an organization can simply place them in regular trash as long as the surrounding area is well ventilated.",
+      "answer": false,
+      "explanation": "This is false. Batteries and toner are regulated materials with specific environmental and regulatory disposal requirements (often outlined in a Material Safety Data Sheet), and organizations must follow proper recycling or hazardous-waste disposal procedures rather than placing them in regular trash."
+    },
+    {
+      "id": "sec-024",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A technician is hardening a newly installed SOHO wireless router before handing it off to the customer. Beyond changing the default administrator password, which additional action best reduces the router's exposure to automated attacks from the internet?",
+      "explanation": "Disabling Universal Plug and Play (UPnP) reduces the router's exposure, since UPnP allows devices on the network to automatically open ports without administrator review, which attackers and malware can abuse to expose internal services to the internet.",
+      "options": [
+        { "id": "a", "text": "Disable Universal Plug and Play (UPnP)", "correct": true, "explanation": "Correct. Disabling UPnP prevents devices from automatically opening risky port forwards." },
+        { "id": "b", "text": "Enable the router's guest network with the same password as the main network", "correct": false, "explanation": "Reusing the same password for a guest network defeats the purpose of network segmentation." },
+        { "id": "c", "text": "Broadcast the SSID at maximum power in all directions", "correct": false, "explanation": "Maximizing SSID broadcast range does not improve security and can increase exposure." },
+        { "id": "d", "text": "Leave remote management enabled with default credentials", "correct": false, "explanation": "Leaving remote management on with default credentials is a serious security risk, not a mitigation." }
+      ]
+    },
+    {
+      "id": "sec-025",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A user is about to enter payment information on a website and wants to confirm the connection is encrypted with a certificate issued to that specific domain before proceeding. What should they check in the browser?",
+      "explanation": "Before entering sensitive information, a user should verify the connection uses HTTPS with a valid certificate matching the site's domain, which browsers indicate with a lock icon and certificate details, confirming the traffic is encrypted and the site's identity has been validated.",
+      "options": [
+        { "id": "a", "text": "That the site uses HTTPS with a valid certificate issued to that domain", "correct": true, "explanation": "Correct. A valid HTTPS certificate confirms encryption and validated site identity." },
+        { "id": "b", "text": "That the browser's pop-up blocker is turned off", "correct": false, "explanation": "The pop-up blocker setting has no bearing on connection security or certificate validity." },
+        { "id": "c", "text": "That the browser's cache was cleared within the last hour", "correct": false, "explanation": "Clearing cache does not verify whether the current connection is secure." },
+        { "id": "d", "text": "That browser extensions are all disabled", "correct": false, "explanation": "Disabling extensions is unrelated to verifying the site's certificate and connection security." }
+      ]
+    },
+    {
+      "id": "swt-001",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A Windows PC intermittently displays a blue screen of death (BSOD) referencing a specific driver file. What is the most effective first troubleshooting step?",
+      "explanation": "When a BSOD names a specific driver, the most direct first step is to research that stop code/driver, then update or roll back the identified driver, since faulty or incompatible drivers are a leading cause of BSODs.",
+      "options": [
+        { "id": "a", "text": "Research the stop code and update or roll back the named driver", "correct": true, "explanation": "Correct. The named driver is the most direct lead for resolving a BSOD." },
+        { "id": "b", "text": "Immediately reinstall the entire operating system from scratch", "correct": false, "explanation": "A full reinstall is a drastic, time-consuming step that skips more targeted troubleshooting of the named driver." },
+        { "id": "c", "text": "Replace the power supply unit without further diagnosis", "correct": false, "explanation": "Nothing in the scenario points to the power supply; the BSOD references a specific driver instead." },
+        { "id": "d", "text": "Increase the monitor's refresh rate", "correct": false, "explanation": "Display refresh rate has no relationship to a driver-related BSOD." }
+      ]
+    },
+    {
+      "id": "swt-002",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "easy",
+      "prompt": "A user's Windows account has become very slow to load at sign-in over the past few weeks, though other accounts on the same PC log in normally. What is a likely cause?",
+      "explanation": "A slow profile load that only affects one account is often caused by a corrupted or bloated user profile (for example, excessive startup items, corrupted profile data, or a large roaming profile), whereas problems affecting every account point to a system-wide issue instead.",
+      "options": [
+        { "id": "a", "text": "A corrupted or bloated user profile specific to that account", "correct": true, "explanation": "Correct. Since only one account is affected, the issue is most likely isolated to that user's profile." },
+        { "id": "b", "text": "A failing power supply", "correct": false, "explanation": "A failing PSU would typically cause broader instability affecting all users, not just slow profile load for one account." },
+        { "id": "c", "text": "A bad HDMI cable", "correct": false, "explanation": "A display cable issue would affect video output, not sign-in profile load time." },
+        { "id": "d", "text": "An incorrect monitor resolution setting", "correct": false, "explanation": "Monitor resolution has no bearing on how long a user profile takes to load." }
+      ]
+    },
+    {
+      "id": "swt-003",
+      "type": "multi",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A desktop has recently started randomly rebooting and occasionally shows BSODs referencing memory-management errors. Which two symptoms would further support a diagnosis of failing RAM? (Choose two.)",
+      "explanation": "Failing RAM commonly produces general system instability (random crashes/freezes unrelated to any one application) and repeated BSODs, especially those citing memory-management errors, both of which corroborate a RAM problem rather than, say, a cosmetic display issue.",
+      "options": [
+        { "id": "a", "text": "General system instability and random freezes across different applications", "correct": true, "explanation": "Correct. Instability spanning unrelated applications is a classic sign of a hardware memory issue." },
+        { "id": "b", "text": "Frequent, unexplained BSODs even under light usage", "correct": true, "explanation": "Correct. Repeated BSODs, especially referencing memory errors, support a failing RAM diagnosis." },
+        { "id": "c", "text": "The desktop wallpaper reverting to default after each update", "correct": false, "explanation": "A reverted wallpaper is a cosmetic settings issue, unrelated to RAM failure." },
+        { "id": "d", "text": "The mouse cursor theme changing unexpectedly", "correct": false, "explanation": "A changed cursor theme is a minor settings/cosmetic issue, not evidence of failing RAM." }
+      ]
+    },
+    {
+      "id": "swt-004",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A desktop's system clock keeps drifting and losing several minutes every day, even right after being manually corrected, and the BIOS also periodically resets to defaults. What is the most likely cause?",
+      "explanation": "A dying CMOS battery is a classic cause of persistent time drift combined with BIOS settings resetting to defaults, since that battery keeps the real-time clock and CMOS settings powered when the system is off.",
+      "options": [
+        { "id": "a", "text": "A failing CMOS battery", "correct": true, "explanation": "Correct. A weak or dead CMOS battery causes both time drift and BIOS settings resets." },
+        { "id": "b", "text": "A corrupted user profile", "correct": false, "explanation": "A user profile issue would not cause BIOS settings to reset or the hardware clock to drift." },
+        { "id": "c", "text": "An outdated web browser", "correct": false, "explanation": "The browser has no control over the system's hardware clock or BIOS/CMOS settings." },
+        { "id": "d", "text": "A missing printer driver", "correct": false, "explanation": "A printer driver issue would affect printing, not the system clock or BIOS settings." }
+      ]
+    },
+    {
+      "id": "swt-005",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "After a failed Windows update, a PC boots to a black screen with a \"No OS found\" style message. Which action should a technician try first?",
+      "explanation": "A \"No OS found\" message after a failed update often points to boot configuration corruption; using Windows Recovery Environment tools to repair the boot files/bootloader is typically the appropriate first step before considering more drastic measures like a full reinstall.",
+      "options": [
+        { "id": "a", "text": "Boot into the Windows Recovery Environment and attempt a startup/boot repair", "correct": true, "explanation": "Correct. Startup repair from the recovery environment directly targets boot configuration issues like this." },
+        { "id": "b", "text": "Immediately low-level format the drive and start over", "correct": false, "explanation": "A full format destroys all data and is far more drastic than trying a startup repair first." },
+        { "id": "c", "text": "Replace the monitor cable", "correct": false, "explanation": "The symptom described is a boot/OS issue, not a display connectivity issue." },
+        { "id": "d", "text": "Reseat the keyboard", "correct": false, "explanation": "A keyboard connection issue would not produce a \"No OS found\" message." }
+      ]
+    },
+    {
+      "id": "swt-006",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "easy",
+      "prompt": "A mobile app repeatedly fails to complete downloading its update from the app store. Which is the most common, simplest cause to check first?",
+      "explanation": "Insufficient available storage space on the device is one of the most common and simplest reasons an app update repeatedly fails to download or install, and is the easiest thing to check before investigating more complex causes.",
+      "options": [
+        { "id": "a", "text": "Insufficient free storage space on the device", "correct": true, "explanation": "Correct. Low storage is a very common and easily checked cause of failed app updates." },
+        { "id": "b", "text": "A cracked rear camera lens", "correct": false, "explanation": "A cracked camera lens is a physical hardware issue unrelated to app update failures." },
+        { "id": "c", "text": "An incorrect display brightness setting", "correct": false, "explanation": "Display brightness has no effect on whether an app update downloads successfully." },
+        { "id": "d", "text": "A worn-out charging cable", "correct": false, "explanation": "A charging cable issue would affect charging, not the app store's ability to download an update." }
+      ]
+    },
+    {
+      "id": "swt-007",
+      "type": "multi",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user reports that their phone frequently loses connection to their wireless earbuds and also cannot reliably tap-to-pay using NFC. Which two connectivity technologies should be checked first? (Choose two.)",
+      "explanation": "Wireless earbuds most commonly connect over Bluetooth, and tap-to-pay relies on NFC, so both of those specific radios/technologies should be checked first, rather than unrelated technologies like Wi-Fi alone.",
+      "options": [
+        { "id": "a", "text": "Bluetooth", "correct": true, "explanation": "Correct. Bluetooth is the connectivity method used by most wireless earbuds." },
+        { "id": "b", "text": "Near-field communication (NFC)", "correct": true, "explanation": "Correct. NFC is the technology behind tap-to-pay functionality." },
+        { "id": "c", "text": "The device's screen brightness sensor", "correct": false, "explanation": "The ambient light/brightness sensor has nothing to do with earbud pairing or tap-to-pay." },
+        { "id": "d", "text": "The device's vibration motor", "correct": false, "explanation": "The vibration motor produces haptic feedback and is unrelated to Bluetooth or NFC connectivity." }
+      ]
+    },
+    {
+      "id": "swt-008",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user's smartphone battery drains far faster than normal after installing a new app, even when the phone is idle and screen is off. What should a technician check first?",
+      "explanation": "When battery drain worsens right after installing a new app, checking that app's battery usage statistics (to see if it is running excessive background activity) is the most direct first troubleshooting step before assuming a hardware battery fault.",
+      "options": [
+        { "id": "a", "text": "The new app's background battery/activity usage in device settings", "correct": true, "explanation": "Correct. Since drain began after installing the app, its background activity is the most direct first thing to check." },
+        { "id": "b", "text": "The phone's screen protector thickness", "correct": false, "explanation": "A screen protector has no effect on battery drain." },
+        { "id": "c", "text": "The case color", "correct": false, "explanation": "Case color is purely cosmetic and unrelated to battery drain." },
+        { "id": "d", "text": "The SIM card's physical size", "correct": false, "explanation": "SIM card form factor has no relationship to app-driven battery drain." }
+      ]
+    },
+    {
+      "id": "swt-009",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A tablet's screen no longer rotates automatically when the device is turned sideways, even though other display functions work normally. Which setting should be checked first?",
+      "explanation": "Auto-rotate failing while the rest of the display works normally is most commonly caused by the device's rotation lock being enabled, so checking and disabling that setting/quick toggle is the appropriate first step.",
+      "options": [
+        { "id": "a", "text": "Whether the device's rotation lock (auto-rotate toggle) is enabled", "correct": true, "explanation": "Correct. An enabled rotation lock directly prevents the screen from auto-rotating." },
+        { "id": "b", "text": "The Wi-Fi antenna connection", "correct": false, "explanation": "Wi-Fi connectivity is unrelated to screen orientation behavior." },
+        { "id": "c", "text": "The device's default browser setting", "correct": false, "explanation": "The default browser choice has no effect on screen rotation." },
+        { "id": "d", "text": "The installed keyboard language pack", "correct": false, "explanation": "A keyboard language pack has no bearing on auto-rotate functionality." }
+      ]
+    },
+    {
+      "id": "swt-010",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user's smartphone shows unusually high network data usage even when no apps are actively being used, along with sluggish performance. What does this combination of symptoms most strongly suggest?",
+      "explanation": "Unusually high background network traffic combined with degraded performance, without corresponding legitimate app usage, is a common indicator of malicious or unauthorized software running on a mobile device, such as spyware exfiltrating data.",
+      "options": [
+        { "id": "a", "text": "A malicious or unauthorized application running in the background", "correct": true, "explanation": "Correct. High unexplained network traffic and degraded performance together strongly suggest hidden malicious activity." },
+        { "id": "b", "text": "The device's screen brightness is set too high", "correct": false, "explanation": "Screen brightness affects battery drain and visibility, not network data usage." },
+        { "id": "c", "text": "The user recently changed their wallpaper", "correct": false, "explanation": "A wallpaper change has no effect on background network traffic or performance." },
+        { "id": "d", "text": "The device's language setting was changed", "correct": false, "explanation": "A language setting change would not cause elevated background data usage." }
+      ]
+    },
+    {
+      "id": "swt-011",
+      "type": "multi",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Which two symptoms are strong indicators that a mobile device may be compromised by malicious software? (Choose two.)",
+      "explanation": "Personal files or data unexpectedly appearing leaked online, and a sudden flood of ads (adware/PUP behavior) beyond what any installed app should generate, are both classic signs of a compromised mobile device, unlike routine, expected notifications.",
+      "options": [
+        { "id": "a", "text": "Personal files or account data turning up leaked without explanation", "correct": true, "explanation": "Correct. Leaked personal data is a strong indicator of a security compromise." },
+        { "id": "b", "text": "An unusually high number of ads appearing outside of any specific app", "correct": true, "explanation": "Correct. A flood of unexpected ads across the device is a common adware/PUP symptom." },
+        { "id": "c", "text": "A calendar reminder the user scheduled themselves appearing on time", "correct": false, "explanation": "A self-scheduled reminder appearing as expected is normal behavior, not a compromise indicator." },
+        { "id": "d", "text": "The device correctly displaying the current time zone while traveling", "correct": false, "explanation": "Correct time zone detection while traveling is expected, normal functionality." }
+      ]
+    },
+    {
+      "id": "swt-012",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user has jailbroken/rooted their company-issued phone to install an unsupported app. What is the primary security concern this introduces?",
+      "explanation": "Rooting or jailbreaking removes built-in OS restrictions and sandboxing protections, making it much easier for malicious or unauthorized applications to gain elevated access to the device and its data, which is why it's treated as a significant security risk on managed devices.",
+      "options": [
+        { "id": "a", "text": "It removes built-in OS security restrictions, making the device far more vulnerable to malicious apps", "correct": true, "explanation": "Correct. Root/jailbreak access bypasses the sandboxing and permission model that normally limits app behavior." },
+        { "id": "b", "text": "It permanently disables the device's touchscreen", "correct": false, "explanation": "Rooting/jailbreaking does not disable the touchscreen." },
+        { "id": "c", "text": "It automatically encrypts all data more strongly", "correct": false, "explanation": "Rooting/jailbreaking does not improve encryption; it typically weakens the device's overall security posture." },
+        { "id": "d", "text": "It voids the manufacturer's ability to push carrier signal updates only, with no other effect", "correct": false, "explanation": "This understates the risk; the real concern is the broad removal of OS security restrictions, not just carrier updates." }
+      ]
+    },
+    {
+      "id": "swt-013",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "easy",
+      "prompt": "A user installed an app from a website outside of the official app store, and shortly after, their phone began showing unexpected pop-ups and unfamiliar background activity. What is the most likely cause?",
+      "explanation": "Installing apps from unofficial, unvetted sources bypasses the app store's security review, making it far more likely to introduce malicious or unwanted software, which matches the sudden pop-ups and unfamiliar activity described.",
+      "options": [
+        { "id": "a", "text": "A malicious application installed from an unofficial source", "correct": true, "explanation": "Correct. Sideloaded apps from unofficial sources are a common source of malware on mobile devices." },
+        { "id": "b", "text": "A firmware update from the device manufacturer", "correct": false, "explanation": "An official manufacturer firmware update would not typically cause sudden unexplained pop-ups or unfamiliar background activity." },
+        { "id": "c", "text": "A scheduled OS backup", "correct": false, "explanation": "A routine backup process does not produce pop-ups or unfamiliar background activity." },
+        { "id": "d", "text": "A new wallpaper being applied", "correct": false, "explanation": "Changing a wallpaper has no relationship to pop-ups or background activity." }
+      ]
+    },
+    {
+      "id": "swt-014",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user reports that typing a normal web address into their browser repeatedly redirects them to unrelated advertising or scam sites. What does this symptom most likely indicate?",
+      "explanation": "Unexpected browser redirection to unrelated sites, especially when it happens consistently regardless of the address typed, is a classic symptom of browser hijacking malware or a malicious extension altering browser behavior.",
+      "options": [
+        { "id": "a", "text": "Browser hijacking malware or a malicious extension", "correct": true, "explanation": "Correct. Persistent unwanted redirection is a hallmark symptom of a hijacked browser." },
+        { "id": "b", "text": "A normal software update notification", "correct": false, "explanation": "A routine update notification does not redirect the browser to unrelated advertising sites." },
+        { "id": "c", "text": "The monitor's color calibration profile", "correct": false, "explanation": "A color calibration profile affects on-screen color rendering, not browser navigation." },
+        { "id": "d", "text": "A print spooler service failure", "correct": false, "explanation": "A print spooler issue affects printing, not web browsing redirection." }
+      ]
+    },
+    {
+      "id": "swt-015",
+      "type": "multi",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user reports that several of their personal documents on a PC appear to be missing or have been renamed with unfamiliar extensions, and some files can no longer be opened at all. Which two conclusions are most consistent with these symptoms? (Choose two.)",
+      "explanation": "Files being renamed with unfamiliar extensions and becoming inaccessible are classic symptoms of ransomware or other file-altering malware, and altered/missing files in general are a commonly listed PC security symptom that warrants investigation and remediation.",
+      "options": [
+        { "id": "a", "text": "The system may be infected with ransomware or similar file-altering malware", "correct": true, "explanation": "Correct. Renamed files with unfamiliar extensions that won't open are a textbook ransomware symptom." },
+        { "id": "b", "text": "The user's files and system may have been altered without authorization and should be investigated", "correct": true, "explanation": "Correct. Missing or altered personal files are a recognized indicator of a security incident requiring investigation." },
+        { "id": "c", "text": "The monitor needs a firmware update", "correct": false, "explanation": "A monitor firmware issue has nothing to do with files being renamed or becoming inaccessible." },
+        { "id": "d", "text": "The keyboard layout was changed to a different language", "correct": false, "explanation": "A keyboard layout change does not rename or lock files." }
+      ]
+    },
+    {
+      "id": "swt-016",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user reports a full-screen pop-up claiming their computer is \"infected\" and urging them to call a phone number or pay to remove threats, even though their actual antivirus shows no detections. What is this most likely?",
+      "explanation": "This scenario describes a fake security warning (scareware), a social-engineering tactic designed to frighten users into calling a scam number or paying for fake removal services, distinct from a legitimate antivirus alert.",
+      "options": [
+        { "id": "a", "text": "A fake security warning (scareware) designed to trick the user", "correct": true, "explanation": "Correct. Alarming full-screen pop-ups pushing a phone call or payment are a hallmark of scareware." },
+        { "id": "b", "text": "A legitimate antivirus quarantine notification", "correct": false, "explanation": "The scenario states the real antivirus shows no detections, so this is not a legitimate alert from it." },
+        { "id": "c", "text": "A normal Windows Update reminder", "correct": false, "explanation": "A Windows Update reminder does not urge users to call a number or pay to remove threats." },
+        { "id": "d", "text": "A scheduled disk defragmentation notice", "correct": false, "explanation": "Disk defragmentation notices do not resemble alarming infection warnings demanding payment or calls." }
+      ]
+    },
+    {
+      "id": "swt-017",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "While browsing, a user's browser repeatedly shows warnings that a site's security certificate is invalid or untrusted, even for well-known websites. What should the technician suspect first?",
+      "explanation": "Widespread, unusual certificate warnings across well-known sites can indicate on-path interception (such as malware or a rogue proxy altering traffic), or a badly incorrect system clock, both of which cause the browser to distrust certificates it would normally accept.",
+      "options": [
+        { "id": "a", "text": "Malware or a rogue proxy intercepting traffic, or a badly incorrect system clock", "correct": true, "explanation": "Correct. Both traffic interception and a wrong system date/time commonly cause widespread certificate trust failures." },
+        { "id": "b", "text": "A perfectly normal, expected browsing experience with no cause for concern", "correct": false, "explanation": "Repeated certificate warnings on well-known sites are not normal and warrant investigation." },
+        { "id": "c", "text": "The user's mouse driver is outdated", "correct": false, "explanation": "A mouse driver has no relationship to certificate validation in the browser." },
+        { "id": "d", "text": "The printer's toner cartridge is low", "correct": false, "explanation": "Printer supplies are unrelated to browser certificate warnings." }
+      ]
+    },
+    {
+      "id": "swt-018",
+      "type": "boolean",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "True or false: Frequent, unexpected browser pop-ups combined with noticeably degraded browser performance are commonly listed symptoms consistent with adware or other unwanted software.",
+      "answer": true,
+      "explanation": "This is true. Adware and other unwanted or malicious browser add-ons commonly cause frequent pop-ups and degraded browsing performance, making these recognized symptoms worth investigating as a potential infection."
+    },
+    {
+      "id": "swt-019",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A Windows PC has become progressively slower over several months, with high disk and CPU usage even at idle. Which initial troubleshooting step is most appropriate before considering a full reinstall?",
+      "explanation": "Checking Task Manager for processes consuming excessive CPU, disk, or memory at idle is a low-risk, high-value first step for diagnosing gradually worsening degraded performance, since it can immediately reveal a runaway process or malware before resorting to a full reinstall.",
+      "options": [
+        { "id": "a", "text": "Open Task Manager to identify which process is consuming excessive resources at idle", "correct": true, "explanation": "Correct. Task Manager quickly reveals what is driving high CPU/disk usage, guiding further action." },
+        { "id": "b", "text": "Immediately reinstall Windows from scratch without further investigation", "correct": false, "explanation": "A full reinstall is a last resort; less invasive diagnostics should be tried first." },
+        { "id": "c", "text": "Replace the monitor", "correct": false, "explanation": "A monitor replacement would not address high CPU/disk usage or general slowness." },
+        { "id": "d", "text": "Disable the wireless mouse receiver", "correct": false, "explanation": "The wireless mouse receiver has no bearing on system-wide performance degradation." }
+      ]
+    },
+    {
+      "id": "swt-020",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Immediately after a mobile app receives an update, it now crashes every time it is opened, while it worked fine before the update. What is the most likely explanation?",
+      "explanation": "A crash that begins right after an app update strongly suggests a bug or compatibility issue introduced by that specific update, making steps like clearing the app's cache, reinstalling it, or waiting for a patch the appropriate next actions.",
+      "options": [
+        { "id": "a", "text": "The recent app update introduced a bug or compatibility issue", "correct": true, "explanation": "Correct. The timing directly links the crash to the update itself." },
+        { "id": "b", "text": "The phone's SIM card is defective", "correct": false, "explanation": "A defective SIM would affect cellular connectivity, not cause a specific app to crash on launch after an update." },
+        { "id": "c", "text": "The device's screen protector is scratched", "correct": false, "explanation": "A scratched screen protector is a cosmetic/physical issue unrelated to app crashes." },
+        { "id": "d", "text": "The user's Wi-Fi password was recently changed", "correct": false, "explanation": "A changed Wi-Fi password would affect connectivity, not cause an app to crash immediately on launch." }
+      ]
+    },
+    {
+      "id": "opr-001",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "A help desk ticketing system needs a field to indicate how urgently a particular issue must be addressed relative to other open tickets. Which ticket field is this?",
+      "explanation": "Severity is the ticket field used to indicate how urgent or impactful an issue is, which helps drive escalation and prioritization decisions among competing open tickets.",
+      "options": [
+        { "id": "a", "text": "Severity", "correct": true, "explanation": "Correct. Severity indicates the urgency/impact used to prioritize tickets." },
+        { "id": "b", "text": "Device information", "correct": false, "explanation": "Device information records asset details, not urgency." },
+        { "id": "c", "text": "User information", "correct": false, "explanation": "User information records who reported the issue, not its urgency." },
+        { "id": "d", "text": "Category", "correct": false, "explanation": "Category classifies the type of issue, not necessarily how urgent it is." }
+      ]
+    },
+    {
+      "id": "opr-002",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "An IT department wants a single system that tracks all hardware and software assets, their relationships, and configuration details across the organization. Which tool serves this purpose?",
+      "explanation": "A configuration management database (CMDB) is the centralized repository that tracks IT assets, their configurations, and the relationships between them, supporting change management and asset management processes.",
+      "options": [
+        { "id": "a", "text": "Configuration management database (CMDB)", "correct": true, "explanation": "Correct. A CMDB centrally tracks assets, configurations, and their relationships." },
+        { "id": "b", "text": "Acceptable use policy (AUP)", "correct": false, "explanation": "An AUP is a policy document about appropriate system use, not an asset-tracking database." },
+        { "id": "c", "text": "End-user license agreement (EULA)", "correct": false, "explanation": "A EULA is a software licensing contract, not an asset database." },
+        { "id": "d", "text": "Non-disclosure agreement (NDA)", "correct": false, "explanation": "An NDA is a confidentiality contract, unrelated to asset tracking." }
+      ]
+    },
+    {
+      "id": "opr-003",
+      "type": "matching",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "Match each backup type to its description.",
+      "explanation": "A full backup copies all selected data every time; an incremental backup copies only data changed since the last backup of any type (fastest to run, slower to restore); a differential backup copies all data changed since the last full backup (grows each day until the next full); and a synthetic full backup builds an equivalent to a full backup by combining a prior full backup with subsequent incrementals, without re-reading all the source data.",
+      "left": [
+        { "id": "b-full", "text": "Full backup" },
+        { "id": "b-incr", "text": "Incremental backup" },
+        { "id": "b-diff", "text": "Differential backup" },
+        { "id": "b-synth", "text": "Synthetic full backup" }
+      ],
+      "right": [
+        { "id": "bd-full", "text": "Copies all selected data in every backup run" },
+        { "id": "bd-incr", "text": "Copies only data changed since the most recent backup of any type" },
+        { "id": "bd-diff", "text": "Copies all data changed since the last full backup" },
+        { "id": "bd-synth", "text": "Combines a prior full backup with later incrementals to produce an equivalent full backup without rereading all source data" }
+      ],
+      "pairs": [
+        { "left": "b-full", "right": "bd-full" },
+        { "left": "b-incr", "right": "bd-incr" },
+        { "left": "b-diff", "right": "bd-diff" },
+        { "left": "b-synth", "right": "bd-synth" }
+      ]
+    },
+    {
+      "id": "opr-004",
+      "type": "ordering",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "An IT team wants to apply a routine, non-emergency configuration change to a production server following proper change management procedure. Arrange the steps in the correct order.",
+      "explanation": "Proper change management starts with documenting the proposed change, including scope, purpose, and a rollback plan, then submitting it for review and approval from the change advisory board, testing the change in a sandbox where possible, implementing it during an approved maintenance window, and finally documenting the outcome and getting end-user acceptance.",
+      "items": [
+        { "id": "i1", "text": "Document the purpose, scope, and rollback plan for the proposed change" },
+        { "id": "i2", "text": "Submit the change request and obtain change board approval" },
+        { "id": "i3", "text": "Test the change in a sandbox environment where possible" },
+        { "id": "i4", "text": "Implement the change during the approved maintenance window" },
+        { "id": "i5", "text": "Document the results and obtain end-user acceptance" }
+      ],
+      "correctOrder": ["i1", "i2", "i3", "i4", "i5"]
+    },
+    {
+      "id": "opr-005",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A planned change to a production system's configuration causes unexpected failures shortly after implementation. What predefined element of the change request should the team use to restore the previous working state?",
+      "explanation": "A rollback plan (sometimes called a backout plan) is the predefined procedure documented as part of a change request for reverting the system to its previous working state if the change causes problems.",
+      "options": [
+        { "id": "a", "text": "The rollback plan", "correct": true, "explanation": "Correct. The rollback plan documents exactly how to revert a failed change." },
+        { "id": "b", "text": "The acceptable use policy", "correct": false, "explanation": "An AUP governs appropriate system usage, not how to revert a failed technical change." },
+        { "id": "c", "text": "The end-user license agreement", "correct": false, "explanation": "A EULA is a software licensing document unrelated to reverting a failed change." },
+        { "id": "d", "text": "The knowledge base article", "correct": false, "explanation": "A knowledge base article provides general reference information, not the specific rollback procedure for this change." }
+      ]
+    },
+    {
+      "id": "opr-006",
+      "type": "multi",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "When submitting a formal change request for a production system, which two elements should typically be documented as part of that request? (Choose two.)",
+      "explanation": "A well-formed change request documents the risk analysis (assessing potential impact and likelihood of problems) and identifies the affected systems/impact, so reviewers and the change board can make an informed approval decision.",
+      "options": [
+        { "id": "a", "text": "A risk analysis, including the assessed risk level", "correct": true, "explanation": "Correct. Risk analysis helps the change board weigh the potential impact of approving the change." },
+        { "id": "b", "text": "The systems and users that will be affected by the change", "correct": true, "explanation": "Correct. Identifying affected systems/impact is essential for planning and communication." },
+        { "id": "c", "text": "The personal home address of every end user", "correct": false, "explanation": "Personal home addresses have no bearing on a technical change request and would be inappropriate to collect." },
+        { "id": "d", "text": "The color scheme of the company's marketing materials", "correct": false, "explanation": "Marketing materials are unrelated to a technical change management request." }
+      ]
+    },
+    {
+      "id": "opr-007",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A company wants a backup rotation scheme that keeps daily, weekly, and monthly backup sets, retiring the oldest sets in each tier as new ones are created, to balance storage costs with recovery flexibility. What is this scheme called?",
+      "explanation": "The Grandfather-Father-Son (GFS) rotation scheme organizes backups into daily (son), weekly (father), and monthly (grandfather) tiers, retiring the oldest set in each tier as new backups are created, balancing storage use with the ability to restore from various points in time.",
+      "options": [
+        { "id": "a", "text": "Grandfather-Father-Son (GFS)", "correct": true, "explanation": "Correct. GFS organizes backups into daily/weekly/monthly retention tiers." },
+        { "id": "b", "text": "The 3-2-1 backup rule", "correct": false, "explanation": "The 3-2-1 rule is about the number and location of backup copies, not a tiered daily/weekly/monthly rotation scheme." },
+        { "id": "c", "text": "Zero Trust", "correct": false, "explanation": "Zero Trust is a security access model, unrelated to backup rotation." },
+        { "id": "d", "text": "Single sign-on", "correct": false, "explanation": "SSO is an authentication convenience feature, unrelated to backup rotation." }
+      ]
+    },
+    {
+      "id": "opr-008",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A backup strategy calls for maintaining three total copies of critical data, on two different types of media, with one copy stored offsite. What backup principle is being followed?",
+      "explanation": "The 3-2-1 backup rule recommends keeping at least three total copies of data, on two different media types, with at least one copy stored offsite, to protect against media failure, site disasters, and other single points of failure.",
+      "options": [
+        { "id": "a", "text": "The 3-2-1 backup rule", "correct": true, "explanation": "Correct. This describes the classic 3 copies / 2 media types / 1 offsite guidance." },
+        { "id": "b", "text": "The Grandfather-Father-Son rotation scheme", "correct": false, "explanation": "GFS describes a tiered retention schedule, not the specific 3-copies/2-media/1-offsite rule described." },
+        { "id": "c", "text": "The principle of least privilege", "correct": false, "explanation": "Least privilege is an access-control concept, unrelated to backup copy strategy." },
+        { "id": "d", "text": "The chain of custody", "correct": false, "explanation": "Chain of custody tracks evidence handling, unrelated to backup copy strategy." }
+      ]
+    },
+    {
+      "id": "opr-009",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Before opening a desktop case to handle internal components, a technician wants to prevent a static discharge from damaging sensitive electronics. What should they wear?",
+      "explanation": "An ESD (electrostatic discharge) strap, properly grounded, safely channels away static electricity from the technician's body before they touch sensitive internal components, preventing damage from static discharge.",
+      "options": [
+        { "id": "a", "text": "A properly grounded ESD strap", "correct": true, "explanation": "Correct. An ESD strap safely discharges static electricity before it can damage components." },
+        { "id": "b", "text": "Safety goggles", "correct": false, "explanation": "Safety goggles protect the eyes, not components, from electrostatic discharge." },
+        { "id": "c", "text": "An air filter mask", "correct": false, "explanation": "An air filter mask protects against inhaling dust/particulates, not static discharge." },
+        { "id": "d", "text": "Steel-toed boots", "correct": false, "explanation": "Steel-toed boots protect feet from impact, unrelated to ESD protection." }
+      ]
+    },
+    {
+      "id": "opr-010",
+      "type": "boolean",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "True or false: As a personal safety best practice, a technician should disconnect power from a desktop PC before opening the case to perform internal repairs.",
+      "answer": true,
+      "explanation": "This is true. Disconnecting power before opening a case protects the technician from electrical shock and helps prevent damage to components while working inside the machine."
+    },
+    {
+      "id": "opr-011",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A technician needs detailed information about the hazards, safe handling, and proper disposal procedures for a chemical solvent used in the repair shop. Which document should they consult?",
+      "explanation": "A Material Safety Data Sheet (MSDS) provides detailed information on a chemical or material's hazards, safe handling practices, and proper disposal procedures, and is the standard reference for items like solvents, batteries, and toner.",
+      "options": [
+        { "id": "a", "text": "The Material Safety Data Sheet (MSDS) for that solvent", "correct": true, "explanation": "Correct. The MSDS documents hazards, handling, and disposal guidance for the material." },
+        { "id": "b", "text": "The end-user license agreement for the shop's inventory software", "correct": false, "explanation": "A software EULA has nothing to do with chemical hazards or disposal." },
+        { "id": "c", "text": "The company's acceptable use policy", "correct": false, "explanation": "An AUP governs computer/network use, not chemical safety information." },
+        { "id": "d", "text": "The service-level agreement with a vendor", "correct": false, "explanation": "An SLA defines service commitments, not chemical hazard/disposal information." }
+      ]
+    },
+    {
+      "id": "opr-012",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A server room experiences occasional brief power sags and momentary outages that cause servers to reboot unexpectedly. Which device would best prevent this from affecting the servers?",
+      "explanation": "An uninterruptible power supply (UPS) provides battery backup power during outages and momentary sags, keeping equipment running (or allowing a graceful shutdown), unlike a surge suppressor, which only protects against voltage spikes and provides no backup power.",
+      "options": [
+        { "id": "a", "text": "An uninterruptible power supply (UPS)", "correct": true, "explanation": "Correct. A UPS provides battery backup through outages and sags, unlike a simple surge suppressor." },
+        { "id": "b", "text": "A basic surge suppressor only", "correct": false, "explanation": "A surge suppressor only protects against voltage spikes; it provides no backup power during an outage or sag." },
+        { "id": "c", "text": "An additional cooling fan", "correct": false, "explanation": "A cooling fan addresses temperature, not power interruptions." },
+        { "id": "d", "text": "A longer network cable", "correct": false, "explanation": "Cable length has no relationship to power stability." }
+      ]
+    },
+    {
+      "id": "opr-013",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A company wants to use a piece of software whose source code is publicly available, and which anyone is legally permitted to inspect, modify, and redistribute under its terms. What kind of license is this?",
+      "explanation": "An open-source license makes a program's source code publicly available and grants broad rights to inspect, modify, and redistribute it, under specific terms, in contrast to a standard commercial EULA that restricts use of proprietary, closed-source software.",
+      "options": [
+        { "id": "a", "text": "An open-source license", "correct": true, "explanation": "Correct. Open-source licenses grant rights to view, modify, and redistribute source code." },
+        { "id": "b", "text": "A personal-use-only license", "correct": false, "explanation": "A personal-use license restricts use to an individual and does not necessarily grant source code access or redistribution rights." },
+        { "id": "c", "text": "A corporate-use license", "correct": false, "explanation": "A corporate-use license grants organizational usage rights but does not itself imply open source code access." },
+        { "id": "d", "text": "A non-disclosure agreement", "correct": false, "explanation": "An NDA is a confidentiality contract between parties, not a software licensing type." }
+      ]
+    },
+    {
+      "id": "opr-014",
+      "type": "multi",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "Which two categories of information are generally considered regulated data requiring special handling and protection? (Choose two.)",
+      "explanation": "Healthcare data (protected health information) and credit card/payment information are both classic examples of regulated data subject to specific legal and industry compliance requirements (such as HIPAA or PCI DSS), unlike a company's public marketing slogan.",
+      "options": [
+        { "id": "a", "text": "Healthcare data", "correct": true, "explanation": "Correct. Healthcare data is regulated information requiring special handling (for example, under HIPAA)." },
+        { "id": "b", "text": "Credit card payment information", "correct": true, "explanation": "Correct. Payment card data is regulated information subject to standards like PCI DSS." },
+        { "id": "c", "text": "The company's publicly published marketing slogan", "correct": false, "explanation": "A public marketing slogan is not sensitive or regulated data." },
+        { "id": "d", "text": "The office's publicly listed general phone number", "correct": false, "explanation": "A publicly listed general phone number is not regulated personal or sensitive data." }
+      ]
+    },
+    {
+      "id": "opr-015",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "During an incident response investigation, a technician must be able to prove exactly who handled a piece of evidence (such as a seized hard drive) and when, from collection through to any hand-off. What concept describes this documented handling record?",
+      "explanation": "Chain of custody is the documented, unbroken record of who collected, handled, and transferred a piece of evidence and when, which is essential for the evidence to remain credible if a case proceeds to legal or disciplinary action.",
+      "options": [
+        { "id": "a", "text": "Chain of custody", "correct": true, "explanation": "Correct. Chain of custody documents the evidence handling trail from collection onward." },
+        { "id": "b", "text": "Service-level agreement (SLA)", "correct": false, "explanation": "An SLA defines expected service performance, not evidence handling procedures." },
+        { "id": "c", "text": "Acceptable use policy (AUP)", "correct": false, "explanation": "An AUP defines rules for appropriate system use, not evidence chain-of-custody tracking." },
+        { "id": "d", "text": "Standard operating procedure (SOP)", "correct": false, "explanation": "An SOP is a general documented procedure; chain of custody specifically refers to evidence-handling accountability." }
+      ]
+    },
+    {
+      "id": "opr-016",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A frustrated customer keeps describing a vague computer problem without clear technical detail. Which communication technique should the technician use to narrow down the actual issue?",
+      "explanation": "Asking open-ended questions and restating the customer's description back to them helps clarify vague statements and narrow the scope of the issue, which is a core professional communication technique for dealing with unclear or frustrated customers.",
+      "options": [
+        { "id": "a", "text": "Ask open-ended clarifying questions and restate the issue back to the customer to confirm understanding", "correct": true, "explanation": "Correct. Clarifying questions and restating the issue help narrow a vague problem description." },
+        { "id": "b", "text": "Interrupt the customer as soon as a keyword is recognized to save time", "correct": false, "explanation": "Interrupting the customer is unprofessional and can cause important details to be missed." },
+        { "id": "c", "text": "Tell the customer their description doesn't make sense and end the call", "correct": false, "explanation": "Dismissing the customer is unprofessional and does not help resolve the issue." },
+        { "id": "d", "text": "Assume the most common cause without asking any further questions", "correct": false, "explanation": "Assuming a cause without clarifying details risks misdiagnosing a vague problem." }
+      ]
+    },
+    {
+      "id": "opr-017",
+      "type": "multi",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A technician is writing a script to automate a routine maintenance task. Which two risks should be kept in mind when using scripts like this? (Choose two.)",
+      "explanation": "Poorly reviewed or sourced scripts can unintentionally introduce malware, and scripts that change system settings can inadvertently cause unwanted side effects if not carefully tested, both of which are recognized considerations when using scripting for automation.",
+      "options": [
+        { "id": "a", "text": "The script could unintentionally introduce malware if copied from an untrusted source", "correct": true, "explanation": "Correct. Untrusted script sources are a real risk vector for introducing malware." },
+        { "id": "b", "text": "The script could inadvertently change system settings in unintended ways", "correct": true, "explanation": "Correct. Poorly tested scripts can make unwanted system changes." },
+        { "id": "c", "text": "The script will automatically be digitally signed by the OS vendor", "correct": false, "explanation": "Writing a script does not automatically get it signed by an OS vendor; this is not a real risk consideration." },
+        { "id": "d", "text": "The script will permanently disable the need for future software updates", "correct": false, "explanation": "A script has no ability to permanently eliminate the need for future updates; this is not a real effect or risk of scripting." }
+      ]
+    },
+    {
+      "id": "opr-018",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A support team is evaluating an AI chatbot to help draft responses to common tickets, but is concerned the tool might confidently state incorrect information as fact. Which limitation of AI does this describe?",
+      "explanation": "A hallucination is when an AI system generates plausible-sounding but incorrect or fabricated information with apparent confidence, which is a well-known limitation to account for when relying on AI-generated content, alongside concerns like bias and data privacy.",
+      "options": [
+        { "id": "a", "text": "Hallucination", "correct": true, "explanation": "Correct. Hallucination describes an AI confidently producing false or fabricated information." },
+        { "id": "b", "text": "Data loss prevention (DLP)", "correct": false, "explanation": "DLP is a security control for preventing sensitive data leakage, not a description of AI generating false information." },
+        { "id": "c", "text": "Single sign-on (SSO)", "correct": false, "explanation": "SSO is an authentication convenience feature, unrelated to AI output accuracy." },
+        { "id": "d", "text": "Chain of custody", "correct": false, "explanation": "Chain of custody concerns evidence-handling records, unrelated to AI-generated inaccuracies." }
+      ]
+    }
+  ]
+}
