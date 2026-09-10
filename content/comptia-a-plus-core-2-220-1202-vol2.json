@@ -1,0 +1,1280 @@
+{
+  "schemaVersion": 1,
+  "id": "comptia-a-plus-core-2-220-1202-vol2",
+  "title": "CompTIA A+ Core 2 (220-1202) — Practice Exam, Volume 2",
+  "description": "A second, independently authored full-length practice exam aligned to the official CompTIA A+ Core 2 (220-1202) exam objectives (Version 3.0, V15, launched March 25, 2025, and confirmed as the current active version as of September 2026). This is an independently authored study aid, not official CompTIA content, and is not affiliated with or endorsed by CompTIA. Questions are proportioned across the four official domains by their published exam weight: Operating Systems (28%), Security (28%), Software Troubleshooting (23%), and Operational Procedures (21%). This set contains an entirely different pool of questions from the companion Core 2 practice exam in this app, for additional independent practice.",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    { "id": "operating-systems", "name": "Operating Systems" },
+    { "id": "security", "name": "Security" },
+    { "id": "software-troubleshooting", "name": "Software Troubleshooting" },
+    { "id": "operational-procedures", "name": "Operational Procedures" }
+  ],
+  "exam": {
+    "timeLimitMinutes": 90,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "os2-001",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A home user wants to be able to join their PC to a company's Active Directory domain and manage BitLocker drive encryption through Group Policy. Which Windows 11 edition does NOT support these features out of the box?",
+      "explanation": "Windows 11 Home is the consumer-focused edition and lacks domain join and Group Policy management, including centralized BitLocker management, which are available starting with Windows 11 Pro.",
+      "options": [
+        { "id": "a", "text": "Windows 11 Home", "correct": true, "explanation": "Correct. Home cannot join a domain or use Group Policy to manage BitLocker." },
+        { "id": "b", "text": "Windows 11 Pro", "correct": false, "explanation": "Pro supports domain join and Group Policy-managed BitLocker, so it does not fit the description." },
+        { "id": "c", "text": "Windows 11 Enterprise", "correct": false, "explanation": "Enterprise fully supports domain join and Group Policy, including BitLocker management." },
+        { "id": "d", "text": "Windows 11 Pro for Workstations", "correct": false, "explanation": "Pro for Workstations includes everything in Pro, including domain join and BitLocker management, plus extra high-end hardware support." }
+      ]
+    },
+    {
+      "id": "os2-002",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "Microsoft releases a monthly update that primarily patches security vulnerabilities and fixes bugs without adding new features or changing the user interface. What type of update is this?",
+      "explanation": "Quality updates (commonly released on \"Patch Tuesday\") deliver security fixes and bug fixes on a monthly cadence, as distinct from feature updates, which introduce new functionality and are released far less frequently.",
+      "options": [
+        { "id": "a", "text": "A quality update", "correct": true, "explanation": "Correct. Quality updates deliver monthly security and bug fixes without new features." },
+        { "id": "b", "text": "A feature update", "correct": false, "explanation": "Feature updates add new capabilities and UI changes and are released far less often than monthly." },
+        { "id": "c", "text": "A driver update", "correct": false, "explanation": "A driver update targets a specific hardware driver, not general OS patching." },
+        { "id": "d", "text": "A firmware update", "correct": false, "explanation": "A firmware update updates a device's embedded firmware, not the Windows OS itself." }
+      ]
+    },
+    {
+      "id": "os2-003",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A manufacturer needs a Windows servicing option for a certified industrial control PC that must not receive feature updates or UI changes for up to 10 years, receiving only security patches during that time. Which Windows servicing channel is designed for this?",
+      "explanation": "The Long-Term Servicing Channel (LTSC) is designed for specialized, unchanging devices such as medical or industrial control systems, providing security updates for an extended support lifecycle without periodic feature updates that could disrupt a certified configuration.",
+      "options": [
+        { "id": "a", "text": "Long-Term Servicing Channel (LTSC)", "correct": true, "explanation": "Correct. LTSC provides extended security-only servicing without feature updates." },
+        { "id": "b", "text": "Windows Insider Program (Dev Channel)", "correct": false, "explanation": "Insider builds are frequently changing pre-release code, the opposite of a stable long-term channel." },
+        { "id": "c", "text": "General Availability Channel", "correct": false, "explanation": "This is the standard channel, which does receive periodic feature updates." },
+        { "id": "d", "text": "Windows Home edition", "correct": false, "explanation": "Home doesn't offer LTSC or extended enterprise servicing options." }
+      ]
+    },
+    {
+      "id": "os2-004",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A technician wants an additional internal drive to appear as an empty folder inside an existing NTFS volume (for example, C:\\Data) instead of showing up as its own separate drive letter. What should be configured in Disk Management?",
+      "explanation": "A mount point attaches a volume to an empty NTFS folder path instead of (or in addition to) a drive letter, which is useful when a system has run out of convenient drive letters or when a unified folder structure is preferred.",
+      "options": [
+        { "id": "a", "text": "A mount point", "correct": true, "explanation": "Correct. A mount point attaches a volume to a folder path instead of a drive letter." },
+        { "id": "b", "text": "A dynamic disk conversion", "correct": false, "explanation": "Dynamic disks enable spanning/mirroring across disks; they don't control whether a volume shows as a folder path." },
+        { "id": "c", "text": "A GPT conversion", "correct": false, "explanation": "GPT is a partition table style, unrelated to mounting a volume into a folder." },
+        { "id": "d", "text": "A network share", "correct": false, "explanation": "A network share exposes a folder to other computers over the network, not a local drive as a folder path." }
+      ]
+    },
+    {
+      "id": "os2-005",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician is inside the Windows Recovery Environment, where no graphical Disk Management console is available, and needs to interactively create, delete, and format partitions on a drive. Which command-line utility should be used?",
+      "explanation": "diskpart is the command-line disk partitioning utility built into Windows, and it is available within the Windows Recovery Environment for creating, deleting, and formatting partitions when the graphical Disk Management console isn't accessible.",
+      "options": [
+        { "id": "a", "text": "diskpart", "correct": true, "explanation": "Correct. diskpart interactively manages partitions from the command line." },
+        { "id": "b", "text": "chkdsk", "correct": false, "explanation": "chkdsk checks and repairs file system errors on an existing volume; it does not create or delete partitions." },
+        { "id": "c", "text": "sfc", "correct": false, "explanation": "System File Checker verifies protected OS files, unrelated to partitioning." },
+        { "id": "d", "text": "dism", "correct": false, "explanation": "DISM services and repairs Windows images; it doesn't manage partitions." }
+      ]
+    },
+    {
+      "id": "os2-006",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A Windows application keeps failing with errors that suggest one or more core operating system files may be corrupted or have been overwritten. Which command should the technician run first to scan for and attempt to repair protected system files?",
+      "explanation": "sfc /scannow scans all protected system files, verifying them against a known-good cached copy, and attempts to automatically repair any that are corrupted or missing, making it the appropriate first tool for suspected system file corruption.",
+      "options": [
+        { "id": "a", "text": "sfc /scannow", "correct": true, "explanation": "Correct. sfc /scannow scans and repairs protected system files." },
+        { "id": "b", "text": "chkdsk /f", "correct": false, "explanation": "chkdsk /f repairs file system (disk) errors, not the integrity of individual protected OS files." },
+        { "id": "c", "text": "format", "correct": false, "explanation": "Formatting erases the volume entirely, a drastic and unnecessary step for this issue." },
+        { "id": "d", "text": "gpupdate /force", "correct": false, "explanation": "gpupdate reapplies Group Policy settings, unrelated to corrupted system files." }
+      ]
+    },
+    {
+      "id": "os2-007",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "hard",
+      "prompt": "After running sfc /scannow, the System File Checker reports that it found corrupted files but was unable to repair some of them, because the local component store used to source replacement files is itself damaged. Which command should be run next, before retrying sfc /scannow?",
+      "explanation": "DISM /Online /Cleanup-Image /RestoreHealth repairs the Windows component store (commonly using Windows Update or a specified source), which sfc relies on to supply healthy replacement files; running it before retrying sfc /scannow resolves cases where sfc alone cannot fix corruption.",
+      "options": [
+        { "id": "a", "text": "DISM /Online /Cleanup-Image /RestoreHealth", "correct": true, "explanation": "Correct. This repairs the underlying component store that sfc depends on." },
+        { "id": "b", "text": "chkdsk /r", "correct": false, "explanation": "chkdsk /r scans for and attempts to recover data from bad disk sectors; it does not repair the Windows component store." },
+        { "id": "c", "text": "diskpart clean", "correct": false, "explanation": "This destructively wipes all partition information from a disk, entirely unrelated and dangerous here." },
+        { "id": "d", "text": "robocopy /mir", "correct": false, "explanation": "robocopy mirrors folder contents between locations; it doesn't repair the OS component store." }
+      ]
+    },
+    {
+      "id": "os2-008",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "An administrator changes a Group Policy setting on the domain controller and wants a specific workstation to apply that change immediately, without waiting for the normal periodic background refresh interval. Which command should be run on the workstation?",
+      "explanation": "gpupdate /force reprocesses and reapplies all Group Policy settings on a machine immediately, rather than waiting for Windows' default periodic Group Policy refresh interval.",
+      "options": [
+        { "id": "a", "text": "gpupdate /force", "correct": true, "explanation": "Correct. gpupdate /force immediately reapplies all Group Policy settings." },
+        { "id": "b", "text": "gpresult /r", "correct": false, "explanation": "gpresult only reports which policies are currently applied; it does not trigger a new policy refresh." },
+        { "id": "c", "text": "secedit", "correct": false, "explanation": "secedit configures and analyzes local security policy templates; it isn't the standard tool for forcing a domain policy refresh." },
+        { "id": "d", "text": "net accounts", "correct": false, "explanation": "net accounts sets local account policy options like password length; it doesn't refresh Group Policy from the domain." }
+      ]
+    },
+    {
+      "id": "os2-009",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "hard",
+      "prompt": "A technician is troubleshooting why a workstation is not receiving an expected Group Policy setting and wants to see a detailed report of exactly which Group Policy Objects are currently applied to that machine and user. Which command should be used?",
+      "explanation": "gpresult /r (or the more detailed /h for an HTML report) displays Resultant Set of Policy information, showing which GPOs are actually applied to the computer and user, which is essential for diagnosing why an expected policy setting isn't taking effect.",
+      "options": [
+        { "id": "a", "text": "gpresult /r", "correct": true, "explanation": "Correct. gpresult /r reports the resultant set of policy actually applied." },
+        { "id": "b", "text": "gpupdate /force", "correct": false, "explanation": "gpupdate reapplies policy but does not report which GPOs are currently in effect." },
+        { "id": "c", "text": "whoami /all", "correct": false, "explanation": "whoami shows the current user's identity, group memberships, and privileges, not which GPOs are applied." },
+        { "id": "d", "text": "systeminfo", "correct": false, "explanation": "systeminfo reports general hardware/OS configuration details, not GPO application results." }
+      ]
+    },
+    {
+      "id": "os2-010",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A technician wants to adjust the size of the disk-based file Windows uses to supplement physical RAM when memory demand exceeds what is physically installed. Which setting should be changed?",
+      "explanation": "Virtual memory (paging file) settings, found under System Properties > Advanced, control the size and location of the pagefile.sys file that Windows uses as an extension of physical RAM under memory pressure.",
+      "options": [
+        { "id": "a", "text": "Virtual memory (paging file) settings", "correct": true, "explanation": "Correct. This controls the size and location of the paging file." },
+        { "id": "b", "text": "ReadyBoost", "correct": false, "explanation": "ReadyBoost uses USB flash media to cache data for potentially faster access; it isn't the paging file setting." },
+        { "id": "c", "text": "Indexing Options", "correct": false, "explanation": "Indexing Options controls which files Windows Search indexes, unrelated to memory management." },
+        { "id": "d", "text": "Sync Center", "correct": false, "explanation": "Sync Center manages offline file synchronization, unrelated to virtual memory." }
+      ]
+    },
+    {
+      "id": "os2-011",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A developer wants to run native Linux command-line tools and utilities directly on their Windows machine, without setting up a separate virtual machine or dual-boot configuration. Which built-in Windows feature enables this?",
+      "explanation": "Windows Subsystem for Linux (WSL) lets users run a real Linux environment, including most command-line tools, directly within Windows without the overhead of a full separate virtual machine or dual-boot setup.",
+      "options": [
+        { "id": "a", "text": "Windows Subsystem for Linux (WSL)", "correct": true, "explanation": "Correct. WSL runs a Linux environment directly within Windows." },
+        { "id": "b", "text": "Client Hyper-V", "correct": false, "explanation": "Hyper-V runs full separate virtual machines, requiring a full guest OS installation, unlike the more lightweight WSL." },
+        { "id": "c", "text": "Windows Sandbox", "correct": false, "explanation": "Windows Sandbox provides a temporary, disposable Windows desktop environment, not a Linux environment." },
+        { "id": "d", "text": "Storage Spaces", "correct": false, "explanation": "Storage Spaces is a Windows storage virtualization feature for pooling disks, unrelated to running Linux tools." }
+      ]
+    },
+    {
+      "id": "os2-012",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician wants to safely test running an untrusted, potentially risky executable in a temporary, fully isolated desktop environment built into Windows, which is automatically discarded and leaves no trace on the host once closed. Which feature should be used?",
+      "explanation": "Windows Sandbox provides a lightweight, temporary, isolated desktop environment for safely testing untrusted applications; everything inside is discarded once the sandbox window is closed, without needing to build and maintain a full separate VM.",
+      "options": [
+        { "id": "a", "text": "Windows Sandbox", "correct": true, "explanation": "Correct. Windows Sandbox is a disposable, isolated desktop for testing untrusted software." },
+        { "id": "b", "text": "Windows Subsystem for Linux (WSL)", "correct": false, "explanation": "WSL provides a Linux environment for command-line tools, not a disposable isolated Windows desktop for testing executables." },
+        { "id": "c", "text": "Storage Spaces", "correct": false, "explanation": "Storage Spaces pools physical disks into virtual storage, unrelated to sandboxed application testing." },
+        { "id": "d", "text": "Credential Manager", "correct": false, "explanation": "Credential Manager stores saved usernames and passwords, unrelated to sandboxing applications." }
+      ]
+    },
+    {
+      "id": "os2-013",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A technician is on the phone with a non-technical remote user and needs a simple, temporary way to view and, with permission, control the user's screen to help troubleshoot an issue, without pre-configuring firewall rules or setting up a permanent remote-access account. Which built-in Windows tool best fits this scenario?",
+      "explanation": "Quick Assist is a lightweight, built-in Windows tool designed for exactly this scenario: an ad hoc remote-assistance session initiated with a simple security code, requiring no advance firewall configuration or standing remote-access account, unlike Remote Desktop.",
+      "options": [
+        { "id": "a", "text": "Quick Assist", "correct": true, "explanation": "Correct. Quick Assist provides ad hoc, code-based remote assistance with no advance setup." },
+        { "id": "b", "text": "Remote Desktop", "correct": false, "explanation": "Remote Desktop typically requires prior configuration (enabling RDP, firewall rules, and often a pre-existing account) rather than an ad hoc, one-time session." },
+        { "id": "c", "text": "PowerShell remoting", "correct": false, "explanation": "PowerShell remoting is a command-line administrative tool, not a simple graphical screen-sharing session for an end user." },
+        { "id": "d", "text": "Telnet", "correct": false, "explanation": "Telnet is an insecure, text-only remote terminal protocol, not a graphical remote-assistance tool." }
+      ]
+    },
+    {
+      "id": "os2-014",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A user installed a new device driver, and the system became unstable soon afterward. Which Windows feature can revert system files, installed drivers, and registry settings to an earlier point in time, without necessarily deleting personal documents created since?",
+      "explanation": "System Restore uses previously created restore points to roll back system files, drivers, and registry settings to an earlier state, generally without affecting personal documents, making it well suited to undoing a problematic driver installation.",
+      "options": [
+        { "id": "a", "text": "System Restore", "correct": true, "explanation": "Correct. System Restore rolls back system files, drivers, and settings using a restore point." },
+        { "id": "b", "text": "File History", "correct": false, "explanation": "File History backs up and restores personal file versions over time, but does not roll back system files, drivers, or the registry." },
+        { "id": "c", "text": "Reset this PC (Remove everything)", "correct": false, "explanation": "This option is far more drastic, reinstalling Windows and removing personal files, when just undoing a driver change is needed." },
+        { "id": "d", "text": "BitLocker", "correct": false, "explanation": "BitLocker is a full-disk encryption feature, unrelated to rolling back system configuration changes." }
+      ]
+    },
+    {
+      "id": "os2-015",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A user is replacing an old Mac with a new one and wants a simple, built-in way to transfer their apps, files, user accounts, and settings from the old Mac to the new one. Which macOS utility is designed for this?",
+      "explanation": "Migration Assistant is Apple's built-in macOS utility specifically designed to transfer apps, files, user accounts, and settings from an old Mac (or a Time Machine backup) to a new one.",
+      "options": [
+        { "id": "a", "text": "Migration Assistant", "correct": true, "explanation": "Correct. Migration Assistant transfers apps, files, accounts, and settings to a new Mac." },
+        { "id": "b", "text": "Time Machine", "correct": false, "explanation": "Time Machine is macOS's ongoing backup feature; a Time Machine backup can be used as a migration source, but Time Machine itself is not the transfer utility." },
+        { "id": "c", "text": "Disk Utility", "correct": false, "explanation": "Disk Utility manages, formats, and repairs disks and volumes; it doesn't transfer user data between Macs." },
+        { "id": "d", "text": "Keychain Access", "correct": false, "explanation": "Keychain Access manages saved passwords and certificates, unrelated to migrating an entire user environment." }
+      ]
+    },
+    {
+      "id": "os2-016",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "On a Debian-based Linux distribution such as Ubuntu, which command-line tool is used to install, upgrade, and remove software packages along with their dependencies from configured repositories?",
+      "explanation": "apt (and the older apt-get) is the standard package management command on Debian-based distributions, handling installation, upgrades, removal, and dependency resolution against configured software repositories.",
+      "options": [
+        { "id": "a", "text": "apt", "correct": true, "explanation": "Correct. apt manages package installation, upgrades, and removal on Debian-based systems." },
+        { "id": "b", "text": "chmod", "correct": false, "explanation": "chmod changes file permission bits; it does not manage software packages." },
+        { "id": "c", "text": "grep", "correct": false, "explanation": "grep searches text for patterns, unrelated to package management." },
+        { "id": "d", "text": "top", "correct": false, "explanation": "top displays running processes and resource usage, unrelated to installing software." }
+      ]
+    },
+    {
+      "id": "os2-017",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A user is manually configuring a work email account on their phone and wants messages to remain synchronized and available across all of their devices, staying on the mail server rather than being downloaded and removed from it. Which email protocol should be selected?",
+      "explanation": "IMAP (Internet Message Access Protocol) keeps messages synchronized on the mail server and reflects read/unread status and folder changes across every device that connects, unlike POP3, which is designed to download messages to a single device and optionally delete them from the server.",
+      "options": [
+        { "id": "a", "text": "IMAP", "correct": true, "explanation": "Correct. IMAP keeps mail synchronized on the server across multiple devices." },
+        { "id": "b", "text": "POP3", "correct": false, "explanation": "POP3 typically downloads mail to one device and can remove it from the server, which breaks multi-device synchronization." },
+        { "id": "c", "text": "SMTP", "correct": false, "explanation": "SMTP is used for sending outgoing mail, not for retrieving and synchronizing an inbox." },
+        { "id": "d", "text": "FTP", "correct": false, "explanation": "FTP is a general file-transfer protocol, not an email retrieval protocol." }
+      ]
+    },
+    {
+      "id": "os2-018",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "Which two of the following statements about RAID 1 (mirroring) are correct? (Choose two.)",
+      "explanation": "RAID 1 duplicates (\"mirrors\") the same data across two drives, so if one drive fails the other still holds a complete, usable copy of the data. It requires exactly two drives for a basic mirror and does not use striping with parity, which is instead a characteristic of RAID 5.",
+      "options": [
+        { "id": "a", "text": "It writes an identical copy of the data to two drives", "correct": true, "explanation": "Correct. RAID 1 mirrors identical data across two drives." },
+        { "id": "b", "text": "It allows the array to keep functioning if one of the two mirrored drives fails", "correct": true, "explanation": "Correct. The surviving mirror drive still holds a complete copy of the data." },
+        { "id": "c", "text": "It requires a minimum of three physical drives", "correct": false, "explanation": "A basic RAID 1 mirror only requires two drives." },
+        { "id": "d", "text": "It stripes data across drives with distributed parity", "correct": false, "explanation": "Striping with distributed parity describes RAID 5, not RAID 1." }
+      ]
+    },
+    {
+      "id": "os2-019",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician wants to identify which running process is consuming the most memory right now, and separately see which programs are configured to launch automatically at sign-in along with their relative startup impact. Which two Task Manager tabs provide this information? (Choose two.)",
+      "explanation": "The Processes tab lists running processes along with live CPU, memory, and disk usage, making it the place to spot a process consuming excessive memory, while the Startup tab lists programs configured to launch at sign-in along with an estimated startup impact rating.",
+      "options": [
+        { "id": "a", "text": "Processes", "correct": true, "explanation": "Correct. Processes lists live per-process resource usage, including memory." },
+        { "id": "b", "text": "Startup", "correct": true, "explanation": "Correct. Startup lists sign-in programs and their relative startup impact." },
+        { "id": "c", "text": "Users", "correct": false, "explanation": "The Users tab shows which accounts are signed in and their overall resource totals, not per-program startup configuration." },
+        { "id": "d", "text": "Services", "correct": false, "explanation": "The Services tab lists Windows services and their run state, not user-facing startup programs or per-process memory ranking." }
+      ]
+    },
+    {
+      "id": "os2-020",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician is using the Windows Recovery Environment's \"Reset this PC\" feature to recover a badly misconfigured system. Which two options does this feature offer for handling the user's personal files? (Choose two.)",
+      "explanation": "Reset this PC gives the option to \"Keep my files,\" which reinstalls Windows while preserving personal data, or \"Remove everything,\" which reinstalls Windows and deletes personal files and apps for a fully clean state; it does not offer options like resizing partitions or enabling virtualization features.",
+      "options": [
+        { "id": "a", "text": "Keep my files", "correct": true, "explanation": "Correct. This reinstalls Windows while preserving personal data." },
+        { "id": "b", "text": "Remove everything", "correct": true, "explanation": "Correct. This reinstalls Windows and removes personal files and apps." },
+        { "id": "c", "text": "Extend the system partition automatically", "correct": false, "explanation": "Reset this PC does not resize partitions as part of its workflow." },
+        { "id": "d", "text": "Enable Hyper-V", "correct": false, "explanation": "Enabling optional Windows features like Hyper-V is unrelated to and not offered by the Reset this PC workflow." }
+      ]
+    },
+    {
+      "id": "os2-021",
+      "type": "multi",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "On a Linux system, which two commands would a technician use to view currently running processes and then terminate a specific unresponsive process by its process ID (PID)? (Choose two.)",
+      "explanation": "The ps (or top) command lists running processes along with their PIDs, and the kill command sends a termination signal to a process given its PID, together forming the standard way to identify and stop an unresponsive Linux process from the command line.",
+      "options": [
+        { "id": "a", "text": "ps", "correct": true, "explanation": "Correct. ps lists running processes along with their PIDs." },
+        { "id": "b", "text": "kill", "correct": true, "explanation": "Correct. kill sends a termination signal to a process given its PID." },
+        { "id": "c", "text": "ls", "correct": false, "explanation": "ls lists files and directories; it does not show running processes." },
+        { "id": "d", "text": "chmod", "correct": false, "explanation": "chmod changes file permissions; it cannot terminate a running process." }
+      ]
+    },
+    {
+      "id": "os2-022",
+      "type": "boolean",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "True or false: Increasing the amount of physical RAM installed in a Windows PC always requires reinstalling the operating system afterward.",
+      "answer": false,
+      "explanation": "This is false. Adding physical RAM is a hardware change that Windows detects and uses automatically; it does not require reinstalling the operating system."
+    },
+    {
+      "id": "os2-023",
+      "type": "boolean",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "True or false: Windows Update settings allow feature updates to be deferred for a period of time, but security-related quality updates should not be deferred indefinitely, since doing so leaves known vulnerabilities unpatched.",
+      "answer": true,
+      "explanation": "This is true. Windows Update (and Windows Update for Business policies) allow feature updates to be paused or deferred, but quality updates carry security fixes, and delaying them indefinitely leaves a system exposed to vulnerabilities that have already been publicly patched."
+    },
+    {
+      "id": "os2-024",
+      "type": "matching",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "Match each Windows MMC (Microsoft Management Console) administrative snap-in to its primary purpose.",
+      "explanation": "services.msc manages which system services run and their startup type; secpol.msc configures local security settings such as password and account lockout policy on a standalone machine; perfmon.msc logs and analyzes system performance counters over time; and printmanagement.msc centrally manages printers and print queues, including across multiple print servers.",
+      "left": [
+        { "id": "mm-svc", "text": "Services (services.msc)" },
+        { "id": "mm-sec", "text": "Local Security Policy (secpol.msc)" },
+        { "id": "mm-perf", "text": "Performance Monitor (perfmon.msc)" },
+        { "id": "mm-print", "text": "Print Management (printmanagement.msc)" }
+      ],
+      "right": [
+        { "id": "mmd-svc", "text": "Configures which system services run automatically, manually, or are disabled" },
+        { "id": "mmd-sec", "text": "Configures local password and account lockout policy on a standalone (non-domain) machine" },
+        { "id": "mmd-perf", "text": "Logs and analyzes system performance counters over time" },
+        { "id": "mmd-print", "text": "Centrally manages printers and print queues, including across multiple print servers" }
+      ],
+      "pairs": [
+        { "left": "mm-svc", "right": "mmd-svc" },
+        { "left": "mm-sec", "right": "mmd-sec" },
+        { "left": "mm-perf", "right": "mmd-perf" },
+        { "left": "mm-print", "right": "mmd-print" }
+      ]
+    },
+    {
+      "id": "os2-025",
+      "type": "ordering",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "A technician has physically installed a brand-new, blank second internal hard drive in a Windows PC and needs to make it usable for storing data. Arrange the steps in the correct order.",
+      "explanation": "After the drive is physically installed and Windows has booted, the technician opens Disk Management to initialize the new disk (choosing a partition style), creates a new simple volume on its unallocated space, formats that volume with a file system such as NTFS, and finally assigns it a drive letter (or mount path) so it becomes accessible in File Explorer.",
+      "items": [
+        { "id": "i1", "text": "Boot Windows with the new drive physically installed" },
+        { "id": "i2", "text": "Open Disk Management and initialize the disk, choosing a partition style (MBR or GPT)" },
+        { "id": "i3", "text": "Create a new simple volume on the disk's unallocated space" },
+        { "id": "i4", "text": "Format the new volume with a file system such as NTFS" },
+        { "id": "i5", "text": "Assign a drive letter (or mount path) to the new volume" }
+      ],
+      "correctOrder": ["i1", "i2", "i3", "i4", "i5"]
+    },
+    {
+      "id": "sec2-001",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "A new accounts-payable clerk only needs to view invoice records to answer vendor questions, not create, edit, or delete them. Which security principle should guide the permissions assigned to this user?",
+      "explanation": "The principle of least privilege holds that a user should be granted only the minimum permissions needed to perform their job duties, so this clerk should receive read-only access to invoices rather than broader edit or delete rights.",
+      "options": [
+        { "id": "a", "text": "Principle of least privilege", "correct": true, "explanation": "Correct. Least privilege limits the clerk to the minimum access needed for their job." },
+        { "id": "b", "text": "Separation of duties", "correct": false, "explanation": "Separation of duties splits a sensitive process across multiple people so no single person controls it end-to-end; it's a related but distinct concept from minimizing one person's permission scope." },
+        { "id": "c", "text": "Mandatory access control", "correct": false, "explanation": "MAC is a specific access-control model using fixed security labels/classifications, not the general principle being described." },
+        { "id": "d", "text": "Single sign-on", "correct": false, "explanation": "SSO is about consolidating authentication across systems, unrelated to minimizing granted permissions." }
+      ]
+    },
+    {
+      "id": "sec2-002",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "At minimum, which NTFS permission must a user be granted to open and read the contents of a file, without being able to modify, delete, or execute it?",
+      "explanation": "The Read NTFS permission allows viewing a file's contents and attributes without granting the ability to change, delete, or run it; Write is needed to modify content, and Modify/Full Control grant progressively broader rights including deletion.",
+      "options": [
+        { "id": "a", "text": "Read", "correct": true, "explanation": "Correct. Read allows viewing a file's contents without modification rights." },
+        { "id": "b", "text": "Write", "correct": false, "explanation": "Write allows changing or adding to a file's contents; it is not the minimum permission needed just to view it." },
+        { "id": "c", "text": "List Folder Contents", "correct": false, "explanation": "This permission applies to folders, allowing users to see the names of files and subfolders within, but it does not by itself grant access to open a file's contents." },
+        { "id": "d", "text": "Modify", "correct": false, "explanation": "Modify includes read, write, and delete capabilities, which is broader than what's needed just to read a file." }
+      ]
+    },
+    {
+      "id": "sec2-003",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "hard",
+      "prompt": "A file is moved (not copied) from one folder to another folder on the same NTFS volume. What happens to the file's NTFS permissions?",
+      "explanation": "When a file is moved within the same NTFS volume, it keeps its original permissions rather than inheriting the destination folder's permissions; this differs from copying a file, or moving/copying it to a different volume, both of which cause the file to inherit the destination folder's permissions.",
+      "options": [
+        { "id": "a", "text": "The file retains its original NTFS permissions", "correct": true, "explanation": "Correct. A same-volume move preserves the file's existing permissions." },
+        { "id": "b", "text": "The file inherits the destination folder's permissions", "correct": false, "explanation": "Inheritance from the destination applies to copies, or to moves across different volumes, not to a move within the same volume." },
+        { "id": "c", "text": "The file loses all permissions and becomes inaccessible to everyone", "correct": false, "explanation": "Moving a file never strips it down to no permissions." },
+        { "id": "d", "text": "The file's permissions are merged with the destination folder's permissions", "correct": false, "explanation": "NTFS does not merge the two permission sets in this scenario; the original permissions simply carry over." }
+      ]
+    },
+    {
+      "id": "sec2-004",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A file is copied from one NTFS volume to a folder on a different NTFS volume. What permissions will the newly copied file have?",
+      "explanation": "Copying a file (to the same volume or a different one) always creates a new file that inherits the permissions of its destination folder, unlike moving a file within the same volume, which preserves the file's original permissions.",
+      "options": [
+        { "id": "a", "text": "It inherits the NTFS permissions of the destination folder", "correct": true, "explanation": "Correct. A copy always inherits the destination folder's permissions." },
+        { "id": "b", "text": "It keeps the exact permissions of the original file, unchanged", "correct": false, "explanation": "Copying does not preserve the source file's original permissions; it inherits the destination's." },
+        { "id": "c", "text": "It receives Full Control for all users automatically", "correct": false, "explanation": "There is no rule granting universal Full Control on copy; permissions come from the destination folder's existing configuration." },
+        { "id": "d", "text": "It becomes encrypted with EFS automatically", "correct": false, "explanation": "Copying a file does not automatically apply EFS encryption unless the destination folder itself is configured for it." }
+      ]
+    },
+    {
+      "id": "sec2-005",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "Which built-in Windows account type is intended for temporary, occasional, or limited use, carries restricted permissions, and should be disabled or given a strong password when not actively needed?",
+      "explanation": "The Guest account is a built-in, limited-privilege account meant for temporary or occasional use by people who don't have their own account, and Microsoft recommends keeping it disabled unless it's actively needed.",
+      "options": [
+        { "id": "a", "text": "The Guest account", "correct": true, "explanation": "Correct. Guest is a limited-privilege account meant for temporary or occasional use." },
+        { "id": "b", "text": "The default Administrator account", "correct": false, "explanation": "The built-in Administrator account has full privileges, the opposite of the limited, temporary-use account described." },
+        { "id": "c", "text": "A standard user account", "correct": false, "explanation": "A standard user account is meant for a regular ongoing user, not specifically for temporary/occasional access." },
+        { "id": "d", "text": "A service account", "correct": false, "explanation": "A service account runs background services/applications; it isn't meant for occasional interactive human use." }
+      ]
+    },
+    {
+      "id": "sec2-006",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A standalone (non-domain) Windows workstation needs its account lockout threshold and password complexity requirements configured locally. Which tool should the technician use?",
+      "explanation": "Local Security Policy (secpol.msc) is the MMC snap-in used to configure local password policy, account lockout policy, and other security settings on a standalone machine that isn't managed by domain-based Group Policy.",
+      "options": [
+        { "id": "a", "text": "Local Security Policy (secpol.msc)", "correct": true, "explanation": "Correct. secpol.msc configures local password and account lockout policy." },
+        { "id": "b", "text": "Local Users and Groups (lusrmgr.msc)", "correct": false, "explanation": "This tool creates and manages local accounts and groups themselves, but not the password/lockout policy settings that apply to them." },
+        { "id": "c", "text": "Event Viewer (eventvwr.msc)", "correct": false, "explanation": "Event Viewer reviews logged system and security events; it does not configure account or password policy." },
+        { "id": "d", "text": "Certificate Manager (certmgr.msc)", "correct": false, "explanation": "Certificate Manager manages digital certificates, unrelated to password or lockout policy." }
+      ]
+    },
+    {
+      "id": "sec2-007",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "Which type of firmware-level password, once set, must be entered before the computer will even begin booting the operating system?",
+      "explanation": "A power-on (user/boot) password, configured in BIOS/UEFI, blocks the boot process itself until the correct password is entered, whereas a supervisor (setup) password only restricts who can change firmware settings, without necessarily blocking the boot process.",
+      "options": [
+        { "id": "a", "text": "A power-on (boot/user) password", "correct": true, "explanation": "Correct. A power-on password blocks booting until the correct password is entered." },
+        { "id": "b", "text": "A supervisor (setup) password", "correct": false, "explanation": "A supervisor password restricts access to changing BIOS/UEFI settings, but by itself doesn't necessarily prevent the system from booting." },
+        { "id": "c", "text": "A Windows account password", "correct": false, "explanation": "A Windows login password is requested well after the firmware has already booted the OS loader, not before boot begins." },
+        { "id": "d", "text": "A BitLocker recovery key", "correct": false, "explanation": "A BitLocker recovery key unlocks an encrypted volume, and is requested during OS startup, not before the firmware begins booting." }
+      ]
+    },
+    {
+      "id": "sec2-008",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "Which inexpensive physical security device is most commonly used to deter theft of a laptop left temporarily unattended at a desk, by securing it to an immovable object?",
+      "explanation": "A cable lock (often called a Kensington lock) threads through a laptop's built-in security slot and around a fixed object like a desk leg, providing a simple, low-cost physical deterrent against opportunistic theft.",
+      "options": [
+        { "id": "a", "text": "A cable lock", "correct": true, "explanation": "Correct. A cable lock physically secures a laptop to a fixed object." },
+        { "id": "b", "text": "A Faraday bag", "correct": false, "explanation": "A Faraday bag blocks wireless signals to and from a device; it doesn't physically secure it to prevent theft." },
+        { "id": "c", "text": "A biometric door lock", "correct": false, "explanation": "This secures a room or door, not an individual laptop sitting on a desk." },
+        { "id": "d", "text": "An RFID badge", "correct": false, "explanation": "An RFID badge is used for personnel access control to secured areas, not for physically securing a laptop." }
+      ]
+    },
+    {
+      "id": "sec2-009",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An attacker uses a concealed portable reader to wirelessly capture the credentials stored on an employee's proximity access badge as the employee walks past in a crowded area, later using the captured data to create a duplicate badge. What is this attack called?",
+      "explanation": "RFID/badge cloning involves wirelessly reading and duplicating the data stored on a contactless access card or badge, allowing an attacker to fabricate a working duplicate without ever physically taking the original badge.",
+      "options": [
+        { "id": "a", "text": "RFID cloning", "correct": true, "explanation": "Correct. RFID cloning wirelessly copies a badge's stored credentials to make a duplicate." },
+        { "id": "b", "text": "Shoulder surfing", "correct": false, "explanation": "Shoulder surfing is direct visual observation of something like a PIN entry, not wireless capture of badge data." },
+        { "id": "c", "text": "Dumpster diving", "correct": false, "explanation": "Dumpster diving involves searching discarded trash for sensitive information, not wirelessly reading a badge." },
+        { "id": "d", "text": "Tailgating", "correct": false, "explanation": "Tailgating means physically following an authorized person through a secured door without using one's own credentials, not cloning a badge's data." }
+      ]
+    },
+    {
+      "id": "sec2-010",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An attacker sets up a rogue wireless access point broadcasting the same network name (SSID) as a coffee shop's legitimate free Wi-Fi, hoping customers will connect to it instead. What is this attack called?",
+      "explanation": "An evil twin attack sets up a rogue access point that impersonates a legitimate, trusted Wi-Fi network's SSID, tricking users into connecting so the attacker can intercept or manipulate their traffic.",
+      "options": [
+        { "id": "a", "text": "Evil twin", "correct": true, "explanation": "Correct. An evil twin is a rogue access point impersonating a trusted SSID." },
+        { "id": "b", "text": "War driving", "correct": false, "explanation": "War driving refers to searching for and mapping wireless networks while moving around, typically by car, not impersonating one." },
+        { "id": "c", "text": "On-path attack", "correct": false, "explanation": "An on-path attack intercepts traffic between two already-connected parties, whereas an evil twin's goal is first to lure victims onto a fake network." },
+        { "id": "d", "text": "Denial of service", "correct": false, "explanation": "A DoS attack aims to disrupt availability, not to impersonate a trusted network's SSID." }
+      ]
+    },
+    {
+      "id": "sec2-011",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An attacker tries a small number of very common passwords (such as a seasonal password like \"Winter2026!\") against a large number of different user accounts, rather than trying many passwords against a single account. What is this technique called?",
+      "explanation": "Password spraying tests one or a few commonly used passwords across many different accounts, which helps the attacker avoid triggering per-account lockout policies that would occur if they instead tried many passwords rapidly against a single account.",
+      "options": [
+        { "id": "a", "text": "Password spraying", "correct": true, "explanation": "Correct. Password spraying tries a few common passwords across many accounts." },
+        { "id": "b", "text": "A traditional brute-force attack", "correct": false, "explanation": "A classic brute-force attack tries many (often exhaustive) password guesses against a single target account, the reverse pattern of what's described." },
+        { "id": "c", "text": "A dictionary attack", "correct": false, "explanation": "A dictionary attack tries a wordlist of likely passwords against one specific account, not a handful of passwords across many accounts." },
+        { "id": "d", "text": "Credential stuffing", "correct": false, "explanation": "Credential stuffing reuses previously breached username/password pairs, rather than guessing common passwords with no prior breach data." }
+      ]
+    },
+    {
+      "id": "sec2-012",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An attacker obtains a large list of usernames and passwords leaked from a breach of one website, then automatically attempts those same username/password pairs on an unrelated website, hoping some users reused their credentials. What is this attack called?",
+      "explanation": "Credential stuffing automates login attempts using username/password pairs already known from a previous, unrelated data breach, exploiting the common practice of password reuse across multiple sites.",
+      "options": [
+        { "id": "a", "text": "Credential stuffing", "correct": true, "explanation": "Correct. Credential stuffing reuses breached credential pairs against other sites." },
+        { "id": "b", "text": "Password spraying", "correct": false, "explanation": "Password spraying tries a small set of common (not previously breached, account-specific) passwords across many accounts, rather than reusing known breached credential pairs." },
+        { "id": "c", "text": "Phishing", "correct": false, "explanation": "Phishing tricks a user into voluntarily revealing credentials, rather than reusing already-known breached credentials automatically." },
+        { "id": "d", "text": "Vishing", "correct": false, "explanation": "Vishing is phishing conducted over a voice call, unrelated to automated reuse of breached login pairs." }
+      ]
+    },
+    {
+      "id": "sec2-013",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An attacker calls the help desk pretending to be a company vice president who urgently needs a password reset, fabricating a convincing story and using some real internal details to sound legitimate. What social engineering technique is this?",
+      "explanation": "Pretexting is the use of a fabricated, believable scenario or false identity to manipulate a victim into divulging information or performing an action they otherwise wouldn't, such as an attacker inventing a false urgent scenario to pressure a password reset.",
+      "options": [
+        { "id": "a", "text": "Pretexting", "correct": true, "explanation": "Correct. Pretexting uses a fabricated scenario to manipulate the victim." },
+        { "id": "b", "text": "Tailgating", "correct": false, "explanation": "Tailgating is physically following someone through a secured door, not fabricating a story over the phone." },
+        { "id": "c", "text": "Dumpster diving", "correct": false, "explanation": "Dumpster diving searches discarded materials for information, unrelated to a fabricated phone scenario." },
+        { "id": "d", "text": "Shoulder surfing", "correct": false, "explanation": "Shoulder surfing is direct visual observation of sensitive input, unrelated to a phone-based fabricated story." }
+      ]
+    },
+    {
+      "id": "sec2-014",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "An attacker dresses as a delivery driver and talks their way past the front desk by claiming to have an urgent package for the IT department, gaining physical access to a restricted area. What social engineering technique is this?",
+      "explanation": "Impersonation involves pretending to be someone else, such as a delivery driver, vendor, or employee, in order to gain trust or access that wouldn't otherwise be granted.",
+      "options": [
+        { "id": "a", "text": "Impersonation", "correct": true, "explanation": "Correct. Impersonation means pretending to be someone else to gain trust or access." },
+        { "id": "b", "text": "Whaling", "correct": false, "explanation": "Whaling is a targeted phishing attack against senior executives, typically conducted by email, not an in-person disguise." },
+        { "id": "c", "text": "Smishing", "correct": false, "explanation": "Smishing is phishing carried out via SMS text messages, not an in-person disguise." },
+        { "id": "d", "text": "Spear phishing", "correct": false, "explanation": "Spear phishing is a targeted, typically email-based attack, not physically impersonating a delivery driver." }
+      ]
+    },
+    {
+      "id": "sec2-015",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Which mobile device security feature ensures that all data stored on the device's internal storage remains unreadable without the correct passcode or biometric unlock, even if the storage chip were physically removed and read directly?",
+      "explanation": "Full device encryption scrambles all data stored on a mobile device using a key tied to the user's passcode or biometric credential, so the data remains unreadable without that credential, even if the physical storage were removed and accessed directly.",
+      "options": [
+        { "id": "a", "text": "Full device encryption", "correct": true, "explanation": "Correct. Full device encryption protects stored data even if the storage chip is removed." },
+        { "id": "b", "text": "A screen lock timeout", "correct": false, "explanation": "A lock timeout just controls how quickly the screen locks after inactivity; it does not protect data if the storage itself is removed." },
+        { "id": "c", "text": "Airplane mode", "correct": false, "explanation": "Airplane mode disables wireless radios; it has no effect on whether stored data is encrypted." },
+        { "id": "d", "text": "A cracked-screen replacement", "correct": false, "explanation": "This is an unrelated hardware repair and has no bearing on data confidentiality." }
+      ]
+    },
+    {
+      "id": "sec2-016",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A company allows employees to use personal smartphones for work email and apps (BYOD) but wants corporate data kept in an isolated, separately encrypted profile that IT can wipe without touching the employee's personal photos, messages, or apps. Which MDM feature provides this?",
+      "explanation": "Containerization (a managed work profile) creates a separate, encrypted partition on a BYOD device to hold corporate apps and data, letting IT manage or remotely wipe only that container without affecting the user's personal data outside of it.",
+      "options": [
+        { "id": "a", "text": "Containerization (a managed work profile)", "correct": true, "explanation": "Correct. Containerization isolates corporate data in its own encrypted profile." },
+        { "id": "b", "text": "A full device wipe policy alone", "correct": false, "explanation": "A full device wipe erases everything on the device, including personal data, which is exactly what the scenario wants to avoid." },
+        { "id": "c", "text": "Geofencing", "correct": false, "explanation": "Geofencing restricts or triggers actions based on physical location; it doesn't isolate corporate data from personal data." },
+        { "id": "d", "text": "Jailbreak detection", "correct": false, "explanation": "This only detects whether a device has been jailbroken/rooted; it doesn't create an isolated corporate data container." }
+      ]
+    },
+    {
+      "id": "sec2-017",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A home user places their game console in their router's DMZ so that friends can connect to it more easily online. What is the primary security risk introduced by this configuration?",
+      "explanation": "Placing a device in the DMZ effectively removes the router firewall's protection for that device, exposing all of its ports directly to the internet, which significantly increases its attack surface compared to a device sitting behind normal firewall/NAT protection.",
+      "options": [
+        { "id": "a", "text": "The device is directly exposed to the internet with its firewall protection bypassed", "correct": true, "explanation": "Correct. A DMZ device loses the router firewall's protective filtering." },
+        { "id": "b", "text": "The device will no longer be able to connect to the internet at all", "correct": false, "explanation": "A DMZ device still has full internet access; that's the point of forwarding all traffic to it." },
+        { "id": "c", "text": "The device's Wi-Fi signal strength will be reduced", "correct": false, "explanation": "DMZ configuration is a firewall/routing setting and has no effect on radio signal strength." },
+        { "id": "d", "text": "The router's firmware will automatically update to the latest version", "correct": false, "explanation": "DMZ configuration has no relationship to firmware update behavior." }
+      ]
+    },
+    {
+      "id": "sec2-018",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are examples of physical security controls? (Choose two.)",
+      "explanation": "A cable lock and a stationed security guard are both physical controls that protect tangible assets or restrict physical access, whereas a firewall rule and User Account Control are logical/software-based controls that operate within the OS or network, not physical space.",
+      "options": [
+        { "id": "a", "text": "A cable lock securing a laptop to a desk", "correct": true, "explanation": "Correct. A cable lock is a tangible, physical control." },
+        { "id": "b", "text": "A security guard stationed at a building entrance", "correct": true, "explanation": "Correct. A stationed guard is a physical access control." },
+        { "id": "c", "text": "A firewall rule blocking a range of IP addresses", "correct": false, "explanation": "This is a logical/network control, not a physical one." },
+        { "id": "d", "text": "User Account Control (UAC) prompting for elevation", "correct": false, "explanation": "UAC is a software/logical control governing privilege elevation, not a physical control." }
+      ]
+    },
+    {
+      "id": "sec2-019",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A technician suspects a SOHO router has been compromised by an attacker. Which two findings would support that suspicion? (Choose two.)",
+      "explanation": "Unexpected port-forwarding rules the administrator never created, and DNS server settings silently changed to unfamiliar addresses, are both signs consistent with unauthorized access to a router's configuration, unlike routine, expected administrative activity.",
+      "options": [
+        { "id": "a", "text": "Port-forwarding rules exist that the administrator never configured", "correct": true, "explanation": "Correct. Unexplained port-forwarding rules suggest unauthorized configuration changes." },
+        { "id": "b", "text": "The router's DNS settings have been changed to unfamiliar servers", "correct": true, "explanation": "Correct. Silently changed DNS settings are a common sign of router compromise." },
+        { "id": "c", "text": "The router's firmware was intentionally updated by the administrator last week", "correct": false, "explanation": "An intentional, known update by the admin is expected, routine activity, not a sign of compromise." },
+        { "id": "d", "text": "A current configuration backup exists from before any issues occurred", "correct": false, "explanation": "Having a good backup on hand is a helpful practice, not evidence of compromise." }
+      ]
+    },
+    {
+      "id": "sec2-020",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are legitimate purposes of a VPN used by a remote employee connecting to the corporate network? (Choose two.)",
+      "explanation": "A VPN encrypts traffic traveling over an untrusted network (such as public Wi-Fi) and extends secure access to internal company resources as though the remote device were on the local corporate network; it does not boost local Wi-Fi signal strength or substitute for endpoint antivirus protection.",
+      "options": [
+        { "id": "a", "text": "Encrypting traffic between the remote device and the corporate network over an untrusted connection", "correct": true, "explanation": "Correct. A VPN encrypts traffic across untrusted networks." },
+        { "id": "b", "text": "Providing access to internal company resources as if the device were on the local network", "correct": true, "explanation": "Correct. A VPN extends secure access to internal resources remotely." },
+        { "id": "c", "text": "Increasing the local Wi-Fi router's signal strength and range", "correct": false, "explanation": "A VPN is a software/network tunneling technology; it has no effect on physical Wi-Fi signal strength." },
+        { "id": "d", "text": "Replacing the need for endpoint antivirus/anti-malware software", "correct": false, "explanation": "A VPN protects data in transit; it does not scan for or remove malware on the endpoint." }
+      ]
+    },
+    {
+      "id": "sec2-021",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are examples of a biometric (\"something you are\") authentication factor? (Choose two.)",
+      "explanation": "Fingerprint scanning and facial recognition both authenticate based on a unique physical characteristic of the person, making them \"something you are\" factors, whereas a PIN is \"something you know\" and a hardware token is \"something you have.\"",
+      "options": [
+        { "id": "a", "text": "Fingerprint scan", "correct": true, "explanation": "Correct. A fingerprint scan authenticates based on a physical trait." },
+        { "id": "b", "text": "Facial recognition", "correct": true, "explanation": "Correct. Facial recognition authenticates based on a physical trait." },
+        { "id": "c", "text": "A numeric PIN", "correct": false, "explanation": "A PIN is a knowledge-based (\"something you know\") factor, not a biometric trait." },
+        { "id": "d", "text": "A hardware security token", "correct": false, "explanation": "A hardware token is a possession-based (\"something you have\") factor, not biometric." }
+      ]
+    },
+    {
+      "id": "sec2-022",
+      "type": "boolean",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "True or false: Antivirus/anti-malware software that relies purely on signature-based detection can fail to catch a brand-new zero-day threat, because no signature yet exists for it.",
+      "answer": true,
+      "explanation": "This is true. Signature-based detection identifies malware by matching it against a database of known threat signatures; a genuinely new (zero-day) threat has no existing signature yet, so purely signature-based tools may miss it until a signature is created and distributed, which is why behavior-based and heuristic detection methods are also used."
+    },
+    {
+      "id": "sec2-023",
+      "type": "boolean",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "True or false: Under the principle of least privilege, a person who occasionally needs administrative rights should still use a standard user account for day-to-day work, switching to a separate administrator account only when performing tasks that require elevation.",
+      "answer": true,
+      "explanation": "This is true. Using a standard account for routine work and reserving a separate administrator account for tasks that genuinely require elevated rights limits the damage that malware or a mistake made during everyday use can cause, which is a practical application of least privilege."
+    },
+    {
+      "id": "sec2-024",
+      "type": "matching",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Match each social engineering/phishing technique to its description.",
+      "explanation": "Phishing is a broad, typically mass, fraudulent email attempting to trick recipients into revealing credentials or clicking a malicious link; spear phishing narrows that same approach to a specific individual or organization using personalized details; whaling further narrows the target to senior executives specifically; and business email compromise (BEC) involves impersonating or actually compromising a legitimate business email account to trick an employee into an action like a fraudulent wire transfer.",
+      "left": [
+        { "id": "p-phish", "text": "Phishing" },
+        { "id": "p-spear", "text": "Spear phishing" },
+        { "id": "p-whale", "text": "Whaling" },
+        { "id": "p-bec", "text": "Business email compromise (BEC)" }
+      ],
+      "right": [
+        { "id": "pd-phish", "text": "A mass, fraudulent email designed to trick many recipients into revealing credentials or clicking a malicious link" },
+        { "id": "pd-spear", "text": "A targeted phishing attack aimed at a specific individual or organization using personalized information" },
+        { "id": "pd-whale", "text": "A phishing attack that specifically targets senior executives or other high-value individuals" },
+        { "id": "pd-bec", "text": "An attacker impersonates or compromises a legitimate business email account to trick an employee into a fraudulent payment or disclosure" }
+      ],
+      "pairs": [
+        { "left": "p-phish", "right": "pd-phish" },
+        { "left": "p-spear", "right": "pd-spear" },
+        { "left": "p-whale", "right": "pd-whale" },
+        { "left": "p-bec", "right": "pd-bec" }
+      ]
+    },
+    {
+      "id": "sec2-025",
+      "type": "ordering",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "A user's email account shows signs of compromise, including sign-ins from unfamiliar locations and mailbox rules the user never created. Arrange the IT security team's remediation steps in the correct order.",
+      "explanation": "The team should first lock down the account to stop ongoing unauthorized access, force a password reset and revoke any active sessions/tokens so old credentials and sessions can't be reused, clean up any unauthorized mailbox rules, forwarding addresses, or connected app permissions the attacker left behind, confirm multifactor authentication is enabled before letting the user back in, and finally document the incident and notify anyone who may have been affected.",
+      "items": [
+        { "id": "j1", "text": "Disable or lock the compromised account immediately" },
+        { "id": "j2", "text": "Force a password reset and revoke active sessions and tokens" },
+        { "id": "j3", "text": "Remove any unauthorized mailbox rules, forwarding addresses, or connected app permissions" },
+        { "id": "j4", "text": "Verify multifactor authentication is enabled before reactivating the account" },
+        { "id": "j5", "text": "Document the incident and notify affected stakeholders" }
+      ],
+      "correctOrder": ["j1", "j2", "j3", "j4", "j5"]
+    },
+    {
+      "id": "swt2-001",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "easy",
+      "prompt": "After installing a new video driver, a Windows PC fails to load the desktop normally, showing only a black screen. The technician needs to boot with only essential drivers and services loaded so the offending driver can be rolled back or removed. Which boot option should be used?",
+      "explanation": "Safe Mode starts Windows with a minimal set of essential drivers and services, which typically prevents a faulty driver like a bad video driver from loading and causing the same failure, allowing the technician to then roll it back or uninstall it.",
+      "options": [
+        { "id": "a", "text": "Safe Mode", "correct": true, "explanation": "Correct. Safe Mode loads only essential drivers, bypassing the faulty one." },
+        { "id": "b", "text": "Fast Startup", "correct": false, "explanation": "Fast Startup is a normal power-saving boot optimization that still loads the same drivers; it wouldn't help bypass a bad driver." },
+        { "id": "c", "text": "Sleep mode", "correct": false, "explanation": "Sleep is a low-power state resuming the existing session, not a way to load a minimal driver set to fix a boot issue." },
+        { "id": "d", "text": "Hibernation", "correct": false, "explanation": "Hibernation also resumes a previously saved session rather than performing a fresh, minimal boot." }
+      ]
+    },
+    {
+      "id": "swt2-002",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Several documents are stuck in the print queue and nothing will print, even to a different printer connected to the same PC. Which Windows service should be restarted first to attempt a resolution?",
+      "explanation": "The Print Spooler service manages the print queue for all printers on a Windows PC; when it becomes stuck or unresponsive, no print jobs can process on any printer, and restarting it (after clearing the stuck queue) commonly resolves the issue.",
+      "options": [
+        { "id": "a", "text": "Print Spooler", "correct": true, "explanation": "Correct. The Print Spooler manages the queue for all printers on the PC." },
+        { "id": "b", "text": "Windows Search", "correct": false, "explanation": "Windows Search indexes files for fast searching, unrelated to the print queue." },
+        { "id": "c", "text": "DHCP Client", "correct": false, "explanation": "The DHCP Client service manages the PC's own IP address lease, unrelated to print job processing." },
+        { "id": "d", "text": "Windows Time", "correct": false, "explanation": "The Windows Time service synchronizes the system clock, unrelated to printing." }
+      ]
+    },
+    {
+      "id": "swt2-003",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "An application fails to launch, displaying an error that a specific DLL file is missing. Before assuming a hardware problem, what is the most appropriate first remedy to try?",
+      "explanation": "A missing DLL error for an application is most often resolved by repairing or reinstalling that specific application, which restores its missing dependency files, rather than jumping to unrelated hardware fixes.",
+      "options": [
+        { "id": "a", "text": "Repair or reinstall the affected application", "correct": true, "explanation": "Correct. Repairing or reinstalling the app restores its missing dependency files." },
+        { "id": "b", "text": "Replace the power supply unit", "correct": false, "explanation": "A DLL error is a software dependency issue, unrelated to the power supply." },
+        { "id": "c", "text": "Defragment the hard drive", "correct": false, "explanation": "Defragmentation optimizes file placement on disk; it does not restore a missing software file." },
+        { "id": "d", "text": "Update the monitor's driver", "correct": false, "explanation": "A monitor driver affects display output, unrelated to a missing application DLL." }
+      ]
+    },
+    {
+      "id": "swt2-004",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A desktop repeatedly shuts down without warning after about 20-30 minutes of gaming, but runs fine for basic tasks like web browsing. Reseating the RAM and cables didn't help. What should be checked first?",
+      "explanation": "A shutdown that occurs specifically under sustained heavy load (like gaming) but not during light use is a classic sign of overheating; checking CPU/GPU temperatures and cooling (dust buildup, fan operation, thermal paste condition) is the appropriate first step.",
+      "options": [
+        { "id": "a", "text": "CPU/GPU temperatures and the condition of the cooling system", "correct": true, "explanation": "Correct. Load-dependent shutdowns are a classic sign of overheating." },
+        { "id": "b", "text": "The keyboard's key repeat delay setting", "correct": false, "explanation": "A keyboard setting has no relationship to load-dependent shutdowns." },
+        { "id": "c", "text": "The desktop wallpaper settings", "correct": false, "explanation": "Wallpaper settings are purely cosmetic." },
+        { "id": "d", "text": "The mouse's DPI setting", "correct": false, "explanation": "A mouse sensitivity setting has no bearing on system shutdowns under load." }
+      ]
+    },
+    {
+      "id": "swt2-005",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "hard",
+      "prompt": "A PC installs a Windows update, then continually restarts in a loop before ever reaching the desktop. Which Windows Recovery Environment (WinRE) advanced option specifically targets undoing a recently applied update suspected of causing this loop?",
+      "explanation": "The \"Uninstall Updates\" option in WinRE's Advanced options is specifically designed to remove a recently applied quality or feature update that is suspected of causing a startup problem, without requiring a full system reset or reinstall.",
+      "options": [
+        { "id": "a", "text": "Uninstall Updates", "correct": true, "explanation": "Correct. This option specifically removes a recently applied update." },
+        { "id": "b", "text": "Reset this PC (Remove everything)", "correct": false, "explanation": "This is a far more drastic step that reinstalls Windows and removes personal files, when the targeted option of undoing the specific update should be tried first." },
+        { "id": "c", "text": "System Image Recovery", "correct": false, "explanation": "This requires a previously created full system image backup, which isn't guaranteed to exist, whereas Uninstall Updates directly targets the suspected cause." },
+        { "id": "d", "text": "Command Prompt", "correct": false, "explanation": "Command Prompt is available in WinRE, but it doesn't by itself specifically target uninstalling the update; it would require significant manual work compared to the dedicated option." }
+      ]
+    },
+    {
+      "id": "swt2-006",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A Windows 10 PC that used to boot to a usable desktop in about 15 seconds now takes over 3 minutes, though it runs normally once fully loaded. Which built-in tool most directly identifies which specific startup programs are adding the most delay?",
+      "explanation": "Task Manager's Startup tab lists programs configured to launch at sign-in along with a relative \"startup impact\" rating, making it the most direct built-in tool for identifying which specific programs are slowing down the boot process.",
+      "options": [
+        { "id": "a", "text": "Task Manager's Startup tab", "correct": true, "explanation": "Correct. The Startup tab shows which sign-in programs add the most delay." },
+        { "id": "b", "text": "Disk Cleanup", "correct": false, "explanation": "Disk Cleanup removes unnecessary files to free space; it doesn't identify which programs delay startup." },
+        { "id": "c", "text": "Character Map", "correct": false, "explanation": "Character Map is a utility for inserting special characters into documents, unrelated to startup performance." },
+        { "id": "d", "text": "Magnifier", "correct": false, "explanation": "Magnifier is an accessibility tool that zooms the screen, unrelated to startup performance diagnostics." }
+      ]
+    },
+    {
+      "id": "swt2-007",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "easy",
+      "prompt": "An older application built for Windows 7 fails to install or run correctly on a Windows 11 PC. Before contacting the software vendor, what built-in Windows feature should be tried first?",
+      "explanation": "Compatibility Mode lets an older application run under settings that emulate a previous version of Windows, which often resolves installation or runtime issues with legacy software before more involved troubleshooting is needed.",
+      "options": [
+        { "id": "a", "text": "Run the application in Compatibility Mode", "correct": true, "explanation": "Correct. Compatibility Mode emulates an older Windows version for legacy software." },
+        { "id": "b", "text": "Disable the network adapter", "correct": false, "explanation": "Disabling networking has no bearing on legacy application compatibility." },
+        { "id": "c", "text": "Increase the display resolution", "correct": false, "explanation": "Display resolution is unrelated to application compatibility with the OS version." },
+        { "id": "d", "text": "Enable airplane mode", "correct": false, "explanation": "Airplane mode disables wireless radios, unrelated to running an older application." }
+      ]
+    },
+    {
+      "id": "swt2-008",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A technician needs a more detailed, real-time breakdown of exactly which process is generating the most disk I/O and which specific files it currently has open, beyond what Task Manager's summary view shows. Which built-in Windows tool provides this deeper detail?",
+      "explanation": "Resource Monitor (resmon.exe) provides a much more granular, real-time view of CPU, memory, disk, and network activity per process, including exactly which files a process has open, going well beyond Task Manager's higher-level summary.",
+      "options": [
+        { "id": "a", "text": "Resource Monitor (resmon.exe)", "correct": true, "explanation": "Correct. Resource Monitor provides granular per-process resource and file-handle detail." },
+        { "id": "b", "text": "Disk Cleanup (cleanmgr.exe)", "correct": false, "explanation": "Disk Cleanup removes unneeded files; it provides no live per-process I/O detail." },
+        { "id": "c", "text": "Character Map (charmap.exe)", "correct": false, "explanation": "Character Map inserts special characters, entirely unrelated." },
+        { "id": "d", "text": "Narrator", "correct": false, "explanation": "Narrator is a screen-reading accessibility tool, unrelated to performance diagnostics." }
+      ]
+    },
+    {
+      "id": "swt2-009",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "After a user changes their corporate email password on their laptop, their phone stops syncing new mail and repeatedly prompts for authentication. What is the most likely cause?",
+      "explanation": "Mobile devices typically store cached mail account credentials locally; once the password changes elsewhere, the phone's stored credentials become outdated, causing repeated authentication prompts until the account is updated with the new password on the device.",
+      "options": [
+        { "id": "a", "text": "The phone's stored email account credentials are now outdated and need to be updated", "correct": true, "explanation": "Correct. The phone's cached credentials no longer match the new password." },
+        { "id": "b", "text": "The phone's SIM card has failed", "correct": false, "explanation": "A failed SIM would affect cellular connectivity broadly, not specifically trigger authentication prompts tied to a password change." },
+        { "id": "c", "text": "The phone's screen digitizer is malfunctioning", "correct": false, "explanation": "A digitizer issue affects touch input, unrelated to email authentication." },
+        { "id": "d", "text": "The mail server's physical hard drive is full", "correct": false, "explanation": "Nothing in the scenario points to server-side storage, and this wouldn't specifically follow a client-side password change." }
+      ]
+    },
+    {
+      "id": "swt2-010",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user notices their phone's battery drains unusually fast specifically while they are in an area with very weak cellular signal, but drains normally elsewhere. What is the most likely explanation?",
+      "explanation": "When cellular signal is weak, a phone's radio must work harder (increasing transmit power and searching more frequently for a usable signal), which consumes noticeably more battery than when a strong, stable signal is available.",
+      "options": [
+        { "id": "a", "text": "The cellular radio uses more power searching for and maintaining a weak signal", "correct": true, "explanation": "Correct. Weak signal forces the radio to work harder, draining the battery faster." },
+        { "id": "b", "text": "The phone's screen brightness automatically doubles in low-signal areas", "correct": false, "explanation": "Screen brightness is unrelated to and not automatically tied to cellular signal strength." },
+        { "id": "c", "text": "The phone's Bluetooth radio disables itself in weak signal areas", "correct": false, "explanation": "Bluetooth operation is independent of cellular signal strength." },
+        { "id": "d", "text": "The phone's storage becomes temporarily read-only", "correct": false, "explanation": "Storage mode has no relationship to cellular signal conditions." }
+      ]
+    },
+    {
+      "id": "swt2-011",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A user is concerned that an app seems to know their precise location at all times, even though they don't recall explicitly granting it permission. What should be checked first?",
+      "explanation": "Reviewing the app's location permission in the device's privacy/settings menu is the direct first step, since many apps request (and users sometimes unknowingly grant) \"always allow\" location access during initial setup or a permission prompt.",
+      "options": [
+        { "id": "a", "text": "The app's location permission setting in the device's privacy/settings menu", "correct": true, "explanation": "Correct. This directly reveals whether the app was granted ongoing location access." },
+        { "id": "b", "text": "The device's screen timeout setting", "correct": false, "explanation": "Screen timeout controls when the display turns off, unrelated to location tracking." },
+        { "id": "c", "text": "The device's default ringtone", "correct": false, "explanation": "Ringtone settings have no bearing on location permissions." },
+        { "id": "d", "text": "The device's keyboard autocorrect setting", "correct": false, "explanation": "Autocorrect is unrelated to location access." }
+      ]
+    },
+    {
+      "id": "swt2-012",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "easy",
+      "prompt": "A tablet's touchscreen has become completely unresponsive, though the device still appears powered on and the display shows content. What is the appropriate first troubleshooting step?",
+      "explanation": "A forced restart (holding the power button, or the manufacturer's specific button combination for a hard reset) is the appropriate first step for a frozen, unresponsive touchscreen, before considering more involved diagnostics or a factory reset.",
+      "options": [
+        { "id": "a", "text": "Perform a forced restart of the device", "correct": true, "explanation": "Correct. A forced restart is the appropriate first step for a frozen touchscreen." },
+        { "id": "b", "text": "Replace the device's battery immediately", "correct": false, "explanation": "Jumping straight to a battery replacement is premature before trying a simple forced restart." },
+        { "id": "c", "text": "Update the device's ringtone", "correct": false, "explanation": "A ringtone setting has no relationship to a frozen touchscreen." },
+        { "id": "d", "text": "Reinstall all apps from the app store", "correct": false, "explanation": "Reinstalling every app is a drastic, unfocused step compared to a simple forced restart." }
+      ]
+    },
+    {
+      "id": "swt2-013",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Windows Update repeatedly fails to install a specific update, showing the same error code each time. Which built-in Windows tool is specifically designed to automatically detect and attempt to fix common Windows Update problems?",
+      "explanation": "The Windows Update Troubleshooter is a built-in diagnostic tool designed specifically to detect and automatically resolve common issues that prevent Windows Update from downloading or installing updates successfully.",
+      "options": [
+        { "id": "a", "text": "The Windows Update Troubleshooter", "correct": true, "explanation": "Correct. This tool specifically diagnoses and fixes common Windows Update failures." },
+        { "id": "b", "text": "Disk Cleanup", "correct": false, "explanation": "Disk Cleanup frees disk space; it doesn't specifically diagnose Windows Update failures." },
+        { "id": "c", "text": "Character Map", "correct": false, "explanation": "This is an unrelated utility for inserting special characters." },
+        { "id": "d", "text": "Sync Center", "correct": false, "explanation": "Sync Center manages offline file synchronization, unrelated to Windows Update errors." }
+      ]
+    },
+    {
+      "id": "swt2-014",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "easy",
+      "prompt": "A standard (non-administrator) user attempts to install a legitimate application and is blocked by a permissions error. What is the most likely resolution?",
+      "explanation": "Standard user accounts lack the rights to install most software system-wide; having an administrator perform the installation, or providing administrator credentials when prompted by User Account Control, resolves this permissions-based block.",
+      "options": [
+        { "id": "a", "text": "Have an administrator install it, or supply administrator credentials at the UAC prompt", "correct": true, "explanation": "Correct. Elevation via an administrator account resolves the permissions block." },
+        { "id": "b", "text": "Change the user's screen resolution", "correct": false, "explanation": "Display resolution is unrelated to installation permissions." },
+        { "id": "c", "text": "Uninstall the device's network adapter driver", "correct": false, "explanation": "Removing a network driver would break connectivity and has no bearing on local install permissions." },
+        { "id": "d", "text": "Enable Bluetooth", "correct": false, "explanation": "Bluetooth status has no relationship to application installation permissions." }
+      ]
+    },
+    {
+      "id": "swt2-015",
+      "type": "multi",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A PC has started experiencing random freezes that began shortly after a new piece of software was installed. Which two are appropriate first troubleshooting steps? (Choose two.)",
+      "explanation": "Uninstalling or rolling back the recently installed software directly targets the most likely cause, and reviewing Reliability Monitor or Event Viewer around the time the freezes began can confirm which event correlates with the new problem; replacing major hardware or reformatting the drive are drastic steps that skip more targeted, less destructive troubleshooting.",
+      "options": [
+        { "id": "a", "text": "Uninstall or roll back the recently installed software", "correct": true, "explanation": "Correct. This directly targets the most likely cause of the new freezes." },
+        { "id": "b", "text": "Check Reliability Monitor or Event Viewer for events around when the freezes began", "correct": true, "explanation": "Correct. This helps confirm which event correlates with the onset of the problem." },
+        { "id": "c", "text": "Replace the motherboard immediately", "correct": false, "explanation": "This is a drastic hardware replacement that skips more targeted, less destructive troubleshooting steps." },
+        { "id": "d", "text": "Reformat the hard drive immediately", "correct": false, "explanation": "Reformatting destroys all data and is premature before simpler steps like rolling back the recent software change." }
+      ]
+    },
+    {
+      "id": "swt2-016",
+      "type": "multi",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are common causes of a mobile device overheating? (Choose two.)",
+      "explanation": "Sustained, GPU-intensive use such as gaming while simultaneously charging generates significant heat, and prolonged direct sunlight exposure (such as leaving a phone on a car dashboard) also raises device temperature; installing a background update while idle or enabling airplane mode do not typically cause overheating, and airplane mode actually reduces radio-related heat generation.",
+      "options": [
+        { "id": "a", "text": "Extended GPU-intensive use (such as gaming) while simultaneously charging", "correct": true, "explanation": "Correct. Heavy GPU use plus charging both generate significant heat." },
+        { "id": "b", "text": "Prolonged direct sunlight exposure", "correct": true, "explanation": "Correct. Direct sunlight raises a device's internal temperature." },
+        { "id": "c", "text": "Installing a routine background update while the device is idle overnight", "correct": false, "explanation": "A routine background update while idle is low-intensity and not a typical overheating cause." },
+        { "id": "d", "text": "Enabling airplane mode", "correct": false, "explanation": "Airplane mode reduces radio activity and associated heat; it does not cause overheating." }
+      ]
+    },
+    {
+      "id": "swt2-017",
+      "type": "multi",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A mobile app worked fine before a recent update but now crashes every time it's opened. Which two are appropriate troubleshooting steps? (Choose two.)",
+      "explanation": "Clearing the app's cached data (or fully reinstalling it) often resolves corrupted local data left behind by a botched update, and checking the app publisher's release notes or known-issues page can confirm whether this is a widely reported bug with an expected fix, whereas factory-resetting the entire device or replacing the battery are excessive, unfocused responses to a single app's crash.",
+      "options": [
+        { "id": "a", "text": "Clear the app's cached data, or uninstall and reinstall it", "correct": true, "explanation": "Correct. This resolves corrupted local data left behind by a bad update." },
+        { "id": "b", "text": "Check the app publisher's release notes or support channels for a known issue", "correct": true, "explanation": "Correct. This confirms whether the crash is a widely reported bug with an expected fix." },
+        { "id": "c", "text": "Perform a full factory reset of the entire device", "correct": false, "explanation": "This is a drastic, unfocused step for what is isolated to a single application." },
+        { "id": "d", "text": "Replace the device's battery", "correct": false, "explanation": "A battery replacement has no logical connection to a single app crashing after a software update." }
+      ]
+    },
+    {
+      "id": "swt2-018",
+      "type": "boolean",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "True or false: For many Windows performance complaints, checking Task Manager or Resource Monitor for a single process consuming abnormally high CPU, memory, or disk activity is a reasonable early troubleshooting step before assuming a hardware failure.",
+      "answer": true,
+      "explanation": "This is true. A single runaway or misbehaving process is a very common cause of perceived \"slow computer\" symptoms, so checking Task Manager or Resource Monitor early can quickly confirm or rule out a software cause before more time-consuming hardware diagnostics are pursued."
+    },
+    {
+      "id": "swt2-019",
+      "type": "matching",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Match each Windows Recovery Environment (WinRE) option to what it does.",
+      "explanation": "Startup Repair automatically diagnoses and attempts to fix problems preventing Windows from loading; System Restore reverts system files, settings, and drivers to an earlier restore point without touching personal files; Uninstall Updates removes a specific recently installed update suspected of causing a problem; and Reset this PC reinstalls Windows, optionally keeping or removing personal files.",
+      "left": [
+        { "id": "w-startup", "text": "Startup Repair" },
+        { "id": "w-restore", "text": "System Restore" },
+        { "id": "w-uninstall", "text": "Uninstall Updates" },
+        { "id": "w-reset", "text": "Reset this PC" }
+      ],
+      "right": [
+        { "id": "wd-startup", "text": "Automatically diagnoses and attempts to fix problems preventing Windows from starting" },
+        { "id": "wd-restore", "text": "Reverts system files, settings, and drivers to an earlier restore point without affecting personal files" },
+        { "id": "wd-uninstall", "text": "Removes a specific recently installed Windows update suspected of causing an issue" },
+        { "id": "wd-reset", "text": "Reinstalls Windows, optionally keeping or removing the user's personal files" }
+      ],
+      "pairs": [
+        { "left": "w-startup", "right": "wd-startup" },
+        { "left": "w-restore", "right": "wd-restore" },
+        { "left": "w-uninstall", "right": "wd-uninstall" },
+        { "left": "w-reset", "right": "wd-reset" }
+      ]
+    },
+    {
+      "id": "swt2-020",
+      "type": "ordering",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "Arrange CompTIA's general troubleshooting methodology steps in the correct order, from initial report to closing the ticket.",
+      "explanation": "The standard methodology begins by identifying the problem, then forming a theory of probable cause, testing that theory to confirm the actual cause, establishing a plan of action and implementing the solution, verifying full system functionality and applying preventive measures, and finally documenting findings, actions, and outcomes.",
+      "items": [
+        { "id": "t1", "text": "Identify the problem" },
+        { "id": "t2", "text": "Establish a theory of probable cause" },
+        { "id": "t3", "text": "Test the theory to determine the actual cause" },
+        { "id": "t4", "text": "Establish a plan of action and implement the solution" },
+        { "id": "t5", "text": "Verify full system functionality and implement preventive measures" },
+        { "id": "t6", "text": "Document findings, actions, and outcomes" }
+      ],
+      "correctOrder": ["t1", "t2", "t3", "t4", "t5", "t6"]
+    },
+    {
+      "id": "opr2-001",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Which documented policy defines what employees are and are not permitted to do with company-owned computing resources, such as acceptable internet, email, and software use?",
+      "explanation": "An Acceptable Use Policy (AUP) documents the rules and expectations for how employees may use company-owned computing resources, helping set clear boundaries and reduce misuse or liability.",
+      "options": [
+        { "id": "a", "text": "Acceptable Use Policy (AUP)", "correct": true, "explanation": "Correct. An AUP documents permitted and prohibited use of company resources." },
+        { "id": "b", "text": "Non-disclosure agreement (NDA)", "correct": false, "explanation": "An NDA protects confidential information from disclosure; it doesn't define acceptable resource usage." },
+        { "id": "c", "text": "End-user license agreement (EULA)", "correct": false, "explanation": "A EULA governs the terms under which software may be used, not general company resource usage rules." },
+        { "id": "d", "text": "Service level agreement (SLA)", "correct": false, "explanation": "An SLA defines expected service performance commitments, not acceptable use rules for employees." }
+      ]
+    },
+    {
+      "id": "opr2-002",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Which term refers to any information that can be used, alone or combined with other data, to identify a specific individual, such as a Social Security number or driver's license number?",
+      "explanation": "Personally identifiable information (PII) refers to data that can identify a specific individual, and it is subject to special handling, storage, and privacy requirements under many regulations and organizational policies.",
+      "options": [
+        { "id": "a", "text": "Personally identifiable information (PII)", "correct": true, "explanation": "Correct. PII is data that can identify a specific individual." },
+        { "id": "b", "text": "Configuration management database (CMDB) data", "correct": false, "explanation": "A CMDB tracks IT assets and configurations; it is not itself a term for identity-linked personal data." },
+        { "id": "c", "text": "Standard operating procedure (SOP)", "correct": false, "explanation": "An SOP is a documented process for performing a task, unrelated to identifying an individual." },
+        { "id": "d", "text": "Asset tag data", "correct": false, "explanation": "An asset tag identifies a piece of equipment, not a person." }
+      ]
+    },
+    {
+      "id": "opr2-003",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A retail company that accepts credit card payments must comply with an industry-specific data security standard governing how cardholder data is stored, transmitted, and protected. Which standard is this?",
+      "explanation": "The Payment Card Industry Data Security Standard (PCI-DSS) is the industry standard that defines security requirements for organizations that store, process, or transmit credit card (cardholder) data.",
+      "options": [
+        { "id": "a", "text": "PCI-DSS (Payment Card Industry Data Security Standard)", "correct": true, "explanation": "Correct. PCI-DSS governs the handling of cardholder payment data." },
+        { "id": "b", "text": "GDPR (General Data Protection Regulation)", "correct": false, "explanation": "GDPR is a broad European Union data-privacy regulation, not the specific industry standard for handling cardholder payment data." },
+        { "id": "c", "text": "HIPAA (Health Insurance Portability and Accountability Act)", "correct": false, "explanation": "HIPAA governs protected health information in the United States, not payment card data specifically." },
+        { "id": "d", "text": "An end-user license agreement", "correct": false, "explanation": "A EULA is a software licensing contract, unrelated to payment card data security requirements." }
+      ]
+    },
+    {
+      "id": "opr2-004",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "hard",
+      "prompt": "An organization purchased individual retail software licenses for each of its 500 workstations instead of a single volume/enterprise license agreement covering them all. What is the most likely operational consequence of this choice?",
+      "explanation": "Managing many separate individual retail licenses (each with its own key, renewal date, and proof of purchase) creates significantly more administrative overhead for tracking, renewing, and proving compliance than a single centrally managed volume or enterprise license agreement would.",
+      "options": [
+        { "id": "a", "text": "Substantially more administrative overhead tracking and renewing many separate license records", "correct": true, "explanation": "Correct. Many individual licenses are far more burdensome to track than one volume agreement." },
+        { "id": "b", "text": "Automatic compliance with any future licensing audit with no additional recordkeeping", "correct": false, "explanation": "Retail licenses still each require individual proof of purchase and tracking; they don't reduce audit burden." },
+        { "id": "c", "text": "A guaranteed lower total cost compared to a volume license", "correct": false, "explanation": "Retail per-seat pricing is often more expensive in aggregate than a negotiated volume agreement, not guaranteed cheaper." },
+        { "id": "d", "text": "Automatic centralized deployment of updates to all 500 machines", "correct": false, "explanation": "Individual retail licenses don't inherently include centralized deployment tooling the way an enterprise agreement often does." }
+      ]
+    },
+    {
+      "id": "opr2-005",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Which type of software license typically grants users the right to view, modify, and redistribute the underlying source code, often at no cost?",
+      "explanation": "An open-source license grants users rights to view, modify, and redistribute a program's source code, in contrast to a proprietary/closed-source license, which typically restricts access to and modification of the source code.",
+      "options": [
+        { "id": "a", "text": "An open-source license", "correct": true, "explanation": "Correct. Open-source licenses grant rights to view, modify, and redistribute source code." },
+        { "id": "b", "text": "A proprietary end-user license agreement (EULA)", "correct": false, "explanation": "A typical proprietary EULA restricts users from viewing or modifying source code." },
+        { "id": "c", "text": "A non-disclosure agreement (NDA)", "correct": false, "explanation": "An NDA is a confidentiality contract, not a software usage/licensing grant." },
+        { "id": "d", "text": "A service level agreement (SLA)", "correct": false, "explanation": "An SLA defines service performance commitments, not source code usage rights." }
+      ]
+    },
+    {
+      "id": "opr2-006",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Before handling internal PC components such as a motherboard or expansion card, a technician puts on an anti-static wrist strap. What hazard is this primarily intended to prevent?",
+      "explanation": "An anti-static (ESD) wrist strap safely grounds the technician, preventing a static electric discharge from their body from damaging sensitive electronic components, which can occur even without a visible or felt spark.",
+      "options": [
+        { "id": "a", "text": "Electrostatic discharge (ESD) damaging sensitive components", "correct": true, "explanation": "Correct. A wrist strap grounds the technician to prevent ESD damage." },
+        { "id": "b", "text": "Electrical shock from a live power supply", "correct": false, "explanation": "The concern here relates to a person's own static charge damaging components, not the technician receiving shock from mains power; that hazard is instead addressed by unplugging equipment." },
+        { "id": "c", "text": "Dust accumulation inside the case", "correct": false, "explanation": "A wrist strap doesn't prevent dust buildup; that's addressed with cleaning and filtration." },
+        { "id": "d", "text": "Overheating of internal components", "correct": false, "explanation": "A wrist strap has no effect on component temperature or cooling." }
+      ]
+    },
+    {
+      "id": "opr2-007",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Which device provides temporary battery backup power to a server so it can be shut down gracefully, or kept running briefly, during a utility power outage?",
+      "explanation": "An uninterruptible power supply (UPS) provides short-term battery backup power immediately when utility power fails, giving enough time for a graceful shutdown or for a backup generator to take over.",
+      "options": [
+        { "id": "a", "text": "An uninterruptible power supply (UPS)", "correct": true, "explanation": "Correct. A UPS provides immediate short-term battery backup during an outage." },
+        { "id": "b", "text": "A surge protector alone", "correct": false, "explanation": "A basic surge protector only guards against voltage spikes; it provides no battery backup power during an outage." },
+        { "id": "c", "text": "A KVM switch", "correct": false, "explanation": "A KVM switch lets one keyboard/video/mouse control multiple computers, unrelated to backup power." },
+        { "id": "d", "text": "A power distribution unit (PDU) alone", "correct": false, "explanation": "A basic PDU distributes power to multiple devices in a rack but does not itself provide battery backup during an outage." }
+      ]
+    },
+    {
+      "id": "opr2-008",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A server room's humidity level is being reviewed as part of environmental controls. What is the primary risk of the humidity level being too LOW?",
+      "explanation": "Very low humidity increases the risk of electrostatic discharge (ESD), since dry air makes it easier for static charge to build up and discharge into sensitive equipment; excessively HIGH humidity, by contrast, raises the risk of condensation and corrosion.",
+      "options": [
+        { "id": "a", "text": "Increased risk of electrostatic discharge (ESD) damaging equipment", "correct": true, "explanation": "Correct. Dry air increases the risk of static buildup and discharge." },
+        { "id": "b", "text": "Increased risk of condensation forming on equipment", "correct": false, "explanation": "Condensation risk is associated with humidity that is too HIGH, not too low." },
+        { "id": "c", "text": "Faster CPU clock degradation", "correct": false, "explanation": "Humidity level doesn't directly cause CPU clock degradation." },
+        { "id": "d", "text": "Reduced network bandwidth", "correct": false, "explanation": "Humidity has no direct effect on network bandwidth." }
+      ]
+    },
+    {
+      "id": "opr2-009",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "Which built-in Windows protocol allows a technician to remotely take full graphical control of another Windows PC's desktop over the network, commonly using TCP port 3389?",
+      "explanation": "Remote Desktop Protocol (RDP) is Microsoft's built-in protocol for remotely accessing and controlling a Windows PC's full graphical desktop over the network, using TCP port 3389 by default.",
+      "options": [
+        { "id": "a", "text": "Remote Desktop Protocol (RDP)", "correct": true, "explanation": "Correct. RDP provides remote graphical desktop control, typically on TCP port 3389." },
+        { "id": "b", "text": "Secure Shell (SSH)", "correct": false, "explanation": "SSH provides a secure command-line/text-based remote connection, primarily associated with Linux/network devices, not a full Windows graphical desktop by default." },
+        { "id": "c", "text": "Simple Mail Transfer Protocol (SMTP)", "correct": false, "explanation": "SMTP is used for sending email, unrelated to remote desktop control." },
+        { "id": "d", "text": "Trivial File Transfer Protocol (TFTP)", "correct": false, "explanation": "TFTP is a simple, unauthenticated file-transfer protocol, not a remote desktop control protocol." }
+      ]
+    },
+    {
+      "id": "opr2-010",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "In most scripting languages, what is used to temporarily store a value, such as a filename or a count, that the script can reference and change while it runs?",
+      "explanation": "A variable is a named storage location a script uses to hold and manipulate data, such as a filename, counter, or user input, while the script executes.",
+      "options": [
+        { "id": "a", "text": "A variable", "correct": true, "explanation": "Correct. A variable stores and lets a script reference and change a value while running." },
+        { "id": "b", "text": "A comment", "correct": false, "explanation": "A comment is a non-executed note in the code for human readers; it does not store or change data during execution." },
+        { "id": "c", "text": "A print driver", "correct": false, "explanation": "A print driver translates data for a printer, unrelated to a script's internal data storage." },
+        { "id": "d", "text": "A partition table", "correct": false, "explanation": "A partition table describes disk layout, unrelated to scripting data storage." }
+      ]
+    },
+    {
+      "id": "opr2-011",
+      "type": "single",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "A frustrated customer is venting at length about a recurring issue during a support call. What is the most appropriate first response from the technician?",
+      "explanation": "Listening actively without interrupting and acknowledging the customer's frustration builds rapport and de-escalates the situation, and is standard professional guidance before moving on to diagnose or propose a technical solution.",
+      "options": [
+        { "id": "a", "text": "Listen actively without interrupting, and acknowledge the customer's frustration", "correct": true, "explanation": "Correct. Active listening de-escalates the situation before moving to a solution." },
+        { "id": "b", "text": "Interrupt immediately to explain why the issue is not the technician's fault", "correct": false, "explanation": "Interrupting to deflect blame typically escalates frustration rather than resolving it." },
+        { "id": "c", "text": "Place the customer on hold indefinitely without explanation", "correct": false, "explanation": "Leaving a customer on hold with no explanation is poor, unprofessional customer service." },
+        { "id": "d", "text": "End the call and ask the customer to submit a written ticket instead", "correct": false, "explanation": "Abruptly ending an active call is dismissive and unprofessional when the issue can be addressed directly." }
+      ]
+    },
+    {
+      "id": "opr2-012",
+      "type": "multi",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Which two of the following are basic constructs commonly found in most scripting and programming languages? (Choose two.)",
+      "explanation": "Loops (repeating a block of code) and conditional statements (branching logic such as if/then) are fundamental building blocks found in virtually every scripting and programming language, unlike print drivers or partition tables, which are unrelated system components.",
+      "options": [
+        { "id": "a", "text": "Loops", "correct": true, "explanation": "Correct. Loops repeat a block of code, a fundamental scripting construct." },
+        { "id": "b", "text": "Conditional (if/then) statements", "correct": true, "explanation": "Correct. Conditional statements provide branching logic, a fundamental scripting construct." },
+        { "id": "c", "text": "Print drivers", "correct": false, "explanation": "A print driver is OS-level software for communicating with a printer, not a programming language construct." },
+        { "id": "d", "text": "Partition tables", "correct": false, "explanation": "A partition table is a disk data structure, not a scripting language construct." }
+      ]
+    },
+    {
+      "id": "opr2-013",
+      "type": "multi",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "Which two file extensions commonly indicate a Windows script file (as opposed to a plain document or image)? (Choose two.)",
+      "explanation": ".bat identifies a Windows batch script, and .ps1 identifies a Windows PowerShell script; .txt and .jpg indicate a plain text document and an image file, respectively, neither of which is an executable script type.",
+      "options": [
+        { "id": "a", "text": ".bat", "correct": true, "explanation": "Correct. .bat identifies a Windows batch script." },
+        { "id": "b", "text": ".ps1", "correct": true, "explanation": "Correct. .ps1 identifies a Windows PowerShell script." },
+        { "id": "c", "text": ".txt", "correct": false, "explanation": ".txt is a plain text document, not an executable script." },
+        { "id": "d", "text": ".jpg", "correct": false, "explanation": ".jpg is an image file format, not a script." }
+      ]
+    },
+    {
+      "id": "opr2-014",
+      "type": "multi",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are examples of regulated data types that require special handling under privacy or industry regulations? (Choose two.)",
+      "explanation": "Protected health information (PHI) is regulated under laws like HIPAA, and payment cardholder data is regulated under PCI-DSS; publicly posted marketing material and a company's general holiday schedule are not sensitive regulated data categories.",
+      "options": [
+        { "id": "a", "text": "Protected health information (PHI)", "correct": true, "explanation": "Correct. PHI is regulated under laws such as HIPAA." },
+        { "id": "b", "text": "Payment cardholder data", "correct": true, "explanation": "Correct. Cardholder data is regulated under PCI-DSS." },
+        { "id": "c", "text": "Publicly posted marketing material", "correct": false, "explanation": "Marketing material intended for public release is not sensitive regulated data." },
+        { "id": "d", "text": "The company's published holiday schedule", "correct": false, "explanation": "A general holiday schedule is routine, non-sensitive information." }
+      ]
+    },
+    {
+      "id": "opr2-015",
+      "type": "multi",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A toner cartridge breaks open, spilling toner powder inside a printer and onto the floor. Which two actions reflect proper safety procedure for cleaning this up? (Choose two.)",
+      "explanation": "Toner should be cleaned with a proper toner-rated vacuum or a damp cloth, and the material safety data sheet (SDS/MSDS) should be consulted for specific handling and disposal guidance, since a standard vacuum can aerosolize fine toner dust and create an inhalation or static-related hazard, and sweeping into regular trash disregards proper disposal requirements.",
+      "options": [
+        { "id": "a", "text": "Use a toner-rated vacuum or a damp cloth to clean up the spill", "correct": true, "explanation": "Correct. This safely contains fine toner particles without aerosolizing them." },
+        { "id": "b", "text": "Consult the material safety data sheet (SDS/MSDS) for handling and disposal guidance", "correct": true, "explanation": "Correct. The SDS provides the proper handling and disposal procedure for toner." },
+        { "id": "c", "text": "Sweep the spilled toner with a dry broom into the regular trash", "correct": false, "explanation": "This can spread fine toner dust into the air and disregards proper disposal requirements." },
+        { "id": "d", "text": "Use a standard household vacuum without a toner-rated or HEPA filter", "correct": false, "explanation": "A standard vacuum can aerosolize fine toner particles, creating an inhalation hazard, and may not be rated for this type of fine dust." }
+      ]
+    },
+    {
+      "id": "opr2-016",
+      "type": "boolean",
+      "topicId": "operational-procedures",
+      "difficulty": "easy",
+      "prompt": "True or false: A knowledge base article documenting a known issue and its resolution is a form of internal documentation that helps technicians resolve similar tickets more quickly in the future.",
+      "answer": true,
+      "explanation": "This is true. A knowledge base is a repository of documented solutions and known issues that technicians can reference, helping speed up resolution of recurring or similar problems and reducing duplicated troubleshooting effort."
+    },
+    {
+      "id": "opr2-017",
+      "type": "matching",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "Match each disaster recovery site type to its description.",
+      "explanation": "A hot site is a fully equipped, ready facility with live data replication that can take over operations almost immediately; a warm site has some hardware and connectivity already in place but needs additional setup and data restoration; a cold site provides basic space and power with little to no pre-installed equipment, requiring the most time to become operational; and a cloud-based DR site is a recovery environment hosted with a cloud provider that can be provisioned on demand.",
+      "left": [
+        { "id": "dr-hot", "text": "Hot site" },
+        { "id": "dr-warm", "text": "Warm site" },
+        { "id": "dr-cold", "text": "Cold site" },
+        { "id": "dr-cloud", "text": "Cloud-based DR site" }
+      ],
+      "right": [
+        { "id": "drd-hot", "text": "A fully equipped, ready-to-use facility with live data replication that can take over almost immediately" },
+        { "id": "drd-warm", "text": "A partially equipped facility with some hardware and connectivity already in place, needing setup and data restoration before use" },
+        { "id": "drd-cold", "text": "A basic facility with power and space but little or no pre-installed equipment, requiring the most time to become operational" },
+        { "id": "drd-cloud", "text": "A recovery environment hosted by a cloud provider that can be provisioned on demand" }
+      ],
+      "pairs": [
+        { "left": "dr-hot", "right": "drd-hot" },
+        { "left": "dr-warm", "right": "drd-warm" },
+        { "left": "dr-cold", "right": "drd-cold" },
+        { "left": "dr-cloud", "right": "drd-cloud" }
+      ]
+    },
+    {
+      "id": "opr2-018",
+      "type": "ordering",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A technician discovers what appears to be illegal content on a company workstation while performing routine maintenance. Arrange the appropriate first-response steps in the correct order.",
+      "explanation": "The technician should first stop what they are doing and secure/isolate the device without altering it further, report the incident through proper internal channels (such as a supervisor or designated compliance/security contact) rather than acting alone, document the scene and preserve the evidence while maintaining a clear chain of custody, and finally wait for and follow the guidance of law enforcement or legal/compliance staff before taking any further action on the device.",
+      "items": [
+        { "id": "pc1", "text": "Secure and isolate the device, ceasing further use of it immediately" },
+        { "id": "pc2", "text": "Report the incident through proper internal channels, such as a supervisor or designated authority" },
+        { "id": "pc3", "text": "Document the scene and preserve evidence while maintaining chain of custody" },
+        { "id": "pc4", "text": "Await and follow guidance from law enforcement or legal/compliance staff before taking further action" }
+      ],
+      "correctOrder": ["pc1", "pc2", "pc3", "pc4"]
+    }
+  ]
+}
