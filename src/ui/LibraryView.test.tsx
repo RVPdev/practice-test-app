@@ -1,3 +1,4 @@
+// src/ui/LibraryView.test.tsx
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen, within } from '@testing-library/react-native';
 import type { SetSummary } from '@/data/repository';
@@ -20,7 +21,13 @@ const summary = (over: Partial<SetSummary> = {}): SetSummary => ({
 describe('LibraryView', () => {
   it('lists each set with its question and topic counts', async () => {
     await render(
-      <LibraryView sets={[summary()]} loading={false} onOpenSet={() => {}} onImport={() => {}} />,
+      <LibraryView
+        sets={[summary()]}
+        loading={false}
+        onOpenSet={() => {}}
+        onImport={() => {}}
+        onCreate={() => {}}
+      />,
     );
     expect(screen.getByText('Cloud Basics')).toBeTruthy();
     expect(screen.getByText('40 questions · 3 topics')).toBeTruthy();
@@ -33,6 +40,7 @@ describe('LibraryView', () => {
         loading={false}
         onOpenSet={() => {}}
         onImport={() => {}}
+        onCreate={() => {}}
       />,
     );
     expect(screen.getByText(/Best 82.5%/)).toBeTruthy();
@@ -41,7 +49,13 @@ describe('LibraryView', () => {
   it('opens a set when its card is tapped', async () => {
     const onOpenSet = jest.fn();
     await render(
-      <LibraryView sets={[summary()]} loading={false} onOpenSet={onOpenSet} onImport={() => {}} />,
+      <LibraryView
+        sets={[summary()]}
+        loading={false}
+        onOpenSet={onOpenSet}
+        onImport={() => {}}
+        onCreate={() => {}}
+      />,
     );
     fireEvent.press(screen.getByTestId('set-card-set-1'));
     expect(onOpenSet).toHaveBeenCalledWith('set-1');
@@ -49,14 +63,25 @@ describe('LibraryView', () => {
 
   it('shows an empty state pointing at import when there are no sets', async () => {
     const onImport = jest.fn();
-    await render(<LibraryView sets={[]} loading={false} onOpenSet={() => {}} onImport={onImport} />);
+    await render(
+      <LibraryView sets={[]} loading={false} onOpenSet={() => {}} onImport={onImport} onCreate={() => {}} />,
+    );
     expect(screen.getByText(/No question sets yet/)).toBeTruthy();
     fireEvent.press(screen.getByTestId('import-button'));
     expect(onImport).toHaveBeenCalled();
   });
 
+  it('opens the builder when "Create a set" is tapped', async () => {
+    const onCreate = jest.fn();
+    await render(
+      <LibraryView sets={[]} loading={false} onOpenSet={() => {}} onImport={() => {}} onCreate={onCreate} />,
+    );
+    fireEvent.press(screen.getByTestId('create-button'));
+    expect(onCreate).toHaveBeenCalled();
+  });
+
   it('shows a loading state instead of the empty state while loading', async () => {
-    await render(<LibraryView sets={[]} loading onOpenSet={() => {}} onImport={() => {}} />);
+    await render(<LibraryView sets={[]} loading onOpenSet={() => {}} onImport={() => {}} onCreate={() => {}} />);
     expect(screen.queryByText(/No question sets yet/)).toBeNull();
     expect(screen.getByTestId('library-loading')).toBeTruthy();
   });
@@ -70,6 +95,7 @@ describe('LibraryView resume banner', () => {
     loading: false,
     onOpenSet: () => {},
     onImport: () => {},
+    onCreate: () => {},
   };
 
   it('shows nothing when there is no in-progress session', async () => {

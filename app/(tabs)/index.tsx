@@ -57,6 +57,7 @@ export default function LibraryScreen() {
       loading={loading || !ready}
       onOpenSet={(setId) => router.push(`/set/${setId}`)}
       onImport={() => router.push('/import')}
+      onCreate={() => router.push('/builder/new')}
       inProgress={inProgress}
       onResume={
         inProgress

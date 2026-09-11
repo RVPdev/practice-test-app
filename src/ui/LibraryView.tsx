@@ -12,6 +12,7 @@ export function LibraryView({
   loading,
   onOpenSet,
   onImport,
+  onCreate,
   inProgress = null,
   onResume = () => {},
   onDiscard = () => {},
@@ -20,6 +21,7 @@ export function LibraryView({
   loading: boolean;
   onOpenSet: (setId: string) => void;
   onImport: () => void;
+  onCreate: () => void;
   inProgress?: { attemptId: string; setTitle: string; mode: RunMode } | null;
   onResume?: () => void;
   onDiscard?: () => void;
@@ -51,7 +53,10 @@ export function LibraryView({
         </Card>
       ) : null}
 
-      <Button title="Import a set" onPress={onImport} variant="secondary" testID="import-button" />
+      <View style={{ flexDirection: 'row', gap: spacing.sm }}>
+        <Button title="Import a set" onPress={onImport} variant="secondary" testID="import-button" />
+        <Button title="Create a set" onPress={onCreate} variant="secondary" testID="create-button" />
+      </View>
 
       {loading ? (
         <ActivityIndicator testID="library-loading" />
