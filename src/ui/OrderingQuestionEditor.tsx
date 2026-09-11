@@ -1,14 +1,17 @@
 import { Pressable, Text, TextInput, View } from 'react-native';
-import type { OrderingQuestion } from '@/core/schema';
+import type { OrderingQuestion, Topic } from '@/core/schema';
 import { nextSequentialId } from '@/core/id';
 import { Button } from './Button';
+import { QuestionMetaFields } from './QuestionMetaFields';
 import { radius, spacing, type, useTheme } from './theme';
 
 export function OrderingQuestionEditor({
   question,
+  topics,
   onChange,
 }: {
   question: OrderingQuestion;
+  topics: Topic[];
   onChange: (question: OrderingQuestion) => void;
 }) {
   const theme = useTheme();
@@ -106,6 +109,16 @@ export function OrderingQuestionEditor({
         ))}
         <Button title="Add item" variant="secondary" onPress={addItem} testID="add-ordering-item" />
       </View>
+
+      <QuestionMetaFields
+        topics={topics}
+        topicId={question.topicId}
+        difficulty={question.difficulty}
+        explanation={question.explanation}
+        onChangeTopicId={(topicId) => onChange({ ...question, topicId })}
+        onChangeDifficulty={(difficulty) => onChange({ ...question, difficulty })}
+        onChangeExplanation={(explanation) => onChange({ ...question, explanation })}
+      />
     </View>
   );
 }
