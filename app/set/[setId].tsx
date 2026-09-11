@@ -6,6 +6,7 @@ import type { QuestionSet } from '@/core/schema';
 import { startSession } from '@/core/session';
 import { randomSeed } from '@/core/shuffle';
 import type { Attempt, RunMode, RunOverrides } from '@/core/types';
+import { exportSet } from '@/data/exportSet';
 import { useRepository } from '@/data/RepositoryProvider';
 import { Screen } from '@/ui/Screen';
 import { SetDetailView } from '@/ui/SetDetailView';
@@ -68,6 +69,15 @@ export default function SetDetailScreen() {
     router.push(`/session/${encodeURIComponent(session.attemptId)}`);
   };
 
+  const exportCurrentSet = async () => {
+    try {
+      await exportSet(set, 'imported');
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : String(error);
+      Alert.alert('Could not export this set', detail);
+    }
+  };
+
   const remove = () => {
     Alert.alert(
       'Delete this set?',
@@ -92,6 +102,8 @@ export default function SetDetailScreen() {
       attempts={attempts}
       onStart={start}
       onDelete={deletable ? remove : undefined}
+      onEdit={deletable ? () => router.push(`/builder/${encodeURIComponent(set.id)}`) : undefined}
+      onExport={deletable ? exportCurrentSet : undefined}
       onOpenAttempt={(attemptId) => router.push(`/results/${encodeURIComponent(attemptId)}`)}
     />
   );

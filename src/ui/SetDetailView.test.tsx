@@ -65,4 +65,29 @@ describe('SetDetailView', () => {
     await render(<SetDetailView set={set} attempts={[]} onStart={() => {}} onOpenAttempt={() => {}} />);
     expect(screen.queryByTestId('delete-set')).toBeNull();
   });
+
+  it('hides edit and export actions for a set that cannot be deleted', async () => {
+    await render(<SetDetailView set={set} attempts={[]} onStart={() => {}} onOpenAttempt={() => {}} />);
+    expect(screen.queryByTestId('edit-set')).toBeNull();
+    expect(screen.queryByTestId('export-set')).toBeNull();
+  });
+
+  it('shows and wires edit and export actions when provided', async () => {
+    const onEdit = jest.fn();
+    const onExport = jest.fn();
+    await render(
+      <SetDetailView
+        set={set}
+        attempts={[]}
+        onStart={() => {}}
+        onOpenAttempt={() => {}}
+        onEdit={onEdit}
+        onExport={onExport}
+      />,
+    );
+    fireEvent.press(screen.getByTestId('edit-set'));
+    fireEvent.press(screen.getByTestId('export-set'));
+    expect(onEdit).toHaveBeenCalled();
+    expect(onExport).toHaveBeenCalled();
+  });
 });

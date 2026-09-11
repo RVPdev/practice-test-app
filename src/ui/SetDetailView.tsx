@@ -14,12 +14,16 @@ export function SetDetailView({
   attempts,
   onStart,
   onDelete,
+  onEdit,
+  onExport,
   onOpenAttempt,
 }: {
   set: QuestionSet;
   attempts: Attempt[];
   onStart: (mode: RunMode, overrides: RunOverrides) => void;
   onDelete?: () => void;
+  onEdit?: () => void;
+  onExport?: () => void;
   onOpenAttempt: (attemptId: string) => void;
 }) {
   const theme = useTheme();
@@ -164,6 +168,12 @@ export function SetDetailView({
         </View>
       ) : null}
 
+      {onEdit ? (
+        <Button title="Edit this set" variant="secondary" onPress={onEdit} testID="edit-set" />
+      ) : null}
+      {onExport ? (
+        <Button title="Export this set" variant="secondary" onPress={onExport} testID="export-set" />
+      ) : null}
       {onDelete ? (
         <Button title="Delete this set" variant="danger" onPress={onDelete} testID="delete-set" />
       ) : null}
