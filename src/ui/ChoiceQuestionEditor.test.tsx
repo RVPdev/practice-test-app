@@ -63,4 +63,18 @@ describe('ChoiceQuestionEditor', () => {
     await fireEvent.press(screen.getByTestId('topic-chip-hardware'));
     expect(onChange).toHaveBeenCalledWith({ ...question, topicId: 'hardware' });
   });
+
+  it('selects a difficulty', async () => {
+    const onChange = jest.fn();
+    await render(<ChoiceQuestionEditor question={question} topics={topics} onChange={onChange} />);
+    await fireEvent.press(screen.getByTestId('difficulty-hard'));
+    expect(onChange).toHaveBeenCalledWith({ ...question, difficulty: 'hard' });
+  });
+
+  it('reports an explanation edit', async () => {
+    const onChange = jest.fn();
+    await render(<ChoiceQuestionEditor question={question} topics={topics} onChange={onChange} />);
+    await fireEvent.changeText(screen.getByTestId('question-explanation'), 'Because reasons');
+    expect(onChange).toHaveBeenCalledWith({ ...question, explanation: 'Because reasons' });
+  });
 });

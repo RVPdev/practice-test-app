@@ -2,6 +2,7 @@ import { Switch, Text, TextInput, View } from 'react-native';
 import type { ChoiceQuestion, Topic } from '@/core/schema';
 import { nextSequentialId } from '@/core/id';
 import { Button } from './Button';
+import { QuestionMetaFields } from './QuestionMetaFields';
 import { radius, spacing, type, useTheme } from './theme';
 
 export function ChoiceQuestionEditor({
@@ -106,36 +107,14 @@ export function ChoiceQuestionEditor({
         <Button title="Add option" variant="secondary" onPress={addOption} testID="add-option" />
       </View>
 
-      {topics.length > 0 ? (
-        <View style={{ gap: spacing.sm }}>
-          <Text style={[type.label, { color: theme.text }]}>Topic</Text>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm }}>
-            {topics.map((topic) => (
-              <Button
-                key={topic.id}
-                title={topic.name}
-                variant={question.topicId === topic.id ? 'primary' : 'secondary'}
-                onPress={() =>
-                  onChange({
-                    ...question,
-                    topicId: question.topicId === topic.id ? undefined : topic.id,
-                  })
-                }
-                testID={`topic-chip-${topic.id}`}
-              />
-            ))}
-          </View>
-        </View>
-      ) : null}
-
-      <TextInput
-        testID="choice-explanation"
-        value={question.explanation ?? ''}
-        onChangeText={(text) => onChange({ ...question, explanation: text || undefined })}
-        placeholder="Explanation (optional)"
-        placeholderTextColor={theme.textMuted}
-        style={inputStyle}
-        multiline
+      <QuestionMetaFields
+        topics={topics}
+        topicId={question.topicId}
+        difficulty={question.difficulty}
+        explanation={question.explanation}
+        onChangeTopicId={(topicId) => onChange({ ...question, topicId })}
+        onChangeDifficulty={(difficulty) => onChange({ ...question, difficulty })}
+        onChangeExplanation={(explanation) => onChange({ ...question, explanation })}
       />
     </View>
   );
