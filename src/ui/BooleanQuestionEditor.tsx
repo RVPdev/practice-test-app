@@ -1,13 +1,16 @@
 import { Text, TextInput, View } from 'react-native';
-import type { BooleanQuestion } from '@/core/schema';
+import type { BooleanQuestion, Topic } from '@/core/schema';
 import { Button } from './Button';
+import { QuestionMetaFields } from './QuestionMetaFields';
 import { radius, spacing, type, useTheme } from './theme';
 
 export function BooleanQuestionEditor({
   question,
+  topics,
   onChange,
 }: {
   question: BooleanQuestion;
+  topics: Topic[];
   onChange: (question: BooleanQuestion) => void;
 }) {
   const theme = useTheme();
@@ -76,6 +79,16 @@ export function BooleanQuestionEditor({
           style={inputStyle}
         />
       </View>
+
+      <QuestionMetaFields
+        topics={topics}
+        topicId={question.topicId}
+        difficulty={question.difficulty}
+        explanation={question.explanation}
+        onChangeTopicId={(topicId) => onChange({ ...question, topicId })}
+        onChangeDifficulty={(difficulty) => onChange({ ...question, difficulty })}
+        onChangeExplanation={(explanation) => onChange({ ...question, explanation })}
+      />
     </View>
   );
 }
