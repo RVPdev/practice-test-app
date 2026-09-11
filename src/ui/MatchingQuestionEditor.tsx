@@ -1,16 +1,19 @@
 // src/ui/MatchingQuestionEditor.tsx
 import { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
-import type { MatchingQuestion } from '@/core/schema';
+import type { MatchingQuestion, Topic } from '@/core/schema';
 import { nextSequentialId } from '@/core/id';
 import { Button } from './Button';
+import { QuestionMetaFields } from './QuestionMetaFields';
 import { radius, spacing, type, useTheme } from './theme';
 
 export function MatchingQuestionEditor({
   question,
+  topics,
   onChange,
 }: {
   question: MatchingQuestion;
+  topics: Topic[];
   onChange: (question: MatchingQuestion) => void;
 }) {
   const theme = useTheme();
@@ -207,6 +210,16 @@ export function MatchingQuestionEditor({
           </View>
         ))}
       </View>
+
+      <QuestionMetaFields
+        topics={topics}
+        topicId={question.topicId}
+        difficulty={question.difficulty}
+        explanation={question.explanation}
+        onChangeTopicId={(topicId) => onChange({ ...question, topicId })}
+        onChangeDifficulty={(difficulty) => onChange({ ...question, difficulty })}
+        onChangeExplanation={(explanation) => onChange({ ...question, explanation })}
+      />
     </View>
   );
 }
