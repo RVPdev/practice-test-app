@@ -212,6 +212,24 @@ export function SetBuilderView({
       <Card>
         <Text style={[type.heading, { color: theme.text }]}>Exam settings</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm }}>
+          <Text style={[type.body, { color: theme.text, flex: 1 }]}>Question count</Text>
+          <TextInput
+            testID="builder-question-count"
+            value={set.exam?.questionCount ? String(set.exam.questionCount) : ''}
+            onChangeText={(text) => {
+              const n = Number.parseInt(text, 10);
+              setSet({
+                ...set,
+                exam: { ...set.exam, questionCount: Number.isFinite(n) ? n : undefined },
+              });
+            }}
+            placeholder="all"
+            placeholderTextColor={theme.textMuted}
+            keyboardType="number-pad"
+            style={inputStyle}
+          />
+        </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm }}>
           <Text style={[type.body, { color: theme.text, flex: 1 }]}>Time limit (minutes)</Text>
           <TextInput
             testID="builder-time-limit"
@@ -254,13 +272,13 @@ export function SetBuilderView({
                 <ChoiceQuestionEditor question={question} topics={topics} onChange={(q) => updateQuestion(index, q)} />
               ) : null}
               {question.type === 'boolean' ? (
-                <BooleanQuestionEditor question={question} onChange={(q) => updateQuestion(index, q)} />
+                <BooleanQuestionEditor question={question} topics={topics} onChange={(q) => updateQuestion(index, q)} />
               ) : null}
               {question.type === 'ordering' ? (
-                <OrderingQuestionEditor question={question} onChange={(q) => updateQuestion(index, q)} />
+                <OrderingQuestionEditor question={question} topics={topics} onChange={(q) => updateQuestion(index, q)} />
               ) : null}
               {question.type === 'matching' ? (
-                <MatchingQuestionEditor question={question} onChange={(q) => updateQuestion(index, q)} />
+                <MatchingQuestionEditor question={question} topics={topics} onChange={(q) => updateQuestion(index, q)} />
               ) : null}
               <Button title="Done" onPress={() => setEditingIndex(null)} testID={`question-done-${question.id}`} />
             </Card>

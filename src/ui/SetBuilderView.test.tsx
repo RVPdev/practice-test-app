@@ -133,6 +133,29 @@ describe('SetBuilderView', () => {
     expect(onSave.mock.calls[0][0].id).toBe('existing-set');
   });
 
+  it('passes topics through to every question editor, not just choice', async () => {
+    await render(
+      <SetBuilderView initialSet={null} errors={null} saving={false} onSave={() => {}} onCancel={() => {}} />,
+    );
+    await fireEvent.changeText(screen.getByTestId('new-topic-name'), 'Networking');
+    await fireEvent.press(screen.getByTestId('add-topic'));
+    await fireEvent.press(screen.getByTestId('show-add-question'));
+    await fireEvent.press(screen.getByTestId('add-question-boolean'));
+    expect(screen.getByTestId('topic-chip-networking')).toBeTruthy();
+  });
+
+  it('includes the entered question count when saving', async () => {
+    const onSave = jest.fn<(set: QuestionSet) => void>();
+    await render(
+      <SetBuilderView initialSet={null} errors={null} saving={false} onSave={onSave} onCancel={() => {}} />,
+    );
+    await fireEvent.changeText(screen.getByTestId('builder-title'), 'My Set');
+    await fireEvent.changeText(screen.getByTestId('builder-question-count'), '25');
+    await fireEvent.press(screen.getByTestId('builder-save'));
+    expect(onSave).toHaveBeenCalledTimes(1);
+    expect(onSave.mock.calls[0][0].exam?.questionCount).toBe(25);
+  });
+
   it('calls onCancel', async () => {
     const onCancel = jest.fn();
     await render(
