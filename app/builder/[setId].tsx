@@ -5,6 +5,7 @@ import { Text } from 'react-native';
 import type { QuestionSet } from '@/core/schema';
 import { validateSet, type ValidationError } from '@/core/validate';
 import { useRepository } from '@/data/RepositoryProvider';
+import { Button } from '@/ui/Button';
 import { Screen } from '@/ui/Screen';
 import { SetBuilderView } from '@/ui/SetBuilderView';
 
@@ -13,14 +14,19 @@ export default function EditSetScreen() {
   const repository = useRepository();
   const router = useRouter();
   const [set, setSet] = useState<QuestionSet | null>(null);
+  const [editable, setEditable] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [errors, setErrors] = useState<ValidationError[] | null>(null);
   const [saving, setSaving] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
       let cancelled = false;
-      repository.getSet(setId).then((loaded) => {
-        if (!cancelled) setSet(loaded);
+      Promise.all([repository.getSet(setId), repository.listSets()]).then(([loadedSet, summaries]) => {
+        if (cancelled) return;
+        setSet(loadedSet);
+        setEditable(summaries.find((s) => s.id === setId)?.source === 'imported');
+        setLoaded(true);
       });
       return () => {
         cancelled = true;
@@ -42,10 +48,19 @@ export default function EditSetScreen() {
     router.back();
   };
 
-  if (!set) {
+  if (!loaded) {
     return (
       <Screen>
         <Text>Loading…</Text>
+      </Screen>
+    );
+  }
+
+  if (!set || !editable) {
+    return (
+      <Screen>
+        <Text>This set can&apos;t be edited.</Text>
+        <Button title="Go back" onPress={() => router.back()} testID="builder-blocked-back" />
       </Screen>
     );
   }

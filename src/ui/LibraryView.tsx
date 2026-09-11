@@ -64,7 +64,7 @@ export function LibraryView({
         <Card>
           <Text style={[type.body, { color: theme.text }]}>No question sets yet.</Text>
           <Text style={[type.caption, { color: theme.textMuted }]}>
-            Import a JSON file to get started.
+            Import a JSON file or create your own to get started.
           </Text>
         </Card>
       ) : (

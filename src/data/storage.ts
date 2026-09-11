@@ -94,10 +94,15 @@ export function createStorageRepository(kv: KVStore): Repository {
 
     async saveSet(set, source, mode = 'replace') {
       const id = mode === 'copy' ? await nextCopyId(set.id) : set.id;
+      const index = await readIndex();
+      const existingEntry = index.find((e) => e.id === id);
+      if (existingEntry?.source === 'bundled' && source === 'imported') {
+        throw new Error(`"${existingEntry.title}" is a bundled set and cannot be overwritten`);
+      }
+
       const stored: QuestionSet = { ...set, id };
       await write(setKey(id), stored);
 
-      const index = await readIndex();
       const entry = toEntry(stored, source);
       const existing = index.findIndex((e) => e.id === id);
       if (existing >= 0) index[existing] = entry;

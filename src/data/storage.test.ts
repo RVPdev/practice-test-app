@@ -155,6 +155,19 @@ describe('createStorageRepository', () => {
     await expect(repo.deleteSet('set-1')).rejects.toThrow('bundled');
   });
 
+  it('refuses to overwrite a bundled set with an imported one', async () => {
+    await repo.saveSet(makeSet(), 'bundled');
+    await expect(repo.saveSet(makeSet({ title: 'Hacked' }), 'imported')).rejects.toThrow('bundled');
+    expect((await repo.getSet('set-1'))?.title).toBe('Set One');
+    expect((await repo.listSets())[0].source).toBe('bundled');
+  });
+
+  it('allows re-seeding a bundled set with a fresh bundled save', async () => {
+    await repo.saveSet(makeSet(), 'bundled');
+    await repo.saveSet(makeSet({ title: 'Set One v2' }), 'bundled');
+    expect((await repo.getSet('set-1'))?.title).toBe('Set One v2');
+  });
+
   it('saves and clears the in-progress session', async () => {
     const snapshot = { attemptId: 'att_x', setId: 'set-1', index: 2 } as unknown as SessionState;
     await repo.saveInProgress(snapshot);

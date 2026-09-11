@@ -105,6 +105,34 @@ describe('SetBuilderView', () => {
     expect(onSave.mock.calls[0][0].title).toBe('My Set');
   });
 
+  it('derives the id from the entered title for a new set, not "untitled-set"', async () => {
+    const onSave = jest.fn<(set: QuestionSet) => void>();
+    await render(
+      <SetBuilderView initialSet={null} errors={null} saving={false} onSave={onSave} onCancel={() => {}} />,
+    );
+    await fireEvent.changeText(screen.getByTestId('builder-title'), 'My Great Set');
+    await fireEvent.press(screen.getByTestId('builder-save'));
+    expect(onSave).toHaveBeenCalledTimes(1);
+    expect(onSave.mock.calls[0][0].id).toMatch(/^my-great-set-[a-z0-9]{6}$/);
+  });
+
+  it('keeps the existing id unchanged when saving an edited set', async () => {
+    const onSave = jest.fn<(set: QuestionSet) => void>();
+    const existing: QuestionSet = {
+      schemaVersion: 1,
+      id: 'existing-set',
+      title: 'Existing Set',
+      questions: [{ id: 'q1', type: 'boolean', prompt: 'True?', answer: true }],
+    };
+    await render(
+      <SetBuilderView initialSet={existing} errors={null} saving={false} onSave={onSave} onCancel={() => {}} />,
+    );
+    await fireEvent.changeText(screen.getByTestId('builder-title'), 'Renamed Set');
+    await fireEvent.press(screen.getByTestId('builder-save'));
+    expect(onSave).toHaveBeenCalledTimes(1);
+    expect(onSave.mock.calls[0][0].id).toBe('existing-set');
+  });
+
   it('calls onCancel', async () => {
     const onCancel = jest.fn();
     await render(

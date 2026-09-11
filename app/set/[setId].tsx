@@ -8,6 +8,7 @@ import { randomSeed } from '@/core/shuffle';
 import type { Attempt, RunMode, RunOverrides } from '@/core/types';
 import { exportSet } from '@/data/exportSet';
 import { useRepository } from '@/data/RepositoryProvider';
+import type { SetSource } from '@/data/repository';
 import { Screen } from '@/ui/Screen';
 import { SetDetailView } from '@/ui/SetDetailView';
 
@@ -18,6 +19,7 @@ export default function SetDetailScreen() {
   const [set, setSet] = useState<QuestionSet | null>(null);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [deletable, setDeletable] = useState(false);
+  const [source, setSource] = useState<SetSource | null>(null);
 
   useFocusEffect(
     useCallback(() => {
@@ -30,7 +32,9 @@ export default function SetDetailScreen() {
         if (cancelled) return;
         setSet(loadedSet);
         setAttempts(loadedAttempts);
-        setDeletable(summaries.find((s) => s.id === setId)?.source === 'imported');
+        const matched = summaries.find((s) => s.id === setId);
+        setDeletable(matched?.source === 'imported');
+        setSource(matched?.source ?? null);
       });
       return () => {
         cancelled = true;
@@ -71,7 +75,7 @@ export default function SetDetailScreen() {
 
   const exportCurrentSet = async () => {
     try {
-      await exportSet(set, 'imported');
+      await exportSet(set, source ?? 'bundled');
     } catch (error) {
       const detail = error instanceof Error ? error.message : String(error);
       Alert.alert('Could not export this set', detail);

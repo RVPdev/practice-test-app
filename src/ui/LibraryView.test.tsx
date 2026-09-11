@@ -76,7 +76,7 @@ describe('LibraryView', () => {
     await render(
       <LibraryView sets={[]} loading={false} onOpenSet={() => {}} onImport={() => {}} onCreate={onCreate} />,
     );
-    fireEvent.press(screen.getByTestId('create-button'));
+    await fireEvent.press(screen.getByTestId('create-button'));
     expect(onCreate).toHaveBeenCalled();
   });
 

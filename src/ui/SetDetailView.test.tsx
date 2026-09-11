@@ -85,8 +85,8 @@ describe('SetDetailView', () => {
         onExport={onExport}
       />,
     );
-    fireEvent.press(screen.getByTestId('edit-set'));
-    fireEvent.press(screen.getByTestId('export-set'));
+    await fireEvent.press(screen.getByTestId('edit-set'));
+    await fireEvent.press(screen.getByTestId('export-set'));
     expect(onEdit).toHaveBeenCalled();
     expect(onExport).toHaveBeenCalled();
   });

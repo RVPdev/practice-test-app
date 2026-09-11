@@ -10,6 +10,8 @@ export default function RootLayout() {
         <Stack.Screen name="session/[attemptId]" options={{ title: 'Session', headerBackVisible: false }} />
         <Stack.Screen name="results/[attemptId]" options={{ title: 'Results' }} />
         <Stack.Screen name="import" options={{ title: 'Import a set', presentation: 'modal' }} />
+        <Stack.Screen name="builder/new" options={{ title: 'Create a set', presentation: 'modal' }} />
+        <Stack.Screen name="builder/[setId]" options={{ title: 'Edit set' }} />
       </Stack>
     </RepositoryProvider>
   );

@@ -342,7 +342,12 @@ export function SetBuilderView({
       ) : null}
 
       <View style={{ flexDirection: 'row', gap: spacing.sm }}>
-        <Button title={saving ? 'Saving…' : 'Save'} onPress={() => onSave(set)} disabled={saving} testID="builder-save" />
+        <Button
+          title={saving ? 'Saving…' : 'Save'}
+          onPress={() => onSave(initialSet ? set : { ...set, id: makeSetId(set.title || 'Untitled set') })}
+          disabled={saving}
+          testID="builder-save"
+        />
         <Button title="Cancel" variant="secondary" onPress={onCancel} testID="builder-cancel" />
       </View>
     </Screen>

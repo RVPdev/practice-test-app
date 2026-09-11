@@ -24,6 +24,11 @@ describe('buildExportPayload', () => {
     expect(buildExportPayload(sampleSet, 'imported').filename).toBe('demo-set-ab12cd.json');
   });
 
+  it('sanitizes a dirty set id before using it as a filename', () => {
+    const dirtySet: QuestionSet = { ...sampleSet, id: 'Demo/Set Ab12CD' };
+    expect(buildExportPayload(dirtySet, 'imported').filename).toBe('demo-set-ab12cd.json');
+  });
+
   it('produces JSON that round-trips through validateSet unchanged', () => {
     const { json } = buildExportPayload(sampleSet, 'imported');
     const result = validateSet(JSON.parse(json));
