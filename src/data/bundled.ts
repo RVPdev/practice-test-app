@@ -2,8 +2,9 @@ import { validateSet } from '@/core/validate';
 import type { Repository } from './repository';
 import cloudBasics from '../../assets/sets/sample-cloud-basics.json';
 import allTypes from '../../assets/sets/sample-all-types.json';
+import comptiaCore1 from '../../content/comptia-a-plus-core-1.json';
 
-export const BUNDLED_SETS: unknown[] = [cloudBasics, allTypes];
+export const BUNDLED_SETS: unknown[] = [cloudBasics, allTypes, comptiaCore1];
 
 /**
  * Writes every bundled set into the repository. Re-running replaces the set
