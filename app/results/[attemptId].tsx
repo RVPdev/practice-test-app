@@ -16,6 +16,15 @@ export default function ResultsScreen() {
   const [set, setSet] = useState<QuestionSet | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const goHome = () => {
+    // Only dismiss if there's a dismissable stack; otherwise navigate home directly.
+    if (router.canDismiss()) {
+      router.dismissAll();
+    } else {
+      router.replace('/');
+    }
+  };
+
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
@@ -45,10 +54,10 @@ export default function ResultsScreen() {
     return (
       <Screen>
         <Text>This result is no longer available.</Text>
-        <Button title="Done" onPress={() => router.dismissAll()} testID="results-missing-done" />
+        <Button title="Done" onPress={goHome} testID="results-missing-done" />
       </Screen>
     );
   }
 
-  return <ResultsView attempt={attempt} set={set} onDone={() => router.dismissAll()} />;
+  return <ResultsView attempt={attempt} set={set} onDone={goHome} />;
 }

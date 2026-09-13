@@ -81,4 +81,18 @@ describe('Results screen (app/results/[attemptId].tsx)', () => {
 
     await waitFor(() => expect(view.getPathname()).toBe('/'));
   });
+
+  it('navigates home when "Done" is pressed with no dismissable stack', async () => {
+    const repository = createTestRepository();
+    await repository.saveSet(set, 'imported');
+    await repository.saveAttempt(attempt);
+    // Load results directly via URL (no prior stack history) - simulates
+    // a page reload or fresh navigation to the results URL.
+    const view = await renderAppRoute(repository, routes, { initialUrl: '/results/att-1' });
+    await waitFor(() => expect(view.getByTestId('results-done')).toBeTruthy());
+
+    await fireEvent.press(view.getByTestId('results-done'));
+
+    await waitFor(() => expect(view.getPathname()).toBe('/'));
+  });
 });
