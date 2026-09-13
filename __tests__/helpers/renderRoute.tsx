@@ -40,6 +40,13 @@ function testRootLayout(repository: Repository) {
  * it returns rather than to the resolved render result - so the raw return
  * value must be awaited before querying, and the helpers re-attached to what
  * it resolves to.
+ *
+ * Never call `cleanup()` manually mid-test (only via the standard
+ * `afterEach(cleanup)`). A manual mid-test `cleanup()` between two renders in
+ * the same `it()` corrupts expo-router's module-level router singleton for
+ * every *subsequent* test in the file - later renders silently mount to a
+ * null tree. If a test needs to inspect two different routes, split it into
+ * two `it()` blocks instead.
  */
 export async function renderAppRoute(
   repository: Repository,
