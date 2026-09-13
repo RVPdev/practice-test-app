@@ -1,13 +1,15 @@
 import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
-import { Alert, Text } from 'react-native';
+import { Text } from 'react-native';
 import { Screen } from '@/ui/Screen';
 import { RunnerView } from '@/ui/RunnerView';
+import { useConfirm } from '@/ui/ConfirmProvider';
 import { useSessionRunner } from '@/ui/useSessionRunner';
 
 export default function SessionScreen() {
   const router = useRouter();
   const runner = useSessionRunner();
+  const confirm = useConfirm();
 
   // Navigate on the write completing, not on the reducer flipping to `submitted` - the
   // results screen reads the attempt back, so it must already be on disk.
@@ -27,7 +29,7 @@ export default function SessionScreen() {
     const unanswered = runner.state.questionIds.filter(
       (id) => (runner.state!.answers[id] ?? []).length === 0,
     ).length;
-    Alert.alert(
+    confirm(
       'Submit the test?',
       unanswered > 0
         ? `${unanswered} question(s) are unanswered and will be marked incorrect.`

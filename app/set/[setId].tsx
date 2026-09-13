@@ -1,6 +1,6 @@
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Alert, Text } from 'react-native';
+import { Text } from 'react-native';
 import { resolveRunConfig } from '@/core/config';
 import type { QuestionSet } from '@/core/schema';
 import { startSession } from '@/core/session';
@@ -9,6 +9,7 @@ import type { Attempt, RunMode, RunOverrides } from '@/core/types';
 import { exportSet } from '@/data/exportSet';
 import { useRepository } from '@/data/RepositoryProvider';
 import type { SetSource } from '@/data/repository';
+import { useConfirm } from '@/ui/ConfirmProvider';
 import { Screen } from '@/ui/Screen';
 import { SetDetailView } from '@/ui/SetDetailView';
 
@@ -16,6 +17,7 @@ export default function SetDetailScreen() {
   const { setId } = useLocalSearchParams<{ setId: string }>();
   const repository = useRepository();
   const router = useRouter();
+  const confirm = useConfirm();
   const [set, setSet] = useState<QuestionSet | null>(null);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [deletable, setDeletable] = useState(false);
@@ -53,7 +55,7 @@ export default function SetDetailScreen() {
   const start = async (mode: RunMode, overrides: RunOverrides) => {
     const existing = await repository.getInProgress();
     if (existing) {
-      Alert.alert(
+      confirm(
         'Discard your unfinished attempt?',
         'You can only have one attempt in progress at a time.',
         [
@@ -78,12 +80,12 @@ export default function SetDetailScreen() {
       await exportSet(set, source ?? 'bundled');
     } catch (error) {
       const detail = error instanceof Error ? error.message : String(error);
-      Alert.alert('Could not export this set', detail);
+      confirm('Could not export this set', detail);
     }
   };
 
   const remove = () => {
-    Alert.alert(
+    confirm(
       'Delete this set?',
       `"${set.title}" and its ${attempts.length} attempt(s) will be removed from this device.`,
       [

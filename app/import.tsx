@@ -2,9 +2,10 @@ import * as DocumentPicker from 'expo-document-picker';
 import { File } from 'expo-file-system';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { parseSetFile, type ValidationError } from '@/core/validate';
 import { useRepository } from '@/data/RepositoryProvider';
+import { useConfirm } from '@/ui/ConfirmProvider';
 import { ImportView } from '@/ui/ImportView';
 
 async function readFile(uri: string): Promise<string> {
@@ -20,6 +21,7 @@ async function readFile(uri: string): Promise<string> {
 export default function ImportScreen() {
   const repository = useRepository();
   const router = useRouter();
+  const confirm = useConfirm();
   const [busy, setBusy] = useState(false);
   const [errors, setErrors] = useState<ValidationError[] | null>(null);
   const [importedTitle, setImportedTitle] = useState<string | null>(null);
@@ -49,7 +51,7 @@ export default function ImportScreen() {
         return;
       }
 
-      Alert.alert(
+      confirm(
         'You already have this set',
         `"${existing.title}" is already in your library.`,
         [

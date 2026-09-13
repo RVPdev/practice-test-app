@@ -1,7 +1,6 @@
 import { afterEach, describe, expect, it, jest } from '@jest/globals';
-import { act } from 'react';
 import { cleanup, fireEvent, waitFor } from '@testing-library/react-native';
-import { Alert, Text } from 'react-native';
+import { Text } from 'react-native';
 import LibraryScreen from '../../app/(tabs)/index';
 import SetDetailScreen from '../../app/set/[setId]';
 import EditSetScreen from '../../app/builder/[setId]';
@@ -120,12 +119,10 @@ describe('Set detail screen (app/set/[setId].tsx)', () => {
     await fireEvent.press(view.getByTestId('set-card-set-1'));
     await waitFor(() => expect(view.getByTestId('delete-set')).toBeTruthy());
 
-    const alertSpy = jest.spyOn(Alert, 'alert');
     await fireEvent.press(view.getByTestId('delete-set'));
-    const confirm = alertSpy.mock.calls[0][2]?.find((button) => button.text === 'Delete');
-    await act(async () => {
-      await confirm?.onPress?.(undefined as never);
-    });
+    await waitFor(() => expect(view.getByTestId('confirm-dialog')).toBeTruthy());
+
+    await fireEvent.press(view.getByTestId('confirm-button-delete'));
 
     expect(await repository.getSet('set-1')).toBeNull();
     await waitFor(() => expect(view.getPathname()).toBe('/'));

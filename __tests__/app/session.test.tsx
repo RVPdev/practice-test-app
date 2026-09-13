@@ -1,7 +1,6 @@
 import { afterEach, describe, expect, it, jest } from '@jest/globals';
-import { act } from 'react';
 import { cleanup, fireEvent, waitFor } from '@testing-library/react-native';
-import { Alert, Text } from 'react-native';
+import { Text } from 'react-native';
 import SessionScreen from '../../app/session/[attemptId]';
 import { resolveRunConfig } from '@/core/config';
 import type { QuestionSet } from '@/core/schema';
@@ -12,11 +11,6 @@ import { createTestRepository, renderAppRoute } from '../helpers/renderRoute';
 
 afterEach(() => {
   cleanup();
-  // jest.spyOn(Alert, 'alert') re-wraps the same spy across tests in this
-  // file rather than creating a fresh one, so an unrestored spy's
-  // `mock.calls` leaks earlier tests' calls (and their now-stale closures)
-  // into later ones.
-  jest.restoreAllMocks();
 });
 
 // Stubbed: the results screen's own rendering is exercised in its own test
@@ -78,18 +72,13 @@ describe('Session screen, mock mode (app/session/[attemptId].tsx)', () => {
     const { view, attemptId } = await start(repository, 'mock');
     await waitFor(() => expect(view.getByTestId('submit-test')).toBeTruthy());
 
-    const alertSpy = jest.spyOn(Alert, 'alert');
     await fireEvent.press(view.getByTestId('submit-test'));
 
-    expect(alertSpy).toHaveBeenCalledWith(
-      'Submit the test?',
-      expect.stringContaining('1 question(s) are unanswered'),
-      expect.anything(),
-    );
-    const confirm = alertSpy.mock.calls[0][2]?.find((button) => button.text === 'Submit');
-    await act(async () => {
-      await confirm?.onPress?.(undefined as never);
-    });
+    await waitFor(() => expect(view.getByTestId('confirm-dialog')).toBeTruthy());
+    expect(view.getByText('Submit the test?')).toBeTruthy();
+    expect(view.getByText('1 question(s) are unanswered and will be marked incorrect.')).toBeTruthy();
+
+    await fireEvent.press(view.getByTestId('confirm-button-submit'));
 
     await waitFor(() => expect(view.getPathname()).toBe(`/results/${attemptId}`));
   });
@@ -100,18 +89,13 @@ describe('Session screen, mock mode (app/session/[attemptId].tsx)', () => {
     await waitFor(() => expect(view.getByTestId('option-true')).toBeTruthy());
     await fireEvent.press(view.getByTestId('option-true'));
 
-    const alertSpy = jest.spyOn(Alert, 'alert');
     await fireEvent.press(view.getByTestId('submit-test'));
 
-    expect(alertSpy).toHaveBeenCalledWith(
-      'Submit the test?',
-      'You have answered every question.',
-      expect.anything(),
-    );
-    const confirm = alertSpy.mock.calls[0][2]?.find((button) => button.text === 'Submit');
-    await act(async () => {
-      await confirm?.onPress?.(undefined as never);
-    });
+    await waitFor(() => expect(view.getByTestId('confirm-dialog')).toBeTruthy());
+    expect(view.getByText('Submit the test?')).toBeTruthy();
+    expect(view.getByText('You have answered every question.')).toBeTruthy();
+
+    await fireEvent.press(view.getByTestId('confirm-button-submit'));
 
     await waitFor(() => expect(view.getPathname()).toBe(`/results/${attemptId}`));
   });

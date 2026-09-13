@@ -5,6 +5,7 @@ import { RepositoryProvider } from '@/data/RepositoryProvider';
 import { createMemoryKv } from '@/data/kv';
 import type { Repository } from '@/data/repository';
 import { createStorageRepository } from '@/data/storage';
+import { ConfirmProvider } from '@/ui/ConfirmProvider';
 
 /** A fresh repository backed by an in-memory KV store, isolated per test. */
 export function createTestRepository(): Repository {
@@ -15,7 +16,9 @@ function testRootLayout(repository: Repository) {
   return function TestRootLayout() {
     return (
       <RepositoryProvider repository={repository}>
-        <Stack />
+        <ConfirmProvider>
+          <Stack />
+        </ConfirmProvider>
       </RepositoryProvider>
     );
   };

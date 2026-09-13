@@ -1,7 +1,5 @@
-import { afterEach, describe, expect, it, jest } from '@jest/globals';
-import { act } from 'react';
+import { afterEach, describe, expect, it } from '@jest/globals';
 import { cleanup, fireEvent, waitFor } from '@testing-library/react-native';
-import { Alert } from 'react-native';
 import LibraryScreen from '../../app/(tabs)/index';
 import ImportScreen from '../../app/import';
 import NewSetScreen from '../../app/builder/new';
@@ -84,13 +82,10 @@ describe('Library screen (app/(tabs)/index.tsx)', () => {
     const view = await renderAppRoute(repository, routes, { initialUrl: '/' });
     await waitFor(() => expect(view.getByTestId('resume-banner')).toBeTruthy());
 
-    const alertSpy = jest.spyOn(Alert, 'alert');
     await fireEvent.press(view.getByTestId('discard-session'));
-    expect(alertSpy).toHaveBeenCalled();
-    const confirm = alertSpy.mock.calls[0][2]?.find((button) => button.text === 'Discard');
-    await act(async () => {
-      await confirm?.onPress?.(undefined as never);
-    });
+    await waitFor(() => expect(view.getByTestId('confirm-dialog')).toBeTruthy());
+
+    await fireEvent.press(view.getByTestId('confirm-button-discard'));
 
     await waitFor(() => expect(view.queryByTestId('resume-banner')).toBeNull());
   });

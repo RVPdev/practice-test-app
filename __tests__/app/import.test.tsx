@@ -1,7 +1,5 @@
 import { afterEach, describe, expect, it, jest } from '@jest/globals';
-import { act } from 'react';
 import { cleanup, fireEvent, waitFor } from '@testing-library/react-native';
-import { Alert } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
 import LibraryScreen from '../../app/(tabs)/index';
 import ImportScreen from '../../app/import';
@@ -102,14 +100,11 @@ describe('Import screen (app/import.tsx)', () => {
     const view = await renderAppRoute(repository, routes, { initialUrl: '/import' });
     await waitFor(() => expect(view.getByTestId('pick-file')).toBeTruthy());
 
-    const alertSpy = jest.spyOn(Alert, 'alert');
     await fireEvent.press(view.getByTestId('pick-file'));
 
-    await waitFor(() => expect(alertSpy).toHaveBeenCalled());
-    const replace = alertSpy.mock.calls[0][2]?.find((button) => button.text === 'Replace');
-    await act(async () => {
-      await replace?.onPress?.(undefined as never);
-    });
+    await waitFor(() => expect(view.getByTestId('confirm-dialog')).toBeTruthy());
+
+    await fireEvent.press(view.getByTestId('confirm-button-replace'));
 
     await waitFor(async () => {
       const updated = await repository.getSet('imported-set');
