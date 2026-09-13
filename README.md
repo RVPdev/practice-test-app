@@ -1,56 +1,85 @@
-# Welcome to your Expo app 👋
+# Practice Test App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A generic, JSON-driven practice-exam app built with [Expo](https://expo.dev) —
+create, import, and take practice tests across five question types, with
+full mock-exam and practice-mode scoring, on web, iOS, and Android from
+one codebase.
 
-## Get started
+**🔗 Try the web build:** <https://rvpdev.github.io/practice-test-app/>
+(auto-deployed from `main` — see [Deployment](#deployment))
 
-1. Install dependencies
+## What's in here
 
-   ```bash
-   npm install
-   ```
+- **Mock mode** (timed, scored against a passing threshold) and
+  **practice mode** (untimed, instant feedback per question).
+- **Five question types**: single/multi-choice, true/false, ordering,
+  and matching.
+- **Build your own sets** right in the app, or import/export sets as
+  JSON files.
+- **Attempt history** with per-topic score breakdowns.
+- A free, bundled CompTIA A+ Core 1 (220-1201) practice exam —
+  independently authored, not official CompTIA content. See
+  [TERMS.md](./TERMS.md) for the full disclaimer.
 
-2. Start the app
+All data — imported sets, sets you build, attempt history — lives only
+on your own device or browser. Nothing is sent to a server. See
+[PRIVACY.md](./PRIVACY.md).
 
-   ```bash
-   npx expo start
-   ```
+## Tech stack
 
-In the output, you'll find options to open the app in a
+- [Expo](https://expo.dev) + [Expo Router](https://docs.expo.dev/router/introduction/)
+  (file-based routing, universal across web/iOS/Android)
+- React Native + React Native Web, TypeScript
+- [Zod](https://zod.dev) for question-set schema validation
+- Jest, `@testing-library/react-native`, and `expo-router/testing-library`
+  for unit and route-integration tests
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Getting started
 
 ```bash
-npm run reset-project
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Then pick a target from the Expo CLI output — web, an iOS simulator, an
+Android emulator, or a physical device via Expo Go / a dev build.
 
-### Other setup steps
+Platform shortcuts:
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+npm run web       # expo start --web
+npm run ios       # expo start --ios
+npm run android   # expo start --android
+```
 
-## Learn more
+## Testing
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm test          # Jest: unit tests + app/** route integration tests
+npm run typecheck # tsc --noEmit
+npm run lint      # expo lint
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Project structure
 
-## Join the community
+```
+app/            Expo Router routes (screens + navigation)
+src/core/       Question-set schema, validation, scoring, session logic (platform-agnostic)
+src/ui/         Screen view components and shared UI
+src/data/       Persistence (AsyncStorage-backed repository) and bundled content loading
+content/        Bundled practice-exam JSON (Core 1 live; Core 2 & Security+ held back)
+__tests__/app/  Integration tests for the app/** route layer
+```
 
-Join our community of developers creating universal apps.
+## Deployment
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Every push to `main` runs
+[`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml),
+which builds the static web export and deploys it to GitHub Pages
+automatically.
+
+## License
+
+This project is **not** open source — see [LICENSE](./LICENSE). Use of
+the hosted app is governed by [TERMS.md](./TERMS.md); see also
+[PRIVACY.md](./PRIVACY.md).
