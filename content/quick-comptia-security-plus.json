@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-comptia-security-plus-sy0-701",
+  "title": "CompTIA Security+ (SY0-701) — Quick Practice Test",
+  "description": "An independently authored quick practice test aligned to the publicly published CompTIA Security+ (SY0-701) exam objectives. This short set spans all five official domains — General Security Concepts, Threats, Vulnerabilities, and Mitigations, Security Architecture, Security Operations, and Security Program Management and Oversight — for a fast knowledge check rather than a full-length exam simulation. This is NOT official CompTIA content and is NOT affiliated with or endorsed by CompTIA.",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    {
+      "id": "general-security-concepts",
+      "name": "General Security Concepts"
+    },
+    {
+      "id": "threats-vulnerabilities-mitigations",
+      "name": "Threats, Vulnerabilities, and Mitigations"
+    },
+    {
+      "id": "security-architecture",
+      "name": "Security Architecture"
+    },
+    {
+      "id": "security-operations",
+      "name": "Security Operations"
+    },
+    {
+      "id": "security-program-management",
+      "name": "Security Program Management and Oversight"
+    }
+  ],
+  "exam": {
+    "timeLimitMinutes": 15,
+    "passingScore": 70,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "gsc-001",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "easy",
+      "prompt": "A company requires that no single employee can both submit and approve a purchase order, so that at least two people must collude to commit fraud. Which security control concept does this best illustrate?",
+      "explanation": "Separation of duties splits a sensitive process across multiple people so that no individual has enough unilateral power to misuse it, reducing the risk of fraud or error.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Separation of duties",
+          "correct": true,
+          "explanation": "Correct. Dividing a critical task among multiple people prevents any one person from completing the entire process alone."
+        },
+        {
+          "id": "b",
+          "text": "Least privilege",
+          "correct": false,
+          "explanation": "Least privilege limits what access a single user has, but it does not specifically require two people to jointly complete a process."
+        },
+        {
+          "id": "c",
+          "text": "Non-repudiation",
+          "correct": false,
+          "explanation": "Non-repudiation ensures a party cannot deny having performed an action; it does not describe splitting a task between people."
+        },
+        {
+          "id": "d",
+          "text": "Security through obscurity",
+          "correct": false,
+          "explanation": "This refers to relying on secrecy of design rather than proven controls, unrelated to dividing responsibilities."
+        }
+      ]
+    },
+    {
+      "id": "gsc-002",
+      "type": "multi",
+      "topicId": "general-security-concepts",
+      "difficulty": "medium",
+      "prompt": "Which of the following are components of the CIA triad used to describe core information security goals? (Select all that apply.)",
+      "explanation": "The CIA triad consists of Confidentiality, Integrity, and Availability. Accountability and non-repudiation are related security concepts but are not part of the triad itself.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Confidentiality",
+          "correct": true,
+          "explanation": "Correct. Confidentiality ensures data is only accessible to authorized parties."
+        },
+        {
+          "id": "b",
+          "text": "Integrity",
+          "correct": true,
+          "explanation": "Correct. Integrity ensures data has not been altered in an unauthorized manner."
+        },
+        {
+          "id": "c",
+          "text": "Availability",
+          "correct": true,
+          "explanation": "Correct. Availability ensures authorized users can access data and systems when needed."
+        },
+        {
+          "id": "d",
+          "text": "Accountability",
+          "correct": false,
+          "explanation": "Accountability is an important related concept but is not one of the three pillars of the CIA triad."
+        }
+      ]
+    },
+    {
+      "id": "tvm-001",
+      "type": "single",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "difficulty": "medium",
+      "prompt": "An employee receives a phone call from someone claiming to be from the IT help desk, urgently asking for their password to 'fix an account issue.' What type of attack is this?",
+      "explanation": "Vishing is phishing conducted over voice calls (including VoIP), where an attacker impersonates a trusted source to manipulate the victim into divulging sensitive information.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vishing",
+          "correct": true,
+          "explanation": "Correct. A voice-based social engineering attempt to extract credentials is classified as vishing."
+        },
+        {
+          "id": "b",
+          "text": "Typosquatting",
+          "correct": false,
+          "explanation": "Typosquatting involves registering domains similar to legitimate ones, not phone-based social engineering."
+        },
+        {
+          "id": "c",
+          "text": "Credential stuffing",
+          "correct": false,
+          "explanation": "Credential stuffing is an automated attack using previously breached credentials, not a phone call."
+        },
+        {
+          "id": "d",
+          "text": "On-path attack",
+          "correct": false,
+          "explanation": "An on-path (man-in-the-middle) attack intercepts network traffic; it does not describe a phone-based pretext."
+        }
+      ]
+    },
+    {
+      "id": "tvm-002",
+      "type": "boolean",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "difficulty": "easy",
+      "prompt": "True or false: A zero-day vulnerability is a flaw that has been publicly known and patched for less than 24 hours.",
+      "explanation": "False. A zero-day is a vulnerability that is unknown to the vendor (and therefore has no available patch) at the time it is discovered or exploited, regardless of how long it has existed.",
+      "answer": false
+    },
+    {
+      "id": "tvm-003",
+      "type": "single",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "difficulty": "hard",
+      "prompt": "A web application allows users to submit a search query that is inserted directly into a database command without sanitization, letting an attacker alter the query's logic. What type of vulnerability is this?",
+      "explanation": "SQL injection occurs when untrusted input is concatenated directly into a database query, allowing an attacker to manipulate the query's logic and potentially read or modify data it should not have access to.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SQL injection",
+          "correct": true,
+          "explanation": "Correct. Unsanitized input inserted into a database command is the classic definition of a SQL injection vulnerability."
+        },
+        {
+          "id": "b",
+          "text": "Buffer overflow",
+          "correct": false,
+          "explanation": "A buffer overflow involves writing data beyond the bounds of allocated memory, not manipulating database query logic."
+        },
+        {
+          "id": "c",
+          "text": "Cross-site request forgery",
+          "correct": false,
+          "explanation": "CSRF tricks a user's browser into submitting unwanted requests using their existing session, which is a different mechanism."
+        },
+        {
+          "id": "d",
+          "text": "Directory traversal",
+          "correct": false,
+          "explanation": "Directory traversal manipulates file paths to access files outside an intended directory, not database query logic."
+        }
+      ]
+    },
+    {
+      "id": "sa-001",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "A company wants to segment its network so that a compromised IoT device on one subnet cannot directly reach servers holding financial data on another subnet. Which architecture concept best achieves this?",
+      "explanation": "Network segmentation divides a network into isolated zones, limiting an attacker's ability to move laterally from a lower-trust segment (like IoT devices) into a higher-value segment (like financial servers).",
+      "options": [
+        {
+          "id": "a",
+          "text": "Network segmentation",
+          "correct": true,
+          "explanation": "Correct. Separating devices into distinct subnets/VLANs with controlled routing restricts lateral movement between zones of different trust levels."
+        },
+        {
+          "id": "b",
+          "text": "Load balancing",
+          "correct": false,
+          "explanation": "Load balancing distributes traffic across multiple servers for performance and availability, not isolation between trust zones."
+        },
+        {
+          "id": "c",
+          "text": "Full disk encryption",
+          "correct": false,
+          "explanation": "Disk encryption protects data at rest on a device; it does not control network reachability between subnets."
+        },
+        {
+          "id": "d",
+          "text": "Port mirroring",
+          "correct": false,
+          "explanation": "Port mirroring copies traffic for monitoring purposes; it does not restrict traffic flow between segments."
+        }
+      ]
+    },
+    {
+      "id": "sa-002",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "In a zero trust architecture, which principle governs how access decisions are made for every request, even from users already inside the corporate network?",
+      "explanation": "Zero trust assumes no implicit trust based on network location. Every access request is verified explicitly, typically through continuous authentication, authorization, and policy enforcement at a policy enforcement point, regardless of whether the requester is on the internal network.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Never trust, always verify each request explicitly regardless of network location",
+          "correct": true,
+          "explanation": "Correct. Zero trust requires explicit verification of every access request rather than granting implicit trust to internal network traffic."
+        },
+        {
+          "id": "b",
+          "text": "Trust any device once it has authenticated a single time at the perimeter",
+          "correct": false,
+          "explanation": "This describes a traditional perimeter-based trust model, which zero trust specifically moves away from."
+        },
+        {
+          "id": "c",
+          "text": "Grant broad access automatically to reduce authentication overhead for internal users",
+          "correct": false,
+          "explanation": "Zero trust favors granular, continuously verified access rather than broad implicit access."
+        },
+        {
+          "id": "d",
+          "text": "Rely solely on VPN tunnel establishment as proof of trustworthiness",
+          "correct": false,
+          "explanation": "A VPN connection alone does not satisfy zero trust; every request still requires explicit verification."
+        }
+      ]
+    },
+    {
+      "id": "so-001",
+      "type": "ordering",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "Arrange the following incident response phases in the order they are typically performed, according to the standard incident response lifecycle.",
+      "explanation": "A typical incident response lifecycle flows from preparation, through detecting and analyzing an event, to containing and eradicating the threat, then recovering normal operations, and finally capturing lessons learned for future improvement.",
+      "items": [
+        { "id": "p1", "text": "Preparation" },
+        { "id": "p2", "text": "Detection and analysis" },
+        { "id": "p3", "text": "Containment and eradication" },
+        { "id": "p4", "text": "Recovery" },
+        { "id": "p5", "text": "Lessons learned" }
+      ],
+      "correctOrder": ["p1", "p2", "p3", "p4", "p5"]
+    },
+    {
+      "id": "so-002",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "A security analyst wants a centralized system that aggregates log data from firewalls, servers, and endpoints to correlate events and generate alerts on suspicious patterns. Which tool category best fits this need?",
+      "explanation": "A Security Information and Event Management (SIEM) system collects and correlates log data from many sources, enabling centralized monitoring, alerting, and analysis of security events across an environment.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SIEM (Security Information and Event Management)",
+          "correct": true,
+          "explanation": "Correct. SIEM platforms are purpose-built to aggregate and correlate logs from diverse sources for detection and alerting."
+        },
+        {
+          "id": "b",
+          "text": "Host-based firewall",
+          "correct": false,
+          "explanation": "A host-based firewall filters traffic on a single device; it does not aggregate logs across many systems."
+        },
+        {
+          "id": "c",
+          "text": "Password manager",
+          "correct": false,
+          "explanation": "A password manager stores and manages credentials; it has no role in log aggregation or correlation."
+        },
+        {
+          "id": "d",
+          "text": "Screened subnet",
+          "correct": false,
+          "explanation": "A screened subnet (DMZ) is a network design pattern, not a log aggregation and alerting tool."
+        }
+      ]
+    },
+    {
+      "id": "spm-001",
+      "type": "single",
+      "topicId": "security-program-management",
+      "difficulty": "medium",
+      "prompt": "An organization decides to purchase a cyber insurance policy to offset potential financial losses from a data breach, rather than investing further in preventive controls. Which risk management strategy does this represent?",
+      "explanation": "Risk transfer shifts the financial impact of a risk to a third party, such as an insurance provider, rather than reducing the likelihood of the risk (mitigation), accepting it outright, or avoiding the activity entirely.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Risk transfer",
+          "correct": true,
+          "explanation": "Correct. Purchasing insurance shifts the financial consequence of the risk to the insurer, which is the definition of risk transfer."
+        },
+        {
+          "id": "b",
+          "text": "Risk avoidance",
+          "correct": false,
+          "explanation": "Risk avoidance means eliminating the activity that creates the risk entirely, not offsetting its cost."
+        },
+        {
+          "id": "c",
+          "text": "Risk mitigation",
+          "correct": false,
+          "explanation": "Risk mitigation involves implementing controls to reduce the likelihood or impact of a risk, not transferring its financial cost."
+        },
+        {
+          "id": "d",
+          "text": "Risk acceptance",
+          "correct": false,
+          "explanation": "Risk acceptance means acknowledging a risk and taking no further action, without transferring its cost to another party."
+        }
+      ]
+    }
+  ]
+}

@@ -3,8 +3,11 @@ import type { Repository } from './repository';
 import cloudBasics from '../../assets/sets/sample-cloud-basics.json';
 import allTypes from '../../assets/sets/sample-all-types.json';
 import comptiaCore1 from '../../content/comptia-a-plus-core-1.json';
+import quickCore2 from '../../content/quick-comptia-a-plus-core-2.json';
+import quickSecurityPlus from '../../content/quick-comptia-security-plus.json';
+import quickNetworkPlus from '../../content/quick-comptia-network-plus.json';
 
-export const BUNDLED_SETS: unknown[] = [cloudBasics, allTypes, comptiaCore1];
+export const BUNDLED_SETS: unknown[] = [cloudBasics, allTypes, comptiaCore1, quickCore2, quickSecurityPlus, quickNetworkPlus];
 
 /**
  * Writes every bundled set into the repository. Re-running replaces the set

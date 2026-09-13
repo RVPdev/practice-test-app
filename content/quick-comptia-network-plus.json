@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-comptia-network-plus-n10-009",
+  "title": "CompTIA Network+ (N10-009) — Quick Practice Test",
+  "description": "An original, short practice test aligned to the publicly published CompTIA Network+ (N10-009) exam objectives. This is an independently authored quick study aid covering a spread of the five official domains — Networking Concepts, Network Implementation, Network Operations, Network Security, and Network Troubleshooting — and is NOT official CompTIA content. It is not affiliated with, endorsed by, or sponsored by CompTIA.",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    {
+      "id": "networking-concepts",
+      "name": "Networking Concepts"
+    },
+    {
+      "id": "network-implementation",
+      "name": "Network Implementation"
+    },
+    {
+      "id": "network-operations",
+      "name": "Network Operations"
+    },
+    {
+      "id": "network-security",
+      "name": "Network Security"
+    },
+    {
+      "id": "network-troubleshooting",
+      "name": "Network Troubleshooting"
+    }
+  ],
+  "exam": {
+    "timeLimitMinutes": 15,
+    "passingScore": 70,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "nc-001",
+      "type": "single",
+      "topicId": "networking-concepts",
+      "difficulty": "easy",
+      "prompt": "Which subnet mask corresponds to a /26 network?",
+      "explanation": "A /26 prefix leaves 6 bits for hosts (2^6 = 64 addresses per subnet), which corresponds to a subnet mask of 255.255.255.192 — the last octet in binary is 11000000.",
+      "options": [
+        {
+          "id": "a",
+          "text": "255.255.255.192",
+          "correct": true,
+          "explanation": "Correct. /26 reserves the top 2 bits of the last octet for the network, leaving 192 as the mask value."
+        },
+        {
+          "id": "b",
+          "text": "255.255.255.224",
+          "correct": false,
+          "explanation": "255.255.255.224 corresponds to a /27 prefix, not /26."
+        },
+        {
+          "id": "c",
+          "text": "255.255.255.128",
+          "correct": false,
+          "explanation": "255.255.255.128 corresponds to a /25 prefix, not /26."
+        },
+        {
+          "id": "d",
+          "text": "255.255.255.240",
+          "correct": false,
+          "explanation": "255.255.255.240 corresponds to a /28 prefix, not /26."
+        }
+      ]
+    },
+    {
+      "id": "nc-002",
+      "type": "single",
+      "topicId": "networking-concepts",
+      "difficulty": "easy",
+      "prompt": "At which layer of the OSI model does a standard switch primarily operate when forwarding frames based on MAC addresses?",
+      "explanation": "Layer 2 (the Data Link layer) is where frames are addressed and forwarded using MAC addresses. Routing based on IP addresses happens one layer up, at Layer 3.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Layer 2 (Data Link)",
+          "correct": true,
+          "explanation": "Correct. MAC address-based frame forwarding is the defining Layer 2 function of a switch."
+        },
+        {
+          "id": "b",
+          "text": "Layer 3 (Network)",
+          "correct": false,
+          "explanation": "Layer 3 is where IP addressing and routing occur, which is the job of a router, not a basic switch."
+        },
+        {
+          "id": "c",
+          "text": "Layer 1 (Physical)",
+          "correct": false,
+          "explanation": "Layer 1 deals with raw bits, voltages, and cabling, not MAC-address-based forwarding decisions."
+        },
+        {
+          "id": "d",
+          "text": "Layer 4 (Transport)",
+          "correct": false,
+          "explanation": "Layer 4 handles end-to-end transport concerns like TCP ports and segmentation, not frame forwarding."
+        }
+      ]
+    },
+    {
+      "id": "ni-001",
+      "type": "single",
+      "topicId": "network-implementation",
+      "difficulty": "medium",
+      "prompt": "A network administrator wants to increase available bandwidth and provide link redundancy between two switches by combining several physical Ethernet connections into a single logical connection. What should be configured?",
+      "explanation": "Link aggregation (commonly implemented with LACP, the Link Aggregation Control Protocol) bundles multiple physical links into one logical channel, increasing throughput and providing failover if one member link goes down.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Link aggregation (LACP)",
+          "correct": true,
+          "explanation": "Correct. Link aggregation bundles multiple physical links into a single, higher-bandwidth, fault-tolerant logical link."
+        },
+        {
+          "id": "b",
+          "text": "Spanning Tree Protocol (STP)",
+          "correct": false,
+          "explanation": "STP prevents switching loops by blocking redundant paths; it does not combine links into one logical connection."
+        },
+        {
+          "id": "c",
+          "text": "802.1Q VLAN trunking",
+          "correct": false,
+          "explanation": "Trunking carries multiple VLANs over a single link; it does not by itself combine multiple physical links into one."
+        },
+        {
+          "id": "d",
+          "text": "Network address translation (NAT)",
+          "correct": false,
+          "explanation": "NAT translates private addresses to public ones; it is unrelated to combining switch links."
+        }
+      ]
+    },
+    {
+      "id": "ni-002",
+      "type": "matching",
+      "topicId": "network-implementation",
+      "prompt": "Match each protocol to its default well-known port number.",
+      "explanation": "DNS name resolution queries use port 53, HTTPS serves encrypted web traffic on port 443, SSH provides encrypted remote shell access on port 22, and SNMP agents listen for management queries on port 161.",
+      "left": [
+        {
+          "id": "l-dns",
+          "text": "DNS (Domain Name System)"
+        },
+        {
+          "id": "l-https",
+          "text": "HTTPS (HTTP over TLS)"
+        },
+        {
+          "id": "l-ssh",
+          "text": "SSH (Secure Shell)"
+        },
+        {
+          "id": "l-snmp",
+          "text": "SNMP (Simple Network Management Protocol) agent"
+        }
+      ],
+      "right": [
+        {
+          "id": "r-53",
+          "text": "Port 53"
+        },
+        {
+          "id": "r-443",
+          "text": "Port 443"
+        },
+        {
+          "id": "r-22",
+          "text": "Port 22"
+        },
+        {
+          "id": "r-161",
+          "text": "Port 161"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l-dns",
+          "right": "r-53"
+        },
+        {
+          "left": "l-https",
+          "right": "r-443"
+        },
+        {
+          "left": "l-ssh",
+          "right": "r-22"
+        },
+        {
+          "left": "l-snmp",
+          "right": "r-161"
+        }
+      ]
+    },
+    {
+      "id": "no-001",
+      "type": "single",
+      "topicId": "network-operations",
+      "difficulty": "medium",
+      "prompt": "Which monitoring protocol lets a network management system poll devices for performance statistics, and also allows devices to send unsolicited alerts when a configured threshold is exceeded?",
+      "explanation": "SNMP (Simple Network Management Protocol) supports both polling devices via GET requests and receiving unsolicited trap messages that a device sends when a monitored condition crosses a threshold.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SNMP (Simple Network Management Protocol)",
+          "correct": true,
+          "explanation": "Correct. SNMP supports both polled queries and unsolicited traps/informs for threshold-based alerting."
+        },
+        {
+          "id": "b",
+          "text": "Syslog",
+          "correct": false,
+          "explanation": "Syslog centralizes log messages generated by devices; it is not primarily a polling-based statistics protocol."
+        },
+        {
+          "id": "c",
+          "text": "NTP (Network Time Protocol)",
+          "correct": false,
+          "explanation": "NTP synchronizes device clocks; it has no role in performance polling or threshold alerts."
+        },
+        {
+          "id": "d",
+          "text": "ICMP (Internet Control Message Protocol)",
+          "correct": false,
+          "explanation": "ICMP carries diagnostic messages like ping and traceroute; it is not a management polling/trap protocol."
+        }
+      ]
+    },
+    {
+      "id": "ns-001",
+      "type": "single",
+      "topicId": "network-security",
+      "difficulty": "medium",
+      "prompt": "A company requires VPN users to enter a password and then a one-time code generated by a mobile authenticator app before a connection is allowed. What security concept does this combination describe?",
+      "explanation": "Multifactor authentication (MFA) requires two or more distinct categories of proof of identity, such as something you know (a password) and something you have (a code from an authenticator app tied to a registered device).",
+      "options": [
+        {
+          "id": "a",
+          "text": "Multifactor authentication (MFA)",
+          "correct": true,
+          "explanation": "Correct. Combining a password with a one-time code from a separate app satisfies two different authentication factor categories."
+        },
+        {
+          "id": "b",
+          "text": "Single sign-on (SSO)",
+          "correct": false,
+          "explanation": "SSO lets one set of credentials grant access to multiple systems; it does not by itself describe using two different proof-of-identity factors."
+        },
+        {
+          "id": "c",
+          "text": "Role-based access control (RBAC)",
+          "correct": false,
+          "explanation": "RBAC governs what an authenticated user is permitted to do based on their role, not how they initially prove their identity."
+        },
+        {
+          "id": "d",
+          "text": "Network address translation (NAT)",
+          "correct": false,
+          "explanation": "NAT translates IP addresses between private and public address space; it has no connection to authentication."
+        }
+      ]
+    },
+    {
+      "id": "ns-002",
+      "type": "boolean",
+      "topicId": "network-security",
+      "difficulty": "medium",
+      "prompt": "True or false: WPA3 is considered less secure than WPA2 because it removed individualized per-session encryption for each client.",
+      "explanation": "This is false. WPA3 is a security improvement over WPA2. It strengthens the handshake with Simultaneous Authentication of Equals (SAE), which resists offline dictionary attacks, and it provides individualized data encryption per client session — including on open networks — rather than removing it.",
+      "answer": false
+    },
+    {
+      "id": "nt-001",
+      "type": "ordering",
+      "topicId": "network-troubleshooting",
+      "prompt": "A technician is applying the standard network troubleshooting methodology to a reported connectivity problem. Arrange the following steps in the correct order.",
+      "explanation": "The standard methodology starts by identifying the problem, then forms a theory of probable cause, tests that theory, establishes and implements a plan of action once the cause is confirmed, verifies full functionality afterward, and finally documents findings, actions, and outcomes.",
+      "items": [
+        {
+          "id": "s1",
+          "text": "Identify the problem by gathering information from the user and the system"
+        },
+        {
+          "id": "s2",
+          "text": "Establish a theory of probable cause"
+        },
+        {
+          "id": "s3",
+          "text": "Test the theory to determine the actual cause"
+        },
+        {
+          "id": "s4",
+          "text": "Establish a plan of action and implement the solution"
+        },
+        {
+          "id": "s5",
+          "text": "Verify full system functionality"
+        },
+        {
+          "id": "s6",
+          "text": "Document findings, actions, and outcomes"
+        }
+      ],
+      "correctOrder": ["s1", "s2", "s3", "s4", "s5", "s6"]
+    },
+    {
+      "id": "nt-002",
+      "type": "multi",
+      "topicId": "network-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A technician suspects a physical cabling fault is causing intermittent connectivity on a single wired workstation. Which TWO tools would help diagnose and locate the problem?",
+      "explanation": "A cable tester/certifier checks for wiremap errors, opens, shorts, and split pairs, while a time domain reflectometer (TDR) sends a signal down the cable and measures the reflection to find a break and estimate the distance to the fault. A spectrum analyzer and a Wi-Fi analyzer are both used to diagnose wireless interference and RF conditions, not a physical copper run.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cable tester / certifier",
+          "correct": true,
+          "explanation": "Correct. A cable tester checks continuity and wiring against expected pinouts, revealing opens, shorts, or miswires."
+        },
+        {
+          "id": "b",
+          "text": "Time domain reflectometer (TDR)",
+          "correct": true,
+          "explanation": "Correct. A TDR locates the approximate distance to a cable break or impedance fault along the run."
+        },
+        {
+          "id": "c",
+          "text": "Spectrum analyzer",
+          "correct": false,
+          "explanation": "A spectrum analyzer measures RF energy across frequencies to find wireless interference, not a wired cabling fault."
+        },
+        {
+          "id": "d",
+          "text": "Wi-Fi analyzer",
+          "correct": false,
+          "explanation": "A Wi-Fi analyzer surveys wireless channels and signal strength; it has no visibility into a wired cable run."
+        }
+      ]
+    }
+  ]
+}

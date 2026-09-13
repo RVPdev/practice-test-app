@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-comptia-a-plus-core-2-220-1202",
+  "title": "CompTIA A+ Core 2 (220-1202) — Quick Practice Test",
+  "description": "A short, independently authored quick practice test aligned to the publicly published CompTIA A+ Core 2 (220-1202) exam objectives. This is NOT official CompTIA content and is NOT affiliated with or endorsed by CompTIA. It offers a fast spot-check across the four Core 2 domains — Operating Systems, Security, Software Troubleshooting, and Operational Procedures — rather than full exam-length coverage.",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    {
+      "id": "operating-systems",
+      "name": "Operating Systems"
+    },
+    {
+      "id": "security",
+      "name": "Security"
+    },
+    {
+      "id": "software-troubleshooting",
+      "name": "Software Troubleshooting"
+    },
+    {
+      "id": "operational-procedures",
+      "name": "Operational Procedures"
+    }
+  ],
+  "exam": {
+    "timeLimitMinutes": 15,
+    "passingScore": 70,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "qos-001",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "easy",
+      "prompt": "A technician needs to release and renew a Windows PC's DHCP-assigned IP address from an elevated command prompt. Which command-line tool should be used?",
+      "explanation": "ipconfig with the /release and /renew switches manages a Windows host's IP configuration, including releasing and renewing a DHCP lease. The other tools serve different diagnostic purposes.",
+      "options": [
+        {
+          "id": "a",
+          "text": "ipconfig",
+          "correct": true,
+          "explanation": "Correct. ipconfig /release followed by ipconfig /renew drops and re-requests a DHCP lease."
+        },
+        {
+          "id": "b",
+          "text": "netstat",
+          "correct": false,
+          "explanation": "netstat displays active connections and listening ports, not IP configuration."
+        },
+        {
+          "id": "c",
+          "text": "tracert",
+          "correct": false,
+          "explanation": "tracert traces the hop-by-hop path to a destination; it does not manage DHCP leases."
+        },
+        {
+          "id": "d",
+          "text": "nslookup",
+          "correct": false,
+          "explanation": "nslookup queries DNS records; it has no role in DHCP lease management."
+        }
+      ]
+    },
+    {
+      "id": "qos-002",
+      "type": "single",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "On a Linux system, which command changes the permission bits on a file, for example setting it to be readable and writable only by its owner?",
+      "explanation": "chmod (change mode) modifies a file's read/write/execute permission bits. chown changes ownership rather than permissions, ls lists directory contents, and grep searches text.",
+      "options": [
+        {
+          "id": "a",
+          "text": "chmod",
+          "correct": true,
+          "explanation": "Correct. chmod sets the permission bits on a file or directory."
+        },
+        {
+          "id": "b",
+          "text": "chown",
+          "correct": false,
+          "explanation": "chown changes the owner and/or group of a file, not its permission bits."
+        },
+        {
+          "id": "c",
+          "text": "ls",
+          "correct": false,
+          "explanation": "ls lists files and directories; it can display permissions but cannot change them."
+        },
+        {
+          "id": "d",
+          "text": "grep",
+          "correct": false,
+          "explanation": "grep searches text for matching patterns; it has no role in file permissions."
+        }
+      ]
+    },
+    {
+      "id": "qos-003",
+      "type": "boolean",
+      "topicId": "operating-systems",
+      "difficulty": "medium",
+      "prompt": "True or false: Windows System Restore backs up a user's personal files, such as documents and photos, so it can be relied on as a substitute for a regular file backup.",
+      "explanation": "This is false. System Restore captures system files, installed program states, and registry settings at a restore point so the OS can be rolled back after a bad update or driver install — it does not back up personal documents, photos, or other user data files.",
+      "answer": false
+    },
+    {
+      "id": "qsec-001",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "An employee receives an email that appears to come from the company's CEO, urgently requesting an immediate wire transfer to a new vendor account. What type of social engineering attack does this describe?",
+      "explanation": "This is a form of business email compromise/whaling: a targeted, impersonation-based phishing attack aimed at a high-value target or using a spoofed executive identity to pressure an employee into an urgent financial action.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Whaling (a targeted phishing attack impersonating an executive)",
+          "correct": true,
+          "explanation": "Correct. Whaling specifically targets or impersonates high-profile individuals like executives to pressure quick action."
+        },
+        {
+          "id": "b",
+          "text": "Shoulder surfing",
+          "correct": false,
+          "explanation": "Shoulder surfing is covertly observing someone's screen or keystrokes in person, unrelated to a fraudulent email."
+        },
+        {
+          "id": "c",
+          "text": "Tailgating",
+          "correct": false,
+          "explanation": "Tailgating is following an authorized person through a secured physical door without their own credentials."
+        },
+        {
+          "id": "d",
+          "text": "A brute-force attack",
+          "correct": false,
+          "explanation": "A brute-force attack systematically guesses credentials; it does not involve an impersonation email."
+        }
+      ]
+    },
+    {
+      "id": "qsec-002",
+      "type": "multi",
+      "topicId": "security",
+      "difficulty": "medium",
+      "prompt": "Which TWO of the following are recognized authentication factor categories used in multifactor authentication (MFA)?",
+      "explanation": "MFA combines factors from different categories: something you know (a password or PIN) and something you have (a hardware token, smart card, or authenticator app on a phone). 'Something you want' and 'something you browse' are not recognized authentication factor categories.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Something you know, such as a password or PIN",
+          "correct": true,
+          "explanation": "Correct. Knowledge factors are one of the standard MFA categories."
+        },
+        {
+          "id": "b",
+          "text": "Something you have, such as a hardware token or smart card",
+          "correct": true,
+          "explanation": "Correct. Possession factors are another standard MFA category."
+        },
+        {
+          "id": "c",
+          "text": "Something you want",
+          "correct": false,
+          "explanation": "This is not a recognized authentication factor category."
+        },
+        {
+          "id": "d",
+          "text": "Something you browse",
+          "correct": false,
+          "explanation": "This is not a recognized authentication factor category."
+        }
+      ]
+    },
+    {
+      "id": "qsec-003",
+      "type": "single",
+      "topicId": "security",
+      "difficulty": "easy",
+      "prompt": "Malware encrypts all of the files on a user's computer and displays a message demanding payment to restore access. What type of malware is this?",
+      "explanation": "Ransomware encrypts a victim's files (or locks the system) and demands payment, typically in cryptocurrency, for the decryption key or to restore access.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ransomware",
+          "correct": true,
+          "explanation": "Correct. Encrypting files and demanding payment for their release is the defining behavior of ransomware."
+        },
+        {
+          "id": "b",
+          "text": "A keylogger",
+          "correct": false,
+          "explanation": "A keylogger silently records keystrokes; it does not encrypt files or demand payment."
+        },
+        {
+          "id": "c",
+          "text": "Spyware",
+          "correct": false,
+          "explanation": "Spyware covertly collects user information; it does not typically encrypt files and demand ransom."
+        },
+        {
+          "id": "d",
+          "text": "A rootkit",
+          "correct": false,
+          "explanation": "A rootkit hides its presence and grants persistent privileged access; it does not by itself encrypt files for ransom."
+        }
+      ]
+    },
+    {
+      "id": "qswt-001",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A Windows desktop started displaying a blue screen of death (BSOD) shortly after a new video card driver was installed, and it now happens repeatedly. Which troubleshooting step should be tried first?",
+      "explanation": "When a BSOD begins immediately after a specific driver update, the most direct and least destructive first step is to boot into Safe Mode (or use Windows' rollback feature) and roll back or uninstall that driver before considering more invasive options like a clean OS reinstall.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Boot into Safe Mode and roll back or uninstall the newly installed video card driver",
+          "correct": true,
+          "explanation": "Correct. Rolling back the driver most recently changed directly addresses the likely cause with minimal disruption."
+        },
+        {
+          "id": "b",
+          "text": "Immediately reinstall Windows from scratch",
+          "correct": false,
+          "explanation": "A full reinstall is far more disruptive than necessary when the timing clearly points to a specific recent driver change."
+        },
+        {
+          "id": "c",
+          "text": "Physically replace the motherboard",
+          "correct": false,
+          "explanation": "There is no indication of a hardware fault; the timing strongly implicates the new driver, not the motherboard."
+        },
+        {
+          "id": "d",
+          "text": "Ignore it, since BSODs always resolve on their own after a few reboots",
+          "correct": false,
+          "explanation": "A BSOD tied to a specific driver change will keep recurring until the underlying driver issue is addressed."
+        }
+      ]
+    },
+    {
+      "id": "qswt-002",
+      "type": "single",
+      "topicId": "software-troubleshooting",
+      "difficulty": "medium",
+      "prompt": "A smartphone has had extremely short battery life and runs noticeably hot even when idle, starting shortly after the user installed an app from outside the device's official app store. What is the most likely cause?",
+      "explanation": "Apps installed from unofficial sources ('sideloaded') bypass official app-store vetting and are a common vector for malware that runs hidden background processes, driving high CPU/battery usage and heat even when the phone appears idle.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The sideloaded app is likely malicious and is running hidden processes in the background",
+          "correct": true,
+          "explanation": "Correct. Unusual heat and battery drain that begins right after installing an app from an unofficial source points to malware."
+        },
+        {
+          "id": "b",
+          "text": "The phone's screen brightness is set too low",
+          "correct": false,
+          "explanation": "Low screen brightness would reduce power draw, not cause overheating and rapid battery drain."
+        },
+        {
+          "id": "c",
+          "text": "The phone's Wi-Fi radio is turned off",
+          "correct": false,
+          "explanation": "Having Wi-Fi off does not explain new heat and battery drain tied to installing a specific app."
+        },
+        {
+          "id": "d",
+          "text": "The phone's time zone is set incorrectly",
+          "correct": false,
+          "explanation": "An incorrect time zone has no effect on battery consumption or device temperature."
+        }
+      ]
+    },
+    {
+      "id": "qops-001",
+      "type": "ordering",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "A technician is about to replace a failing hard drive in a desktop still under warranty, following proper change-management and safety procedure. Arrange the steps in the correct order.",
+      "explanation": "Proper procedure starts with documenting the problem and getting the change approved, then backing up any recoverable data, then powering down and using an ESD strap before opening the case, then performing the physical replacement, and finally testing the fix and documenting the resolution.",
+      "items": [
+        {
+          "id": "i1",
+          "text": "Document the reported issue and submit a change request for approval"
+        },
+        {
+          "id": "i2",
+          "text": "Back up any recoverable user data from the failing drive"
+        },
+        {
+          "id": "i3",
+          "text": "Power down the system, disconnect it from power, and put on an ESD strap before opening the case"
+        },
+        {
+          "id": "i4",
+          "text": "Remove the failing drive and install the replacement drive"
+        },
+        {
+          "id": "i5",
+          "text": "Test the system and document the resolution"
+        }
+      ],
+      "correctOrder": ["i1", "i2", "i3", "i4", "i5"]
+    },
+    {
+      "id": "qops-002",
+      "type": "matching",
+      "topicId": "operational-procedures",
+      "difficulty": "medium",
+      "prompt": "Match each operational procedures document to its purpose.",
+      "explanation": "An incident report records the details of a specific security or safety event after it occurs. A change request documents and seeks approval for a planned modification before it is made. An acceptable use policy (AUP) defines what employees may and may not do with company IT resources. A standard operating procedure (SOP) is a step-by-step guide for performing a routine task consistently.",
+      "left": [
+        {
+          "id": "l-incident",
+          "text": "Incident report"
+        },
+        {
+          "id": "l-change",
+          "text": "Change request"
+        },
+        {
+          "id": "l-aup",
+          "text": "Acceptable use policy (AUP)"
+        },
+        {
+          "id": "l-sop",
+          "text": "Standard operating procedure (SOP)"
+        }
+      ],
+      "right": [
+        {
+          "id": "r-incident",
+          "text": "Records what happened during a specific security or safety event after it occurred"
+        },
+        {
+          "id": "r-change",
+          "text": "Documents a planned modification and seeks approval before it is made"
+        },
+        {
+          "id": "r-aup",
+          "text": "Defines what employees may and may not do with company IT resources"
+        },
+        {
+          "id": "r-sop",
+          "text": "Provides a consistent, repeatable, step-by-step guide for performing a routine task"
+        }
+      ],
+      "pairs": [
+        { "left": "l-incident", "right": "r-incident" },
+        { "left": "l-change", "right": "r-change" },
+        { "left": "l-aup", "right": "r-aup" },
+        { "left": "l-sop", "right": "r-sop" }
+      ]
+    }
+  ]
+}
