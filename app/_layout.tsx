@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 import { ConsentGate } from '@/ui/ConsentGate';
 import { ConfirmProvider } from '@/ui/ConfirmProvider';
 import { RepositoryProvider } from '@/data/RepositoryProvider';
+import { useTheme } from '@/ui/theme';
 
 // react-navigation's web renderer marks the outgoing screen aria-hidden as
 // soon as a route changes, but never blurs whatever element still has DOM
@@ -20,11 +21,19 @@ function useBlurOnNavigateWeb() {
 
 export default function RootLayout() {
   useBlurOnNavigateWeb();
+  const theme = useTheme();
   return (
     <RepositoryProvider>
       <ConfirmProvider>
         <ConsentGate>
-          <Stack>
+          <Stack
+            screenOptions={{
+              headerStyle: { backgroundColor: theme.surface },
+              headerTintColor: theme.text,
+              headerShadowVisible: false,
+              contentStyle: { backgroundColor: theme.background },
+            }}
+          >
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="set/[setId]" options={{ title: 'Set' }} />
             <Stack.Screen name="session/[attemptId]" options={{ title: 'Session', headerBackVisible: false }} />
