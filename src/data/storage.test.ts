@@ -176,6 +176,12 @@ describe('createStorageRepository', () => {
     expect(await repo.getInProgress()).toBeNull();
   });
 
+  it('defaults terms acceptance to false, and persists acceptance once given', async () => {
+    expect(await repo.getTermsAccepted()).toBe(false);
+    await repo.acceptTerms();
+    expect(await repo.getTermsAccepted()).toBe(true);
+  });
+
   it('survives corrupt stored JSON instead of throwing', async () => {
     const kv = createMemoryKv({ 'pt:index': '{{{ not json' });
     const corrupted = createStorageRepository(kv);

@@ -7,6 +7,7 @@ export const KEY_PREFIX = 'pt:';
 
 const INDEX_KEY = `${KEY_PREFIX}index`;
 const IN_PROGRESS_KEY = `${KEY_PREFIX}inprogress`;
+const TERMS_ACCEPTED_KEY = `${KEY_PREFIX}termsAccepted`;
 const setKey = (id: string) => `${KEY_PREFIX}set:${id}`;
 const attemptsKey = (setId: string) => `${KEY_PREFIX}attempts:${setId}`;
 
@@ -150,6 +151,14 @@ export function createStorageRepository(kv: KVStore): Repository {
     async saveInProgress(state) {
       if (state === null) await kv.removeItem(IN_PROGRESS_KEY);
       else await write(IN_PROGRESS_KEY, state);
+    },
+
+    async getTermsAccepted() {
+      return read<boolean>(TERMS_ACCEPTED_KEY, false);
+    },
+
+    async acceptTerms() {
+      await write(TERMS_ACCEPTED_KEY, true);
     },
   };
 }

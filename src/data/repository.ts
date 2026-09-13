@@ -29,4 +29,6 @@ export interface Repository {
   saveAttempt(attempt: Attempt): Promise<void>;
   getInProgress(): Promise<SessionState | null>;
   saveInProgress(state: SessionState | null): Promise<void>;
+  getTermsAccepted(): Promise<boolean>;
+  acceptTerms(): Promise<void>;
 }
