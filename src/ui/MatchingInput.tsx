@@ -19,6 +19,11 @@ import {
 } from '@/core/matching';
 import { radius, spacing, type, useTheme } from './theme';
 
+// Read once at module scope so the worklet below closes over a plain boolean instead of
+// the whole `Platform` object (whose other properties/getters reach into native modules
+// and would otherwise be pulled into the worklet closure).
+const IS_WEB = Platform.OS === 'web';
+
 export function MatchingInput({
   question,
   response,
@@ -44,6 +49,14 @@ export function MatchingInput({
     slotNodes.current[leftId]?.measure((_x, _y, width, height, pageX, pageY) => {
       slotLayout.value = { ...slotLayout.value, [leftId]: { pageX, pageY, width, height } };
     });
+  };
+
+  // `onLayout` only fires on a size change, not on scroll - and this component renders
+  // inside a ScrollView (RunnerView -> Screen), so a cached rect goes stale the moment the
+  // question scrolls. Re-measure every slot right as a drag starts instead of relying on
+  // onLayout alone; `measure()` resolves well before a human finishes a drag gesture.
+  const measureAll = () => {
+    Object.keys(slotNodes.current).forEach(measureSlot);
   };
 
   const place = (leftId: string, rightId: string) => {
@@ -76,11 +89,16 @@ export function MatchingInput({
               }}
               onLayout={() => measureSlot(item.id)}
               testID={`left-${item.id}`}
+              accessible
               accessibilityLabel={label}
               accessibilityState={{ disabled: revealed }}
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                // Bundled matching answers run up to ~165 characters - stacking the chip
+                // under the label (instead of squeezing it into whatever room is left next
+                // to a flex:1 label) keeps long answers legible instead of wrapped into a
+                // tall, narrow column.
+                flexDirection: pairedRight ? 'column' : 'row',
+                alignItems: pairedRight ? 'flex-start' : 'center',
                 gap: spacing.sm,
                 padding: spacing.md,
                 minHeight: 56,
@@ -94,7 +112,9 @@ export function MatchingInput({
                   : theme.surface,
               }}
             >
-              <Text style={[type.body, { color: theme.text, flex: 1 }]}>{item.text}</Text>
+              <Text style={[type.body, { color: theme.text }, pairedRight ? null : { flex: 1 }]}>
+                {item.text}
+              </Text>
               {pairedRight ? (
                 <DraggableAnswer
                   rightId={pairedRight}
@@ -104,6 +124,7 @@ export function MatchingInput({
                   slotLayout={slotLayout}
                   onPlace={place}
                   onReturnToBank={returnToBank}
+                  onDragStart={measureAll}
                 />
               ) : (
                 <Text style={[type.caption, { color: theme.textMuted }]}>Drop answer here</Text>
@@ -124,6 +145,7 @@ export function MatchingInput({
             slotLayout={slotLayout}
             onPlace={place}
             onReturnToBank={returnToBank}
+            onDragStart={measureAll}
           />
         ))}
       </View>
@@ -139,6 +161,7 @@ function DraggableAnswer({
   slotLayout,
   onPlace,
   onReturnToBank,
+  onDragStart,
 }: {
   rightId: string;
   text: string;
@@ -147,6 +170,7 @@ function DraggableAnswer({
   slotLayout: SharedValue<Record<string, Rect>>;
   onPlace: (leftId: string, rightId: string) => void;
   onReturnToBank: (leftId: string) => void;
+  onDragStart: () => void;
 }) {
   const theme = useTheme();
   const translateX = useSharedValue(0);
@@ -157,6 +181,9 @@ function DraggableAnswer({
     .enabled(!disabled)
     .onStart(() => {
       isDragging.value = true;
+      // Slot rects were last measured on layout, which never fires on scroll - refresh
+      // them now so a drag started after scrolling still hit-tests correctly.
+      runOnJS(onDragStart)();
     })
     .onUpdate((event) => {
       translateX.value = event.translationX;
@@ -183,8 +210,8 @@ function DraggableAnswer({
     zIndex: isDragging.value ? 10 : 0,
     elevation: isDragging.value ? 6 : 0,
     // react-native-web deprecated the shadow* style props in favor of the CSS `boxShadow`
-    // shorthand; native platforms still need shadow*, so branch on Platform.OS.
-    ...(Platform.OS === 'web'
+    // shorthand; native platforms still need shadow*.
+    ...(IS_WEB
       ? { boxShadow: isDragging.value ? '0px 4px 8px rgba(0, 0, 0, 0.25)' : 'none' }
       : { shadowOpacity: isDragging.value ? 0.25 : 0, shadowRadius: 8 }),
   }));
@@ -193,6 +220,7 @@ function DraggableAnswer({
     <GestureDetector gesture={pan}>
       <Animated.View
         testID={sourceLeftId ? `placed-${sourceLeftId}` : `right-${rightId}`}
+        accessible
         accessibilityLabel={text}
         accessibilityState={{ disabled }}
         style={[
@@ -203,6 +231,11 @@ function DraggableAnswer({
             borderWidth: 1,
             borderColor: theme.border,
             backgroundColor: theme.surfaceAlt,
+            // Bundled matching answers run up to ~165 characters - without an explicit
+            // maxWidth, React Native's default flexShrink:0 lets a long chip overflow its
+            // row/column container instead of wrapping.
+            maxWidth: '100%',
+            flexShrink: 1,
           },
           animatedStyle,
         ]}

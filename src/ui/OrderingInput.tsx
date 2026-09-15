@@ -13,7 +13,18 @@ import type { OrderingQuestion } from '@/core/schema';
 import { reorder } from '@/core/ordering';
 import { radius, spacing, type, useTheme } from './theme';
 
-const ROW_HEIGHT = 56;
+// Bundled ordering content runs up to ~109 characters per item (e.g. the CompTIA
+// troubleshooting-methodology and incident-response steps) - a single line at this width
+// truncates distinct steps to the same prefix, making the question unanswerable, and even
+// two lines still clips the longest items on a narrow phone viewport. Three lines at
+// ROW_HEIGHT=112 comfortably fits the longest bundled item (109 characters).
+const ROW_HEIGHT = 112;
+const ROW_LINES = 3;
+
+// Read once at module scope so the worklets below close over a plain boolean
+// instead of the whole `Platform` object (whose other properties/getters reach
+// into native modules and would otherwise be pulled into the worklet closure).
+const IS_WEB = Platform.OS === 'web';
 
 function clamp(value: number, min: number, max: number) {
   'worklet';
@@ -124,6 +135,10 @@ function Row({
   useAnimatedReaction(
     () => orderRef.value.indexOf(id),
     (current, previous) => {
+      // -1 means this row's id isn't in orderRef yet (a fresh mount, still holding the
+      // previous question's order for one tick before the sync effect catches up) - do
+      // not spring to a nonsense position for that transient state.
+      if (current < 0) return;
       if (current !== previous && !isDragging.value) {
         translateY.value = withSpring(current * ROW_HEIGHT);
       }
@@ -160,8 +175,8 @@ function Row({
     zIndex: isDragging.value ? 1 : 0,
     elevation: isDragging.value ? 4 : 0,
     // react-native-web deprecated the shadow* style props in favor of the CSS `boxShadow`
-    // shorthand; native platforms still need shadow*, so branch on Platform.OS.
-    ...(Platform.OS === 'web'
+    // shorthand; native platforms still need shadow*.
+    ...(IS_WEB
       ? { boxShadow: isDragging.value ? '0px 4px 8px rgba(0, 0, 0, 0.2)' : 'none' }
       : { shadowOpacity: isDragging.value ? 0.2 : 0, shadowRadius: 8 }),
   }));
@@ -191,7 +206,7 @@ function Row({
         ]}
       >
         <Text style={[type.label, { color: theme.textMuted }]}>{index + 1}</Text>
-        <Text numberOfLines={1} style={[type.body, { color: theme.text, flex: 1 }]}>
+        <Text numberOfLines={ROW_LINES} style={[type.body, { color: theme.text, flex: 1 }]}>
           {text}
         </Text>
       </Animated.View>
