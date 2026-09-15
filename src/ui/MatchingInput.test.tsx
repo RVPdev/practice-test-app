@@ -1,5 +1,5 @@
-import { describe, expect, it, jest } from '@jest/globals';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react-native';
 import type { MatchingQuestion } from '@/core/schema';
 import { MatchingInput } from './MatchingInput';
 
@@ -22,60 +22,40 @@ const question: MatchingQuestion = {
 };
 
 describe('MatchingInput', () => {
-  it('renders every left and right item', async () => {
+  it('renders every left slot and every unplaced right item in the bank', async () => {
     await render(
       <MatchingInput question={question} response={[]} revealed={false} onChange={() => {}} />,
     );
     expect(screen.getByTestId('left-l1')).toBeTruthy();
+    expect(screen.getByTestId('left-l2')).toBeTruthy();
+    expect(screen.getByTestId('right-r1')).toBeTruthy();
     expect(screen.getByTestId('right-r2')).toBeTruthy();
   });
 
-  it('pairs a left item with the next right item tapped', async () => {
-    const onChange = jest.fn();
-    await render(
-      <MatchingInput question={question} response={[]} revealed={false} onChange={onChange} />,
-    );
-    await fireEvent.press(screen.getByTestId('left-l1'));
-    await fireEvent.press(screen.getByTestId('right-r1'));
-    expect(onChange).toHaveBeenCalledWith(['l1:r1']);
-  });
-
-  it('replaces an existing pair for the same left item', async () => {
-    const onChange = jest.fn();
-    await render(
-      <MatchingInput question={question} response={['l1:r1']} revealed={false} onChange={onChange} />,
-    );
-    await fireEvent.press(screen.getByTestId('left-l1'));
-    await fireEvent.press(screen.getByTestId('right-r2'));
-    expect(onChange).toHaveBeenCalledWith(['l1:r2']);
-  });
-
-  it('clears a pair when its left item is tapped while already paired', async () => {
-    const onChange = jest.fn();
-    await render(
-      <MatchingInput question={question} response={['l1:r1']} revealed={false} onChange={onChange} />,
-    );
-    await fireEvent.press(screen.getByTestId('left-l1'));
-    await fireEvent.press(screen.getByTestId('left-l1'));
-    expect(onChange).toHaveBeenCalledWith([]);
-  });
-
-  it('shows the current pairing on the left item', async () => {
+  it('removes a placed answer from the bank and shows it in its slot', async () => {
     await render(
       <MatchingInput question={question} response={['l1:r1']} revealed={false} onChange={() => {}} />,
     );
+    expect(screen.queryByTestId('right-r1')).toBeNull();
+    expect(screen.getByTestId('placed-l1')).toBeTruthy();
     expect(screen.getByTestId('left-l1').props.accessibilityLabel).toContain(
       'Time for one request',
     );
   });
 
-  it('marks right and wrong pairs and locks input once revealed', async () => {
-    const onChange = jest.fn();
+  it('marks right and wrong pairs once revealed', async () => {
     await render(
-      <MatchingInput question={question} response={['l1:r2', 'l2:r1']} revealed onChange={onChange} />,
+      <MatchingInput question={question} response={['l1:r2', 'l2:r1']} revealed onChange={() => {}} />,
     );
-    await fireEvent.press(screen.getByTestId('left-l1'));
-    expect(onChange).not.toHaveBeenCalled();
     expect(screen.getByTestId('left-l1').props.accessibilityLabel).toContain('incorrect');
+    expect(screen.getByTestId('left-l2').props.accessibilityLabel).toContain('incorrect');
+  });
+
+  it('disables dragging once revealed', async () => {
+    await render(
+      <MatchingInput question={question} response={['l1:r1']} revealed onChange={() => {}} />,
+    );
+    expect(screen.getByTestId('placed-l1').props.accessibilityState.disabled).toBe(true);
+    expect(screen.getByTestId('left-l2').props.accessibilityState.disabled).toBe(true);
   });
 });
