@@ -1,7 +1,24 @@
 import { useEffect, useRef } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  runOnJS,
+  useAnimatedReaction,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  type SharedValue,
+} from 'react-native-reanimated';
 import type { OrderingQuestion } from '@/core/schema';
+import { reorder } from '@/core/ordering';
 import { radius, spacing, type, useTheme } from './theme';
+
+const ROW_HEIGHT = 56;
+
+function clamp(value: number, min: number, max: number) {
+  'worklet';
+  return Math.min(Math.max(value, min), max);
+}
 
 export function OrderingInput({
   question,
@@ -36,17 +53,17 @@ export function OrderingInput({
     onChange(initialOrder);
   }, [question.id, revealed, response.length, initialOrder, onChange]);
 
-  const move = (index: number, delta: number) => {
-    if (revealed) return;
-    const target = index + delta;
-    if (target < 0 || target >= order.length) return;
-    const next = [...order];
-    [next[index], next[target]] = [next[target], next[index]];
-    onChange(next);
-  };
+  // The live drag order lives on a shared value so dragging one row can reorder the rest on
+  // the UI thread every frame without a React re-render. `onChange` only hears about the
+  // result once a drag ends.
+  const orderRef = useSharedValue<string[]>(order);
+  const orderKey = order.join('|');
+  useEffect(() => {
+    orderRef.value = order;
+  }, [orderKey]);
 
   return (
-    <View style={{ gap: spacing.sm, marginTop: spacing.sm }}>
+    <View style={{ height: order.length * ROW_HEIGHT, marginTop: spacing.sm }}>
       {order.map((itemId, index) => {
         const rightPlace = graded && question.correctOrder[index] === itemId;
         const label = [
@@ -58,85 +75,123 @@ export function OrderingInput({
           .join(', ');
 
         return (
-          <View
+          <Row
             key={itemId}
-            testID={`order-row-${itemId}`}
-            accessibilityLabel={label}
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: spacing.sm,
-              padding: spacing.md,
-              borderRadius: radius.md,
-              borderWidth: graded ? 2 : 1,
-              borderColor: graded
-                ? rightPlace
-                  ? theme.positive
-                  : theme.negative
-                : theme.border,
-              backgroundColor: graded
-                ? rightPlace
-                  ? theme.positiveSurface
-                  : theme.negativeSurface
-                : theme.surface,
-            }}
-          >
-            <Text style={[type.label, { color: theme.textMuted }]}>{index + 1}</Text>
-            <Text style={[type.body, { color: theme.text, flex: 1 }]}>
-              {itemText.get(itemId) ?? itemId}
-            </Text>
-            <MoveButton
-              testID={`move-up-${itemId}`}
-              label="Move up"
-              glyph="▲"
-              disabled={revealed || index === 0}
-              onPress={() => move(index, -1)}
-            />
-            <MoveButton
-              testID={`move-down-${itemId}`}
-              label="Move down"
-              glyph="▼"
-              disabled={revealed || index === order.length - 1}
-              onPress={() => move(index, 1)}
-            />
-          </View>
+            id={itemId}
+            index={index}
+            text={itemText.get(itemId) ?? itemId}
+            label={label}
+            disabled={revealed}
+            orderRef={orderRef}
+            onChange={onChange}
+            borderColor={graded ? (rightPlace ? theme.positive : theme.negative) : theme.border}
+            backgroundColor={
+              graded ? (rightPlace ? theme.positiveSurface : theme.negativeSurface) : theme.surface
+            }
+          />
         );
       })}
     </View>
   );
 }
 
-function MoveButton({
-  testID,
+function Row({
+  id,
+  index,
+  text,
   label,
-  glyph,
   disabled,
-  onPress,
+  orderRef,
+  onChange,
+  borderColor,
+  backgroundColor,
 }: {
-  testID: string;
+  id: string;
+  index: number;
+  text: string;
   label: string;
-  glyph: string;
   disabled: boolean;
-  onPress: () => void;
+  orderRef: SharedValue<string[]>;
+  onChange: (order: string[]) => void;
+  borderColor: string;
+  backgroundColor: string;
 }) {
   const theme = useTheme();
+  const translateY = useSharedValue(index * ROW_HEIGHT);
+  const isDragging = useSharedValue(false);
+  const startY = useSharedValue(0);
+
+  useAnimatedReaction(
+    () => orderRef.value.indexOf(id),
+    (current, previous) => {
+      if (current !== previous && !isDragging.value) {
+        translateY.value = withSpring(current * ROW_HEIGHT);
+      }
+    },
+  );
+
+  const pan = Gesture.Pan()
+    .enabled(!disabled)
+    .onStart(() => {
+      isDragging.value = true;
+      startY.value = translateY.value;
+    })
+    .onUpdate((event) => {
+      translateY.value = startY.value + event.translationY;
+      const currentIndex = orderRef.value.indexOf(id);
+      const targetIndex = clamp(
+        Math.round(translateY.value / ROW_HEIGHT),
+        0,
+        orderRef.value.length - 1,
+      );
+      if (targetIndex !== currentIndex) {
+        orderRef.value = reorder(orderRef.value, currentIndex, targetIndex);
+      }
+    })
+    .onEnd(() => {
+      isDragging.value = false;
+      const finalIndex = orderRef.value.indexOf(id);
+      translateY.value = withSpring(finalIndex * ROW_HEIGHT);
+      runOnJS(onChange)(orderRef.value);
+    });
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }, { scale: isDragging.value ? 1.03 : 1 }],
+    zIndex: isDragging.value ? 1 : 0,
+    shadowOpacity: isDragging.value ? 0.2 : 0,
+    shadowRadius: 8,
+    elevation: isDragging.value ? 4 : 0,
+  }));
+
   return (
-    <Pressable
-      testID={testID}
-      accessibilityRole="button"
-      accessibilityLabel={label}
-      accessibilityState={{ disabled }}
-      disabled={disabled}
-      onPress={onPress}
-      style={{
-        padding: spacing.sm,
-        borderRadius: radius.sm,
-        borderWidth: 1,
-        borderColor: theme.border,
-        opacity: disabled ? 0.35 : 1,
-      }}
-    >
-      <Text style={{ color: theme.text }}>{glyph}</Text>
-    </Pressable>
+    <GestureDetector gesture={pan}>
+      <Animated.View
+        testID={`order-row-${id}`}
+        accessibilityLabel={label}
+        accessibilityState={{ disabled }}
+        style={[
+          {
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            height: ROW_HEIGHT - spacing.sm,
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: spacing.sm,
+            paddingHorizontal: spacing.md,
+            borderRadius: radius.md,
+            borderWidth: 1,
+            borderColor,
+            backgroundColor,
+          },
+          animatedStyle,
+        ]}
+      >
+        <Text style={[type.label, { color: theme.textMuted }]}>{index + 1}</Text>
+        <Text numberOfLines={1} style={[type.body, { color: theme.text, flex: 1 }]}>
+          {text}
+        </Text>
+      </Animated.View>
+    </GestureDetector>
   );
 }
