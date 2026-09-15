@@ -5,6 +5,6 @@ module.exports = {
     '@react-native-async-storage/async-storage': '@react-native-async-storage/async-storage/jest/async-storage-mock',
   },
   testMatch: ['**/*.test.ts', '**/*.test.tsx'],
-  testPathIgnorePatterns: ['/node_modules/', '/.claude/worktrees/'],
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/.claude/worktrees/'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
 };
