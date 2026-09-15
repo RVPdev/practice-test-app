@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   runOnJS,
@@ -158,9 +158,12 @@ function Row({
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: translateY.value }, { scale: isDragging.value ? 1.03 : 1 }],
     zIndex: isDragging.value ? 1 : 0,
-    shadowOpacity: isDragging.value ? 0.2 : 0,
-    shadowRadius: 8,
     elevation: isDragging.value ? 4 : 0,
+    // react-native-web deprecated the shadow* style props in favor of the CSS `boxShadow`
+    // shorthand; native platforms still need shadow*, so branch on Platform.OS.
+    ...(Platform.OS === 'web'
+      ? { boxShadow: isDragging.value ? '0px 4px 8px rgba(0, 0, 0, 0.2)' : 'none' }
+      : { shadowOpacity: isDragging.value ? 0.2 : 0, shadowRadius: 8 }),
   }));
 
   return (

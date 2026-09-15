@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   runOnJS,
@@ -181,9 +181,12 @@ function DraggableAnswer({
       { scale: isDragging.value ? 1.05 : 1 },
     ],
     zIndex: isDragging.value ? 10 : 0,
-    shadowOpacity: isDragging.value ? 0.25 : 0,
-    shadowRadius: 8,
     elevation: isDragging.value ? 6 : 0,
+    // react-native-web deprecated the shadow* style props in favor of the CSS `boxShadow`
+    // shorthand; native platforms still need shadow*, so branch on Platform.OS.
+    ...(Platform.OS === 'web'
+      ? { boxShadow: isDragging.value ? '0px 4px 8px rgba(0, 0, 0, 0.25)' : 'none' }
+      : { shadowOpacity: isDragging.value ? 0.25 : 0, shadowRadius: 8 }),
   }));
 
   return (
