@@ -4,32 +4,32 @@
     "type": "single",
     "topicId": "security-architecture",
     "difficulty": "easy",
-    "prompt": "A development team builds and runs a custom internal application on a Platform as a Service (PaaS) offering, where the provider manages the underlying servers, operating system, and runtime environment on which the application executes. Under the shared responsibility model, which of the following remains the development team's own responsibility?",
-    "explanation": "In PaaS, the provider manages the servers, guest operating system, and runtime/middleware layer beneath the application. The customer's remaining responsibility is the application code it writes, that code's configuration, and the data the application processes.",
+    "prompt": "A popular e-commerce website places a device in front of ten identical web servers that spreads incoming customer requests across all ten based on ongoing health checks, automatically routing traffic away from any server that stops responding so that no single server is overwhelmed or becomes a single point of failure. What type of device or service is performing this function?",
+    "explanation": "A load balancer distributes incoming traffic across multiple backend servers and continuously health-checks them, routing traffic only to healthy servers. This improves both performance under high load and availability, since the failure of any one server does not take the whole service down.",
     "options": [
       {
         "id": "a",
-        "text": "Securing the application code they write and the data the application processes",
+        "text": "A load balancer",
         "correct": true,
-        "explanation": "Correct. In PaaS, the customer owns the application layer and its data; the provider manages everything beneath that layer."
+        "explanation": "Correct. A load balancer spreads traffic across a pool of servers and routes around any that fail health checks."
       },
       {
         "id": "b",
-        "text": "Patching the underlying operating system the application runs on",
+        "text": "A network intrusion prevention system (IPS)",
         "correct": false,
-        "explanation": "In PaaS, the provider patches and maintains the underlying OS; the customer never manages it directly."
+        "explanation": "An IPS inspects traffic for malicious activity and can block it; it does not distribute traffic across a pool of servers for availability."
       },
       {
         "id": "c",
-        "text": "Maintaining the physical servers hosting the platform",
+        "text": "A web application firewall (WAF)",
         "correct": false,
-        "explanation": "Physical server maintenance is the provider's responsibility in every as-a-service model, including PaaS."
+        "explanation": "A WAF inspects HTTP-layer requests for application attacks like SQL injection; it does not perform traffic distribution or health-check-based routing across servers."
       },
       {
         "id": "d",
-        "text": "Managing the hypervisor virtualization layer beneath the platform",
+        "text": "A jump server",
         "correct": false,
-        "explanation": "The hypervisor and virtualization layer are managed by the provider in PaaS, well below what the customer can access."
+        "explanation": "A jump server is a hardened intermediary used for administrative access to other systems, not a device that distributes customer-facing web traffic across servers."
       }
     ]
   },
