@@ -1,0 +1,290 @@
+[
+  {
+    "id": "v2-tvm-001",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "easy",
+    "prompt": "A database administrator who was recently placed on a performance improvement plan quietly exports a copy of the customer records table to a personal cloud storage account, using login credentials that are still fully authorized for her job role. Which type of threat actor does this scenario describe?",
+    "explanation": "She is using her own legitimate, still-valid access to misuse data before any offboarding has occurred. Misuse of authorized access by someone already inside the organization is the defining trait of an insider threat, regardless of motive.",
+    "options": [
+      { "id": "a", "text": "Insider threat", "correct": true, "explanation": "Correct: she has authorized access and is misusing it from inside the organization, which is exactly what defines an insider threat." },
+      { "id": "b", "text": "Hacktivist", "correct": false, "explanation": "Incorrect: hacktivists act publicly for ideological reasons and are typically external attackers, not employees using their own accounts quietly." },
+      { "id": "c", "text": "Nation-state actor", "correct": false, "explanation": "Incorrect: nation-state actors are external, government-sponsored groups pursuing strategic objectives, not employees exporting data with their own credentials." },
+      { "id": "d", "text": "Unskilled attacker (script kiddie)", "correct": false, "explanation": "Incorrect: this term describes an external attacker with limited skill using off-the-shelf tools, not an internal employee with authorized access." }
+    ]
+  },
+  {
+    "id": "v2-tvm-002",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "easy",
+    "prompt": "An activist group breaches a mining company's web server, replaces the homepage with a manifesto condemning the company's environmental record, and leaks internal emails to journalists. Which term describes this type of threat actor?",
+    "explanation": "The group's actions are public, ideologically motivated, and intended to draw attention to a cause rather than to generate profit or serve a government's strategic interests. That combination of traits describes a hacktivist.",
+    "options": [
+      { "id": "a", "text": "Hacktivist", "correct": true, "explanation": "Correct: the defacement and leak are public, attention-seeking actions driven by an ideological or political cause." },
+      { "id": "b", "text": "Organized crime group", "correct": false, "explanation": "Incorrect: organized crime is driven by financial profit, not political messaging, and generally avoids drawing public attention to itself." },
+      { "id": "c", "text": "Insider threat", "correct": false, "explanation": "Incorrect: nothing in the scenario suggests the attackers had prior authorized access to the company's systems." },
+      { "id": "d", "text": "Nation-state actor (advanced persistent threat)", "correct": false, "explanation": "Incorrect: nation-state actors typically operate quietly for espionage or strategic advantage, not through public defacement and press leaks." }
+    ]
+  },
+  {
+    "id": "v2-tvm-003",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "medium",
+    "prompt": "Investigators find that an intrusion into a defense contractor's network persisted undetected for over a year, used custom-built malware tailored to that network, carefully evaded the contractor's detection tools, and focused on exfiltrating weapons-design documents rather than any financially valuable data. Which threat actor is most consistent with these characteristics?",
+    "explanation": "Long dwell time, custom tooling, deliberate evasion, and a focus on strategic (rather than financial) data are hallmarks of a well-resourced, patient adversary acting on behalf of a government's interests, commonly described as an advanced persistent threat.",
+    "options": [
+      { "id": "a", "text": "Nation-state actor (advanced persistent threat)", "correct": true, "explanation": "Correct: the resources, custom tooling, patience, and strategic (not financial) target all point to a nation-state-sponsored APT." },
+      { "id": "b", "text": "Hacktivist", "correct": false, "explanation": "Incorrect: hacktivists typically act openly and quickly for publicity, not quietly for over a year while evading detection." },
+      { "id": "c", "text": "Organized crime", "correct": false, "explanation": "Incorrect: organized crime pursues data it can monetize, such as financial or personal records, not classified weapons designs." },
+      { "id": "d", "text": "Shadow IT", "correct": false, "explanation": "Incorrect: shadow IT refers to unauthorized but non-malicious technology use by employees, not an external intrusion." }
+    ]
+  },
+  {
+    "id": "v2-tvm-004",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "medium",
+    "prompt": "A criminal group develops a ransomware toolkit and leases it, along with payment infrastructure and negotiation support, to other attackers in exchange for a percentage of any ransom collected. The group's own involvement is driven entirely by profit. Which threat actor category and business model best describes this?",
+    "explanation": "The group is not pursuing an ideological or political goal, and it is not government-sponsored; it is monetizing criminal tooling as a service, which is the ransomware-as-a-service (RaaS) model run by organized crime.",
+    "options": [
+      { "id": "a", "text": "Organized crime operating a ransomware-as-a-service (RaaS) model", "correct": true, "explanation": "Correct: leasing ransomware tooling for a cut of the profit is a defining example of organized crime running a RaaS operation." },
+      { "id": "b", "text": "Nation-state actor conducting espionage", "correct": false, "explanation": "Incorrect: espionage is about intelligence gathering, not leasing criminal tools for a share of ransom profit." },
+      { "id": "c", "text": "Hacktivist collective", "correct": false, "explanation": "Incorrect: hacktivism is driven by ideology, not by selling access to ransomware infrastructure for profit." },
+      { "id": "d", "text": "Insider threat", "correct": false, "explanation": "Incorrect: nothing in the scenario suggests the group has authorized access inside any single victim organization." }
+    ]
+  },
+  {
+    "id": "v2-tvm-005",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "easy",
+    "prompt": "An employee receives an email that appears to have been sent to thousands of recipients at once. It claims to be from a shipping carrier and asks the recipient to click a link to 'reschedule a failed delivery.' The link leads to a fake login page designed to harvest credentials. What social engineering technique is this?",
+    "explanation": "A mass, non-targeted email that impersonates a trusted brand and drives victims to a credential-harvesting page is the classic description of phishing.",
+    "options": [
+      { "id": "a", "text": "Phishing", "correct": true, "explanation": "Correct: a broad, untargeted fraudulent email designed to trick recipients into revealing credentials is phishing." },
+      { "id": "b", "text": "Vishing", "correct": false, "explanation": "Incorrect: vishing is conducted over voice calls, not email." },
+      { "id": "c", "text": "Pretexting", "correct": false, "explanation": "Incorrect: pretexting relies on a fabricated interpersonal scenario or false identity, not a mass impersonation email." },
+      { "id": "d", "text": "Business email compromise", "correct": false, "explanation": "Incorrect: business email compromise specifically targets an organization by impersonating an executive or vendor to trigger a financial transaction, not a mass consumer-style delivery scam." }
+    ]
+  },
+  {
+    "id": "v2-tvm-006",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "medium",
+    "prompt": "An attacker calls a company's help desk, spoofing the caller ID to show an executive's cell phone number, and urgently asks the technician to reset the executive's account password over the phone before an important meeting. Which social engineering technique is being used?",
+    "explanation": "Using a phone call and a spoofed caller ID to create urgency and impersonate a trusted person is the defining characteristic of vishing (voice phishing).",
+    "options": [
+      { "id": "a", "text": "Vishing", "correct": true, "explanation": "Correct: this is a voice-call-based phishing attempt, which is vishing." },
+      { "id": "b", "text": "Phishing", "correct": false, "explanation": "Incorrect: phishing is conducted over email or similar written channels, not a live phone call." },
+      { "id": "c", "text": "Tailgating", "correct": false, "explanation": "Incorrect: tailgating is a physical technique for following someone through a secured door, unrelated to a phone call." },
+      { "id": "d", "text": "Shoulder surfing", "correct": false, "explanation": "Incorrect: shoulder surfing means visually observing someone entering credentials, not calling in and impersonating them." }
+    ]
+  },
+  {
+    "id": "v2-tvm-007",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "medium",
+    "prompt": "An attacker phones an employee, claiming to be an internal IT auditor performing a 'mandatory annual access review,' and invents a detailed but entirely false backstory about a compliance deadline to convince the employee to confirm their username and current password. Which social engineering technique relies primarily on this fabricated scenario to build false trust?",
+    "explanation": "The attack's core mechanism is inventing a believable but false scenario and identity to manipulate the target, which is the definition of pretexting; the phone call is simply the delivery channel.",
+    "options": [
+      { "id": "a", "text": "Pretexting", "correct": true, "explanation": "Correct: fabricating a false identity and backstory (an internal audit) to manipulate the target into disclosing information is pretexting." },
+      { "id": "b", "text": "Whaling", "correct": false, "explanation": "Incorrect: whaling is phishing specifically targeted at senior executives, not a generic employee, and this scenario doesn't specify seniority." },
+      { "id": "c", "text": "Watering hole attack", "correct": false, "explanation": "Incorrect: a watering hole attack compromises a website that a target group commonly visits; it does not involve a fabricated phone conversation." },
+      { "id": "d", "text": "Typosquatting", "correct": false, "explanation": "Incorrect: typosquatting relies on registering misspelled domain names, not a phone-based fabricated backstory." }
+    ]
+  },
+  {
+    "id": "v2-tvm-008",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "hard",
+    "prompt": "The accounts-payable clerk receives an email that appears to come from the company's CEO, sent from a look-alike domain that differs from the real one by a single character. The email urgently instructs the clerk to wire funds to a 'new vendor bank account' before a deal closes at the end of the day. Which attack does this scenario describe?",
+    "explanation": "Impersonating a company executive using a look-alike domain to trick an employee into authorizing a fraudulent wire transfer is the specific, well-known attack pattern called business email compromise (BEC).",
+    "options": [
+      { "id": "a", "text": "Business email compromise (BEC)", "correct": true, "explanation": "Correct: impersonating an executive by email to induce a fraudulent wire transfer is the textbook definition of business email compromise." },
+      { "id": "b", "text": "Vishing", "correct": false, "explanation": "Incorrect: vishing occurs over a phone call, but this attack was delivered entirely by email." },
+      { "id": "c", "text": "Smishing", "correct": false, "explanation": "Incorrect: smishing uses SMS text messages as the delivery channel, not email." },
+      { "id": "d", "text": "Watering hole attack", "correct": false, "explanation": "Incorrect: a watering hole attack compromises a website frequented by the target, which is unrelated to a direct fraudulent email to a specific employee." }
+    ]
+  },
+  {
+    "id": "v2-tvm-009",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "easy",
+    "prompt": "Before encrypting a hospital's file servers, an attacker first copies patient records to an external server and threatens to publish them publicly unless a ransom is paid, in addition to demanding a separate payment for the decryption key. What term describes this ransomware tactic of combining data theft with encryption?",
+    "explanation": "Threatening to leak stolen data in addition to withholding the decryption key gives the victim two separate reasons to pay, which is why this combined tactic is called double extortion.",
+    "options": [
+      { "id": "a", "text": "Double extortion", "correct": true, "explanation": "Correct: combining data exfiltration and a leak threat with file encryption is the defining feature of double-extortion ransomware." },
+      { "id": "b", "text": "Spyware", "correct": false, "explanation": "Incorrect: spyware quietly monitors activity for surveillance purposes; it does not encrypt files or demand ransom." },
+      { "id": "c", "text": "Logic bomb", "correct": false, "explanation": "Incorrect: a logic bomb is malicious code that triggers on a specific condition, not a ransomware extortion strategy." },
+      { "id": "d", "text": "Watering hole attack", "correct": false, "explanation": "Incorrect: a watering hole attack is a delivery method involving a compromised website, not a ransomware extortion tactic." }
+    ]
+  },
+  {
+    "id": "v2-tvm-010",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "easy",
+    "prompt": "A piece of malware exploits a vulnerability in a network file-sharing service to copy itself automatically from an infected host to every other reachable host on the network, without requiring any user to open a file or click a link. What type of malware is this?",
+    "explanation": "Self-propagation across a network through a vulnerability, with no user interaction required, is the defining characteristic that distinguishes a worm from other malware types such as trojans.",
+    "options": [
+      { "id": "a", "text": "Worm", "correct": true, "explanation": "Correct: worms self-replicate and spread across networks on their own, without needing a user to run or open anything." },
+      { "id": "b", "text": "Trojan", "correct": false, "explanation": "Incorrect: a trojan disguises itself as legitimate software and requires a user to install or run it; it does not self-propagate." },
+      { "id": "c", "text": "Rootkit", "correct": false, "explanation": "Incorrect: a rootkit is designed to hide the presence of malware or an attacker's access, not to self-propagate across a network." },
+      { "id": "d", "text": "Keylogger", "correct": false, "explanation": "Incorrect: a keylogger records keystrokes for surveillance; it has no inherent self-propagation capability." }
+    ]
+  },
+  {
+    "id": "v2-tvm-011",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "medium",
+    "prompt": "After an incident, responders discover that malware replaced core operating system files so that its own processes and files are invisible to the built-in task manager and file explorer, and the infection survives even a full reinstall of the antivirus software. What type of malware exhibits this level of operating-system-level concealment?",
+    "explanation": "Modifying core OS components to hide processes and files from standard system tools, and persisting despite security software changes, describes a rootkit, which is specifically designed for deep, stealthy persistence.",
+    "options": [
+      { "id": "a", "text": "Rootkit", "correct": true, "explanation": "Correct: rootkits embed themselves at the OS or kernel level specifically to hide their presence from standard system and security tools." },
+      { "id": "b", "text": "Spyware", "correct": false, "explanation": "Incorrect: spyware focuses on covertly collecting user information; it doesn't typically alter core OS files to hide itself at this level." },
+      { "id": "c", "text": "Adware", "correct": false, "explanation": "Incorrect: adware displays unwanted advertisements and is usually easy to detect, not deeply hidden within the OS." },
+      { "id": "d", "text": "Botnet client", "correct": false, "explanation": "Incorrect: a botnet client's defining trait is receiving commands from a command-and-control server, not concealment within OS files." }
+    ]
+  },
+  {
+    "id": "v2-tvm-012",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "hard",
+    "prompt": "Two weeks after an IT administrator is terminated, a script that had been quietly embedded in a nightly backup job triggers and deletes every backup file. The script had been written months earlier to activate only if the administrator's account was ever removed from the payroll system. What type of malicious code is this?",
+    "explanation": "The code lay dormant until a specific trigger condition, the administrator's removal from payroll, was met. Malicious code written to remain inactive until a particular condition or event occurs is a logic bomb.",
+    "options": [
+      { "id": "a", "text": "Logic bomb", "correct": true, "explanation": "Correct: code that stays dormant until a specific condition is met, then executes a malicious action, is a logic bomb." },
+      { "id": "b", "text": "Worm", "correct": false, "explanation": "Incorrect: a worm self-propagates across systems; this script did not spread, it simply waited for a trigger condition." },
+      { "id": "c", "text": "Ransomware", "correct": false, "explanation": "Incorrect: ransomware encrypts data and demands payment; this script destroyed backups outright with no ransom demand." },
+      { "id": "d", "text": "Rootkit", "correct": false, "explanation": "Incorrect: a rootkit is designed to hide malicious presence, not to trigger a destructive action on a specific condition." }
+    ]
+  },
+  {
+    "id": "v2-tvm-013",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "medium",
+    "prompt": "A web application builds its database queries by directly concatenating user-supplied search text into a SQL statement. An attacker enters a search term containing an apostrophe followed by additional SQL keywords, causing the application to return every record in the customer table instead of just the matching results. What vulnerability class is being exploited?",
+    "explanation": "Unsanitized user input being concatenated directly into a SQL statement, allowing an attacker to alter the query's logic, is the defining characteristic of a SQL injection vulnerability.",
+    "options": [
+      { "id": "a", "text": "SQL injection", "correct": true, "explanation": "Correct: injecting SQL syntax through an unsanitized input field to change the query's behavior is SQL injection." },
+      { "id": "b", "text": "Cross-site scripting (XSS)", "correct": false, "explanation": "Incorrect: XSS injects script that executes in a victim's browser; this attack manipulated a server-side database query instead." },
+      { "id": "c", "text": "Buffer overflow", "correct": false, "explanation": "Incorrect: a buffer overflow involves writing data past the bounds of allocated memory, not manipulating query syntax." },
+      { "id": "d", "text": "Race condition", "correct": false, "explanation": "Incorrect: a race condition exploits timing between a check and a use of a resource, not malformed query input." }
+    ]
+  },
+  {
+    "id": "v2-tvm-014",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "single",
+    "difficulty": "hard",
+    "prompt": "A legacy application accepts a username of unrestricted length and copies it into a fixed-size 64-byte memory buffer without first checking its length. An attacker submits a 500-character username crafted to overwrite adjacent memory, including the function's return address, in order to redirect program execution to injected code. What vulnerability is being exploited?",
+    "explanation": "Writing input data past the boundary of an allocated, fixed-size memory buffer so that it corrupts adjacent memory, including a return address, is a classic buffer overflow used to hijack program execution.",
+    "options": [
+      { "id": "a", "text": "Buffer overflow", "correct": true, "explanation": "Correct: writing more data into a buffer than it was sized to hold, corrupting adjacent memory such as a return address, is a buffer overflow." },
+      { "id": "b", "text": "SQL injection", "correct": false, "explanation": "Incorrect: SQL injection manipulates database query syntax; this attack corrupted memory in a running process instead." },
+      { "id": "c", "text": "Cross-site scripting (XSS)", "correct": false, "explanation": "Incorrect: XSS involves injecting script into web content for a browser to execute, not overflowing a memory buffer." },
+      { "id": "d", "text": "Memory leak", "correct": false, "explanation": "Incorrect: a memory leak is unreleased memory accumulating over time due to a programming error, not an intentional overflow used to hijack execution." }
+    ]
+  },
+  {
+    "id": "v2-tvm-015",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "multi",
+    "difficulty": "medium",
+    "prompt": "A security analyst is investigating a workstation suspected of being part of a botnet. Which of the following observations would be considered indicators of compromise (IOC) consistent with command-and-control (C2) activity? (Select all that apply.)",
+    "explanation": "Regular beaconing to changing external hosts, queries for algorithmically generated domains, and unauthorized new privileged accounts are all recognized indicators of compromise associated with C2 activity; traffic that matches an established, approved baseline is normal and not itself an indicator.",
+    "options": [
+      { "id": "a", "text": "The host periodically sends small encrypted requests to a changing set of external IP addresses at regular intervals, even when no user is logged in", "correct": true, "explanation": "Correct: regular, low-volume outbound connections regardless of user activity is classic C2 'beaconing' behavior." },
+      { "id": "b", "text": "The host's DNS logs show repeated queries for algorithmically generated, random-looking domain names", "correct": true, "explanation": "Correct: querying domains generated by a domain generation algorithm (DGA) is a well-known technique malware uses to locate C2 servers, and is a strong IOC." },
+      { "id": "c", "text": "The host's outbound traffic volume and destinations match the documented baseline for its department and job role", "correct": false, "explanation": "Incorrect: traffic that matches an approved, expected baseline is normal behavior, not an indicator of compromise." },
+      { "id": "d", "text": "A new local administrator account was created on the host shortly before the unusual traffic began, and it was not requested through change management", "correct": true, "explanation": "Correct: an unauthorized new privileged account appearing right before anomalous activity is a strong indicator of compromise, often tied to establishing persistence for C2 access." }
+    ]
+  },
+  {
+    "id": "v2-tvm-016",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "multi",
+    "difficulty": "medium",
+    "prompt": "Which of the following are examples of password attacks? (Select all that apply.)",
+    "explanation": "Credential stuffing, password spraying, and rainbow table attacks are all techniques used specifically to obtain or guess valid passwords. ARP poisoning is a network-layer attack used to intercept local traffic and has nothing to do with guessing or cracking passwords.",
+    "options": [
+      { "id": "a", "text": "Credential stuffing: using username and password pairs leaked from one breach to attempt logins on unrelated services", "correct": true, "explanation": "Correct: reusing breached credentials elsewhere to gain unauthorized access is a password attack." },
+      { "id": "b", "text": "Password spraying: trying one commonly used password against many different user accounts to avoid lockout thresholds", "correct": true, "explanation": "Correct: spraying a single guessable password across many accounts is a well-known password attack technique." },
+      { "id": "c", "text": "Rainbow table attack: using precomputed hash lookup tables to reverse a stolen password hash back to its plaintext value", "correct": true, "explanation": "Correct: cracking a stolen hash using precomputed tables is a password attack aimed at recovering the original password." },
+      { "id": "d", "text": "ARP poisoning: sending forged ARP replies to redirect local network traffic through the attacker's machine", "correct": false, "explanation": "Incorrect: ARP poisoning is a network-layer, on-path attack technique; it does not attempt to guess, crack, or reuse passwords." }
+    ]
+  },
+  {
+    "id": "v2-tvm-017",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "multi",
+    "difficulty": "hard",
+    "prompt": "A security team wants to reduce the organization's overall attack surface and limit the blast radius of any future compromise. Which of the following actions directly support that goal? (Select all that apply.)",
+    "explanation": "Segmentation, least privilege, and hardening all work by reducing either the number of reachable entry points or the amount of damage a single compromised account or device can cause. Granting broad administrative rights to every service account does the opposite: it increases the potential damage from any single compromise.",
+    "options": [
+      { "id": "a", "text": "Segmenting the network into VLANs so a compromised IoT device cannot directly reach the finance servers", "correct": true, "explanation": "Correct: network segmentation contains a breach to one segment, limiting the blast radius of a compromise." },
+      { "id": "b", "text": "Applying the principle of least privilege so a compromised standard user account cannot access domain administrator functions", "correct": true, "explanation": "Correct: least privilege limits what an attacker can do with any single compromised account, reducing potential damage." },
+      { "id": "c", "text": "Disabling unused services and closing unnecessary open ports on servers as part of a hardening baseline", "correct": true, "explanation": "Correct: hardening by removing unused services and ports directly shrinks the number of exploitable entry points, reducing the attack surface." },
+      { "id": "d", "text": "Granting all service accounts domain administrator rights so scheduled jobs never fail due to permission errors", "correct": false, "explanation": "Incorrect: this expands the attack surface and blast radius, because any one compromised service account would grant full domain control." }
+    ]
+  },
+  {
+    "id": "v2-tvm-018",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "boolean",
+    "difficulty": "easy",
+    "prompt": "True or False: Disabling unused network services and closing unnecessary open ports on a server reduces its attack surface.",
+    "explanation": "Attack surface refers to the total number of points where an attacker could try to gain entry or extract data. Removing unused services and closing unnecessary ports directly eliminates exploitable entry points, so the statement is true.",
+    "answer": true
+  },
+  {
+    "id": "v2-tvm-019",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "boolean",
+    "difficulty": "hard",
+    "prompt": "True or False: Tailgating requires an attacker to already possess a stolen employee badge or other valid access credential before they can enter a secured area.",
+    "explanation": "Tailgating specifically describes an unauthorized person following an authorized person through a secured door or checkpoint, relying on that person holding the door open or not challenging them, rather than on presenting any credential of their own. Because no stolen credential is needed, the statement is false.",
+    "answer": false
+  },
+  {
+    "id": "v2-tvm-020",
+    "topicId": "threats-vulnerabilities-mitigations",
+    "type": "matching",
+    "difficulty": "medium",
+    "prompt": "Match each network or application attack technique to the description that best fits it.",
+    "explanation": "Each of these attacks targets a different layer or mechanism: DDoS overwhelms availability with traffic volume, ARP poisoning and on-path attacks abuse local network trust to intercept traffic, DNS poisoning/typosquatting redirects users at the naming layer, XSS abuses a trusted website to run script in a victim's browser, and a race condition abuses the timing between checking and using a resource.",
+    "left": [
+      { "id": "ddos", "text": "Distributed denial-of-service (DDoS) attack" },
+      { "id": "arp-poisoning", "text": "ARP poisoning" },
+      { "id": "on-path", "text": "On-path (man-in-the-middle) attack" },
+      { "id": "dns-poisoning", "text": "DNS poisoning / domain typosquatting" },
+      { "id": "xss", "text": "Cross-site scripting (XSS)" },
+      { "id": "race-condition", "text": "Race condition (TOCTOU)" }
+    ],
+    "right": [
+      { "id": "desc-ddos", "text": "Overwhelms a server or network with traffic from many coordinated sources so legitimate users are denied service" },
+      { "id": "desc-arp", "text": "Sends forged ARP replies so the attacker's MAC address becomes associated with another host's IP address on the local subnet" },
+      { "id": "desc-onpath", "text": "Secretly intercepts and relays traffic between two parties who believe they are communicating directly with each other" },
+      { "id": "desc-dns", "text": "Corrupts a resolver's cached records or registers a misspelled domain to redirect users toward a malicious site" },
+      { "id": "desc-xss", "text": "Injects malicious script into a trusted website so that it executes in the browsers of other visitors" },
+      { "id": "desc-race", "text": "Exploits the timing gap between when a resource is checked and when it is actually used to alter the outcome" }
+    ],
+    "pairs": [
+      { "left": "ddos", "right": "desc-ddos" },
+      { "left": "arp-poisoning", "right": "desc-arp" },
+      { "left": "on-path", "right": "desc-onpath" },
+      { "left": "dns-poisoning", "right": "desc-dns" },
+      { "left": "xss", "right": "desc-xss" },
+      { "left": "race-condition", "right": "desc-race" }
+    ]
+  }
+]
