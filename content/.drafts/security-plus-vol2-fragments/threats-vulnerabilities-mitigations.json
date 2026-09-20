@@ -18,13 +18,13 @@
     "topicId": "threats-vulnerabilities-mitigations",
     "type": "single",
     "difficulty": "easy",
-    "prompt": "An activist group breaches a mining company's web server, replaces the homepage with a manifesto condemning the company's environmental record, and leaks internal emails to journalists. Which term describes this type of threat actor?",
-    "explanation": "The group's actions are public, ideologically motivated, and intended to draw attention to a cause rather than to generate profit or serve a government's strategic interests. That combination of traits describes a hacktivist.",
+    "prompt": "A collective calling itself the 'Open Ledger Collective' breaches a telecommunications provider's internal file server and anonymously publishes documents on a public forum showing the provider secretly sold customer call records to a data broker. The group's posted statement calls for stronger privacy laws and makes no ransom or financial demand of any kind. Which term describes this type of threat actor?",
+    "explanation": "The group's actions are public, driven by a stated policy cause (stronger privacy laws), and explicitly not aimed at financial gain or serving a government's strategic interests. That combination of traits describes a hacktivist.",
     "options": [
-      { "id": "a", "text": "Hacktivist", "correct": true, "explanation": "Correct: the defacement and leak are public, attention-seeking actions driven by an ideological or political cause." },
-      { "id": "b", "text": "Organized crime group", "correct": false, "explanation": "Incorrect: organized crime is driven by financial profit, not political messaging, and generally avoids drawing public attention to itself." },
-      { "id": "c", "text": "Insider threat", "correct": false, "explanation": "Incorrect: nothing in the scenario suggests the attackers had prior authorized access to the company's systems." },
-      { "id": "d", "text": "Nation-state actor (advanced persistent threat)", "correct": false, "explanation": "Incorrect: nation-state actors typically operate quietly for espionage or strategic advantage, not through public defacement and press leaks." }
+      { "id": "a", "text": "Hacktivist", "correct": true, "explanation": "Correct: publishing leaked evidence to advance a stated policy cause, with no ransom or profit motive, is the defining pattern of a hacktivist." },
+      { "id": "b", "text": "Organized crime group", "correct": false, "explanation": "Incorrect: organized crime is driven by financial profit; this group explicitly made no financial demand." },
+      { "id": "c", "text": "Insider threat", "correct": false, "explanation": "Incorrect: the group breached the provider's server from outside; nothing indicates they had prior authorized access as employees." },
+      { "id": "d", "text": "Nation-state actor (advanced persistent threat)", "correct": false, "explanation": "Incorrect: nation-state actors typically operate quietly for espionage or strategic advantage, not through public leaks tied to a domestic privacy-policy statement." }
     ]
   },
   {
@@ -32,13 +32,13 @@
     "topicId": "threats-vulnerabilities-mitigations",
     "type": "single",
     "difficulty": "medium",
-    "prompt": "Investigators find that an intrusion into a defense contractor's network persisted undetected for over a year, used custom-built malware tailored to that network, carefully evaded the contractor's detection tools, and focused on exfiltrating weapons-design documents rather than any financially valuable data. Which threat actor is most consistent with these characteristics?",
-    "explanation": "Long dwell time, custom tooling, deliberate evasion, and a focus on strategic (rather than financial) data are hallmarks of a well-resourced, patient adversary acting on behalf of a government's interests, commonly described as an advanced persistent threat.",
+    "prompt": "During a breach investigation at a pharmaceutical company developing a new vaccine, analysts trace an intruder's connections to an overseas hosting provider with no matching employee VPN session. The intruder has had continuous access to the research network for nearly two years, relying on built-in Windows administration tools rather than custom malware to blend in with normal administrator activity, and has only ever touched files related to the vaccine's formulation data, never financial or HR systems. Which threat actor is most consistent with these characteristics?",
+    "explanation": "Nearly two years of stealthy, living-off-the-land access focused exclusively on strategically valuable intellectual property, rather than money, matches the patience, tradecraft, and objectives typically associated with a nation-state-sponsored advanced persistent threat.",
     "options": [
-      { "id": "a", "text": "Nation-state actor (advanced persistent threat)", "correct": true, "explanation": "Correct: the resources, custom tooling, patience, and strategic (not financial) target all point to a nation-state-sponsored APT." },
-      { "id": "b", "text": "Hacktivist", "correct": false, "explanation": "Incorrect: hacktivists typically act openly and quickly for publicity, not quietly for over a year while evading detection." },
-      { "id": "c", "text": "Organized crime", "correct": false, "explanation": "Incorrect: organized crime pursues data it can monetize, such as financial or personal records, not classified weapons designs." },
-      { "id": "d", "text": "Shadow IT", "correct": false, "explanation": "Incorrect: shadow IT refers to unauthorized but non-malicious technology use by employees, not an external intrusion." }
+      { "id": "a", "text": "Nation-state actor (advanced persistent threat)", "correct": true, "explanation": "Correct: sustained, patient access using living-off-the-land techniques and a narrow focus on strategic intellectual property, not money, points to a nation-state APT." },
+      { "id": "b", "text": "Organized crime", "correct": false, "explanation": "Incorrect: organized crime pursues data it can directly monetize, such as financial or personal records, not years of quiet access limited to vaccine formulation data." },
+      { "id": "c", "text": "Hacktivist", "correct": false, "explanation": "Incorrect: hacktivists typically act openly and quickly to draw attention to a cause; this intrusion was silent and sustained for nearly two years with no public claim." },
+      { "id": "d", "text": "Insider threat", "correct": false, "explanation": "Incorrect: the connections traced to an overseas hosting provider with no matching employee VPN session, ruling out an employee using their own legitimate access." }
     ]
   },
   {
