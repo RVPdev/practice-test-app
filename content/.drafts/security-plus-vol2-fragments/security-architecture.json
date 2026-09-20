@@ -4,32 +4,32 @@
     "type": "single",
     "topicId": "security-architecture",
     "difficulty": "easy",
-    "prompt": "A mid-sized company subscribes to a cloud-based email and office-productivity suite billed as Software as a Service (SaaS), rather than running its own mail servers. Under the shared responsibility model for SaaS, which security task remains the customer's responsibility?",
-    "explanation": "Under the shared responsibility model, as a service moves from IaaS toward SaaS, the provider absorbs more of the technology stack. In SaaS, the customer's remaining responsibility is typically limited to its own data, user identities, and access configuration within the application.",
+    "prompt": "A development team builds and runs a custom internal application on a Platform as a Service (PaaS) offering, where the provider manages the underlying servers, operating system, and runtime environment on which the application executes. Under the shared responsibility model, which of the following remains the development team's own responsibility?",
+    "explanation": "In PaaS, the provider manages the servers, guest operating system, and runtime/middleware layer beneath the application. The customer's remaining responsibility is the application code it writes, that code's configuration, and the data the application processes.",
     "options": [
       {
         "id": "a",
-        "text": "Managing user accounts, access permissions, and appropriate handling of the data stored within the application",
+        "text": "Securing the application code they write and the data the application processes",
         "correct": true,
-        "explanation": "Correct. In SaaS, the provider manages the application, runtime, and underlying infrastructure, but the customer still controls who has access and how its own data is handled."
+        "explanation": "Correct. In PaaS, the customer owns the application layer and its data; the provider manages everything beneath that layer."
       },
       {
         "id": "b",
-        "text": "Patching the operating system that hosts the email application",
+        "text": "Patching the underlying operating system the application runs on",
         "correct": false,
-        "explanation": "In a SaaS model, the provider manages the underlying OS and application code; the customer never has access to patch it."
+        "explanation": "In PaaS, the provider patches and maintains the underlying OS; the customer never manages it directly."
       },
       {
         "id": "c",
-        "text": "Maintaining the physical security of the data center where the application runs",
+        "text": "Maintaining the physical servers hosting the platform",
         "correct": false,
-        "explanation": "Physical data center security is the cloud provider's responsibility in every as-a-service model, including SaaS."
+        "explanation": "Physical server maintenance is the provider's responsibility in every as-a-service model, including PaaS."
       },
       {
         "id": "d",
-        "text": "Maintaining and securing the application's source code",
+        "text": "Managing the hypervisor virtualization layer beneath the platform",
         "correct": false,
-        "explanation": "The SaaS provider owns and secures the application itself; the customer only consumes it."
+        "explanation": "The hypervisor and virtualization layer are managed by the provider in PaaS, well below what the customer can access."
       }
     ]
   },
@@ -252,32 +252,32 @@
     "type": "single",
     "topicId": "security-architecture",
     "difficulty": "medium",
-    "prompt": "Before a laptop is allowed to communicate on the corporate wired network, a switch port checks that the device has up-to-date antivirus signatures and is joined to the corporate directory service; devices that fail this check are automatically placed on a quarantine VLAN with access only to a remediation server. Which technology is being used?",
-    "explanation": "Network Access Control (NAC) evaluates a device's identity and security posture before granting network access, and can dynamically place non-compliant devices into a restricted quarantine segment until they remediate.",
+    "prompt": "A hospital configures its wired switch ports so that a connecting device is only granted access to the production network if it presents a valid digital certificate, issued by the hospital's internal PKI and tied to a specific enrolled asset record; any device without such a certificate is instead placed on a restricted segment with internet-only access. Which technology is enforcing this certificate-based admission control?",
+    "explanation": "Network Access Control (NAC) can gate switch-port admission on a range of criteria beyond simple posture checks, including requiring a valid PKI-issued device certificate tied to an enrolled asset record, routing anything that can't present one to a restricted segment instead of the production network.",
     "options": [
       {
         "id": "a",
-        "text": "Network Access Control (NAC)",
+        "text": "Network Access Control (NAC) enforcing 802.1X certificate-based port authentication",
         "correct": true,
-        "explanation": "Correct. NAC performs pre-connection posture and identity checks and can quarantine non-compliant devices."
+        "explanation": "Correct. NAC can require a valid device certificate for port-level admission and reroute non-compliant devices to a restricted segment."
       },
       {
         "id": "b",
-        "text": "A load balancer",
+        "text": "A VPN concentrator terminating remote-access tunnels",
         "correct": false,
-        "explanation": "A load balancer distributes traffic across servers; it does not perform endpoint posture checks before granting network access."
+        "explanation": "A VPN concentrator handles encrypted remote-access tunnels; it does not gate admission on a local wired switch port."
       },
       {
         "id": "c",
-        "text": "A reverse proxy",
+        "text": "Single sign-on (SSO) federated authentication",
         "correct": false,
-        "explanation": "A reverse proxy forwards client requests to backend servers on behalf of clients; it is unrelated to switch-port admission control."
+        "explanation": "SSO lets a user reuse one set of credentials across applications; it does not evaluate a device's certificate to gate network-port admission."
       },
       {
         "id": "d",
-        "text": "SD-WAN",
+        "text": "A reverse proxy inspecting inbound web requests",
         "correct": false,
-        "explanation": "SD-WAN dynamically routes traffic across WAN transport links between sites; it does not perform device posture checks on a local switch port."
+        "explanation": "A reverse proxy forwards and inspects application-layer web requests; it is unrelated to switch-port admission control."
       }
     ]
   },
@@ -433,8 +433,8 @@
     "type": "single",
     "topicId": "security-architecture",
     "difficulty": "hard",
-    "prompt": "A customer-support application displays credit card numbers to support representatives with all but the last four digits hidden, so agents can confirm which card a caller is referencing without ever seeing the full number. Which data protection technique is being used?",
-    "explanation": "Data masking hides or obscures part of a sensitive value for display purposes, typically leaving the underlying stored value unchanged, so that viewers see only a limited, non-sensitive representation of it. This differs from tokenization, which replaces the stored value itself system-wide with a substitute.",
+    "prompt": "A helpdesk ticketing system displays a customer's email address to support agents as j***nsmith@e***.com instead of the full address, so agents can recognize which account they are working on without the complete address ever being exposed on screen. Which data protection technique is being used?",
+    "explanation": "Data masking obscures part of a sensitive value for display purposes, typically leaving the underlying stored value unchanged, so that viewers see only a limited, non-sensitive representation of it. This differs from tokenization, which replaces the stored value itself system-wide with a substitute.",
     "options": [
       {
         "id": "a",
@@ -458,7 +458,7 @@
         "id": "d",
         "text": "Encryption at rest",
         "correct": false,
-        "explanation": "Encryption at rest protects stored data from unauthorized access to the storage medium; it does not describe partially hiding digits when displaying data to an authorized user."
+        "explanation": "Encryption at rest protects stored data from unauthorized access to the storage medium; it does not describe partially hiding characters when displaying data to an authorized user."
       }
     ]
   },
@@ -467,32 +467,32 @@
     "type": "single",
     "topicId": "security-architecture",
     "difficulty": "hard",
-    "prompt": "A company's disaster recovery plan specifies that after a major outage, its order-processing system must be back online within 4 hours, and that no more than 15 minutes of transaction data may be permanently lost. Which metric does the 4-hour figure represent?",
-    "explanation": "Recovery Time Objective (RTO) is the maximum acceptable length of time a system may be down after an incident before it must be restored. Recovery Point Objective (RPO), by contrast, is the maximum acceptable amount of data loss measured in time, which the 15-minute figure represents in this scenario.",
+    "prompt": "A hospital's disaster recovery runbook states that, following a regional data center outage, the patient-scheduling application must be brought back online within 90 minutes, and that database replication must occur frequently enough that at most 5 minutes of appointment data could ever be lost. Which metrics do the 90-minute and 5-minute figures represent, respectively?",
+    "explanation": "Recovery Time Objective (RTO) is the maximum acceptable length of time a system may remain down after an incident before it must be restored, matching the 90-minute figure here. Recovery Point Objective (RPO) is the maximum acceptable amount of data loss measured as a period of time, matching the 5-minute figure.",
     "options": [
       {
         "id": "a",
-        "text": "Recovery Time Objective (RTO)",
+        "text": "90 minutes is the Recovery Time Objective (RTO); 5 minutes is the Recovery Point Objective (RPO)",
         "correct": true,
-        "explanation": "Correct. RTO defines the maximum tolerable downtime before a system must be restored, matching the 4-hour figure."
+        "explanation": "Correct. RTO governs maximum tolerable downtime (90 minutes) and RPO governs maximum tolerable data loss (5 minutes)."
       },
       {
         "id": "b",
-        "text": "Recovery Point Objective (RPO)",
+        "text": "90 minutes is the Recovery Point Objective (RPO); 5 minutes is the Recovery Time Objective (RTO)",
         "correct": false,
-        "explanation": "RPO defines the maximum tolerable data loss window, which corresponds to the 15-minute figure, not the 4-hour figure."
+        "explanation": "This reverses the two metrics: the downtime target is the RTO, and the data-loss target is the RPO, not the other way around."
       },
       {
         "id": "c",
-        "text": "Mean Time To Repair (MTTR)",
+        "text": "90 minutes is the Mean Time To Repair (MTTR); 5 minutes is the Recovery Time Objective (RTO)",
         "correct": false,
-        "explanation": "MTTR is a historical average of how long repairs actually take, not a planning target defined in advance within a disaster recovery plan."
+        "explanation": "MTTR is a historical average of how long repairs actually take, not a planning target defined in advance in a DR runbook, and 5 minutes here describes acceptable data loss, not downtime."
       },
       {
         "id": "d",
-        "text": "Service Level Agreement (SLA) penalty threshold",
+        "text": "90 minutes is the Recovery Time Objective (RTO); 5 minutes is the Annualized Rate of Occurrence (ARO)",
         "correct": false,
-        "explanation": "An SLA penalty threshold is a contractual trigger for financial remedies; it is not the same concept as a recovery timing objective in a DR plan."
+        "explanation": "ARO estimates how often a risk event is expected to occur per year; it has nothing to do with an acceptable data-loss window."
       }
     ]
   }
