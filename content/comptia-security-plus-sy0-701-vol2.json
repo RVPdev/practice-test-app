@@ -1,0 +1,3096 @@
+{
+  "schemaVersion": 1,
+  "id": "comptia-security-plus-sy0-701-vol2",
+  "title": "CompTIA Security+ (SY0-701) — Practice Exam, Volume 2",
+  "description": "A second, independently-authored original practice exam aligned to the official CompTIA Security+ (SY0-701) exam objectives (Version 7). This is an independently authored study aid, not official CompTIA content, and is not affiliated with or endorsed by CompTIA. Questions are proportioned across the five official domains by their published exam weight: General Security Concepts (12%), Threats, Vulnerabilities, and Mitigations (22%), Security Architecture (18%), Security Operations (28%), and Security Program Management and Oversight (20%).",
+  "version": "1.0.0",
+  "author": "Practice Test App",
+  "language": "en",
+  "topics": [
+    {
+      "id": "general-security-concepts",
+      "name": "General Security Concepts"
+    },
+    {
+      "id": "threats-vulnerabilities-mitigations",
+      "name": "Threats, Vulnerabilities, and Mitigations"
+    },
+    {
+      "id": "security-architecture",
+      "name": "Security Architecture"
+    },
+    {
+      "id": "security-operations",
+      "name": "Security Operations"
+    },
+    {
+      "id": "governance-risk-compliance",
+      "name": "Security Program Management and Oversight"
+    }
+  ],
+  "exam": {
+    "timeLimitMinutes": 90,
+    "shuffleQuestions": true,
+    "shuffleOptions": true
+  },
+  "questions": [
+    {
+      "id": "v2-gsc-001",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "easy",
+      "prompt": "An online retailer deploys redundant web servers behind a load balancer and keeps a backup generator on-site so customers can keep completing purchases even during a hardware failure or a power outage. Which principle of the CIA triad is the retailer primarily addressing?",
+      "explanation": "Availability ensures that authorized users can access systems and data whenever they need to. Redundant servers, load balancing, and backup power all reduce single points of failure that would otherwise take a service offline.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Availability",
+          "correct": true,
+          "explanation": "Correct. These measures exist specifically to keep the service reachable during a failure."
+        },
+        {
+          "id": "b",
+          "text": "Confidentiality",
+          "correct": false,
+          "explanation": "Confidentiality is about restricting who can view data; it has nothing to do with uptime during a hardware failure."
+        },
+        {
+          "id": "c",
+          "text": "Integrity",
+          "correct": false,
+          "explanation": "Integrity concerns whether data has been altered, not whether the service stays online."
+        },
+        {
+          "id": "d",
+          "text": "Non-repudiation",
+          "correct": false,
+          "explanation": "Non-repudiation prevents someone from denying an action they took; it is unrelated to redundancy or uptime."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-002",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "easy",
+      "prompt": "A company requires every employee to complete an annual security awareness training course covering phishing recognition and password hygiene. Which category of security control does this training represent?",
+      "explanation": "Operational controls are those carried out primarily by people through day-to-day practices and procedures, such as training, awareness programs, and user-driven processes, rather than through technology or physical barriers.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Operational",
+          "correct": true,
+          "explanation": "Correct. Operational controls are implemented and carried out by people, such as through training and routine security practices."
+        },
+        {
+          "id": "b",
+          "text": "Technical",
+          "correct": false,
+          "explanation": "Technical controls are enforced through technology, such as firewalls, encryption, or access control lists, not classroom or e-learning training."
+        },
+        {
+          "id": "c",
+          "text": "Physical",
+          "correct": false,
+          "explanation": "Physical controls restrict physical access to a facility or equipment, such as fences, locks, or badge readers."
+        },
+        {
+          "id": "d",
+          "text": "Managerial",
+          "correct": false,
+          "explanation": "Managerial controls are administrative and focus on governing the security program at a policy level, such as conducting risk assessments, rather than the hands-on delivery of training."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-003",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "easy",
+      "prompt": "A system administrator stores user passwords as the output of a one-way cryptographic hash function instead of storing them in plaintext. What is the primary security benefit of this approach?",
+      "explanation": "A cryptographic hash is designed to be effectively irreversible, so knowing the output does not let an attacker recover the original input. If the password database is stolen, the attacker gets hash values rather than usable plaintext passwords.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The original password cannot practically be recovered from the stored hash, so a database breach doesn't directly expose usable plaintext passwords",
+          "correct": true,
+          "explanation": "Correct. This one-way property is exactly why passwords are hashed rather than encrypted or stored in plaintext."
+        },
+        {
+          "id": "b",
+          "text": "It allows the system to decrypt the stored value and email the original password back to a user who forgets it",
+          "correct": false,
+          "explanation": "Hashing is not decryption; a properly designed hash function cannot be reversed to recover the original password at all."
+        },
+        {
+          "id": "c",
+          "text": "It shrinks every password down to a fixed, smaller size, which is the main reason hashing is used for password storage",
+          "correct": false,
+          "explanation": "Hash outputs are indeed fixed-length, but that is a side effect of the algorithm, not the security reason passwords are hashed."
+        },
+        {
+          "id": "d",
+          "text": "It automatically encrypts all network traffic sent between the client and the authentication server",
+          "correct": false,
+          "explanation": "Hashing a stored password has no effect on whether traffic in transit is encrypted; that is a separate concern (e.g., TLS)."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-004",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "easy",
+      "prompt": "After a user successfully logs into a file server with a valid username and password, the server checks the user's group membership to decide which folders they are allowed to open. Which part of the AAA framework does this second step represent?",
+      "explanation": "Authorization is the step, occurring after identity has been established, that determines what an already-verified user is permitted to do or access.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Authorization",
+          "correct": true,
+          "explanation": "Correct. Checking group membership to decide access rights is authorization, which happens after authentication succeeds."
+        },
+        {
+          "id": "b",
+          "text": "Authentication",
+          "correct": false,
+          "explanation": "Authentication already happened when the username and password were verified; this step occurs afterward and answers a different question (what can this user do, not who is this user)."
+        },
+        {
+          "id": "c",
+          "text": "Accounting",
+          "correct": false,
+          "explanation": "Accounting is the logging and tracking of what a user did after being granted access, not the decision of what they are allowed to access."
+        },
+        {
+          "id": "d",
+          "text": "Non-repudiation",
+          "correct": false,
+          "explanation": "Non-repudiation is about preventing denial of a past action; it is not part of deciding folder-level permissions."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-005",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "medium",
+      "prompt": "A contractor emails a signed change order to a client, digitally signing the document with a private key that only the contractor holds. Weeks later, the contractor claims they never sent the change order. Which security concept allows the client to refute that claim?",
+      "explanation": "Non-repudiation specifically prevents a party from credibly denying that they performed a particular action, such as sending or signing a document, because the digital signature can only have been produced with the sender's private key.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Non-repudiation",
+          "correct": true,
+          "explanation": "Correct. A valid digital signature tied to the contractor's private key provides evidence that specifically defeats a later denial of having sent the document."
+        },
+        {
+          "id": "b",
+          "text": "Authentication",
+          "correct": false,
+          "explanation": "Authentication verifies identity at the moment of logging in or connecting; it doesn't, by itself, prove which specific document a person sent weeks earlier."
+        },
+        {
+          "id": "c",
+          "text": "Confidentiality",
+          "correct": false,
+          "explanation": "Confidentiality would protect the change order from being read by unauthorized parties, but it does nothing to prove who sent it."
+        },
+        {
+          "id": "d",
+          "text": "Availability",
+          "correct": false,
+          "explanation": "Availability concerns whether systems and data are accessible when needed, which has no bearing on proving authorship of a message."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-006",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "medium",
+      "prompt": "In a Zero Trust security model, a user who authenticated successfully from the corporate office five minutes ago now tries to open a sensitive financial application. Which Zero Trust principle requires the system to re-evaluate this new request rather than simply relying on the earlier successful login?",
+      "explanation": "Zero Trust operates on continuous verification, often summarized as \"never trust, always verify\": every access request is evaluated on its own merits, regardless of a prior successful login or the user's network location, rather than granting standing trust once someone is inside the perimeter.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Continuous verification, which treats each access request as untrusted until it is independently evaluated",
+          "correct": true,
+          "explanation": "Correct. Zero Trust does not extend blanket trust based on a past login; every request is checked against policy at the time it is made."
+        },
+        {
+          "id": "b",
+          "text": "Implicit trust zones, which grant broad access to anyone already inside the corporate network perimeter",
+          "correct": false,
+          "explanation": "This describes the traditional perimeter-based model that Zero Trust is designed to replace, not a Zero Trust principle."
+        },
+        {
+          "id": "c",
+          "text": "Federation, which lets a single set of credentials work across multiple unrelated organizations",
+          "correct": false,
+          "explanation": "Federation is an identity-sharing concept unrelated to why a request must be re-evaluated after a prior successful login."
+        },
+        {
+          "id": "d",
+          "text": "Non-repudiation, which prevents the user from later denying they made the request",
+          "correct": false,
+          "explanation": "Non-repudiation is about proving who performed an action after the fact, not about why each new request must be independently verified."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-007",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "medium",
+      "prompt": "A data center wants to stop an unauthorized person from following an authorized employee through a secured entrance (tailgating). Which physical security control is specifically built as a small interlocking chamber that allows only one verified person through at a time?",
+      "explanation": "An access control vestibule (also called a mantrap) is a small enclosed space with two interlocking doors: the first door must close and the occupant's credentials be verified before the second door opens, which structurally prevents a second, unverified person from slipping through alongside an authorized one.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Access control vestibule (mantrap)",
+          "correct": true,
+          "explanation": "Correct. Its interlocking-door design is specifically built to admit one verified person at a time."
+        },
+        {
+          "id": "b",
+          "text": "Bollards",
+          "correct": false,
+          "explanation": "Bollards are short, sturdy posts that stop vehicles from ramming a building; they don't regulate pedestrian entry at all."
+        },
+        {
+          "id": "c",
+          "text": "Perimeter security guard patrol",
+          "correct": false,
+          "explanation": "A guard may notice tailgating, but a patrol is not a structural mechanism that physically limits entry to one verified person at a time."
+        },
+        {
+          "id": "d",
+          "text": "Motion-activated floodlight",
+          "correct": false,
+          "explanation": "Lighting is a deterrent and aid to detection, not a mechanism that physically controls how many people pass through a doorway."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-008",
+      "type": "single",
+      "topicId": "general-security-concepts",
+      "difficulty": "hard",
+      "prompt": "A security team places a file named \"passwords_backup.xlsx\" containing fake credentials on a file share that no legitimate business process ever touches, and configures an alert that fires the instant the file is opened. This decoy is best described as which deception technique, and what is it primarily useful for?",
+      "explanation": "A single decoy file designed to trigger an alert when accessed is a honeyfile. Because no legitimate process should ever open it, any access is a strong, high-confidence signal of unauthorized activity, which is why honeyfiles are valued for low-false-positive detection rather than as a primary defense.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A honeyfile; it provides high-confidence, low-false-positive detection because no legitimate process should ever touch it",
+          "correct": true,
+          "explanation": "Correct. This is exactly the purpose and mechanism of a honeyfile-based detection technique."
+        },
+        {
+          "id": "b",
+          "text": "A honeynet; it slows attackers down by presenting an entire fake network for them to explore",
+          "correct": false,
+          "explanation": "A honeynet is a decoy network of multiple systems designed for broader exploration and study, which is a different scale of deception than a single planted file."
+        },
+        {
+          "id": "c",
+          "text": "A honeypot; it is designed to serve as the organization's primary defense against ransomware",
+          "correct": false,
+          "explanation": "Honeypots and honeyfiles are detection and deception tools that supplement a defense strategy; they are not intended to be an organization's primary control against an attack like ransomware."
+        },
+        {
+          "id": "d",
+          "text": "A DNS sinkhole; it redirects lookups for known-malicious domains to a controlled server",
+          "correct": false,
+          "explanation": "A DNS sinkhole is an entirely different technique that intercepts DNS resolution, not a decoy file placed on a share."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-009",
+      "type": "boolean",
+      "topicId": "general-security-concepts",
+      "difficulty": "medium",
+      "prompt": "True or false: Even when a change is classified as an emergency change and implemented outside the normal approval schedule, the change management process still requires a documented backout (rollback) plan and a post-implementation review.",
+      "answer": true,
+      "explanation": "This is true. Emergency changes skip the usual pre-approval timeline because of urgency, but a documented backout plan and a subsequent post-implementation review remain required so the change is still traceable, reversible if it causes problems, and formally reviewed after the fact."
+    },
+    {
+      "id": "v2-gsc-010",
+      "type": "multi",
+      "topicId": "general-security-concepts",
+      "difficulty": "medium",
+      "prompt": "Which two of the following statements about symmetric and asymmetric encryption are accurate? (Choose two.)",
+      "explanation": "Symmetric encryption relies on a single shared secret key, which makes securely distributing that key to all parties a core challenge, while asymmetric encryption uses a mathematically related public/private key pair so the public half can be shared openly. Symmetric algorithms are computationally much faster, which is why they are preferred for bulk data, and asymmetric key pairs are related but never identical.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Symmetric encryption uses the same key for both encryption and decryption, which makes securely distributing that key a significant challenge",
+          "correct": true,
+          "explanation": "Correct. A single shared key must reach every legitimate party without being intercepted, which is the classic key-distribution problem for symmetric cryptography."
+        },
+        {
+          "id": "b",
+          "text": "Asymmetric encryption uses a mathematically related public/private key pair, allowing the public key to be shared openly while the private key stays secret",
+          "correct": true,
+          "explanation": "Correct. This public/private split is the defining feature of asymmetric cryptography."
+        },
+        {
+          "id": "c",
+          "text": "Symmetric encryption is generally slower than asymmetric encryption for the same volume of data, which is why it is rarely used for bulk data",
+          "correct": false,
+          "explanation": "This is backwards: symmetric encryption is generally much faster than asymmetric encryption, which is exactly why it is preferred for encrypting large volumes of data."
+        },
+        {
+          "id": "d",
+          "text": "Asymmetric encryption eliminates any need for careful key management because both parties independently generate identical keys",
+          "correct": false,
+          "explanation": "Asymmetric key pairs are mathematically related, not identical, and the private key still requires careful protection; asymmetric encryption does not eliminate key management."
+        }
+      ]
+    },
+    {
+      "id": "v2-gsc-011",
+      "type": "multi",
+      "topicId": "general-security-concepts",
+      "difficulty": "hard",
+      "prompt": "Regarding public key infrastructure (PKI) and digital certificates, which two of the following statements are accurate? (Choose two.)",
+      "explanation": "A wildcard certificate covers subdomains at one level under a domain but requires the base domain to be listed separately, and organizations commonly keep a root CA offline, using it only to sign intermediate CA certificates so the root's private key is not exposed to routine issuance operations. A certificate itself only ever contains a public key, never the corresponding private key, and key escrow is about securely storing a copy of a private key with a trusted third party, not about whether a certificate can be revoked.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A wildcard certificate such as *.example.com can secure first-level subdomains of that domain but not the base domain itself unless it is separately listed",
+          "correct": true,
+          "explanation": "Correct. Wildcard coverage applies to one level of subdomains under the wildcard; the bare domain needs its own entry."
+        },
+        {
+          "id": "b",
+          "text": "Organizations commonly keep a root CA offline and use it only to sign intermediate CA certificates, isolating the root's private key from day-to-day certificate issuance",
+          "correct": true,
+          "explanation": "Correct. This offline-root design limits exposure of the most sensitive key in the trust chain while intermediates handle routine signing."
+        },
+        {
+          "id": "c",
+          "text": "A certificate file includes both the public key and the corresponding private key so that any recipient can decrypt data sent to the certificate's owner",
+          "correct": false,
+          "explanation": "A certificate contains only the subject's public key; the private key must never be distributed and is kept solely by its owner."
+        },
+        {
+          "id": "d",
+          "text": "Key escrow means a certificate can never be revoked once issued, guaranteeing it stays valid until its listed expiration date",
+          "correct": false,
+          "explanation": "Key escrow refers to securely storing a copy of a private key with a trusted third party for recovery purposes; it has no bearing on whether a certificate can be revoked via a CRL or OCSP before expiration."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-001",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "easy",
+      "prompt": "A database administrator who was recently placed on a performance improvement plan quietly exports a copy of the customer records table to a personal cloud storage account, using login credentials that are still fully authorized for her job role. Which type of threat actor does this scenario describe?",
+      "explanation": "She is using her own legitimate, still-valid access to misuse data before any offboarding has occurred. Misuse of authorized access by someone already inside the organization is the defining trait of an insider threat, regardless of motive.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Insider threat",
+          "correct": true,
+          "explanation": "Correct: she has authorized access and is misusing it from inside the organization, which is exactly what defines an insider threat."
+        },
+        {
+          "id": "b",
+          "text": "Hacktivist",
+          "correct": false,
+          "explanation": "Incorrect: hacktivists act publicly for ideological reasons and are typically external attackers, not employees using their own accounts quietly."
+        },
+        {
+          "id": "c",
+          "text": "Nation-state actor",
+          "correct": false,
+          "explanation": "Incorrect: nation-state actors are external, government-sponsored groups pursuing strategic objectives, not employees exporting data with their own credentials."
+        },
+        {
+          "id": "d",
+          "text": "Unskilled attacker (script kiddie)",
+          "correct": false,
+          "explanation": "Incorrect: this term describes an external attacker with limited skill using off-the-shelf tools, not an internal employee with authorized access."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-002",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "easy",
+      "prompt": "A collective calling itself the 'Open Ledger Collective' breaches a telecommunications provider's internal file server and anonymously publishes documents on a public forum showing the provider secretly sold customer call records to a data broker. The group's posted statement calls for stronger privacy laws and makes no ransom or financial demand of any kind. Which term describes this type of threat actor?",
+      "explanation": "The group's actions are public, driven by a stated policy cause (stronger privacy laws), and explicitly not aimed at financial gain or serving a government's strategic interests. That combination of traits describes a hacktivist.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hacktivist",
+          "correct": true,
+          "explanation": "Correct: publishing leaked evidence to advance a stated policy cause, with no ransom or profit motive, is the defining pattern of a hacktivist."
+        },
+        {
+          "id": "b",
+          "text": "Organized crime group",
+          "correct": false,
+          "explanation": "Incorrect: organized crime is driven by financial profit; this group explicitly made no financial demand."
+        },
+        {
+          "id": "c",
+          "text": "Insider threat",
+          "correct": false,
+          "explanation": "Incorrect: the group breached the provider's server from outside; nothing indicates they had prior authorized access as employees."
+        },
+        {
+          "id": "d",
+          "text": "Nation-state actor (advanced persistent threat)",
+          "correct": false,
+          "explanation": "Incorrect: nation-state actors typically operate quietly for espionage or strategic advantage, not through public leaks tied to a domestic privacy-policy statement."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-003",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "medium",
+      "prompt": "During a breach investigation at a pharmaceutical company developing a new vaccine, analysts trace an intruder's connections to an overseas hosting provider with no matching employee VPN session. The intruder has had continuous access to the research network for nearly two years, relying on built-in Windows administration tools rather than custom malware to blend in with normal administrator activity, and has only ever touched files related to the vaccine's formulation data, never financial or HR systems. Which threat actor is most consistent with these characteristics?",
+      "explanation": "Nearly two years of stealthy, living-off-the-land access focused exclusively on strategically valuable intellectual property, rather than money, matches the patience, tradecraft, and objectives typically associated with a nation-state-sponsored advanced persistent threat.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nation-state actor (advanced persistent threat)",
+          "correct": true,
+          "explanation": "Correct: sustained, patient access using living-off-the-land techniques and a narrow focus on strategic intellectual property, not money, points to a nation-state APT."
+        },
+        {
+          "id": "b",
+          "text": "Organized crime",
+          "correct": false,
+          "explanation": "Incorrect: organized crime pursues data it can directly monetize, such as financial or personal records, not years of quiet access limited to vaccine formulation data."
+        },
+        {
+          "id": "c",
+          "text": "Hacktivist",
+          "correct": false,
+          "explanation": "Incorrect: hacktivists typically act openly and quickly to draw attention to a cause; this intrusion was silent and sustained for nearly two years with no public claim."
+        },
+        {
+          "id": "d",
+          "text": "Insider threat",
+          "correct": false,
+          "explanation": "Incorrect: the connections traced to an overseas hosting provider with no matching employee VPN session, ruling out an employee using their own legitimate access."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-004",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "medium",
+      "prompt": "A criminal group develops a ransomware toolkit and leases it, along with payment infrastructure and negotiation support, to other attackers in exchange for a percentage of any ransom collected. The group's own involvement is driven entirely by profit. Which threat actor category and business model best describes this?",
+      "explanation": "The group is not pursuing an ideological or political goal, and it is not government-sponsored; it is monetizing criminal tooling as a service, which is the ransomware-as-a-service (RaaS) model run by organized crime.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Organized crime operating a ransomware-as-a-service (RaaS) model",
+          "correct": true,
+          "explanation": "Correct: leasing ransomware tooling for a cut of the profit is a defining example of organized crime running a RaaS operation."
+        },
+        {
+          "id": "b",
+          "text": "Nation-state actor conducting espionage",
+          "correct": false,
+          "explanation": "Incorrect: espionage is about intelligence gathering, not leasing criminal tools for a share of ransom profit."
+        },
+        {
+          "id": "c",
+          "text": "Hacktivist collective",
+          "correct": false,
+          "explanation": "Incorrect: hacktivism is driven by ideology, not by selling access to ransomware infrastructure for profit."
+        },
+        {
+          "id": "d",
+          "text": "Insider threat",
+          "correct": false,
+          "explanation": "Incorrect: nothing in the scenario suggests the group has authorized access inside any single victim organization."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-005",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "easy",
+      "prompt": "An employee receives an email that appears to have been sent to thousands of recipients at once. It claims to be from a shipping carrier and asks the recipient to click a link to 'reschedule a failed delivery.' The link leads to a fake login page designed to harvest credentials. What social engineering technique is this?",
+      "explanation": "A mass, non-targeted email that impersonates a trusted brand and drives victims to a credential-harvesting page is the classic description of phishing.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Phishing",
+          "correct": true,
+          "explanation": "Correct: a broad, untargeted fraudulent email designed to trick recipients into revealing credentials is phishing."
+        },
+        {
+          "id": "b",
+          "text": "Vishing",
+          "correct": false,
+          "explanation": "Incorrect: vishing is conducted over voice calls, not email."
+        },
+        {
+          "id": "c",
+          "text": "Pretexting",
+          "correct": false,
+          "explanation": "Incorrect: pretexting relies on a fabricated interpersonal scenario or false identity, not a mass impersonation email."
+        },
+        {
+          "id": "d",
+          "text": "Business email compromise",
+          "correct": false,
+          "explanation": "Incorrect: business email compromise specifically targets an organization by impersonating an executive or vendor to trigger a financial transaction, not a mass consumer-style delivery scam."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-006",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "medium",
+      "prompt": "An attacker calls a company's help desk, spoofing the caller ID to show an executive's cell phone number, and urgently asks the technician to reset the executive's account password over the phone before an important meeting. Which social engineering technique is being used?",
+      "explanation": "Using a phone call and a spoofed caller ID to create urgency and impersonate a trusted person is the defining characteristic of vishing (voice phishing).",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vishing",
+          "correct": true,
+          "explanation": "Correct: this is a voice-call-based phishing attempt, which is vishing."
+        },
+        {
+          "id": "b",
+          "text": "Phishing",
+          "correct": false,
+          "explanation": "Incorrect: phishing is conducted over email or similar written channels, not a live phone call."
+        },
+        {
+          "id": "c",
+          "text": "Tailgating",
+          "correct": false,
+          "explanation": "Incorrect: tailgating is a physical technique for following someone through a secured door, unrelated to a phone call."
+        },
+        {
+          "id": "d",
+          "text": "Shoulder surfing",
+          "correct": false,
+          "explanation": "Incorrect: shoulder surfing means visually observing someone entering credentials, not calling in and impersonating them."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-007",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "medium",
+      "prompt": "An attacker phones an employee, claiming to be an internal IT auditor performing a 'mandatory annual access review,' and invents a detailed but entirely false backstory about a compliance deadline to convince the employee to confirm their username and current password. Which social engineering technique relies primarily on this fabricated scenario to build false trust?",
+      "explanation": "The attack's core mechanism is inventing a believable but false scenario and identity to manipulate the target, which is the definition of pretexting; the phone call is simply the delivery channel.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pretexting",
+          "correct": true,
+          "explanation": "Correct: fabricating a false identity and backstory (an internal audit) to manipulate the target into disclosing information is pretexting."
+        },
+        {
+          "id": "b",
+          "text": "Whaling",
+          "correct": false,
+          "explanation": "Incorrect: whaling is phishing specifically targeted at senior executives, not a generic employee, and this scenario doesn't specify seniority."
+        },
+        {
+          "id": "c",
+          "text": "Watering hole attack",
+          "correct": false,
+          "explanation": "Incorrect: a watering hole attack compromises a website that a target group commonly visits; it does not involve a fabricated phone conversation."
+        },
+        {
+          "id": "d",
+          "text": "Typosquatting",
+          "correct": false,
+          "explanation": "Incorrect: typosquatting relies on registering misspelled domain names, not a phone-based fabricated backstory."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-008",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "hard",
+      "prompt": "The accounts-payable clerk receives an email that appears to come from the company's CEO, sent from a look-alike domain that differs from the real one by a single character. The email urgently instructs the clerk to wire funds to a 'new vendor bank account' before a deal closes at the end of the day. Which attack does this scenario describe?",
+      "explanation": "Impersonating a company executive using a look-alike domain to trick an employee into authorizing a fraudulent wire transfer is the specific, well-known attack pattern called business email compromise (BEC).",
+      "options": [
+        {
+          "id": "a",
+          "text": "Business email compromise (BEC)",
+          "correct": true,
+          "explanation": "Correct: impersonating an executive by email to induce a fraudulent wire transfer is the textbook definition of business email compromise."
+        },
+        {
+          "id": "b",
+          "text": "Vishing",
+          "correct": false,
+          "explanation": "Incorrect: vishing occurs over a phone call, but this attack was delivered entirely by email."
+        },
+        {
+          "id": "c",
+          "text": "Smishing",
+          "correct": false,
+          "explanation": "Incorrect: smishing uses SMS text messages as the delivery channel, not email."
+        },
+        {
+          "id": "d",
+          "text": "Watering hole attack",
+          "correct": false,
+          "explanation": "Incorrect: a watering hole attack compromises a website frequented by the target, which is unrelated to a direct fraudulent email to a specific employee."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-009",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "easy",
+      "prompt": "Before encrypting a hospital's file servers, an attacker first copies patient records to an external server and threatens to publish them publicly unless a ransom is paid, in addition to demanding a separate payment for the decryption key. What term describes this ransomware tactic of combining data theft with encryption?",
+      "explanation": "Threatening to leak stolen data in addition to withholding the decryption key gives the victim two separate reasons to pay, which is why this combined tactic is called double extortion.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Double extortion",
+          "correct": true,
+          "explanation": "Correct: combining data exfiltration and a leak threat with file encryption is the defining feature of double-extortion ransomware."
+        },
+        {
+          "id": "b",
+          "text": "Spyware",
+          "correct": false,
+          "explanation": "Incorrect: spyware quietly monitors activity for surveillance purposes; it does not encrypt files or demand ransom."
+        },
+        {
+          "id": "c",
+          "text": "Logic bomb",
+          "correct": false,
+          "explanation": "Incorrect: a logic bomb is malicious code that triggers on a specific condition, not a ransomware extortion strategy."
+        },
+        {
+          "id": "d",
+          "text": "Watering hole attack",
+          "correct": false,
+          "explanation": "Incorrect: a watering hole attack is a delivery method involving a compromised website, not a ransomware extortion tactic."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-010",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "easy",
+      "prompt": "A piece of malware exploits a vulnerability in a network file-sharing service to copy itself automatically from an infected host to every other reachable host on the network, without requiring any user to open a file or click a link. What type of malware is this?",
+      "explanation": "Self-propagation across a network through a vulnerability, with no user interaction required, is the defining characteristic that distinguishes a worm from other malware types such as trojans.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Worm",
+          "correct": true,
+          "explanation": "Correct: worms self-replicate and spread across networks on their own, without needing a user to run or open anything."
+        },
+        {
+          "id": "b",
+          "text": "Trojan",
+          "correct": false,
+          "explanation": "Incorrect: a trojan disguises itself as legitimate software and requires a user to install or run it; it does not self-propagate."
+        },
+        {
+          "id": "c",
+          "text": "Rootkit",
+          "correct": false,
+          "explanation": "Incorrect: a rootkit is designed to hide the presence of malware or an attacker's access, not to self-propagate across a network."
+        },
+        {
+          "id": "d",
+          "text": "Keylogger",
+          "correct": false,
+          "explanation": "Incorrect: a keylogger records keystrokes for surveillance; it has no inherent self-propagation capability."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-011",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "medium",
+      "prompt": "After an incident, responders discover that malware replaced core operating system files so that its own processes and files are invisible to the built-in task manager and file explorer, and the infection survives even a full reinstall of the antivirus software. What type of malware exhibits this level of operating-system-level concealment?",
+      "explanation": "Modifying core OS components to hide processes and files from standard system tools, and persisting despite security software changes, describes a rootkit, which is specifically designed for deep, stealthy persistence.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rootkit",
+          "correct": true,
+          "explanation": "Correct: rootkits embed themselves at the OS or kernel level specifically to hide their presence from standard system and security tools."
+        },
+        {
+          "id": "b",
+          "text": "Spyware",
+          "correct": false,
+          "explanation": "Incorrect: spyware focuses on covertly collecting user information; it doesn't typically alter core OS files to hide itself at this level."
+        },
+        {
+          "id": "c",
+          "text": "Adware",
+          "correct": false,
+          "explanation": "Incorrect: adware displays unwanted advertisements and is usually easy to detect, not deeply hidden within the OS."
+        },
+        {
+          "id": "d",
+          "text": "Botnet client",
+          "correct": false,
+          "explanation": "Incorrect: a botnet client's defining trait is receiving commands from a command-and-control server, not concealment within OS files."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-012",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "hard",
+      "prompt": "Two weeks after an IT administrator is terminated, a script that had been quietly embedded in a nightly backup job triggers and deletes every backup file. The script had been written months earlier to activate only if the administrator's account was ever removed from the payroll system. What type of malicious code is this?",
+      "explanation": "The code lay dormant until a specific trigger condition, the administrator's removal from payroll, was met. Malicious code written to remain inactive until a particular condition or event occurs is a logic bomb.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Logic bomb",
+          "correct": true,
+          "explanation": "Correct: code that stays dormant until a specific condition is met, then executes a malicious action, is a logic bomb."
+        },
+        {
+          "id": "b",
+          "text": "Worm",
+          "correct": false,
+          "explanation": "Incorrect: a worm self-propagates across systems; this script did not spread, it simply waited for a trigger condition."
+        },
+        {
+          "id": "c",
+          "text": "Ransomware",
+          "correct": false,
+          "explanation": "Incorrect: ransomware encrypts data and demands payment; this script destroyed backups outright with no ransom demand."
+        },
+        {
+          "id": "d",
+          "text": "Rootkit",
+          "correct": false,
+          "explanation": "Incorrect: a rootkit is designed to hide malicious presence, not to trigger a destructive action on a specific condition."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-013",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "medium",
+      "prompt": "A web application builds its database queries by directly concatenating user-supplied search text into a SQL statement. An attacker enters a search term containing an apostrophe followed by additional SQL keywords, causing the application to return every record in the customer table instead of just the matching results. What vulnerability class is being exploited?",
+      "explanation": "Unsanitized user input being concatenated directly into a SQL statement, allowing an attacker to alter the query's logic, is the defining characteristic of a SQL injection vulnerability.",
+      "options": [
+        {
+          "id": "a",
+          "text": "SQL injection",
+          "correct": true,
+          "explanation": "Correct: injecting SQL syntax through an unsanitized input field to change the query's behavior is SQL injection."
+        },
+        {
+          "id": "b",
+          "text": "Cross-site scripting (XSS)",
+          "correct": false,
+          "explanation": "Incorrect: XSS injects script that executes in a victim's browser; this attack manipulated a server-side database query instead."
+        },
+        {
+          "id": "c",
+          "text": "Buffer overflow",
+          "correct": false,
+          "explanation": "Incorrect: a buffer overflow involves writing data past the bounds of allocated memory, not manipulating query syntax."
+        },
+        {
+          "id": "d",
+          "text": "Race condition",
+          "correct": false,
+          "explanation": "Incorrect: a race condition exploits timing between a check and a use of a resource, not malformed query input."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-014",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "single",
+      "difficulty": "hard",
+      "prompt": "A legacy application accepts a username of unrestricted length and copies it into a fixed-size 64-byte memory buffer without first checking its length. An attacker submits a 500-character username crafted to overwrite adjacent memory, including the function's return address, in order to redirect program execution to injected code. What vulnerability is being exploited?",
+      "explanation": "Writing input data past the boundary of an allocated, fixed-size memory buffer so that it corrupts adjacent memory, including a return address, is a classic buffer overflow used to hijack program execution.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Buffer overflow",
+          "correct": true,
+          "explanation": "Correct: writing more data into a buffer than it was sized to hold, corrupting adjacent memory such as a return address, is a buffer overflow."
+        },
+        {
+          "id": "b",
+          "text": "SQL injection",
+          "correct": false,
+          "explanation": "Incorrect: SQL injection manipulates database query syntax; this attack corrupted memory in a running process instead."
+        },
+        {
+          "id": "c",
+          "text": "Cross-site scripting (XSS)",
+          "correct": false,
+          "explanation": "Incorrect: XSS involves injecting script into web content for a browser to execute, not overflowing a memory buffer."
+        },
+        {
+          "id": "d",
+          "text": "Memory leak",
+          "correct": false,
+          "explanation": "Incorrect: a memory leak is unreleased memory accumulating over time due to a programming error, not an intentional overflow used to hijack execution."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-015",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "multi",
+      "difficulty": "medium",
+      "prompt": "A security analyst is investigating a workstation suspected of being part of a botnet. Which of the following observations would be considered indicators of compromise (IOC) consistent with command-and-control (C2) activity? (Select all that apply.)",
+      "explanation": "Regular beaconing to changing external hosts, queries for algorithmically generated domains, and unauthorized new privileged accounts are all recognized indicators of compromise associated with C2 activity; traffic that matches an established, approved baseline is normal and not itself an indicator.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The host periodically sends small encrypted requests to a changing set of external IP addresses at regular intervals, even when no user is logged in",
+          "correct": true,
+          "explanation": "Correct: regular, low-volume outbound connections regardless of user activity is classic C2 'beaconing' behavior."
+        },
+        {
+          "id": "b",
+          "text": "The host's DNS logs show repeated queries for algorithmically generated, random-looking domain names",
+          "correct": true,
+          "explanation": "Correct: querying domains generated by a domain generation algorithm (DGA) is a well-known technique malware uses to locate C2 servers, and is a strong IOC."
+        },
+        {
+          "id": "c",
+          "text": "The host's outbound traffic volume and destinations match the documented baseline for its department and job role",
+          "correct": false,
+          "explanation": "Incorrect: traffic that matches an approved, expected baseline is normal behavior, not an indicator of compromise."
+        },
+        {
+          "id": "d",
+          "text": "A new local administrator account was created on the host shortly before the unusual traffic began, and it was not requested through change management",
+          "correct": true,
+          "explanation": "Correct: an unauthorized new privileged account appearing right before anomalous activity is a strong indicator of compromise, often tied to establishing persistence for C2 access."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-016",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "multi",
+      "difficulty": "medium",
+      "prompt": "Which of the following are examples of password attacks? (Select all that apply.)",
+      "explanation": "Credential stuffing, password spraying, and rainbow table attacks are all techniques used specifically to obtain or guess valid passwords. ARP poisoning is a network-layer attack used to intercept local traffic and has nothing to do with guessing or cracking passwords.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Credential stuffing: using username and password pairs leaked from one breach to attempt logins on unrelated services",
+          "correct": true,
+          "explanation": "Correct: reusing breached credentials elsewhere to gain unauthorized access is a password attack."
+        },
+        {
+          "id": "b",
+          "text": "Password spraying: trying one commonly used password against many different user accounts to avoid lockout thresholds",
+          "correct": true,
+          "explanation": "Correct: spraying a single guessable password across many accounts is a well-known password attack technique."
+        },
+        {
+          "id": "c",
+          "text": "Rainbow table attack: using precomputed hash lookup tables to reverse a stolen password hash back to its plaintext value",
+          "correct": true,
+          "explanation": "Correct: cracking a stolen hash using precomputed tables is a password attack aimed at recovering the original password."
+        },
+        {
+          "id": "d",
+          "text": "ARP poisoning: sending forged ARP replies to redirect local network traffic through the attacker's machine",
+          "correct": false,
+          "explanation": "Incorrect: ARP poisoning is a network-layer, on-path attack technique; it does not attempt to guess, crack, or reuse passwords."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-017",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "multi",
+      "difficulty": "hard",
+      "prompt": "A security team wants to reduce the organization's overall attack surface and limit the blast radius of any future compromise. Which of the following actions directly support that goal? (Select all that apply.)",
+      "explanation": "Segmentation, least privilege, and hardening all work by reducing either the number of reachable entry points or the amount of damage a single compromised account or device can cause. Granting broad administrative rights to every service account does the opposite: it increases the potential damage from any single compromise.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Segmenting the network into VLANs so a compromised IoT device cannot directly reach the finance servers",
+          "correct": true,
+          "explanation": "Correct: network segmentation contains a breach to one segment, limiting the blast radius of a compromise."
+        },
+        {
+          "id": "b",
+          "text": "Applying the principle of least privilege so a compromised standard user account cannot access domain administrator functions",
+          "correct": true,
+          "explanation": "Correct: least privilege limits what an attacker can do with any single compromised account, reducing potential damage."
+        },
+        {
+          "id": "c",
+          "text": "Disabling unused services and closing unnecessary open ports on servers as part of a hardening baseline",
+          "correct": true,
+          "explanation": "Correct: hardening by removing unused services and ports directly shrinks the number of exploitable entry points, reducing the attack surface."
+        },
+        {
+          "id": "d",
+          "text": "Granting all service accounts domain administrator rights so scheduled jobs never fail due to permission errors",
+          "correct": false,
+          "explanation": "Incorrect: this expands the attack surface and blast radius, because any one compromised service account would grant full domain control."
+        }
+      ]
+    },
+    {
+      "id": "v2-tvm-018",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "boolean",
+      "difficulty": "easy",
+      "prompt": "True or False: Disabling unused network services and closing unnecessary open ports on a server reduces its attack surface.",
+      "explanation": "Attack surface refers to the total number of points where an attacker could try to gain entry or extract data. Removing unused services and closing unnecessary ports directly eliminates exploitable entry points, so the statement is true.",
+      "answer": true
+    },
+    {
+      "id": "v2-tvm-019",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "boolean",
+      "difficulty": "hard",
+      "prompt": "True or False: Tailgating requires an attacker to already possess a stolen employee badge or other valid access credential before they can enter a secured area.",
+      "explanation": "Tailgating specifically describes an unauthorized person following an authorized person through a secured door or checkpoint, relying on that person holding the door open or not challenging them, rather than on presenting any credential of their own. Because no stolen credential is needed, the statement is false.",
+      "answer": false
+    },
+    {
+      "id": "v2-tvm-020",
+      "topicId": "threats-vulnerabilities-mitigations",
+      "type": "matching",
+      "difficulty": "medium",
+      "prompt": "Match each network or application attack technique to the description that best fits it.",
+      "explanation": "Each of these attacks targets a different layer or mechanism: DDoS overwhelms availability with traffic volume, ARP poisoning and on-path attacks abuse local network trust to intercept traffic, DNS poisoning/typosquatting redirects users at the naming layer, XSS abuses a trusted website to run script in a victim's browser, and a race condition abuses the timing between checking and using a resource.",
+      "left": [
+        {
+          "id": "ddos",
+          "text": "Distributed denial-of-service (DDoS) attack"
+        },
+        {
+          "id": "arp-poisoning",
+          "text": "ARP poisoning"
+        },
+        {
+          "id": "on-path",
+          "text": "On-path (man-in-the-middle) attack"
+        },
+        {
+          "id": "dns-poisoning",
+          "text": "DNS poisoning / domain typosquatting"
+        },
+        {
+          "id": "xss",
+          "text": "Cross-site scripting (XSS)"
+        },
+        {
+          "id": "race-condition",
+          "text": "Race condition (TOCTOU)"
+        }
+      ],
+      "right": [
+        {
+          "id": "desc-ddos",
+          "text": "Overwhelms a server or network with traffic from many coordinated sources so legitimate users are denied service"
+        },
+        {
+          "id": "desc-arp",
+          "text": "Sends forged ARP replies so the attacker's MAC address becomes associated with another host's IP address on the local subnet"
+        },
+        {
+          "id": "desc-onpath",
+          "text": "Secretly intercepts and relays traffic between two parties who believe they are communicating directly with each other"
+        },
+        {
+          "id": "desc-dns",
+          "text": "Corrupts a resolver's cached records or registers a misspelled domain to redirect users toward a malicious site"
+        },
+        {
+          "id": "desc-xss",
+          "text": "Injects malicious script into a trusted website so that it executes in the browsers of other visitors"
+        },
+        {
+          "id": "desc-race",
+          "text": "Exploits the timing gap between when a resource is checked and when it is actually used to alter the outcome"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "ddos",
+          "right": "desc-ddos"
+        },
+        {
+          "left": "arp-poisoning",
+          "right": "desc-arp"
+        },
+        {
+          "left": "on-path",
+          "right": "desc-onpath"
+        },
+        {
+          "left": "dns-poisoning",
+          "right": "desc-dns"
+        },
+        {
+          "left": "xss",
+          "right": "desc-xss"
+        },
+        {
+          "left": "race-condition",
+          "right": "desc-race"
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-001",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "easy",
+      "prompt": "A popular e-commerce website places a device in front of ten identical web servers that spreads incoming customer requests across all ten based on ongoing health checks, automatically routing traffic away from any server that stops responding so that no single server is overwhelmed or becomes a single point of failure. What type of device or service is performing this function?",
+      "explanation": "A load balancer distributes incoming traffic across multiple backend servers and continuously health-checks them, routing traffic only to healthy servers. This improves both performance under high load and availability, since the failure of any one server does not take the whole service down.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A load balancer",
+          "correct": true,
+          "explanation": "Correct. A load balancer spreads traffic across a pool of servers and routes around any that fail health checks."
+        },
+        {
+          "id": "b",
+          "text": "A network intrusion prevention system (IPS)",
+          "correct": false,
+          "explanation": "An IPS inspects traffic for malicious activity and can block it; it does not distribute traffic across a pool of servers for availability."
+        },
+        {
+          "id": "c",
+          "text": "A web application firewall (WAF)",
+          "correct": false,
+          "explanation": "A WAF inspects HTTP-layer requests for application attacks like SQL injection; it does not perform traffic distribution or health-check-based routing across servers."
+        },
+        {
+          "id": "d",
+          "text": "A jump server",
+          "correct": false,
+          "explanation": "A jump server is a hardened intermediary used for administrative access to other systems, not a device that distributes customer-facing web traffic across servers."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-002",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "easy",
+      "prompt": "An organization keeps its regulated customer financial records on physical servers inside its own data center, but runs its seasonal marketing-analytics workloads on a public cloud provider, with both environments integrated so data can flow between them. Which architecture does this describe?",
+      "explanation": "A hybrid cloud combines private/on-premises infrastructure with public cloud resources, with the two environments integrated and able to interoperate, rather than existing as fully isolated systems.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hybrid cloud",
+          "correct": true,
+          "explanation": "Correct. Hybrid cloud specifically describes an integrated combination of on-premises/private infrastructure and public cloud resources."
+        },
+        {
+          "id": "b",
+          "text": "Multi-cloud",
+          "correct": false,
+          "explanation": "Multi-cloud refers to using more than one public cloud provider, not combining on-premises infrastructure with a public cloud."
+        },
+        {
+          "id": "c",
+          "text": "Community cloud",
+          "correct": false,
+          "explanation": "A community cloud is shared infrastructure used by multiple organizations with common regulatory or business concerns, which is not what is described here."
+        },
+        {
+          "id": "d",
+          "text": "Public cloud",
+          "correct": false,
+          "explanation": "A pure public cloud model would not include the organization's own physical, on-premises data center."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-003",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "easy",
+      "prompt": "A network administrator configures a retail store's switches so that point-of-sale terminals, employee workstations, and the guest Wi-Fi network each belong to a different logical broadcast domain, even though all of the devices connect to the same physical switching hardware. What is the primary security benefit of this design?",
+      "explanation": "VLANs create separate logical broadcast domains on shared physical switching hardware, limiting which devices can directly reach one another and containing broadcast traffic, which reduces the blast radius if one segment is compromised.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It limits lateral movement and contains broadcast traffic between groups of devices that have different trust levels",
+          "correct": true,
+          "explanation": "Correct. Segmenting devices into separate VLANs restricts direct communication between groups with different trust levels and confines broadcast traffic."
+        },
+        {
+          "id": "b",
+          "text": "It automatically encrypts all traffic exchanged between the segments",
+          "correct": false,
+          "explanation": "VLANs are a Layer 2 segmentation mechanism; they do not provide encryption on their own."
+        },
+        {
+          "id": "c",
+          "text": "It increases the total number of IP addresses available on the network",
+          "correct": false,
+          "explanation": "VLANs organize existing address space into separate broadcast domains; they do not create additional IP addresses."
+        },
+        {
+          "id": "d",
+          "text": "It provides redundant electrical power to each segment",
+          "correct": false,
+          "explanation": "VLAN configuration is unrelated to electrical power redundancy."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-004",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "easy",
+      "prompt": "Before storing any document, an organization requires staff to label it as Public, Internal, Confidential, or Restricted. What is the primary purpose of applying these labels?",
+      "explanation": "Data classification labels drive the handling, storage, and access-control requirements that apply to information based on its sensitivity, so that more sensitive data receives stronger protection than less sensitive data.",
+      "options": [
+        {
+          "id": "a",
+          "text": "To determine the handling, storage, and access controls appropriate to the sensitivity of the information",
+          "correct": true,
+          "explanation": "Correct. Classification labels exist to drive proportionate protection and handling requirements based on data sensitivity."
+        },
+        {
+          "id": "b",
+          "text": "To decide which file-compression algorithm is used when archiving the document",
+          "correct": false,
+          "explanation": "Classification labels are about sensitivity and handling requirements, not compression algorithm selection."
+        },
+        {
+          "id": "c",
+          "text": "To automatically assign the document's storage server to a specific VLAN",
+          "correct": false,
+          "explanation": "Classification labels do not directly control network VLAN assignment."
+        },
+        {
+          "id": "d",
+          "text": "To satisfy a backup rotation schedule requirement",
+          "correct": false,
+          "explanation": "Backup rotation schedules are a separate operational concern from data classification labeling."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-005",
+      "type": "boolean",
+      "topicId": "security-architecture",
+      "difficulty": "easy",
+      "prompt": "True or false: A community cloud deployment model is provisioned exclusively for the private, internal use of a single organization, in the same way a private cloud is.",
+      "answer": false,
+      "labels": {
+        "true": "True",
+        "false": "False"
+      },
+      "explanation": "False. A community cloud is provisioned for shared use by several organizations that have common concerns, such as regulatory or compliance requirements, not for the exclusive use of a single organization. Exclusive single-organization use describes a private cloud instead."
+    },
+    {
+      "id": "v2-sa-006",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "A cloud engineering team defines all of its servers, networks, and security group rules as version-controlled template files that are automatically applied through an automated deployment pipeline, rather than being configured by hand through a console. From a security standpoint, which of the following is the primary benefit of this Infrastructure as Code (IaC) approach?",
+      "explanation": "Because IaC templates are version-controlled and peer-reviewed like any other code, security-relevant configuration can be tested and reapplied consistently across environments, reducing configuration drift and the human error that comes with manual, one-off changes.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Security configurations can be peer-reviewed, tested, and consistently reapplied, reducing configuration drift and manual errors across environments",
+          "correct": true,
+          "explanation": "Correct. Treating infrastructure configuration as reviewed, version-controlled code is IaC's core security benefit."
+        },
+        {
+          "id": "b",
+          "text": "It removes the need to ever apply security patches to the resulting servers",
+          "correct": false,
+          "explanation": "IaC provisions infrastructure consistently but does not eliminate the ongoing need for patch management."
+        },
+        {
+          "id": "c",
+          "text": "It guarantees that any credentials embedded in the templates are automatically encrypted",
+          "correct": false,
+          "explanation": "IaC provides no automatic protection for secrets accidentally hardcoded into templates; that risk must be mitigated separately, such as with a secrets manager."
+        },
+        {
+          "id": "d",
+          "text": "It eliminates the need for any code review before a change is deployed",
+          "correct": false,
+          "explanation": "IaC makes code review practical and repeatable; it does not remove the need for it."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-007",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "A development team breaks a large monolithic application into many small, independently deployable services that communicate with each other and with external clients over the network via APIs. Which of the following is a security consideration introduced specifically by this microservices architecture?",
+      "explanation": "Decomposing an application into many networked services multiplies the number of API endpoints and inter-service communication paths, each of which must be authenticated, authorized, and monitored, expanding the overall attack surface compared to a single monolithic codebase.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The larger number of network-exposed APIs and service-to-service communication paths expands the overall attack surface that must be secured and monitored",
+          "correct": true,
+          "explanation": "Correct. Each additional service and API introduces another interface that must be secured, authenticated, and monitored."
+        },
+        {
+          "id": "b",
+          "text": "Because each service is smaller, it no longer needs to authenticate calls received from other internal services",
+          "correct": false,
+          "explanation": "Smaller service size does not remove the need for service-to-service authentication; in a zero-trust-minded design it is still required."
+        },
+        {
+          "id": "c",
+          "text": "Microservices architectures remove the need for an API gateway or web application firewall",
+          "correct": false,
+          "explanation": "Microservices architectures typically still benefit from an API gateway or WAF to centrally enforce policy across many services."
+        },
+        {
+          "id": "d",
+          "text": "Splitting an application into microservices automatically encrypts all data the services exchange",
+          "correct": false,
+          "explanation": "Encryption between services must be deliberately configured (for example, with mutual TLS); it is not an automatic side effect of the architecture."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-008",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "A security architect redesigns network access so that every request for a resource, whether it originates inside or outside the traditional corporate network perimeter, must be explicitly authenticated, authorized, and continuously validated, with no user or device implicitly trusted merely because of its network location. Which security model does this describe?",
+      "explanation": "Zero trust architecture assumes no implicit trust based on network location and instead requires continuous verification of identity, device posture, and authorization for every access request, regardless of whether the request originates inside or outside the traditional perimeter.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Zero trust architecture",
+          "correct": true,
+          "explanation": "Correct. Zero trust is defined by continuous verification and the absence of implicit trust based on network location."
+        },
+        {
+          "id": "b",
+          "text": "A perimeter-based (castle-and-moat) security model",
+          "correct": false,
+          "explanation": "A perimeter-based model grants implicit trust to anything already inside the network boundary, which is the opposite of what is described."
+        },
+        {
+          "id": "c",
+          "text": "A bastion host access model",
+          "correct": false,
+          "explanation": "A bastion host is a single hardened point of administrative access, not a comprehensive continuous-verification access model."
+        },
+        {
+          "id": "d",
+          "text": "A full-disk encryption model",
+          "correct": false,
+          "explanation": "Full-disk encryption protects data at rest on a device; it has nothing to do with how access requests are authenticated and authorized."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-009",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "A hospital configures its wired switch ports so that a connecting device is only granted access to the production network if it presents a valid digital certificate, issued by the hospital's internal PKI and tied to a specific enrolled asset record; any device without such a certificate is instead placed on a restricted segment with internet-only access. Which technology is enforcing this certificate-based admission control?",
+      "explanation": "Network Access Control (NAC) can gate switch-port admission on a range of criteria beyond simple posture checks, including requiring a valid PKI-issued device certificate tied to an enrolled asset record, routing anything that can't present one to a restricted segment instead of the production network.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Network Access Control (NAC) enforcing 802.1X certificate-based port authentication",
+          "correct": true,
+          "explanation": "Correct. NAC can require a valid device certificate for port-level admission and reroute non-compliant devices to a restricted segment."
+        },
+        {
+          "id": "b",
+          "text": "A VPN concentrator terminating remote-access tunnels",
+          "correct": false,
+          "explanation": "A VPN concentrator handles encrypted remote-access tunnels; it does not gate admission on a local wired switch port."
+        },
+        {
+          "id": "c",
+          "text": "Single sign-on (SSO) federated authentication",
+          "correct": false,
+          "explanation": "SSO lets a user reuse one set of credentials across applications; it does not evaluate a device's certificate to gate network-port admission."
+        },
+        {
+          "id": "d",
+          "text": "A reverse proxy inspecting inbound web requests",
+          "correct": false,
+          "explanation": "A reverse proxy forwards and inspects application-layer web requests; it is unrelated to switch-port admission control."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-010",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "A European online retailer selects a specific cloud provider region for storing customer personal data because local law requires that this data physically remain within national borders and not be transferred to data centers in other countries. What concept does this legal requirement describe?",
+      "explanation": "Data sovereignty refers to the principle that data is subject to the laws of the country in which it is physically located, which drives decisions about which cloud regions an organization may legally use to store certain data.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data sovereignty",
+          "correct": true,
+          "explanation": "Correct. Data sovereignty concerns the legal jurisdiction governing data based on its physical storage location."
+        },
+        {
+          "id": "b",
+          "text": "Data masking",
+          "correct": false,
+          "explanation": "Data masking obscures parts of a data value for display or testing purposes; it does not address where data is physically stored."
+        },
+        {
+          "id": "c",
+          "text": "Data classification",
+          "correct": false,
+          "explanation": "Data classification labels information by sensitivity; it does not by itself address geographic storage requirements."
+        },
+        {
+          "id": "d",
+          "text": "Tokenization",
+          "correct": false,
+          "explanation": "Tokenization substitutes a non-sensitive placeholder for sensitive data; it is unrelated to the geographic location where data must reside."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-011",
+      "type": "matching",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "Match each legacy, insecure network protocol on the left with the secure protocol typically used to replace it, on the right.",
+      "explanation": "Each of these legacy protocols transmits data (including, in several cases, credentials) in the clear or without integrity protection. Their secure replacements add encryption, and in most cases authentication, over the same general function.",
+      "left": [
+        {
+          "id": "l-http",
+          "text": "HTTP (unencrypted web traffic)"
+        },
+        {
+          "id": "l-ftp",
+          "text": "FTP (unencrypted file transfer)"
+        },
+        {
+          "id": "l-telnet",
+          "text": "Telnet (unencrypted remote terminal access)"
+        },
+        {
+          "id": "l-snmpv1",
+          "text": "SNMPv1 (unauthenticated, unencrypted network device management)"
+        },
+        {
+          "id": "l-ldap",
+          "text": "LDAP (unencrypted directory access)"
+        }
+      ],
+      "right": [
+        {
+          "id": "r-https",
+          "text": "HTTPS (HTTP secured with TLS encryption)"
+        },
+        {
+          "id": "r-sftp",
+          "text": "SFTP (file transfer secured over SSH)"
+        },
+        {
+          "id": "r-ssh",
+          "text": "SSH (encrypted, authenticated remote terminal access)"
+        },
+        {
+          "id": "r-snmpv3",
+          "text": "SNMPv3 (network device management with authentication and encryption)"
+        },
+        {
+          "id": "r-ldaps",
+          "text": "LDAPS (LDAP secured with TLS encryption)"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l-http",
+          "right": "r-https"
+        },
+        {
+          "left": "l-ftp",
+          "right": "r-sftp"
+        },
+        {
+          "left": "l-telnet",
+          "right": "r-ssh"
+        },
+        {
+          "left": "l-snmpv1",
+          "right": "r-snmpv3"
+        },
+        {
+          "left": "l-ldap",
+          "right": "r-ldaps"
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-012",
+      "type": "ordering",
+      "topicId": "security-architecture",
+      "difficulty": "medium",
+      "prompt": "An organization's primary data center suffers a catastrophic failure. Arrange the following disaster recovery steps in the correct order, from first to last.",
+      "explanation": "A sound disaster recovery process first confirms and declares the disaster, fails operations over to a redundant site, restores or verifies the data needed there, validates that everything actually works before relying on it, and only then communicates that normal operations have resumed.",
+      "items": [
+        {
+          "id": "o-declare",
+          "text": "Detect the outage and formally declare a disaster, activating the disaster recovery plan"
+        },
+        {
+          "id": "o-failover",
+          "text": "Fail over application and network traffic to the redundant secondary (DR) site"
+        },
+        {
+          "id": "o-restore",
+          "text": "Restore or verify the most recent backup or replicated data set at the DR site"
+        },
+        {
+          "id": "o-validate",
+          "text": "Validate data integrity and confirm that applications are functioning correctly at the DR site"
+        },
+        {
+          "id": "o-notify",
+          "text": "Notify stakeholders that operations have resumed and continue monitoring the failover site"
+        }
+      ],
+      "correctOrder": [
+        "o-declare",
+        "o-failover",
+        "o-restore",
+        "o-validate",
+        "o-notify"
+      ]
+    },
+    {
+      "id": "v2-sa-013",
+      "type": "multi",
+      "topicId": "security-architecture",
+      "difficulty": "hard",
+      "prompt": "Which two of the following statements accurately describe the difference between an intrusion detection system (IDS) and an intrusion prevention system (IPS)? (Choose two.)",
+      "explanation": "The key distinction is placement and action: an IPS sits inline and can actively drop malicious traffic, while an IDS typically monitors a copy of traffic out-of-band and can only alert, not block.",
+      "options": [
+        {
+          "id": "a",
+          "text": "An IPS is typically deployed inline with network traffic, allowing it to actively drop or block malicious packets before they reach their destination",
+          "correct": true,
+          "explanation": "Correct. Inline placement is what allows an IPS to actively block traffic in real time."
+        },
+        {
+          "id": "b",
+          "text": "An IDS is typically deployed out-of-band, analyzing a copy of traffic and generating alerts without directly blocking the traffic itself",
+          "correct": true,
+          "explanation": "Correct. An IDS observes a mirrored copy of traffic and reports on threats but does not sit in the direct traffic path to block anything."
+        },
+        {
+          "id": "c",
+          "text": "An IDS sits inline with traffic and can therefore block malicious packets in real time",
+          "correct": false,
+          "explanation": "This describes IPS behavior, not IDS. A classic IDS is passive and out-of-band, so it cannot block traffic directly."
+        },
+        {
+          "id": "d",
+          "text": "Deploying either an IDS or an IPS removes the need for a firewall at the network perimeter",
+          "correct": false,
+          "explanation": "IDS/IPS and firewalls serve complementary, not redundant, purposes; deploying one does not eliminate the need for the other."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-014",
+      "type": "multi",
+      "topicId": "security-architecture",
+      "difficulty": "hard",
+      "prompt": "Which two of the following statements accurately distinguish tokenization from encryption as data protection techniques? (Choose two.)",
+      "explanation": "Tokenization and encryption both protect sensitive data, but tokenization substitutes an unrelated placeholder value with no mathematical link back to the original, while encryption uses a reversible, key-based transformation that any keyholder can undo.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tokenization replaces sensitive data with a substitute value that has no mathematical relationship to the original, so the original cannot be derived through any reverse calculation",
+          "correct": true,
+          "explanation": "Correct. A token is an arbitrary reference value; recovering the original requires looking it up in a secure token vault, not reversing a calculation."
+        },
+        {
+          "id": "b",
+          "text": "Encryption uses a reversible, key-based mathematical transformation, so anyone holding the correct decryption key can recover the original data",
+          "correct": true,
+          "explanation": "Correct. Encryption is designed to be reversible by anyone who legitimately possesses the decryption key."
+        },
+        {
+          "id": "c",
+          "text": "Tokenization and encryption are simply two different names for the exact same underlying technique",
+          "correct": false,
+          "explanation": "They are distinct techniques with different mechanisms for protecting and recovering data."
+        },
+        {
+          "id": "d",
+          "text": "Data protected with tokenization can never again be used in its original form for any authorized business purpose, such as payment processing",
+          "correct": false,
+          "explanation": "Authorized systems can still detokenize a value through the secure token vault when legitimately needed, such as during payment settlement."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-015",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "hard",
+      "prompt": "A helpdesk ticketing system displays a customer's email address to support agents as j***nsmith@e***.com instead of the full address, so agents can recognize which account they are working on without the complete address ever being exposed on screen. Which data protection technique is being used?",
+      "explanation": "Data masking obscures part of a sensitive value for display purposes, typically leaving the underlying stored value unchanged, so that viewers see only a limited, non-sensitive representation of it. This differs from tokenization, which replaces the stored value itself system-wide with a substitute.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data masking",
+          "correct": true,
+          "explanation": "Correct. Masking presents a partially obscured version of the data for viewing while the full value may still exist elsewhere in the system."
+        },
+        {
+          "id": "b",
+          "text": "Tokenization",
+          "correct": false,
+          "explanation": "Tokenization replaces the stored value itself with a substitute token used throughout processing; here, the display is simply obscured, not necessarily the underlying stored value."
+        },
+        {
+          "id": "c",
+          "text": "Data classification",
+          "correct": false,
+          "explanation": "Classification labels data by sensitivity; it does not itself alter how a value is displayed to a viewer."
+        },
+        {
+          "id": "d",
+          "text": "Encryption at rest",
+          "correct": false,
+          "explanation": "Encryption at rest protects stored data from unauthorized access to the storage medium; it does not describe partially hiding characters when displaying data to an authorized user."
+        }
+      ]
+    },
+    {
+      "id": "v2-sa-016",
+      "type": "single",
+      "topicId": "security-architecture",
+      "difficulty": "hard",
+      "prompt": "A hospital's disaster recovery runbook states that, following a regional data center outage, the patient-scheduling application must be brought back online within 90 minutes, and that database replication must occur frequently enough that at most 5 minutes of appointment data could ever be lost. Which metrics do the 90-minute and 5-minute figures represent, respectively?",
+      "explanation": "Recovery Time Objective (RTO) is the maximum acceptable length of time a system may remain down after an incident before it must be restored, matching the 90-minute figure here. Recovery Point Objective (RPO) is the maximum acceptable amount of data loss measured as a period of time, matching the 5-minute figure.",
+      "options": [
+        {
+          "id": "a",
+          "text": "90 minutes is the Recovery Time Objective (RTO); 5 minutes is the Recovery Point Objective (RPO)",
+          "correct": true,
+          "explanation": "Correct. RTO governs maximum tolerable downtime (90 minutes) and RPO governs maximum tolerable data loss (5 minutes)."
+        },
+        {
+          "id": "b",
+          "text": "90 minutes is the Recovery Point Objective (RPO); 5 minutes is the Recovery Time Objective (RTO)",
+          "correct": false,
+          "explanation": "This reverses the two metrics: the downtime target is the RTO, and the data-loss target is the RPO, not the other way around."
+        },
+        {
+          "id": "c",
+          "text": "90 minutes is the Mean Time To Repair (MTTR); 5 minutes is the Recovery Time Objective (RTO)",
+          "correct": false,
+          "explanation": "MTTR is a historical average of how long repairs actually take, not a planning target defined in advance in a DR runbook, and 5 minutes here describes acceptable data loss, not downtime."
+        },
+        {
+          "id": "d",
+          "text": "90 minutes is the Recovery Time Objective (RTO); 5 minutes is the Annualized Rate of Occurrence (ARO)",
+          "correct": false,
+          "explanation": "ARO estimates how often a risk event is expected to occur per year; it has nothing to do with an acceptable data-loss window."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-001",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "A newly provisioned server ships with a well-known default local administrator password, the legacy SMBv1 protocol enabled, and no host-based firewall logging turned on. Before placing it into production, the team disables SMBv1, changes the default administrator credentials to a strong unique password, and enables host firewall logging. What is this overall practice called?",
+      "explanation": "Hardening is the broad practice of reducing a system's attack surface by removing or disabling anything unnecessary and replacing weak defaults before a system goes into production. Patch management specifically addresses applying vendor updates, DLP addresses sensitive data exfiltration, and federation addresses cross-organization identity trust, none of which describe this general default-configuration cleanup.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hardening",
+          "correct": true,
+          "explanation": "Correct. Removing default credentials, disabling legacy protocols, and enabling logging before deployment is system hardening."
+        },
+        {
+          "id": "b",
+          "text": "Patch management",
+          "correct": false,
+          "explanation": "Patch management is specifically about applying vendor updates, not the broader set of default-configuration changes described here."
+        },
+        {
+          "id": "c",
+          "text": "Data loss prevention (DLP)",
+          "correct": false,
+          "explanation": "DLP inspects and blocks unauthorized transmission of sensitive data; it has nothing to do with default-configuration cleanup."
+        },
+        {
+          "id": "d",
+          "text": "Federation",
+          "correct": false,
+          "explanation": "Federation concerns cross-organization identity trust, unrelated to hardening a single server's configuration."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-002",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "A retail store offers free Wi-Fi to customers on a separate SSID that is placed on its own VLAN with client isolation enabled, so that a customer's device on the guest network cannot reach the point-of-sale systems or any other device connected to the guest network itself. What is this design primarily intended to achieve?",
+      "explanation": "Placing guest Wi-Fi on its own SSID/VLAN with client isolation keeps untrusted guest devices from reaching internal systems like the point-of-sale network, and even from directly reaching other guest devices, which is a network segmentation practice. It has nothing to do with signal range, using domain credentials, or TLS encryption of transactions.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Segmenting untrusted guest traffic away from sensitive internal systems",
+          "correct": true,
+          "explanation": "Correct. A separate SSID/VLAN with client isolation segments untrusted guest devices from internal systems and each other."
+        },
+        {
+          "id": "b",
+          "text": "Increasing the wireless signal's broadcast range",
+          "correct": false,
+          "explanation": "VLAN segmentation and client isolation don't affect the physical broadcast range of the access point."
+        },
+        {
+          "id": "c",
+          "text": "Allowing guest devices to authenticate using employee domain credentials",
+          "correct": false,
+          "explanation": "A guest network is specifically designed so guests do not need or use internal domain credentials at all."
+        },
+        {
+          "id": "d",
+          "text": "Encrypting point-of-sale transactions with TLS",
+          "correct": false,
+          "explanation": "TLS encryption of transactions is a separate application-layer concern, not what SSID/VLAN segmentation and client isolation provide."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-003",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "An organization allows employees to check corporate email and access a corporate document-editing app on their personal smartphones. The MDM solution keeps that corporate email and app data inside an encrypted, isolated partition on the device, separate from the employee's personal photos, texts, and apps, so that a remote wipe of the corporate partition leaves personal data untouched. What MDM capability is being used?",
+      "explanation": "Containerization creates a logically isolated, encrypted partition on a device to separate corporate data and apps from personal ones, allowing the organization to manage and even wipe only the corporate side, which is a common BYOD approach. Geofencing restricts functionality by physical location, jailbreak detection flags devices with removed OS restrictions, and full-device encryption protects the entire device's storage rather than isolating one partition from another.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Containerization",
+          "correct": true,
+          "explanation": "Correct. Containerization isolates corporate data/apps into a separately manageable, encrypted partition."
+        },
+        {
+          "id": "b",
+          "text": "Geofencing",
+          "correct": false,
+          "explanation": "Geofencing restricts device or app behavior based on physical location, not separation of corporate and personal data."
+        },
+        {
+          "id": "c",
+          "text": "Jailbreak detection",
+          "correct": false,
+          "explanation": "Jailbreak detection identifies devices with removed manufacturer restrictions; it doesn't itself create a data partition."
+        },
+        {
+          "id": "d",
+          "text": "Full-device encryption",
+          "correct": false,
+          "explanation": "Full-device encryption protects the entire device's storage, not a specific isolated corporate partition distinct from personal data."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-004",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "A web form's ZIP code field is configured to accept input only if it matches a strict pattern of exactly five digits, rejecting anything else outright, rather than trying to detect and strip out specific known-bad characters like quotes or semicolons. What input validation approach is being used?",
+      "explanation": "Allow list (positive) validation defines exactly what acceptable input looks like and rejects everything that doesn't match, which is generally more secure than deny list (negative) validation, which tries to enumerate and block specific bad characters or patterns and is easy for an attacker to bypass with an unanticipated variant. This also isn't client-side-only validation, since the pattern check itself is what's described, and obfuscation hides code/data rather than validating input format.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Allow list (positive) validation",
+          "correct": true,
+          "explanation": "Correct. Defining exactly what valid input looks like and rejecting everything else is allow list validation."
+        },
+        {
+          "id": "b",
+          "text": "Deny list (negative) validation",
+          "correct": false,
+          "explanation": "Deny list validation tries to block specific known-bad characters or patterns, which is the opposite of defining and requiring a strict valid format."
+        },
+        {
+          "id": "c",
+          "text": "Client-side-only validation",
+          "correct": false,
+          "explanation": "The scenario describes the validation rule itself, not whether it runs only in the browser versus also on the server."
+        },
+        {
+          "id": "d",
+          "text": "Obfuscation",
+          "correct": false,
+          "explanation": "Obfuscation hides the meaning or details of code or data; it does not validate the format of submitted input."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-005",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "A software publisher cryptographically signs its application installer with its private key before release. When a user downloads the installer, their operating system checks the signature against the publisher's public certificate; if the file has been modified in any way since signing, or if the certificate doesn't chain to a trusted root, the OS warns the user or blocks installation. What does this process primarily verify?",
+      "explanation": "Code signing verifies the authenticity of a software's origin, that it truly came from the claimed publisher, and its integrity, that it hasn't been tampered with since signing. It says nothing about whether the code is free of vulnerabilities, whether it will be sandboxed at runtime, or whether it has undergone a penetration test.",
+      "options": [
+        {
+          "id": "a",
+          "text": "That the software genuinely came from the claimed publisher and has not been altered since it was signed",
+          "correct": true,
+          "explanation": "Correct. Code signing verifies publisher authenticity and that the file hasn't changed since signing."
+        },
+        {
+          "id": "b",
+          "text": "That the software contains no exploitable vulnerabilities",
+          "correct": false,
+          "explanation": "A valid signature says nothing about whether the code itself is free of vulnerabilities."
+        },
+        {
+          "id": "c",
+          "text": "That the software will run inside an isolated sandbox",
+          "correct": false,
+          "explanation": "Code signing has no bearing on whether the software will later be executed in a sandboxed environment."
+        },
+        {
+          "id": "d",
+          "text": "That the software has passed a penetration test",
+          "correct": false,
+          "explanation": "A digital signature does not indicate that any security testing, such as a penetration test, was ever performed."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-006",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "A security appliance automatically detonates every email attachment inside an isolated, disposable virtual environment, observing what files it creates, what network connections it attempts, and what registry changes it makes, before deciding whether to deliver the attachment to the recipient's inbox. What technique is the appliance using?",
+      "explanation": "Sandboxing executes untrusted content in an isolated, disposable environment and observes its actual runtime behavior, such as files created, network calls, and registry changes, to determine whether it's malicious, which is a form of dynamic/behavioral analysis. Static code analysis examines code without executing it, DLP inspects content for sensitive data patterns rather than detonating it, and tokenization substitutes sensitive values with non-sensitive placeholders.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sandboxing (dynamic/behavioral analysis)",
+          "correct": true,
+          "explanation": "Correct. Detonating a file in an isolated environment and observing its runtime behavior is sandboxing."
+        },
+        {
+          "id": "b",
+          "text": "Static code analysis",
+          "correct": false,
+          "explanation": "Static analysis examines code or files without executing them; this scenario describes actually running the attachment to observe its behavior."
+        },
+        {
+          "id": "c",
+          "text": "Data loss prevention (DLP)",
+          "correct": false,
+          "explanation": "DLP inspects content for sensitive data patterns to prevent exfiltration; it doesn't detonate files to observe behavior."
+        },
+        {
+          "id": "d",
+          "text": "Tokenization",
+          "correct": false,
+          "explanation": "Tokenization substitutes sensitive values with non-sensitive placeholders; it is unrelated to behavioral malware analysis."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-007",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "Every laptop, monitor, and networking device an organization owns is affixed with a barcode label linked to a record in a central inventory database. Twice a year, IT staff physically scan every tagged device and reconcile the results against that database, flagging any device that is missing or any device found that isn't in the database at all. What practice does this describe?",
+      "explanation": "Tagging physical assets and periodically reconciling a physical count against the inventory database is core asset management practice, helping the organization detect missing (possibly stolen) equipment or unauthorized devices that were never properly recorded. Vulnerability scanning looks for security flaws rather than physical presence, data classification labels the sensitivity of data rather than physical hardware, and chain of custody tracks who handled a specific piece of evidence, not routine inventory reconciliation.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Asset inventory management (tagging and physical reconciliation)",
+          "correct": true,
+          "explanation": "Correct. Tagging assets and reconciling a physical count against the inventory database is asset management."
+        },
+        {
+          "id": "b",
+          "text": "Vulnerability scanning",
+          "correct": false,
+          "explanation": "Vulnerability scanning looks for security flaws in systems; it doesn't track physical presence of tagged hardware."
+        },
+        {
+          "id": "c",
+          "text": "Data classification",
+          "correct": false,
+          "explanation": "Data classification labels the sensitivity of data, not the physical presence or count of hardware assets."
+        },
+        {
+          "id": "d",
+          "text": "Chain of custody documentation",
+          "correct": false,
+          "explanation": "Chain of custody tracks who handled a specific piece of evidence, not routine periodic inventory reconciliation."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-008",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "A vulnerability scanner is given a valid local administrator login for each target server, allowing it to log in and directly inspect installed software versions, running services, and configuration settings from inside the operating system, rather than only probing the server from the network without logging in. What type of scan is this?",
+      "explanation": "A credentialed scan logs into the target with valid credentials, giving it much deeper visibility into installed software, patch levels, and configuration than an uncredentialed scan, which can only probe the system from the outside without authenticating. This is still a vulnerability scan rather than a full penetration test, which goes further by actually attempting to exploit findings, and it isn't a purely passive scan, since it actively authenticates and queries the host.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A credentialed scan",
+          "correct": true,
+          "explanation": "Correct. Logging in with valid credentials to inspect the system from the inside is a credentialed scan."
+        },
+        {
+          "id": "b",
+          "text": "An uncredentialed scan",
+          "correct": false,
+          "explanation": "An uncredentialed scan probes the target only from the outside, without authenticating, which is the opposite of what's described."
+        },
+        {
+          "id": "c",
+          "text": "A penetration test",
+          "correct": false,
+          "explanation": "A penetration test goes further than scanning by actually attempting to exploit discovered vulnerabilities; this scenario describes a scan, not exploitation."
+        },
+        {
+          "id": "d",
+          "text": "A passive scan",
+          "correct": false,
+          "explanation": "A passive scan does not actively query the host; this scenario describes actively logging in and inspecting configuration."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-009",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "Responding to a live compromise on a running server, a forensic analyst collects evidence in this order: the contents of RAM and running process list first, then the network connection table, and only afterward images the hard drive, leaving the server powered off and untouched as the very last step. What forensic principle is the analyst following?",
+      "explanation": "Order of volatility directs forensic collection to prioritize the most fragile, quickly-changing evidence first; data in RAM and active network state disappear the moment a system loses power or continues running, while data on a hard drive is comparatively durable and can be imaged later. Chain of custody instead tracks who handled evidence and when, a legal hold is an obligation to preserve records for anticipated litigation, and data minimization limits how much personal data is collected and retained.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Order of volatility",
+          "correct": true,
+          "explanation": "Correct. Collecting the most fragile, fastest-changing evidence (RAM, network state) before more durable evidence (disk) follows order of volatility."
+        },
+        {
+          "id": "b",
+          "text": "Chain of custody",
+          "correct": false,
+          "explanation": "Chain of custody tracks who handled evidence and when, not the sequence in which different types of evidence are collected."
+        },
+        {
+          "id": "c",
+          "text": "Legal hold",
+          "correct": false,
+          "explanation": "A legal hold is an obligation to preserve records for anticipated litigation, not a collection-order principle."
+        },
+        {
+          "id": "d",
+          "text": "Data minimization",
+          "correct": false,
+          "explanation": "Data minimization limits how much personal data is collected and retained, unrelated to sequencing forensic evidence collection."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-010",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "Before touching any of the target's systems directly, a penetration tester spends several days reviewing the target company's public job postings for clues about its technology stack, searching employee social media profiles, and pulling historical DNS records from public archives. What phase of the engagement is this, and what distinguishes it from the tester's next step?",
+      "explanation": "Passive reconnaissance gathers information from sources that don't require directly touching or interacting with the target's own systems, such as public job postings, social media, and historical DNS records, which is what distinguishes it from active scanning, which follows next and does send traffic directly to the target's own infrastructure. Exploitation and post-exploitation both come later still, after a vulnerability has actually been identified and used to gain access.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Passive reconnaissance — gathering information without directly interacting with or touching the target's systems",
+          "correct": true,
+          "explanation": "Correct. Using only public sources without touching the target's systems is passive reconnaissance."
+        },
+        {
+          "id": "b",
+          "text": "Active scanning — sending packets directly to the target's systems to enumerate open ports",
+          "correct": false,
+          "explanation": "Active scanning directly interacts with the target's systems, which comes after passive reconnaissance, not before it."
+        },
+        {
+          "id": "c",
+          "text": "Exploitation — attempting to gain unauthorized access using a discovered vulnerability",
+          "correct": false,
+          "explanation": "Exploitation comes much later, after a vulnerability has been identified through scanning; no exploitation is described here."
+        },
+        {
+          "id": "d",
+          "text": "Post-exploitation — maintaining and expanding access already gained on a compromised host",
+          "correct": false,
+          "explanation": "Post-exploitation requires having already gained access to a host, which hasn't happened yet in this scenario."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-011",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "Before rolling a vendor's monthly security update out to all production servers, an operations team first applies it to a small group of non-production servers that mirror the production configuration, running them for several days to confirm nothing breaks. What patch management practice is this?",
+      "explanation": "Testing a patch in a representative staging or non-production environment before deploying it broadly to production is standard patch management practice, catching compatibility problems or unexpected breakage before it can affect live systems. Applying it directly to all production systems at once skips this safeguard, a rollback plan alone doesn't substitute for actually testing the patch, and reading a changelog is no substitute for observing the patch's real behavior.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Testing patches in a staging/non-production environment before production deployment",
+          "correct": true,
+          "explanation": "Correct. Applying and running the patch in a mirrored non-production environment first is staged patch testing."
+        },
+        {
+          "id": "b",
+          "text": "Applying the patch directly to all production servers simultaneously",
+          "correct": false,
+          "explanation": "This is the opposite of what's described; the scenario explicitly avoids deploying directly to all production servers first."
+        },
+        {
+          "id": "c",
+          "text": "Creating a rollback plan without testing the patch itself",
+          "correct": false,
+          "explanation": "A rollback plan alone doesn't substitute for actually running and observing the patch's behavior in a staging environment."
+        },
+        {
+          "id": "d",
+          "text": "Relying solely on the vendor's changelog instead of running the patch",
+          "correct": false,
+          "explanation": "Reading a changelog is not a substitute for actually testing the patch's real-world behavior before production rollout."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-012",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "A security tool installed as an agent on every laptop and server continuously monitors process behavior, can automatically isolate a single compromised endpoint from the network the moment it detects malicious activity, and gives analysts detailed forensic telemetry about exactly what a piece of malware did on that host, capabilities well beyond a traditional signature-based antivirus product. What is this type of tool called?",
+      "explanation": "Endpoint detection and response (EDR) agents continuously monitor endpoint behavior, can automatically contain a compromised host by isolating it from the network, and provide rich forensic telemetry, going well beyond what traditional signature-based antivirus offers. A WAF protects web applications at the HTTP layer, a jump server is a hardened administrative access point, and NAC evaluates a device's posture only at the moment it tries to join the network, not continuously monitoring endpoint behavior afterward.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Endpoint detection and response (EDR)",
+          "correct": true,
+          "explanation": "Correct. Continuous endpoint behavior monitoring with automatic isolation and forensic telemetry describes EDR."
+        },
+        {
+          "id": "b",
+          "text": "A web application firewall (WAF)",
+          "correct": false,
+          "explanation": "A WAF inspects HTTP-layer traffic to a web application; it does not run as an endpoint agent monitoring process behavior."
+        },
+        {
+          "id": "c",
+          "text": "A jump server",
+          "correct": false,
+          "explanation": "A jump server is a hardened administrative access point, unrelated to continuous endpoint behavior monitoring."
+        },
+        {
+          "id": "d",
+          "text": "Network access control (NAC)",
+          "correct": false,
+          "explanation": "NAC evaluates a device's posture only at the moment it tries to join the network, not through continuous behavioral monitoring afterward."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-013",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "A firewall's access control list contains five explicit rules, each permitting a specific type of traffic. Traffic that doesn't match any of those five rules is automatically dropped, even though no rule explicitly says to drop it. What firewall/ACL principle explains this behavior?",
+      "explanation": "Implicit deny (deny by default) means that any traffic not explicitly matched and permitted by a preceding rule is automatically blocked, even without a rule that explicitly states so, and this is the standard closing behavior of most firewall and ACL rule sets. Least privilege is the broader principle of granting only the minimum access needed, fail-open describes a device that allows traffic through when it can't evaluate it, and load balancing distributes traffic across servers.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Implicit deny (deny by default)",
+          "correct": true,
+          "explanation": "Correct. Unmatched traffic being automatically blocked, with no explicit rule required to state it, is implicit deny."
+        },
+        {
+          "id": "b",
+          "text": "Least privilege",
+          "correct": false,
+          "explanation": "Least privilege is the broader principle of granting only minimum needed access; implicit deny is one specific mechanism, not the general principle itself."
+        },
+        {
+          "id": "c",
+          "text": "Fail-open",
+          "correct": false,
+          "explanation": "Fail-open describes a device that allows traffic through when it cannot evaluate it, which is the opposite failure mode of blocking unmatched traffic."
+        },
+        {
+          "id": "d",
+          "text": "Load balancing",
+          "correct": false,
+          "explanation": "Load balancing distributes traffic across multiple servers; it has nothing to do with default rule-matching behavior."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-014",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "An administrator needs to block one specific malicious IP address from reaching a web server, even though a broader existing rule already allows all traffic on port 443 to that server. Where must the new blocking rule be placed in the ACL for it to actually take effect?",
+      "explanation": "Most firewalls and ACLs evaluate rules top-down and apply the first rule that matches, then stop, so a more specific block rule placed after a broader allow rule that already matches the same traffic will never actually be evaluated. To take effect, the specific deny rule must come before the broader allow rule in the list.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Above (before) the broader allow rule, since most firewalls process rules top-down and stop at the first match",
+          "correct": true,
+          "explanation": "Correct. The specific deny rule must be evaluated before the broader allow rule matches the same traffic first."
+        },
+        {
+          "id": "b",
+          "text": "Below the broader allow rule, since more specific rules always override earlier general ones regardless of position",
+          "correct": false,
+          "explanation": "Most firewalls do not automatically reorder or prioritize by specificity; they apply the first matching rule in list order, so this placement would never be reached."
+        },
+        {
+          "id": "c",
+          "text": "It doesn't matter where the rule is placed, as long as it exists somewhere in the list",
+          "correct": false,
+          "explanation": "Rule order matters in a first-match, top-down evaluation model; placing the deny rule after a matching allow rule means it is never evaluated."
+        },
+        {
+          "id": "d",
+          "text": "At the very bottom, just above the implicit deny rule",
+          "correct": false,
+          "explanation": "Placing it at the bottom would still put it after the broader allow rule, which would already have matched and permitted the traffic first."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-015",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "After logging into their workstation once each morning, an employee can open the company's email client, CRM, and internal ticketing system throughout the day without being prompted to log in again to any of them. What capability provides this experience?",
+      "explanation": "Single sign-on (SSO) lets one authentication event grant a user access to multiple applications within the same organization or trust boundary, without re-prompting for credentials at each one. Federation extends a similar idea across separate organizations rather than within one, PAM specifically governs elevated administrative access rather than everyday application logins, and MFA is about combining multiple factors at the point of authentication, not about avoiding repeated logins across applications.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Single sign-on (SSO)",
+          "correct": true,
+          "explanation": "Correct. One authentication event granting access to multiple internal applications is SSO."
+        },
+        {
+          "id": "b",
+          "text": "Federation with an external partner organization",
+          "correct": false,
+          "explanation": "Federation extends trust across separate organizations; this scenario involves only applications within one organization."
+        },
+        {
+          "id": "c",
+          "text": "Privileged access management (PAM)",
+          "correct": false,
+          "explanation": "PAM governs elevated administrative access, not everyday employee logins to standard business applications."
+        },
+        {
+          "id": "d",
+          "text": "Multifactor authentication (MFA)",
+          "correct": false,
+          "explanation": "MFA concerns combining multiple factors at the point of authentication, not avoiding repeated logins across separate applications."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-016",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "An identity provider allows a routine login from a recognized corporate laptop on the trusted office network to proceed with just a password, but automatically requires an additional one-time code whenever a login attempt for the same account comes from an unfamiliar device, an unrecognized location, or at an unusual hour. What is this risk-based approach called?",
+      "explanation": "Conditional access evaluates contextual signals, such as device, location, and time, at the moment of authentication, and dynamically adjusts requirements, such as demanding an extra factor only when the login looks risky, rather than applying the same fixed requirement every time. Federation concerns trust between separate organizations, JIT access is about granting temporary elevated privileges for a limited window, and RBAC assigns permissions based on job role rather than real-time contextual risk.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Conditional access (adaptive/risk-based authentication)",
+          "correct": true,
+          "explanation": "Correct. Dynamically adjusting authentication requirements based on contextual risk signals is conditional access."
+        },
+        {
+          "id": "b",
+          "text": "Federation",
+          "correct": false,
+          "explanation": "Federation concerns trust relationships between separate organizations, not dynamic risk-based authentication requirements within one account."
+        },
+        {
+          "id": "c",
+          "text": "Just-in-time (JIT) access",
+          "correct": false,
+          "explanation": "JIT access is about granting temporary elevated privileges for a limited window, not adjusting authentication requirements based on login risk."
+        },
+        {
+          "id": "d",
+          "text": "Role-based access control (RBAC)",
+          "correct": false,
+          "explanation": "RBAC assigns permissions based on job role, not real-time contextual signals like device, location, or time of login."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-017",
+      "type": "single",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "The moment HR marks an employee as terminated in the human resources system, an automated identity workflow immediately disables that employee's network account, revokes their VPN access, and removes them from all application groups, without waiting for IT to manually process a ticket. What identity lifecycle practice does this represent?",
+      "explanation": "Automated deprovisioning ties account and access removal directly to an authoritative event, like an HR termination record, immediately disabling access across systems rather than depending on a manual, potentially delayed process, which closes the window during which a terminated employee's credentials could otherwise still be misused. Federation, PAM, and JIT access all concern different aspects of identity and access management, but none of them describe this automatic offboarding trigger.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Automated deprovisioning",
+          "correct": true,
+          "explanation": "Correct. Automatically disabling access across systems the moment an authoritative termination event fires is automated deprovisioning."
+        },
+        {
+          "id": "b",
+          "text": "Federation",
+          "correct": false,
+          "explanation": "Federation concerns cross-organization identity trust, not offboarding an employee's own accounts within one organization."
+        },
+        {
+          "id": "c",
+          "text": "Privileged access management (PAM)",
+          "correct": false,
+          "explanation": "PAM specifically governs elevated administrative access, not general account deprovisioning at termination."
+        },
+        {
+          "id": "d",
+          "text": "Just-in-time (JIT) access",
+          "correct": false,
+          "explanation": "JIT access grants temporary elevated privileges for a limited window; it doesn't describe automatically revoking access upon termination."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-018",
+      "type": "matching",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "Match each monitoring/detection technology to the capability that best describes it.",
+      "explanation": "UEBA focuses on detecting anomalies in behavior patterns rather than known signatures. An IPS is distinguished from an IDS by sitting inline and actively blocking traffic rather than only alerting. A HIDS is scoped to a single host, unlike a network-based IDS. XDR extends detection and response beyond a single source of telemetry into a unified, correlated platform. And a threat intelligence feed supplies external context (indicators of compromise) that a detection tool can use to recognize known-malicious indicators it wouldn't otherwise flag on its own.",
+      "left": [
+        {
+          "id": "so-ueba",
+          "text": "UEBA (User and Entity Behavior Analytics)"
+        },
+        {
+          "id": "so-ips",
+          "text": "IPS (Intrusion Prevention System)"
+        },
+        {
+          "id": "so-hids",
+          "text": "HIDS (Host-based Intrusion Detection System)"
+        },
+        {
+          "id": "so-xdr",
+          "text": "XDR (Extended Detection and Response)"
+        },
+        {
+          "id": "so-ti",
+          "text": "Threat intelligence feed"
+        }
+      ],
+      "right": [
+        {
+          "id": "so-ueba-fn",
+          "text": "Builds a baseline of normal user and entity behavior and flags significant deviations from it as anomalous"
+        },
+        {
+          "id": "so-ips-fn",
+          "text": "Sits inline with network traffic and can actively block or drop malicious traffic in real time, not just alert on it"
+        },
+        {
+          "id": "so-hids-fn",
+          "text": "Runs on a single host and monitors its local logs, file integrity, and system calls for signs of compromise"
+        },
+        {
+          "id": "so-xdr-fn",
+          "text": "Correlates telemetry and coordinates response across endpoints, network, and cloud sources within one unified platform"
+        },
+        {
+          "id": "so-ti-fn",
+          "text": "Supplies externally sourced indicators of compromise, such as known-malicious IPs, file hashes, and domains, to enrich internal detection"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "so-ueba",
+          "right": "so-ueba-fn"
+        },
+        {
+          "left": "so-ips",
+          "right": "so-ips-fn"
+        },
+        {
+          "left": "so-hids",
+          "right": "so-hids-fn"
+        },
+        {
+          "left": "so-xdr",
+          "right": "so-xdr-fn"
+        },
+        {
+          "left": "so-ti",
+          "right": "so-ti-fn"
+        }
+      ]
+    },
+    {
+      "id": "v2-so-019",
+      "type": "ordering",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "Arrange the following phases of the vulnerability management lifecycle in the order they are typically performed.",
+      "explanation": "Vulnerability management begins by defining what's in scope (identifying assets), then scanning those assets to surface vulnerabilities, analyzing and prioritizing the findings (commonly using CVSS scores alongside business context like asset criticality), remediating the highest-priority items first, validating through a rescan that remediation actually worked, and finally reporting overall status and remaining risk to stakeholders, closing the loop before the cycle repeats.",
+      "items": [
+        {
+          "id": "vm1",
+          "text": "Identify assets and establish the scope of what will be scanned"
+        },
+        {
+          "id": "vm2",
+          "text": "Scan the identified assets to discover vulnerabilities"
+        },
+        {
+          "id": "vm3",
+          "text": "Analyze and prioritize findings, for example using CVSS scores and business context"
+        },
+        {
+          "id": "vm4",
+          "text": "Remediate the highest-priority vulnerabilities through patching or other mitigations"
+        },
+        {
+          "id": "vm5",
+          "text": "Validate remediation by rescanning to confirm the vulnerability is actually resolved"
+        },
+        {
+          "id": "vm6",
+          "text": "Report on the program's overall status and remaining risk to stakeholders"
+        }
+      ],
+      "correctOrder": [
+        "vm1",
+        "vm2",
+        "vm3",
+        "vm4",
+        "vm5",
+        "vm6"
+      ]
+    },
+    {
+      "id": "v2-so-020",
+      "type": "multi",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are core capabilities typically provided by a privileged access management (PAM) solution? (Choose two.)",
+      "explanation": "PAM solutions vault privileged credentials so administrators never need to know them directly and can automatically rotate them after each checkout, and they typically record privileged sessions, including keystrokes and commands run, to support later audit and investigation. Translating natural-language queries into SQL is an application feature unrelated to privilege management, and distributing traffic across servers is a load balancer's job, not a PAM capability.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Storing privileged credentials in a secure vault and automatically rotating them after each use",
+          "correct": true,
+          "explanation": "Correct. Credential vaulting with automatic rotation is a core PAM capability."
+        },
+        {
+          "id": "b",
+          "text": "Recording the commands and keystrokes performed during a privileged session for later audit review",
+          "correct": true,
+          "explanation": "Correct. Privileged session recording is a core PAM capability supporting audit and investigation."
+        },
+        {
+          "id": "c",
+          "text": "Automatically translating user-submitted natural-language search queries into SQL statements",
+          "correct": false,
+          "explanation": "This is an unrelated application feature, not a privileged access management capability."
+        },
+        {
+          "id": "d",
+          "text": "Distributing incoming customer web traffic evenly across multiple backend servers",
+          "correct": false,
+          "explanation": "This describes load balancing, not a capability of a privileged access management solution."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-021",
+      "type": "multi",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "An organization is expanding its use of automated security response playbooks. Which two practices help ensure this automation doesn't cause unintended harm to production systems? (Choose two.)",
+      "explanation": "Testing automation changes in a non-production environment first, and requiring human approval before a playbook takes a high-impact or hard-to-reverse action, both reduce the chance that a flawed or overly aggressive automated response causes unintended damage. Granting every playbook unrestricted administrative rights ignores least privilege and would make a single flawed playbook far more dangerous, and disabling logging for automated actions removes the visibility needed to catch and diagnose exactly this kind of problem.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Testing new or modified playbooks against a non-production environment before enabling them against production systems",
+          "correct": true,
+          "explanation": "Correct. Testing in non-production first catches problems before they can affect live systems."
+        },
+        {
+          "id": "b",
+          "text": "Requiring a human approval step before a playbook is allowed to take a high-impact, hard-to-reverse action, such as disabling a production account",
+          "correct": true,
+          "explanation": "Correct. A human approval gate on high-impact actions limits the damage a flawed playbook can cause."
+        },
+        {
+          "id": "c",
+          "text": "Granting every automated playbook full, unrestricted administrative rights across all systems by default, to avoid permission errors",
+          "correct": false,
+          "explanation": "This violates least privilege and would make any single flawed or compromised playbook far more dangerous, not safer."
+        },
+        {
+          "id": "d",
+          "text": "Disabling all logging for automated actions so playbooks run as fast as possible",
+          "correct": false,
+          "explanation": "Disabling logging removes the visibility needed to detect and diagnose problems caused by automation, making unintended harm harder to catch."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-022",
+      "type": "multi",
+      "topicId": "security-operations",
+      "difficulty": "medium",
+      "prompt": "Which two of the following actions directly improve the security of an organization's wireless network? (Choose two.)",
+      "explanation": "Disabling WPS closes off a feature whose PIN mechanism is well known to be vulnerable to brute-force attacks, and replacing a default admin password with a strong, unique one prevents an attacker from simply looking up the factory default and taking over the access point. Maximizing broadcast power actually extends the network's exposure well past where it's needed, and exposing the access point's management interface to the public internet dramatically increases the attack surface rather than reducing it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disabling WPS (Wi-Fi Protected Setup), since its PIN feature is vulnerable to brute-force attacks",
+          "correct": true,
+          "explanation": "Correct. WPS's PIN mechanism is a well-known brute-force weakness, so disabling it improves security."
+        },
+        {
+          "id": "b",
+          "text": "Replacing the access point's default administrator password with a strong, unique one",
+          "correct": true,
+          "explanation": "Correct. Default admin credentials are widely known, so replacing them prevents easy takeover of the access point."
+        },
+        {
+          "id": "c",
+          "text": "Broadcasting the SSID at maximum power so it reaches as far as possible past the building's perimeter",
+          "correct": false,
+          "explanation": "Maximizing broadcast range extends the network's exposure beyond where it's needed, increasing rather than reducing risk."
+        },
+        {
+          "id": "d",
+          "text": "Leaving the wireless access point's management interface reachable from the public internet for remote convenience",
+          "correct": false,
+          "explanation": "Exposing the management interface to the public internet dramatically increases the attack surface rather than improving security."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-023",
+      "type": "multi",
+      "topicId": "security-operations",
+      "difficulty": "hard",
+      "prompt": "Which two of the following are factors actually used in calculating a vulnerability's CVSS base score? (Choose two.)",
+      "explanation": "The CVSS base score is built from exploitability metrics like attack complexity (along with attack vector, privileges required, and user interaction) and impact metrics measuring the potential effect on confidentiality, integrity, and availability if successfully exploited. How long a product has been on the market and the size of a vendor's support team are not inputs to the CVSS base score at all.",
+      "options": [
+        {
+          "id": "a",
+          "text": "How complex or difficult the attack is to carry out (attack complexity)",
+          "correct": true,
+          "explanation": "Correct. Attack complexity is one of the CVSS base score's exploitability metrics."
+        },
+        {
+          "id": "b",
+          "text": "The potential impact to confidentiality, integrity, and availability if the vulnerability is exploited",
+          "correct": true,
+          "explanation": "Correct. CIA impact is one of the CVSS base score's core impact metrics."
+        },
+        {
+          "id": "c",
+          "text": "How many years the affected software has been commercially available",
+          "correct": false,
+          "explanation": "The product's age on the market is not a factor in the CVSS base score calculation."
+        },
+        {
+          "id": "d",
+          "text": "The size of the vendor's customer support team",
+          "correct": false,
+          "explanation": "The vendor's support team size has no bearing on the CVSS base score calculation."
+        }
+      ]
+    },
+    {
+      "id": "v2-so-024",
+      "type": "boolean",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "True or false: Root cause analysis, performed after an incident, aims to identify the true underlying reason an incident occurred rather than simply resolving its immediate, visible symptoms.",
+      "answer": true,
+      "explanation": "This is true. Root cause analysis looks past the immediate trigger of an incident to find the deeper, underlying condition that actually allowed it to happen, since fixing only the visible symptom without addressing that underlying cause leaves the organization exposed to the same type of incident recurring."
+    },
+    {
+      "id": "v2-so-025",
+      "type": "boolean",
+      "topicId": "security-operations",
+      "difficulty": "easy",
+      "prompt": "True or false: An organization's e-discovery and litigation hold obligations only begin once a lawsuit has actually been filed in court, so no relevant data needs to be preserved before that point.",
+      "answer": false,
+      "explanation": "This is false. The duty to preserve potentially relevant electronically stored information can arise as soon as litigation is reasonably anticipated, well before a lawsuit is actually filed. Once that duty attaches, an organization must issue a litigation hold and stop routine deletion of relevant data, or risk sanctions for spoliation."
+    },
+    {
+      "id": "v2-grc-001",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "easy",
+      "prompt": "An organization's information security documentation includes a high-level policy stating that all data must be protected according to its sensitivity, and a separate document giving IT staff exact step-by-step instructions for configuring encryption on a newly provisioned database server. What is this second, step-by-step document called?",
+      "explanation": "In the governance document hierarchy, a policy sets high-level, mandatory intent; a standard defines specific mandatory technical requirements; a procedure gives step-by-step instructions for performing a task; and a guideline offers recommended, non-mandatory advice. Detailed, sequential how-to instructions are the defining trait of a procedure.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A procedure",
+          "correct": true,
+          "explanation": "Correct. A procedure provides the exact, sequential steps for carrying out a task."
+        },
+        {
+          "id": "b",
+          "text": "A standard",
+          "correct": false,
+          "explanation": "A standard defines specific mandatory technical requirements (such as a required encryption algorithm), but it does not itself walk staff through sequential configuration steps."
+        },
+        {
+          "id": "c",
+          "text": "A guideline",
+          "correct": false,
+          "explanation": "A guideline offers recommended, non-mandatory best-practice advice, whereas the document described gives mandatory, exact steps to follow."
+        },
+        {
+          "id": "d",
+          "text": "A policy",
+          "correct": false,
+          "explanation": "The policy is the first, high-level document already described in the scenario; it isn't the step-by-step instructions document being asked about."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-002",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "easy",
+      "prompt": "A software company wants an internationally recognized certification demonstrating that it has established, and continually operates, a formal information security management system (ISMS) covering risk assessment, controls selection, and continual improvement. Which standard should it pursue certification against?",
+      "explanation": "ISO/IEC 27001 is the internationally recognized standard for establishing, implementing, maintaining, and continually improving a formal information security management system (ISMS), and organizations can be independently certified against it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "ISO/IEC 27001",
+          "correct": true,
+          "explanation": "Correct. ISO/IEC 27001 is the internationally recognized ISMS certification standard."
+        },
+        {
+          "id": "b",
+          "text": "PCI DSS",
+          "correct": false,
+          "explanation": "PCI DSS is an industry-imposed standard focused specifically on protecting payment card data, not a general-purpose ISMS certification."
+        },
+        {
+          "id": "c",
+          "text": "SOC 2",
+          "correct": false,
+          "explanation": "A SOC 2 report is an independent attestation of a service organization's controls over a period of time; it is not itself an internationally recognized ISMS certification standard."
+        },
+        {
+          "id": "d",
+          "text": "The NIST Cybersecurity Framework (CSF)",
+          "correct": false,
+          "explanation": "The NIST CSF is a voluntary, risk-based framework of functions and categories; it is not a certifiable ISMS standard in the way ISO/IEC 27001 is."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-003",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "easy",
+      "prompt": "A cloud-based SaaS vendor wants to give its enterprise customers independent, third-party assurance that its security controls are appropriately designed and operating effectively, without requiring every customer to separately audit the vendor themselves. Which type of report is the vendor most likely being asked to provide?",
+      "explanation": "A SOC 2 report is an independent auditor's attestation of a service organization's controls, commonly requested by enterprise customers of a SaaS vendor as third-party assurance so that each customer doesn't need to conduct its own full audit of the vendor.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A SOC 2 report",
+          "correct": true,
+          "explanation": "Correct. A SOC 2 report provides independent, third-party assurance over a service organization's controls."
+        },
+        {
+          "id": "b",
+          "text": "A penetration test scope document",
+          "correct": false,
+          "explanation": "A scope document defines the boundaries of an authorized penetration test; it isn't an independent controls-assurance report given to customers."
+        },
+        {
+          "id": "c",
+          "text": "An internal risk register",
+          "correct": false,
+          "explanation": "A risk register is an internal document tracking the vendor's own identified risks; it isn't the independent, customer-facing assurance report being requested."
+        },
+        {
+          "id": "d",
+          "text": "A business continuity plan",
+          "correct": false,
+          "explanation": "A business continuity plan addresses how the vendor keeps operating during disruption; it is not an independent assurance report over security controls."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-004",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "easy",
+      "prompt": "An organization adopts a voluntary framework that organizes its cybersecurity program around the core functions of Identify, Protect, Detect, Respond, and Recover. Which framework is this?",
+      "explanation": "The NIST Cybersecurity Framework (CSF) organizes cybersecurity activities around the core functions Identify, Protect, Detect, Respond, and Recover, providing a common, voluntary structure organizations can use to describe and improve their security posture.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The NIST Cybersecurity Framework (CSF)",
+          "correct": true,
+          "explanation": "Correct. Identify, Protect, Detect, Respond, and Recover are the five core functions of the NIST CSF."
+        },
+        {
+          "id": "b",
+          "text": "ISO/IEC 27001",
+          "correct": false,
+          "explanation": "ISO/IEC 27001 is structured around ISMS clauses and an annex of controls, not the Identify/Protect/Detect/Respond/Recover function model."
+        },
+        {
+          "id": "c",
+          "text": "PCI DSS",
+          "correct": false,
+          "explanation": "PCI DSS is organized around a fixed set of requirements for protecting payment card data, not this five-function model."
+        },
+        {
+          "id": "d",
+          "text": "A SOC 2 report",
+          "correct": false,
+          "explanation": "A SOC 2 report is an audit attestation document, not a cybersecurity program framework built around these five functions."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-005",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "easy",
+      "prompt": "Under GDPR, an organization that processes personal data on a large scale designates an individual responsible for overseeing data protection compliance, advising the organization on its obligations, and serving as a point of contact for regulators and data subjects. What is this role called?",
+      "explanation": "The Data Protection Officer (DPO) is a role required under GDPR for certain organizations, responsible for independently overseeing data protection compliance, advising on obligations, and acting as a liaison with supervisory authorities and data subjects.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data Protection Officer (DPO)",
+          "correct": true,
+          "explanation": "Correct. The DPO is the GDPR role responsible for compliance oversight and serving as a regulatory point of contact."
+        },
+        {
+          "id": "b",
+          "text": "Data controller",
+          "correct": false,
+          "explanation": "The data controller is the entity that determines the purposes and means of processing personal data; it is a distinct role from the oversight/advisory DPO position."
+        },
+        {
+          "id": "c",
+          "text": "Data custodian",
+          "correct": false,
+          "explanation": "A data custodian handles the day-to-day technical implementation of data protection requirements, not regulatory compliance oversight and liaison duties."
+        },
+        {
+          "id": "d",
+          "text": "Data processor",
+          "correct": false,
+          "explanation": "A data processor processes personal data on the controller's behalf and instructions; it is not the independent compliance-oversight role described."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-006",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "A risk assessment team rates each identified risk's likelihood and impact using descriptive categories such as Low, Medium, and High, and plots them on a simple probability-impact matrix, without assigning a specific dollar value to any risk. What type of risk analysis approach is this?",
+      "explanation": "Qualitative risk analysis rates risks using descriptive categories and relative comparisons (like a probability-impact matrix) rather than objective monetary figures, making it faster and less data-dependent than quantitative analysis, though also more subjective.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Qualitative risk analysis",
+          "correct": true,
+          "explanation": "Correct. Rating risks with descriptive categories rather than dollar figures is qualitative analysis."
+        },
+        {
+          "id": "b",
+          "text": "Quantitative risk analysis",
+          "correct": false,
+          "explanation": "Quantitative analysis assigns objective numeric or monetary values to risk, such as calculating an annualized loss expectancy, rather than using descriptive categories."
+        },
+        {
+          "id": "c",
+          "text": "A business impact analysis (BIA)",
+          "correct": false,
+          "explanation": "A BIA focuses on identifying critical business functions and estimating the impact of their disruption to set recovery priorities, rather than rating general risks on a probability-impact matrix."
+        },
+        {
+          "id": "d",
+          "text": "Risk transfer",
+          "correct": false,
+          "explanation": "Risk transfer is a risk treatment strategy, not a method for analyzing or rating risks."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-007",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "After a risk assessment concludes that a planned smart-lock product line has security flaws that cannot be adequately remediated within an acceptable budget, company leadership decides to cancel the product line entirely rather than bring it to market. Which risk management strategy does this decision represent?",
+      "explanation": "Risk avoidance eliminates the activity or exposure that creates the risk altogether, such as canceling a product line, rather than proceeding while reducing the risk (mitigation), shifting its financial impact elsewhere (transfer), or knowingly proceeding despite it (acceptance).",
+      "options": [
+        {
+          "id": "a",
+          "text": "Risk avoidance",
+          "correct": true,
+          "explanation": "Correct. Canceling the risky activity entirely is risk avoidance."
+        },
+        {
+          "id": "b",
+          "text": "Risk mitigation",
+          "correct": false,
+          "explanation": "Mitigation would involve implementing controls to reduce the risk while still bringing the product to market, not canceling it entirely."
+        },
+        {
+          "id": "c",
+          "text": "Risk transfer",
+          "correct": false,
+          "explanation": "Transfer shifts the risk's financial impact to a third party, such as through insurance or a contract, rather than eliminating the exposure by canceling the activity."
+        },
+        {
+          "id": "d",
+          "text": "Risk acceptance",
+          "correct": false,
+          "explanation": "Acceptance means proceeding while knowingly tolerating the risk, which is the opposite of the decision to cancel the product line described here."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-008",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "A hospital's patient-scheduling system is fully backed up every 8 hours. If the system fails immediately before the next scheduled backup, the hospital could lose up to 8 hours of newly entered scheduling data. Which metric does this 8-hour figure represent?",
+      "explanation": "Recovery point objective (RPO) is the maximum acceptable amount of data loss, measured as a period of time, based on how far back the most recent recoverable backup or copy of the data goes — distinct from RTO, which concerns downtime rather than data loss.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Recovery point objective (RPO)",
+          "correct": true,
+          "explanation": "Correct. RPO measures the maximum acceptable data loss window, driven here by the 8-hour backup interval."
+        },
+        {
+          "id": "b",
+          "text": "Recovery time objective (RTO)",
+          "correct": false,
+          "explanation": "RTO measures how long a system may remain down before restoration, not how much data could be lost since the last backup."
+        },
+        {
+          "id": "c",
+          "text": "Mean time between failures (MTBF)",
+          "correct": false,
+          "explanation": "MTBF measures the average operating time between one failure and the next; it is unrelated to a backup-driven data-loss window."
+        },
+        {
+          "id": "d",
+          "text": "Annualized rate of occurrence (ARO)",
+          "correct": false,
+          "explanation": "ARO estimates how often a risk event is expected to occur per year; it does not describe a data-loss window tied to backup frequency."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-009",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "A company maintains one document describing how it will keep critical business functions, such as payroll and customer support, running (potentially through manual workarounds) during a prolonged disruption, and a separate, more technical document describing exactly how IT will rebuild and restore specific servers and applications after that disruption. Which document is the first one described?",
+      "explanation": "The business continuity plan (BCP) focuses broadly on sustaining critical business functions during a disruption, including manual workarounds where needed, while the disaster recovery plan (DRP) is the more technical, IT-focused document describing how specific systems and applications are restored.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The business continuity plan (BCP)",
+          "correct": true,
+          "explanation": "Correct. The BCP addresses sustaining critical business functions broadly during a disruption."
+        },
+        {
+          "id": "b",
+          "text": "The disaster recovery plan (DRP)",
+          "correct": false,
+          "explanation": "The DRP is the second, more technical document described, focused on restoring specific IT systems, not the broader business-functions plan."
+        },
+        {
+          "id": "c",
+          "text": "The incident response plan",
+          "correct": false,
+          "explanation": "An incident response plan focuses on detecting and responding to a specific security incident, not on sustaining broad business operations during a disruption."
+        },
+        {
+          "id": "d",
+          "text": "The risk register",
+          "correct": false,
+          "explanation": "A risk register tracks identified organizational risks; it is not a continuity plan describing how business functions keep running during a disruption."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-010",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "An organization labels its documents as Public, Internal, Confidential, or Restricted, and requires progressively stronger handling controls, such as encryption and stricter access lists, as the label moves from Public toward Restricted. What is this practice called?",
+      "explanation": "Data classification assigns sensitivity labels to data and ties those labels to progressively stronger required handling and protection controls, ensuring the most sensitive data receives the strongest safeguards.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data classification",
+          "correct": true,
+          "explanation": "Correct. Assigning sensitivity tiers with corresponding handling controls is data classification."
+        },
+        {
+          "id": "b",
+          "text": "Data minimization",
+          "correct": false,
+          "explanation": "Data minimization limits the collection and retention of data to what is necessary, rather than assigning sensitivity labels with tiered handling rules."
+        },
+        {
+          "id": "c",
+          "text": "Data masking",
+          "correct": false,
+          "explanation": "Data masking obscures specific values within a dataset; it does not describe assigning a document-level sensitivity tier."
+        },
+        {
+          "id": "d",
+          "text": "Data sovereignty",
+          "correct": false,
+          "explanation": "Data sovereignty concerns which country's laws govern data based on where it is stored or processed, not sensitivity-based labeling of documents."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-011",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "hard",
+      "prompt": "Rather than describing risks with categories like Low, Medium, or High, a risk team instead expresses each risk as an expected annual dollar loss, calculated from objective figures for the cost of a single occurrence and how often it is expected to happen. Which risk analysis approach does this describe?",
+      "explanation": "Quantitative risk analysis expresses risk using objective numeric or monetary figures, such as an expected annual dollar loss derived from a cost-per-occurrence figure and an expected frequency, in contrast to qualitative analysis, which uses descriptive, subjective categories.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantitative risk analysis",
+          "correct": true,
+          "explanation": "Correct. Expressing risk as an objective, calculated dollar figure is quantitative analysis."
+        },
+        {
+          "id": "b",
+          "text": "Qualitative risk analysis",
+          "correct": false,
+          "explanation": "Qualitative analysis uses descriptive, subjective categories rather than objective monetary figures, the opposite of the approach described."
+        },
+        {
+          "id": "c",
+          "text": "Risk appetite",
+          "correct": false,
+          "explanation": "Risk appetite describes an organization's general willingness to accept risk; it is not a method for analyzing individual risks."
+        },
+        {
+          "id": "d",
+          "text": "A vulnerability scan",
+          "correct": false,
+          "explanation": "A vulnerability scan technically identifies weaknesses in systems; it is not a risk-analysis methodology that expresses expected loss in dollar terms."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-012",
+      "type": "single",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "hard",
+      "prompt": "A company's own internal audit team reviews its access control processes each quarter to give management ongoing assurance. Once a year, an independent accounting firm with no employment relationship to the company reviews those same processes to provide assurance to external stakeholders such as investors and regulators. What distinguishes the second review from the first?",
+      "explanation": "The independence of the reviewer and the intended audience are the key distinguishing factors between internal and external audits: an internal audit is performed by an organization's own staff primarily for management's benefit, while an external (independent) audit is performed by a party outside the organization to provide assurance to outside stakeholders, even when both examine overlapping processes.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is an external (independent) audit, performed by a party outside the organization for external stakeholders, rather than an internal audit performed by employees for management",
+          "correct": true,
+          "explanation": "Correct. Reviewer independence and the external audience are what distinguish this from the internal audit."
+        },
+        {
+          "id": "b",
+          "text": "It is a penetration test rather than an audit, since it is performed less frequently",
+          "correct": false,
+          "explanation": "Frequency alone doesn't reclassify the review; both described reviews are audits of controls, not authorized attack simulations against systems."
+        },
+        {
+          "id": "c",
+          "text": "It is a compliance monitoring activity rather than an audit, since it happens only once a year",
+          "correct": false,
+          "explanation": "Frequency doesn't change what the activity is; it's still described as an audit examining the same access control processes, just performed by an independent party."
+        },
+        {
+          "id": "d",
+          "text": "There is no meaningful difference, since both reviews examine the identical access control processes",
+          "correct": false,
+          "explanation": "The independence of the reviewer and the audience the review is intended for are meaningful distinguishing factors, even when the scope of what's examined overlaps."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-013",
+      "type": "multi",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "Which two of the following are appropriate ongoing (not just one-time, pre-contract) practices for managing risk in an already-established third-party vendor relationship? (Choose two.)",
+      "explanation": "Effective third-party risk management continues throughout the relationship, not just before signing: requiring recurring attestations and actively monitoring the vendor's posture and incident history both provide continuing assurance. Assuming no further review is needed after onboarding, or relying solely on the vendor's own marketing claims, both leave the organization blind to risks that emerge later in the relationship.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Requiring the vendor to submit an updated SOC 2 report or similar attestation on a recurring basis throughout the contract term",
+          "correct": true,
+          "explanation": "Correct. Recurring attestations provide continuing, not just one-time, assurance."
+        },
+        {
+          "id": "b",
+          "text": "Periodically re-assessing the vendor's security posture and monitoring for reported breaches or incidents involving the vendor",
+          "correct": true,
+          "explanation": "Correct. Ongoing monitoring detects risks that emerge after the initial onboarding assessment."
+        },
+        {
+          "id": "c",
+          "text": "Assuming no further review is needed once the vendor passed its initial onboarding assessment, since the relationship is already established",
+          "correct": false,
+          "explanation": "Treating the initial assessment as sufficient forever leaves the organization blind to changes in the vendor's risk profile over time."
+        },
+        {
+          "id": "d",
+          "text": "Relying solely on the vendor's own marketing materials as sufficient evidence of its security practices",
+          "correct": false,
+          "explanation": "Marketing materials are not independent, verifiable evidence of a vendor's actual security controls."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-014",
+      "type": "multi",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "hard",
+      "prompt": "Which two of the following are recognized methods for testing a business continuity or disaster recovery plan before a real disruption occurs? (Choose two.)",
+      "explanation": "Recognized BC/DR test types range from low-impact, discussion-based tabletop exercises to a full interruption test that actually shifts production operations to the alternate site. Simply filing an approved plan away, or waiting for a real disaster to discover whether it works, are the opposite of testing — they provide no advance validation at all.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A tabletop exercise in which key stakeholders discuss and walk through a hypothetical disruption scenario without affecting live production systems",
+          "correct": true,
+          "explanation": "Correct. A tabletop exercise is a recognized, low-impact discussion-based test method."
+        },
+        {
+          "id": "b",
+          "text": "A full interruption test that actually fails production operations over to the alternate/disaster recovery site",
+          "correct": true,
+          "explanation": "Correct. A full interruption test is the most realistic, highest-impact recognized test method."
+        },
+        {
+          "id": "c",
+          "text": "Filing the plan in a shared drive and considering it validated once it has been written and approved",
+          "correct": false,
+          "explanation": "Writing and approving a plan is not the same as testing whether it actually works in practice."
+        },
+        {
+          "id": "d",
+          "text": "Waiting until an actual disaster occurs to discover, for the first time, whether the plan works",
+          "correct": false,
+          "explanation": "This is the opposite of testing beforehand; discovering flaws only during a real disaster defeats the purpose of advance validation."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-015",
+      "type": "multi",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "hard",
+      "prompt": "Regarding the relationship between risk appetite and risk tolerance, which two statements are accurate? (Choose two.)",
+      "explanation": "Risk appetite is the broad, strategic statement of how much risk an organization is generally willing to accept in pursuit of its objectives, while risk tolerance is the more granular acceptable range of variation around a specific target or threshold for a particular risk area, and can reasonably vary from one area to another rather than being forced into one uniform figure.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Risk appetite describes the broad, overall amount of risk an organization is generally willing to accept in pursuit of its objectives",
+          "correct": true,
+          "explanation": "Correct. Appetite is the high-level, strategic statement of willingness to accept risk."
+        },
+        {
+          "id": "b",
+          "text": "Risk tolerance describes the acceptable range of variation around a specific target or threshold for a particular risk, and is typically more granular than the organization's overall appetite",
+          "correct": true,
+          "explanation": "Correct. Tolerance operationalizes appetite into specific, measurable acceptable ranges."
+        },
+        {
+          "id": "c",
+          "text": "Risk appetite and risk tolerance are simply two different names for the exact same concept, applied at the exact same level of detail",
+          "correct": false,
+          "explanation": "Appetite and tolerance are related but distinct: appetite is the broad, strategic statement, while tolerance is the specific, granular acceptable range."
+        },
+        {
+          "id": "d",
+          "text": "Risk tolerance must be identical across every department and risk category in the organization, with no permitted variation",
+          "correct": false,
+          "explanation": "Risk tolerance can reasonably vary by department or risk category, just as overall appetite can, rather than being forced to a single uniform figure everywhere."
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-016",
+      "type": "boolean",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "hard",
+      "prompt": "True or false: A business impact analysis (BIA) is primarily focused on determining the technical root cause of a security incident that has already occurred, rather than estimating the potential operational and financial impact of future disruptions to critical business functions.",
+      "answer": false,
+      "explanation": "This is false. A business impact analysis (BIA) is a forward-looking planning exercise that identifies an organization's critical business functions and estimates the operational and financial impact if each were disrupted, informing recovery priorities like RTOs. Determining the technical root cause of a security incident that already happened is the role of root-cause analysis or a post-incident (lessons-learned) review, not a BIA."
+    },
+    {
+      "id": "v2-grc-017",
+      "type": "matching",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "Match each risk treatment strategy to the scenario that best illustrates it.",
+      "explanation": "Avoidance eliminates the risky activity entirely, transfer shifts the impact to another party through a contract or arrangement, mitigation reduces likelihood or impact through controls while the activity continues, and acceptance means knowingly proceeding without further action because the cost of additional controls would outweigh the potential loss.",
+      "left": [
+        {
+          "id": "rt-avoid",
+          "text": "Risk avoidance"
+        },
+        {
+          "id": "rt-transfer",
+          "text": "Risk transfer"
+        },
+        {
+          "id": "rt-mitigate",
+          "text": "Risk mitigation"
+        },
+        {
+          "id": "rt-accept",
+          "text": "Risk acceptance"
+        }
+      ],
+      "right": [
+        {
+          "id": "sc-avoid",
+          "text": "A company cancels a planned public API integration entirely after concluding the resulting data exposure risk cannot be brought within acceptable limits"
+        },
+        {
+          "id": "sc-transfer",
+          "text": "A company outsources its payroll processing to a third-party firm that contractually assumes responsibility for any resulting processing errors"
+        },
+        {
+          "id": "sc-mitigate",
+          "text": "A company deploys multifactor authentication and more frequent patching to reduce the likelihood of a known vulnerability being exploited, while continuing to operate the affected system"
+        },
+        {
+          "id": "sc-accept",
+          "text": "Leadership reviews a minor, low-impact risk and decides to take no further action, since the cost of additional controls would exceed the potential loss"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "rt-avoid",
+          "right": "sc-avoid"
+        },
+        {
+          "left": "rt-transfer",
+          "right": "sc-transfer"
+        },
+        {
+          "left": "rt-mitigate",
+          "right": "sc-mitigate"
+        },
+        {
+          "left": "rt-accept",
+          "right": "sc-accept"
+        }
+      ]
+    },
+    {
+      "id": "v2-grc-018",
+      "type": "ordering",
+      "topicId": "governance-risk-compliance",
+      "difficulty": "medium",
+      "prompt": "Arrange the following steps of the risk management process in the order an organization typically performs them.",
+      "explanation": "The risk management process begins by identifying risks that could affect the organization's objectives, then assessing each risk's likelihood and potential impact, then treating each risk by choosing to avoid, transfer, mitigate, or accept it, and finally monitoring treated and residual risks on an ongoing basis, since risk levels and the environment continue to change over time.",
+      "items": [
+        {
+          "id": "rm1",
+          "text": "Identify — discover and document risks that could affect the organization's objectives"
+        },
+        {
+          "id": "rm2",
+          "text": "Assess — analyze each identified risk's likelihood and potential impact"
+        },
+        {
+          "id": "rm3",
+          "text": "Treat — respond to each risk by avoiding, transferring, mitigating, or accepting it"
+        },
+        {
+          "id": "rm4",
+          "text": "Monitor — continuously track treated and residual risks, and watch for new risks over time"
+        }
+      ],
+      "correctOrder": [
+        "rm1",
+        "rm2",
+        "rm3",
+        "rm4"
+      ]
+    }
+  ]
+}
