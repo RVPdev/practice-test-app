@@ -1,0 +1,360 @@
+[
+  {
+    "id": "v2-so-001",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "easy",
+    "prompt": "A newly provisioned server ships with a well-known default local administrator password, the legacy SMBv1 protocol enabled, and no host-based firewall logging turned on. Before placing it into production, the team disables SMBv1, changes the default administrator credentials to a strong unique password, and enables host firewall logging. What is this overall practice called?",
+    "explanation": "Hardening is the broad practice of reducing a system's attack surface by removing or disabling anything unnecessary and replacing weak defaults before a system goes into production. Patch management specifically addresses applying vendor updates, DLP addresses sensitive data exfiltration, and federation addresses cross-organization identity trust, none of which describe this general default-configuration cleanup.",
+    "options": [
+      { "id": "a", "text": "Hardening", "correct": true, "explanation": "Correct. Removing default credentials, disabling legacy protocols, and enabling logging before deployment is system hardening." },
+      { "id": "b", "text": "Patch management", "correct": false, "explanation": "Patch management is specifically about applying vendor updates, not the broader set of default-configuration changes described here." },
+      { "id": "c", "text": "Data loss prevention (DLP)", "correct": false, "explanation": "DLP inspects and blocks unauthorized transmission of sensitive data; it has nothing to do with default-configuration cleanup." },
+      { "id": "d", "text": "Federation", "correct": false, "explanation": "Federation concerns cross-organization identity trust, unrelated to hardening a single server's configuration." }
+    ]
+  },
+  {
+    "id": "v2-so-002",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "easy",
+    "prompt": "A retail store offers free Wi-Fi to customers on a separate SSID that is placed on its own VLAN with client isolation enabled, so that a customer's device on the guest network cannot reach the point-of-sale systems or any other device connected to the guest network itself. What is this design primarily intended to achieve?",
+    "explanation": "Placing guest Wi-Fi on its own SSID/VLAN with client isolation keeps untrusted guest devices from reaching internal systems like the point-of-sale network, and even from directly reaching other guest devices, which is a network segmentation practice. It has nothing to do with signal range, using domain credentials, or TLS encryption of transactions.",
+    "options": [
+      { "id": "a", "text": "Segmenting untrusted guest traffic away from sensitive internal systems", "correct": true, "explanation": "Correct. A separate SSID/VLAN with client isolation segments untrusted guest devices from internal systems and each other." },
+      { "id": "b", "text": "Increasing the wireless signal's broadcast range", "correct": false, "explanation": "VLAN segmentation and client isolation don't affect the physical broadcast range of the access point." },
+      { "id": "c", "text": "Allowing guest devices to authenticate using employee domain credentials", "correct": false, "explanation": "A guest network is specifically designed so guests do not need or use internal domain credentials at all." },
+      { "id": "d", "text": "Encrypting point-of-sale transactions with TLS", "correct": false, "explanation": "TLS encryption of transactions is a separate application-layer concern, not what SSID/VLAN segmentation and client isolation provide." }
+    ]
+  },
+  {
+    "id": "v2-so-003",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "easy",
+    "prompt": "An organization allows employees to check corporate email and access a corporate document-editing app on their personal smartphones. The MDM solution keeps that corporate email and app data inside an encrypted, isolated partition on the device, separate from the employee's personal photos, texts, and apps, so that a remote wipe of the corporate partition leaves personal data untouched. What MDM capability is being used?",
+    "explanation": "Containerization creates a logically isolated, encrypted partition on a device to separate corporate data and apps from personal ones, allowing the organization to manage and even wipe only the corporate side, which is a common BYOD approach. Geofencing restricts functionality by physical location, jailbreak detection flags devices with removed OS restrictions, and full-device encryption protects the entire device's storage rather than isolating one partition from another.",
+    "options": [
+      { "id": "a", "text": "Containerization", "correct": true, "explanation": "Correct. Containerization isolates corporate data/apps into a separately manageable, encrypted partition." },
+      { "id": "b", "text": "Geofencing", "correct": false, "explanation": "Geofencing restricts device or app behavior based on physical location, not separation of corporate and personal data." },
+      { "id": "c", "text": "Jailbreak detection", "correct": false, "explanation": "Jailbreak detection identifies devices with removed manufacturer restrictions; it doesn't itself create a data partition." },
+      { "id": "d", "text": "Full-device encryption", "correct": false, "explanation": "Full-device encryption protects the entire device's storage, not a specific isolated corporate partition distinct from personal data." }
+    ]
+  },
+  {
+    "id": "v2-so-004",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "A web form's ZIP code field is configured to accept input only if it matches a strict pattern of exactly five digits, rejecting anything else outright, rather than trying to detect and strip out specific known-bad characters like quotes or semicolons. What input validation approach is being used?",
+    "explanation": "Allow list (positive) validation defines exactly what acceptable input looks like and rejects everything that doesn't match, which is generally more secure than deny list (negative) validation, which tries to enumerate and block specific bad characters or patterns and is easy for an attacker to bypass with an unanticipated variant. This also isn't client-side-only validation, since the pattern check itself is what's described, and obfuscation hides code/data rather than validating input format.",
+    "options": [
+      { "id": "a", "text": "Allow list (positive) validation", "correct": true, "explanation": "Correct. Defining exactly what valid input looks like and rejecting everything else is allow list validation." },
+      { "id": "b", "text": "Deny list (negative) validation", "correct": false, "explanation": "Deny list validation tries to block specific known-bad characters or patterns, which is the opposite of defining and requiring a strict valid format." },
+      { "id": "c", "text": "Client-side-only validation", "correct": false, "explanation": "The scenario describes the validation rule itself, not whether it runs only in the browser versus also on the server." },
+      { "id": "d", "text": "Obfuscation", "correct": false, "explanation": "Obfuscation hides the meaning or details of code or data; it does not validate the format of submitted input." }
+    ]
+  },
+  {
+    "id": "v2-so-005",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "A software publisher cryptographically signs its application installer with its private key before release. When a user downloads the installer, their operating system checks the signature against the publisher's public certificate; if the file has been modified in any way since signing, or if the certificate doesn't chain to a trusted root, the OS warns the user or blocks installation. What does this process primarily verify?",
+    "explanation": "Code signing verifies the authenticity of a software's origin, that it truly came from the claimed publisher, and its integrity, that it hasn't been tampered with since signing. It says nothing about whether the code is free of vulnerabilities, whether it will be sandboxed at runtime, or whether it has undergone a penetration test.",
+    "options": [
+      { "id": "a", "text": "That the software genuinely came from the claimed publisher and has not been altered since it was signed", "correct": true, "explanation": "Correct. Code signing verifies publisher authenticity and that the file hasn't changed since signing." },
+      { "id": "b", "text": "That the software contains no exploitable vulnerabilities", "correct": false, "explanation": "A valid signature says nothing about whether the code itself is free of vulnerabilities." },
+      { "id": "c", "text": "That the software will run inside an isolated sandbox", "correct": false, "explanation": "Code signing has no bearing on whether the software will later be executed in a sandboxed environment." },
+      { "id": "d", "text": "That the software has passed a penetration test", "correct": false, "explanation": "A digital signature does not indicate that any security testing, such as a penetration test, was ever performed." }
+    ]
+  },
+  {
+    "id": "v2-so-006",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "A security appliance automatically detonates every email attachment inside an isolated, disposable virtual environment, observing what files it creates, what network connections it attempts, and what registry changes it makes, before deciding whether to deliver the attachment to the recipient's inbox. What technique is the appliance using?",
+    "explanation": "Sandboxing executes untrusted content in an isolated, disposable environment and observes its actual runtime behavior, such as files created, network calls, and registry changes, to determine whether it's malicious, which is a form of dynamic/behavioral analysis. Static code analysis examines code without executing it, DLP inspects content for sensitive data patterns rather than detonating it, and tokenization substitutes sensitive values with non-sensitive placeholders.",
+    "options": [
+      { "id": "a", "text": "Sandboxing (dynamic/behavioral analysis)", "correct": true, "explanation": "Correct. Detonating a file in an isolated environment and observing its runtime behavior is sandboxing." },
+      { "id": "b", "text": "Static code analysis", "correct": false, "explanation": "Static analysis examines code or files without executing them; this scenario describes actually running the attachment to observe its behavior." },
+      { "id": "c", "text": "Data loss prevention (DLP)", "correct": false, "explanation": "DLP inspects content for sensitive data patterns to prevent exfiltration; it doesn't detonate files to observe behavior." },
+      { "id": "d", "text": "Tokenization", "correct": false, "explanation": "Tokenization substitutes sensitive values with non-sensitive placeholders; it is unrelated to behavioral malware analysis." }
+    ]
+  },
+  {
+    "id": "v2-so-007",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "easy",
+    "prompt": "Every laptop, monitor, and networking device an organization owns is affixed with a barcode label linked to a record in a central inventory database. Twice a year, IT staff physically scan every tagged device and reconcile the results against that database, flagging any device that is missing or any device found that isn't in the database at all. What practice does this describe?",
+    "explanation": "Tagging physical assets and periodically reconciling a physical count against the inventory database is core asset management practice, helping the organization detect missing (possibly stolen) equipment or unauthorized devices that were never properly recorded. Vulnerability scanning looks for security flaws rather than physical presence, data classification labels the sensitivity of data rather than physical hardware, and chain of custody tracks who handled a specific piece of evidence, not routine inventory reconciliation.",
+    "options": [
+      { "id": "a", "text": "Asset inventory management (tagging and physical reconciliation)", "correct": true, "explanation": "Correct. Tagging assets and reconciling a physical count against the inventory database is asset management." },
+      { "id": "b", "text": "Vulnerability scanning", "correct": false, "explanation": "Vulnerability scanning looks for security flaws in systems; it doesn't track physical presence of tagged hardware." },
+      { "id": "c", "text": "Data classification", "correct": false, "explanation": "Data classification labels the sensitivity of data, not the physical presence or count of hardware assets." },
+      { "id": "d", "text": "Chain of custody documentation", "correct": false, "explanation": "Chain of custody tracks who handled a specific piece of evidence, not routine periodic inventory reconciliation." }
+    ]
+  },
+  {
+    "id": "v2-so-008",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "A vulnerability scanner is given a valid local administrator login for each target server, allowing it to log in and directly inspect installed software versions, running services, and configuration settings from inside the operating system, rather than only probing the server from the network without logging in. What type of scan is this?",
+    "explanation": "A credentialed scan logs into the target with valid credentials, giving it much deeper visibility into installed software, patch levels, and configuration than an uncredentialed scan, which can only probe the system from the outside without authenticating. This is still a vulnerability scan rather than a full penetration test, which goes further by actually attempting to exploit findings, and it isn't a purely passive scan, since it actively authenticates and queries the host.",
+    "options": [
+      { "id": "a", "text": "A credentialed scan", "correct": true, "explanation": "Correct. Logging in with valid credentials to inspect the system from the inside is a credentialed scan." },
+      { "id": "b", "text": "An uncredentialed scan", "correct": false, "explanation": "An uncredentialed scan probes the target only from the outside, without authenticating, which is the opposite of what's described." },
+      { "id": "c", "text": "A penetration test", "correct": false, "explanation": "A penetration test goes further than scanning by actually attempting to exploit discovered vulnerabilities; this scenario describes a scan, not exploitation." },
+      { "id": "d", "text": "A passive scan", "correct": false, "explanation": "A passive scan does not actively query the host; this scenario describes actively logging in and inspecting configuration." }
+    ]
+  },
+  {
+    "id": "v2-so-009",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "Responding to a live compromise on a running server, a forensic analyst collects evidence in this order: the contents of RAM and running process list first, then the network connection table, and only afterward images the hard drive, leaving the server powered off and untouched as the very last step. What forensic principle is the analyst following?",
+    "explanation": "Order of volatility directs forensic collection to prioritize the most fragile, quickly-changing evidence first; data in RAM and active network state disappear the moment a system loses power or continues running, while data on a hard drive is comparatively durable and can be imaged later. Chain of custody instead tracks who handled evidence and when, a legal hold is an obligation to preserve records for anticipated litigation, and data minimization limits how much personal data is collected and retained.",
+    "options": [
+      { "id": "a", "text": "Order of volatility", "correct": true, "explanation": "Correct. Collecting the most fragile, fastest-changing evidence (RAM, network state) before more durable evidence (disk) follows order of volatility." },
+      { "id": "b", "text": "Chain of custody", "correct": false, "explanation": "Chain of custody tracks who handled evidence and when, not the sequence in which different types of evidence are collected." },
+      { "id": "c", "text": "Legal hold", "correct": false, "explanation": "A legal hold is an obligation to preserve records for anticipated litigation, not a collection-order principle." },
+      { "id": "d", "text": "Data minimization", "correct": false, "explanation": "Data minimization limits how much personal data is collected and retained, unrelated to sequencing forensic evidence collection." }
+    ]
+  },
+  {
+    "id": "v2-so-010",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "Before touching any of the target's systems directly, a penetration tester spends several days reviewing the target company's public job postings for clues about its technology stack, searching employee social media profiles, and pulling historical DNS records from public archives. What phase of the engagement is this, and what distinguishes it from the tester's next step?",
+    "explanation": "Passive reconnaissance gathers information from sources that don't require directly touching or interacting with the target's own systems, such as public job postings, social media, and historical DNS records, which is what distinguishes it from active scanning, which follows next and does send traffic directly to the target's own infrastructure. Exploitation and post-exploitation both come later still, after a vulnerability has actually been identified and used to gain access.",
+    "options": [
+      { "id": "a", "text": "Passive reconnaissance — gathering information without directly interacting with or touching the target's systems", "correct": true, "explanation": "Correct. Using only public sources without touching the target's systems is passive reconnaissance." },
+      { "id": "b", "text": "Active scanning — sending packets directly to the target's systems to enumerate open ports", "correct": false, "explanation": "Active scanning directly interacts with the target's systems, which comes after passive reconnaissance, not before it." },
+      { "id": "c", "text": "Exploitation — attempting to gain unauthorized access using a discovered vulnerability", "correct": false, "explanation": "Exploitation comes much later, after a vulnerability has been identified through scanning; no exploitation is described here." },
+      { "id": "d", "text": "Post-exploitation — maintaining and expanding access already gained on a compromised host", "correct": false, "explanation": "Post-exploitation requires having already gained access to a host, which hasn't happened yet in this scenario." }
+    ]
+  },
+  {
+    "id": "v2-so-011",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "Before rolling a vendor's monthly security update out to all production servers, an operations team first applies it to a small group of non-production servers that mirror the production configuration, running them for several days to confirm nothing breaks. What patch management practice is this?",
+    "explanation": "Testing a patch in a representative staging or non-production environment before deploying it broadly to production is standard patch management practice, catching compatibility problems or unexpected breakage before it can affect live systems. Applying it directly to all production systems at once skips this safeguard, a rollback plan alone doesn't substitute for actually testing the patch, and reading a changelog is no substitute for observing the patch's real behavior.",
+    "options": [
+      { "id": "a", "text": "Testing patches in a staging/non-production environment before production deployment", "correct": true, "explanation": "Correct. Applying and running the patch in a mirrored non-production environment first is staged patch testing." },
+      { "id": "b", "text": "Applying the patch directly to all production servers simultaneously", "correct": false, "explanation": "This is the opposite of what's described; the scenario explicitly avoids deploying directly to all production servers first." },
+      { "id": "c", "text": "Creating a rollback plan without testing the patch itself", "correct": false, "explanation": "A rollback plan alone doesn't substitute for actually running and observing the patch's behavior in a staging environment." },
+      { "id": "d", "text": "Relying solely on the vendor's changelog instead of running the patch", "correct": false, "explanation": "Reading a changelog is not a substitute for actually testing the patch's real-world behavior before production rollout." }
+    ]
+  },
+  {
+    "id": "v2-so-012",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "A security tool installed as an agent on every laptop and server continuously monitors process behavior, can automatically isolate a single compromised endpoint from the network the moment it detects malicious activity, and gives analysts detailed forensic telemetry about exactly what a piece of malware did on that host, capabilities well beyond a traditional signature-based antivirus product. What is this type of tool called?",
+    "explanation": "Endpoint detection and response (EDR) agents continuously monitor endpoint behavior, can automatically contain a compromised host by isolating it from the network, and provide rich forensic telemetry, going well beyond what traditional signature-based antivirus offers. A WAF protects web applications at the HTTP layer, a jump server is a hardened administrative access point, and NAC evaluates a device's posture only at the moment it tries to join the network, not continuously monitoring endpoint behavior afterward.",
+    "options": [
+      { "id": "a", "text": "Endpoint detection and response (EDR)", "correct": true, "explanation": "Correct. Continuous endpoint behavior monitoring with automatic isolation and forensic telemetry describes EDR." },
+      { "id": "b", "text": "A web application firewall (WAF)", "correct": false, "explanation": "A WAF inspects HTTP-layer traffic to a web application; it does not run as an endpoint agent monitoring process behavior." },
+      { "id": "c", "text": "A jump server", "correct": false, "explanation": "A jump server is a hardened administrative access point, unrelated to continuous endpoint behavior monitoring." },
+      { "id": "d", "text": "Network access control (NAC)", "correct": false, "explanation": "NAC evaluates a device's posture only at the moment it tries to join the network, not through continuous behavioral monitoring afterward." }
+    ]
+  },
+  {
+    "id": "v2-so-013",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "A firewall's access control list contains five explicit rules, each permitting a specific type of traffic. Traffic that doesn't match any of those five rules is automatically dropped, even though no rule explicitly says to drop it. What firewall/ACL principle explains this behavior?",
+    "explanation": "Implicit deny (deny by default) means that any traffic not explicitly matched and permitted by a preceding rule is automatically blocked, even without a rule that explicitly states so, and this is the standard closing behavior of most firewall and ACL rule sets. Least privilege is the broader principle of granting only the minimum access needed, fail-open describes a device that allows traffic through when it can't evaluate it, and load balancing distributes traffic across servers.",
+    "options": [
+      { "id": "a", "text": "Implicit deny (deny by default)", "correct": true, "explanation": "Correct. Unmatched traffic being automatically blocked, with no explicit rule required to state it, is implicit deny." },
+      { "id": "b", "text": "Least privilege", "correct": false, "explanation": "Least privilege is the broader principle of granting only minimum needed access; implicit deny is one specific mechanism, not the general principle itself." },
+      { "id": "c", "text": "Fail-open", "correct": false, "explanation": "Fail-open describes a device that allows traffic through when it cannot evaluate it, which is the opposite failure mode of blocking unmatched traffic." },
+      { "id": "d", "text": "Load balancing", "correct": false, "explanation": "Load balancing distributes traffic across multiple servers; it has nothing to do with default rule-matching behavior." }
+    ]
+  },
+  {
+    "id": "v2-so-014",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "An administrator needs to block one specific malicious IP address from reaching a web server, even though a broader existing rule already allows all traffic on port 443 to that server. Where must the new blocking rule be placed in the ACL for it to actually take effect?",
+    "explanation": "Most firewalls and ACLs evaluate rules top-down and apply the first rule that matches, then stop, so a more specific block rule placed after a broader allow rule that already matches the same traffic will never actually be evaluated. To take effect, the specific deny rule must come before the broader allow rule in the list.",
+    "options": [
+      { "id": "a", "text": "Above (before) the broader allow rule, since most firewalls process rules top-down and stop at the first match", "correct": true, "explanation": "Correct. The specific deny rule must be evaluated before the broader allow rule matches the same traffic first." },
+      { "id": "b", "text": "Below the broader allow rule, since more specific rules always override earlier general ones regardless of position", "correct": false, "explanation": "Most firewalls do not automatically reorder or prioritize by specificity; they apply the first matching rule in list order, so this placement would never be reached." },
+      { "id": "c", "text": "It doesn't matter where the rule is placed, as long as it exists somewhere in the list", "correct": false, "explanation": "Rule order matters in a first-match, top-down evaluation model; placing the deny rule after a matching allow rule means it is never evaluated." },
+      { "id": "d", "text": "At the very bottom, just above the implicit deny rule", "correct": false, "explanation": "Placing it at the bottom would still put it after the broader allow rule, which would already have matched and permitted the traffic first." }
+    ]
+  },
+  {
+    "id": "v2-so-015",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "easy",
+    "prompt": "After logging into their workstation once each morning, an employee can open the company's email client, CRM, and internal ticketing system throughout the day without being prompted to log in again to any of them. What capability provides this experience?",
+    "explanation": "Single sign-on (SSO) lets one authentication event grant a user access to multiple applications within the same organization or trust boundary, without re-prompting for credentials at each one. Federation extends a similar idea across separate organizations rather than within one, PAM specifically governs elevated administrative access rather than everyday application logins, and MFA is about combining multiple factors at the point of authentication, not about avoiding repeated logins across applications.",
+    "options": [
+      { "id": "a", "text": "Single sign-on (SSO)", "correct": true, "explanation": "Correct. One authentication event granting access to multiple internal applications is SSO." },
+      { "id": "b", "text": "Federation with an external partner organization", "correct": false, "explanation": "Federation extends trust across separate organizations; this scenario involves only applications within one organization." },
+      { "id": "c", "text": "Privileged access management (PAM)", "correct": false, "explanation": "PAM governs elevated administrative access, not everyday employee logins to standard business applications." },
+      { "id": "d", "text": "Multifactor authentication (MFA)", "correct": false, "explanation": "MFA concerns combining multiple factors at the point of authentication, not avoiding repeated logins across separate applications." }
+    ]
+  },
+  {
+    "id": "v2-so-016",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "An identity provider allows a routine login from a recognized corporate laptop on the trusted office network to proceed with just a password, but automatically requires an additional one-time code whenever a login attempt for the same account comes from an unfamiliar device, an unrecognized location, or at an unusual hour. What is this risk-based approach called?",
+    "explanation": "Conditional access evaluates contextual signals, such as device, location, and time, at the moment of authentication, and dynamically adjusts requirements, such as demanding an extra factor only when the login looks risky, rather than applying the same fixed requirement every time. Federation concerns trust between separate organizations, JIT access is about granting temporary elevated privileges for a limited window, and RBAC assigns permissions based on job role rather than real-time contextual risk.",
+    "options": [
+      { "id": "a", "text": "Conditional access (adaptive/risk-based authentication)", "correct": true, "explanation": "Correct. Dynamically adjusting authentication requirements based on contextual risk signals is conditional access." },
+      { "id": "b", "text": "Federation", "correct": false, "explanation": "Federation concerns trust relationships between separate organizations, not dynamic risk-based authentication requirements within one account." },
+      { "id": "c", "text": "Just-in-time (JIT) access", "correct": false, "explanation": "JIT access is about granting temporary elevated privileges for a limited window, not adjusting authentication requirements based on login risk." },
+      { "id": "d", "text": "Role-based access control (RBAC)", "correct": false, "explanation": "RBAC assigns permissions based on job role, not real-time contextual signals like device, location, or time of login." }
+    ]
+  },
+  {
+    "id": "v2-so-017",
+    "type": "single",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "The moment HR marks an employee as terminated in the human resources system, an automated identity workflow immediately disables that employee's network account, revokes their VPN access, and removes them from all application groups, without waiting for IT to manually process a ticket. What identity lifecycle practice does this represent?",
+    "explanation": "Automated deprovisioning ties account and access removal directly to an authoritative event, like an HR termination record, immediately disabling access across systems rather than depending on a manual, potentially delayed process, which closes the window during which a terminated employee's credentials could otherwise still be misused. Federation, PAM, and JIT access all concern different aspects of identity and access management, but none of them describe this automatic offboarding trigger.",
+    "options": [
+      { "id": "a", "text": "Automated deprovisioning", "correct": true, "explanation": "Correct. Automatically disabling access across systems the moment an authoritative termination event fires is automated deprovisioning." },
+      { "id": "b", "text": "Federation", "correct": false, "explanation": "Federation concerns cross-organization identity trust, not offboarding an employee's own accounts within one organization." },
+      { "id": "c", "text": "Privileged access management (PAM)", "correct": false, "explanation": "PAM specifically governs elevated administrative access, not general account deprovisioning at termination." },
+      { "id": "d", "text": "Just-in-time (JIT) access", "correct": false, "explanation": "JIT access grants temporary elevated privileges for a limited window; it doesn't describe automatically revoking access upon termination." }
+    ]
+  },
+  {
+    "id": "v2-so-018",
+    "type": "matching",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "Match each monitoring/detection technology to the capability that best describes it.",
+    "explanation": "UEBA focuses on detecting anomalies in behavior patterns rather than known signatures. An IPS is distinguished from an IDS by sitting inline and actively blocking traffic rather than only alerting. A HIDS is scoped to a single host, unlike a network-based IDS. XDR extends detection and response beyond a single source of telemetry into a unified, correlated platform. And a threat intelligence feed supplies external context (indicators of compromise) that a detection tool can use to recognize known-malicious indicators it wouldn't otherwise flag on its own.",
+    "left": [
+      { "id": "so-ueba", "text": "UEBA (User and Entity Behavior Analytics)" },
+      { "id": "so-ips", "text": "IPS (Intrusion Prevention System)" },
+      { "id": "so-hids", "text": "HIDS (Host-based Intrusion Detection System)" },
+      { "id": "so-xdr", "text": "XDR (Extended Detection and Response)" },
+      { "id": "so-ti", "text": "Threat intelligence feed" }
+    ],
+    "right": [
+      { "id": "so-ueba-fn", "text": "Builds a baseline of normal user and entity behavior and flags significant deviations from it as anomalous" },
+      { "id": "so-ips-fn", "text": "Sits inline with network traffic and can actively block or drop malicious traffic in real time, not just alert on it" },
+      { "id": "so-hids-fn", "text": "Runs on a single host and monitors its local logs, file integrity, and system calls for signs of compromise" },
+      { "id": "so-xdr-fn", "text": "Correlates telemetry and coordinates response across endpoints, network, and cloud sources within one unified platform" },
+      { "id": "so-ti-fn", "text": "Supplies externally sourced indicators of compromise, such as known-malicious IPs, file hashes, and domains, to enrich internal detection" }
+    ],
+    "pairs": [
+      { "left": "so-ueba", "right": "so-ueba-fn" },
+      { "left": "so-ips", "right": "so-ips-fn" },
+      { "left": "so-hids", "right": "so-hids-fn" },
+      { "left": "so-xdr", "right": "so-xdr-fn" },
+      { "left": "so-ti", "right": "so-ti-fn" }
+    ]
+  },
+  {
+    "id": "v2-so-019",
+    "type": "ordering",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "Arrange the following phases of the vulnerability management lifecycle in the order they are typically performed.",
+    "explanation": "Vulnerability management begins by defining what's in scope (identifying assets), then scanning those assets to surface vulnerabilities, analyzing and prioritizing the findings (commonly using CVSS scores alongside business context like asset criticality), remediating the highest-priority items first, validating through a rescan that remediation actually worked, and finally reporting overall status and remaining risk to stakeholders, closing the loop before the cycle repeats.",
+    "items": [
+      { "id": "vm1", "text": "Identify assets and establish the scope of what will be scanned" },
+      { "id": "vm2", "text": "Scan the identified assets to discover vulnerabilities" },
+      { "id": "vm3", "text": "Analyze and prioritize findings, for example using CVSS scores and business context" },
+      { "id": "vm4", "text": "Remediate the highest-priority vulnerabilities through patching or other mitigations" },
+      { "id": "vm5", "text": "Validate remediation by rescanning to confirm the vulnerability is actually resolved" },
+      { "id": "vm6", "text": "Report on the program's overall status and remaining risk to stakeholders" }
+    ],
+    "correctOrder": ["vm1", "vm2", "vm3", "vm4", "vm5", "vm6"]
+  },
+  {
+    "id": "v2-so-020",
+    "type": "multi",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "Which two of the following are core capabilities typically provided by a privileged access management (PAM) solution? (Choose two.)",
+    "explanation": "PAM solutions vault privileged credentials so administrators never need to know them directly and can automatically rotate them after each checkout, and they typically record privileged sessions, including keystrokes and commands run, to support later audit and investigation. Translating natural-language queries into SQL is an application feature unrelated to privilege management, and distributing traffic across servers is a load balancer's job, not a PAM capability.",
+    "options": [
+      { "id": "a", "text": "Storing privileged credentials in a secure vault and automatically rotating them after each use", "correct": true, "explanation": "Correct. Credential vaulting with automatic rotation is a core PAM capability." },
+      { "id": "b", "text": "Recording the commands and keystrokes performed during a privileged session for later audit review", "correct": true, "explanation": "Correct. Privileged session recording is a core PAM capability supporting audit and investigation." },
+      { "id": "c", "text": "Automatically translating user-submitted natural-language search queries into SQL statements", "correct": false, "explanation": "This is an unrelated application feature, not a privileged access management capability." },
+      { "id": "d", "text": "Distributing incoming customer web traffic evenly across multiple backend servers", "correct": false, "explanation": "This describes load balancing, not a capability of a privileged access management solution." }
+    ]
+  },
+  {
+    "id": "v2-so-021",
+    "type": "multi",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "An organization is expanding its use of automated security response playbooks. Which two practices help ensure this automation doesn't cause unintended harm to production systems? (Choose two.)",
+    "explanation": "Testing automation changes in a non-production environment first, and requiring human approval before a playbook takes a high-impact or hard-to-reverse action, both reduce the chance that a flawed or overly aggressive automated response causes unintended damage. Granting every playbook unrestricted administrative rights ignores least privilege and would make a single flawed playbook far more dangerous, and disabling logging for automated actions removes the visibility needed to catch and diagnose exactly this kind of problem.",
+    "options": [
+      { "id": "a", "text": "Testing new or modified playbooks against a non-production environment before enabling them against production systems", "correct": true, "explanation": "Correct. Testing in non-production first catches problems before they can affect live systems." },
+      { "id": "b", "text": "Requiring a human approval step before a playbook is allowed to take a high-impact, hard-to-reverse action, such as disabling a production account", "correct": true, "explanation": "Correct. A human approval gate on high-impact actions limits the damage a flawed playbook can cause." },
+      { "id": "c", "text": "Granting every automated playbook full, unrestricted administrative rights across all systems by default, to avoid permission errors", "correct": false, "explanation": "This violates least privilege and would make any single flawed or compromised playbook far more dangerous, not safer." },
+      { "id": "d", "text": "Disabling all logging for automated actions so playbooks run as fast as possible", "correct": false, "explanation": "Disabling logging removes the visibility needed to detect and diagnose problems caused by automation, making unintended harm harder to catch." }
+    ]
+  },
+  {
+    "id": "v2-so-022",
+    "type": "multi",
+    "topicId": "security-operations",
+    "difficulty": "medium",
+    "prompt": "Which two of the following actions directly improve the security of an organization's wireless network? (Choose two.)",
+    "explanation": "Disabling WPS closes off a feature whose PIN mechanism is well known to be vulnerable to brute-force attacks, and replacing a default admin password with a strong, unique one prevents an attacker from simply looking up the factory default and taking over the access point. Maximizing broadcast power actually extends the network's exposure well past where it's needed, and exposing the access point's management interface to the public internet dramatically increases the attack surface rather than reducing it.",
+    "options": [
+      { "id": "a", "text": "Disabling WPS (Wi-Fi Protected Setup), since its PIN feature is vulnerable to brute-force attacks", "correct": true, "explanation": "Correct. WPS's PIN mechanism is a well-known brute-force weakness, so disabling it improves security." },
+      { "id": "b", "text": "Replacing the access point's default administrator password with a strong, unique one", "correct": true, "explanation": "Correct. Default admin credentials are widely known, so replacing them prevents easy takeover of the access point." },
+      { "id": "c", "text": "Broadcasting the SSID at maximum power so it reaches as far as possible past the building's perimeter", "correct": false, "explanation": "Maximizing broadcast range extends the network's exposure beyond where it's needed, increasing rather than reducing risk." },
+      { "id": "d", "text": "Leaving the wireless access point's management interface reachable from the public internet for remote convenience", "correct": false, "explanation": "Exposing the management interface to the public internet dramatically increases the attack surface rather than improving security." }
+    ]
+  },
+  {
+    "id": "v2-so-023",
+    "type": "multi",
+    "topicId": "security-operations",
+    "difficulty": "hard",
+    "prompt": "Which two of the following are factors actually used in calculating a vulnerability's CVSS base score? (Choose two.)",
+    "explanation": "The CVSS base score is built from exploitability metrics like attack complexity (along with attack vector, privileges required, and user interaction) and impact metrics measuring the potential effect on confidentiality, integrity, and availability if successfully exploited. How long a product has been on the market and the size of a vendor's support team are not inputs to the CVSS base score at all.",
+    "options": [
+      { "id": "a", "text": "How complex or difficult the attack is to carry out (attack complexity)", "correct": true, "explanation": "Correct. Attack complexity is one of the CVSS base score's exploitability metrics." },
+      { "id": "b", "text": "The potential impact to confidentiality, integrity, and availability if the vulnerability is exploited", "correct": true, "explanation": "Correct. CIA impact is one of the CVSS base score's core impact metrics." },
+      { "id": "c", "text": "How many years the affected software has been commercially available", "correct": false, "explanation": "The product's age on the market is not a factor in the CVSS base score calculation." },
+      { "id": "d", "text": "The size of the vendor's customer support team", "correct": false, "explanation": "The vendor's support team size has no bearing on the CVSS base score calculation." }
+    ]
+  },
+  {
+    "id": "v2-so-024",
+    "type": "boolean",
+    "topicId": "security-operations",
+    "difficulty": "easy",
+    "prompt": "True or false: Root cause analysis, performed after an incident, aims to identify the true underlying reason an incident occurred rather than simply resolving its immediate, visible symptoms.",
+    "answer": true,
+    "explanation": "This is true. Root cause analysis looks past the immediate trigger of an incident to find the deeper, underlying condition that actually allowed it to happen, since fixing only the visible symptom without addressing that underlying cause leaves the organization exposed to the same type of incident recurring."
+  },
+  {
+    "id": "v2-so-025",
+    "type": "boolean",
+    "topicId": "security-operations",
+    "difficulty": "easy",
+    "prompt": "True or false: An organization's e-discovery and litigation hold obligations only begin once a lawsuit has actually been filed in court, so no relevant data needs to be preserved before that point.",
+    "answer": false,
+    "explanation": "This is false. The duty to preserve potentially relevant electronically stored information can arise as soon as litigation is reasonably anticipated, well before a lawsuit is actually filed. Once that duty attaches, an organization must issue a litigation hold and stop routine deletion of relevant data, or risk sanctions for spoliation."
+  }
+]
