@@ -1,0 +1,262 @@
+[
+  {
+    "id": "v2-grc-001",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "easy",
+    "prompt": "An organization's information security documentation includes a high-level policy stating that all data must be protected according to its sensitivity, and a separate document giving IT staff exact step-by-step instructions for configuring encryption on a newly provisioned database server. What is this second, step-by-step document called?",
+    "explanation": "In the governance document hierarchy, a policy sets high-level, mandatory intent; a standard defines specific mandatory technical requirements; a procedure gives step-by-step instructions for performing a task; and a guideline offers recommended, non-mandatory advice. Detailed, sequential how-to instructions are the defining trait of a procedure.",
+    "options": [
+      { "id": "a", "text": "A procedure", "correct": true, "explanation": "Correct. A procedure provides the exact, sequential steps for carrying out a task." },
+      { "id": "b", "text": "A standard", "correct": false, "explanation": "A standard defines specific mandatory technical requirements (such as a required encryption algorithm), but it does not itself walk staff through sequential configuration steps." },
+      { "id": "c", "text": "A guideline", "correct": false, "explanation": "A guideline offers recommended, non-mandatory best-practice advice, whereas the document described gives mandatory, exact steps to follow." },
+      { "id": "d", "text": "A policy", "correct": false, "explanation": "The policy is the first, high-level document already described in the scenario; it isn't the step-by-step instructions document being asked about." }
+    ]
+  },
+  {
+    "id": "v2-grc-002",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "easy",
+    "prompt": "A software company wants an internationally recognized certification demonstrating that it has established, and continually operates, a formal information security management system (ISMS) covering risk assessment, controls selection, and continual improvement. Which standard should it pursue certification against?",
+    "explanation": "ISO/IEC 27001 is the internationally recognized standard for establishing, implementing, maintaining, and continually improving a formal information security management system (ISMS), and organizations can be independently certified against it.",
+    "options": [
+      { "id": "a", "text": "ISO/IEC 27001", "correct": true, "explanation": "Correct. ISO/IEC 27001 is the internationally recognized ISMS certification standard." },
+      { "id": "b", "text": "PCI DSS", "correct": false, "explanation": "PCI DSS is an industry-imposed standard focused specifically on protecting payment card data, not a general-purpose ISMS certification." },
+      { "id": "c", "text": "SOC 2", "correct": false, "explanation": "A SOC 2 report is an independent attestation of a service organization's controls over a period of time; it is not itself an internationally recognized ISMS certification standard." },
+      { "id": "d", "text": "The NIST Cybersecurity Framework (CSF)", "correct": false, "explanation": "The NIST CSF is a voluntary, risk-based framework of functions and categories; it is not a certifiable ISMS standard in the way ISO/IEC 27001 is." }
+    ]
+  },
+  {
+    "id": "v2-grc-003",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "easy",
+    "prompt": "A cloud-based SaaS vendor wants to give its enterprise customers independent, third-party assurance that its security controls are appropriately designed and operating effectively, without requiring every customer to separately audit the vendor themselves. Which type of report is the vendor most likely being asked to provide?",
+    "explanation": "A SOC 2 report is an independent auditor's attestation of a service organization's controls, commonly requested by enterprise customers of a SaaS vendor as third-party assurance so that each customer doesn't need to conduct its own full audit of the vendor.",
+    "options": [
+      { "id": "a", "text": "A SOC 2 report", "correct": true, "explanation": "Correct. A SOC 2 report provides independent, third-party assurance over a service organization's controls." },
+      { "id": "b", "text": "A penetration test scope document", "correct": false, "explanation": "A scope document defines the boundaries of an authorized penetration test; it isn't an independent controls-assurance report given to customers." },
+      { "id": "c", "text": "An internal risk register", "correct": false, "explanation": "A risk register is an internal document tracking the vendor's own identified risks; it isn't the independent, customer-facing assurance report being requested." },
+      { "id": "d", "text": "A business continuity plan", "correct": false, "explanation": "A business continuity plan addresses how the vendor keeps operating during disruption; it is not an independent assurance report over security controls." }
+    ]
+  },
+  {
+    "id": "v2-grc-004",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "easy",
+    "prompt": "An organization adopts a voluntary framework that organizes its cybersecurity program around the core functions of Identify, Protect, Detect, Respond, and Recover. Which framework is this?",
+    "explanation": "The NIST Cybersecurity Framework (CSF) organizes cybersecurity activities around the core functions Identify, Protect, Detect, Respond, and Recover, providing a common, voluntary structure organizations can use to describe and improve their security posture.",
+    "options": [
+      { "id": "a", "text": "The NIST Cybersecurity Framework (CSF)", "correct": true, "explanation": "Correct. Identify, Protect, Detect, Respond, and Recover are the five core functions of the NIST CSF." },
+      { "id": "b", "text": "ISO/IEC 27001", "correct": false, "explanation": "ISO/IEC 27001 is structured around ISMS clauses and an annex of controls, not the Identify/Protect/Detect/Respond/Recover function model." },
+      { "id": "c", "text": "PCI DSS", "correct": false, "explanation": "PCI DSS is organized around a fixed set of requirements for protecting payment card data, not this five-function model." },
+      { "id": "d", "text": "A SOC 2 report", "correct": false, "explanation": "A SOC 2 report is an audit attestation document, not a cybersecurity program framework built around these five functions." }
+    ]
+  },
+  {
+    "id": "v2-grc-005",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "easy",
+    "prompt": "Under GDPR, an organization that processes personal data on a large scale designates an individual responsible for overseeing data protection compliance, advising the organization on its obligations, and serving as a point of contact for regulators and data subjects. What is this role called?",
+    "explanation": "The Data Protection Officer (DPO) is a role required under GDPR for certain organizations, responsible for independently overseeing data protection compliance, advising on obligations, and acting as a liaison with supervisory authorities and data subjects.",
+    "options": [
+      { "id": "a", "text": "Data Protection Officer (DPO)", "correct": true, "explanation": "Correct. The DPO is the GDPR role responsible for compliance oversight and serving as a regulatory point of contact." },
+      { "id": "b", "text": "Data controller", "correct": false, "explanation": "The data controller is the entity that determines the purposes and means of processing personal data; it is a distinct role from the oversight/advisory DPO position." },
+      { "id": "c", "text": "Data custodian", "correct": false, "explanation": "A data custodian handles the day-to-day technical implementation of data protection requirements, not regulatory compliance oversight and liaison duties." },
+      { "id": "d", "text": "Data processor", "correct": false, "explanation": "A data processor processes personal data on the controller's behalf and instructions; it is not the independent compliance-oversight role described." }
+    ]
+  },
+  {
+    "id": "v2-grc-006",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "A risk assessment team rates each identified risk's likelihood and impact using descriptive categories such as Low, Medium, and High, and plots them on a simple probability-impact matrix, without assigning a specific dollar value to any risk. What type of risk analysis approach is this?",
+    "explanation": "Qualitative risk analysis rates risks using descriptive categories and relative comparisons (like a probability-impact matrix) rather than objective monetary figures, making it faster and less data-dependent than quantitative analysis, though also more subjective.",
+    "options": [
+      { "id": "a", "text": "Qualitative risk analysis", "correct": true, "explanation": "Correct. Rating risks with descriptive categories rather than dollar figures is qualitative analysis." },
+      { "id": "b", "text": "Quantitative risk analysis", "correct": false, "explanation": "Quantitative analysis assigns objective numeric or monetary values to risk, such as calculating an annualized loss expectancy, rather than using descriptive categories." },
+      { "id": "c", "text": "A business impact analysis (BIA)", "correct": false, "explanation": "A BIA focuses on identifying critical business functions and estimating the impact of their disruption to set recovery priorities, rather than rating general risks on a probability-impact matrix." },
+      { "id": "d", "text": "Risk transfer", "correct": false, "explanation": "Risk transfer is a risk treatment strategy, not a method for analyzing or rating risks." }
+    ]
+  },
+  {
+    "id": "v2-grc-007",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "After a risk assessment concludes that a planned smart-lock product line has security flaws that cannot be adequately remediated within an acceptable budget, company leadership decides to cancel the product line entirely rather than bring it to market. Which risk management strategy does this decision represent?",
+    "explanation": "Risk avoidance eliminates the activity or exposure that creates the risk altogether, such as canceling a product line, rather than proceeding while reducing the risk (mitigation), shifting its financial impact elsewhere (transfer), or knowingly proceeding despite it (acceptance).",
+    "options": [
+      { "id": "a", "text": "Risk avoidance", "correct": true, "explanation": "Correct. Canceling the risky activity entirely is risk avoidance." },
+      { "id": "b", "text": "Risk mitigation", "correct": false, "explanation": "Mitigation would involve implementing controls to reduce the risk while still bringing the product to market, not canceling it entirely." },
+      { "id": "c", "text": "Risk transfer", "correct": false, "explanation": "Transfer shifts the risk's financial impact to a third party, such as through insurance or a contract, rather than eliminating the exposure by canceling the activity." },
+      { "id": "d", "text": "Risk acceptance", "correct": false, "explanation": "Acceptance means proceeding while knowingly tolerating the risk, which is the opposite of the decision to cancel the product line described here." }
+    ]
+  },
+  {
+    "id": "v2-grc-008",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "A hospital's patient-scheduling system is fully backed up every 8 hours. If the system fails immediately before the next scheduled backup, the hospital could lose up to 8 hours of newly entered scheduling data. Which metric does this 8-hour figure represent?",
+    "explanation": "Recovery point objective (RPO) is the maximum acceptable amount of data loss, measured as a period of time, based on how far back the most recent recoverable backup or copy of the data goes — distinct from RTO, which concerns downtime rather than data loss.",
+    "options": [
+      { "id": "a", "text": "Recovery point objective (RPO)", "correct": true, "explanation": "Correct. RPO measures the maximum acceptable data loss window, driven here by the 8-hour backup interval." },
+      { "id": "b", "text": "Recovery time objective (RTO)", "correct": false, "explanation": "RTO measures how long a system may remain down before restoration, not how much data could be lost since the last backup." },
+      { "id": "c", "text": "Mean time between failures (MTBF)", "correct": false, "explanation": "MTBF measures the average operating time between one failure and the next; it is unrelated to a backup-driven data-loss window." },
+      { "id": "d", "text": "Annualized rate of occurrence (ARO)", "correct": false, "explanation": "ARO estimates how often a risk event is expected to occur per year; it does not describe a data-loss window tied to backup frequency." }
+    ]
+  },
+  {
+    "id": "v2-grc-009",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "A company maintains one document describing how it will keep critical business functions, such as payroll and customer support, running (potentially through manual workarounds) during a prolonged disruption, and a separate, more technical document describing exactly how IT will rebuild and restore specific servers and applications after that disruption. Which document is the first one described?",
+    "explanation": "The business continuity plan (BCP) focuses broadly on sustaining critical business functions during a disruption, including manual workarounds where needed, while the disaster recovery plan (DRP) is the more technical, IT-focused document describing how specific systems and applications are restored.",
+    "options": [
+      { "id": "a", "text": "The business continuity plan (BCP)", "correct": true, "explanation": "Correct. The BCP addresses sustaining critical business functions broadly during a disruption." },
+      { "id": "b", "text": "The disaster recovery plan (DRP)", "correct": false, "explanation": "The DRP is the second, more technical document described, focused on restoring specific IT systems, not the broader business-functions plan." },
+      { "id": "c", "text": "The incident response plan", "correct": false, "explanation": "An incident response plan focuses on detecting and responding to a specific security incident, not on sustaining broad business operations during a disruption." },
+      { "id": "d", "text": "The risk register", "correct": false, "explanation": "A risk register tracks identified organizational risks; it is not a continuity plan describing how business functions keep running during a disruption." }
+    ]
+  },
+  {
+    "id": "v2-grc-010",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "An organization labels its documents as Public, Internal, Confidential, or Restricted, and requires progressively stronger handling controls, such as encryption and stricter access lists, as the label moves from Public toward Restricted. What is this practice called?",
+    "explanation": "Data classification assigns sensitivity labels to data and ties those labels to progressively stronger required handling and protection controls, ensuring the most sensitive data receives the strongest safeguards.",
+    "options": [
+      { "id": "a", "text": "Data classification", "correct": true, "explanation": "Correct. Assigning sensitivity tiers with corresponding handling controls is data classification." },
+      { "id": "b", "text": "Data minimization", "correct": false, "explanation": "Data minimization limits the collection and retention of data to what is necessary, rather than assigning sensitivity labels with tiered handling rules." },
+      { "id": "c", "text": "Data masking", "correct": false, "explanation": "Data masking obscures specific values within a dataset; it does not describe assigning a document-level sensitivity tier." },
+      { "id": "d", "text": "Data sovereignty", "correct": false, "explanation": "Data sovereignty concerns which country's laws govern data based on where it is stored or processed, not sensitivity-based labeling of documents." }
+    ]
+  },
+  {
+    "id": "v2-grc-011",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "hard",
+    "prompt": "Rather than describing risks with categories like Low, Medium, or High, a risk team instead expresses each risk as an expected annual dollar loss, calculated from objective figures for the cost of a single occurrence and how often it is expected to happen. Which risk analysis approach does this describe?",
+    "explanation": "Quantitative risk analysis expresses risk using objective numeric or monetary figures, such as an expected annual dollar loss derived from a cost-per-occurrence figure and an expected frequency, in contrast to qualitative analysis, which uses descriptive, subjective categories.",
+    "options": [
+      { "id": "a", "text": "Quantitative risk analysis", "correct": true, "explanation": "Correct. Expressing risk as an objective, calculated dollar figure is quantitative analysis." },
+      { "id": "b", "text": "Qualitative risk analysis", "correct": false, "explanation": "Qualitative analysis uses descriptive, subjective categories rather than objective monetary figures, the opposite of the approach described." },
+      { "id": "c", "text": "Risk appetite", "correct": false, "explanation": "Risk appetite describes an organization's general willingness to accept risk; it is not a method for analyzing individual risks." },
+      { "id": "d", "text": "A vulnerability scan", "correct": false, "explanation": "A vulnerability scan technically identifies weaknesses in systems; it is not a risk-analysis methodology that expresses expected loss in dollar terms." }
+    ]
+  },
+  {
+    "id": "v2-grc-012",
+    "type": "single",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "hard",
+    "prompt": "A company's own internal audit team reviews its access control processes each quarter to give management ongoing assurance. Once a year, an independent accounting firm with no employment relationship to the company reviews those same processes to provide assurance to external stakeholders such as investors and regulators. What distinguishes the second review from the first?",
+    "explanation": "The independence of the reviewer and the intended audience are the key distinguishing factors between internal and external audits: an internal audit is performed by an organization's own staff primarily for management's benefit, while an external (independent) audit is performed by a party outside the organization to provide assurance to outside stakeholders, even when both examine overlapping processes.",
+    "options": [
+      { "id": "a", "text": "It is an external (independent) audit, performed by a party outside the organization for external stakeholders, rather than an internal audit performed by employees for management", "correct": true, "explanation": "Correct. Reviewer independence and the external audience are what distinguish this from the internal audit." },
+      { "id": "b", "text": "It is a penetration test rather than an audit, since it is performed less frequently", "correct": false, "explanation": "Frequency alone doesn't reclassify the review; both described reviews are audits of controls, not authorized attack simulations against systems." },
+      { "id": "c", "text": "It is a compliance monitoring activity rather than an audit, since it happens only once a year", "correct": false, "explanation": "Frequency doesn't change what the activity is; it's still described as an audit examining the same access control processes, just performed by an independent party." },
+      { "id": "d", "text": "There is no meaningful difference, since both reviews examine the identical access control processes", "correct": false, "explanation": "The independence of the reviewer and the audience the review is intended for are meaningful distinguishing factors, even when the scope of what's examined overlaps." }
+    ]
+  },
+  {
+    "id": "v2-grc-013",
+    "type": "multi",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "Which two of the following are appropriate ongoing (not just one-time, pre-contract) practices for managing risk in an already-established third-party vendor relationship? (Choose two.)",
+    "explanation": "Effective third-party risk management continues throughout the relationship, not just before signing: requiring recurring attestations and actively monitoring the vendor's posture and incident history both provide continuing assurance. Assuming no further review is needed after onboarding, or relying solely on the vendor's own marketing claims, both leave the organization blind to risks that emerge later in the relationship.",
+    "options": [
+      { "id": "a", "text": "Requiring the vendor to submit an updated SOC 2 report or similar attestation on a recurring basis throughout the contract term", "correct": true, "explanation": "Correct. Recurring attestations provide continuing, not just one-time, assurance." },
+      { "id": "b", "text": "Periodically re-assessing the vendor's security posture and monitoring for reported breaches or incidents involving the vendor", "correct": true, "explanation": "Correct. Ongoing monitoring detects risks that emerge after the initial onboarding assessment." },
+      { "id": "c", "text": "Assuming no further review is needed once the vendor passed its initial onboarding assessment, since the relationship is already established", "correct": false, "explanation": "Treating the initial assessment as sufficient forever leaves the organization blind to changes in the vendor's risk profile over time." },
+      { "id": "d", "text": "Relying solely on the vendor's own marketing materials as sufficient evidence of its security practices", "correct": false, "explanation": "Marketing materials are not independent, verifiable evidence of a vendor's actual security controls." }
+    ]
+  },
+  {
+    "id": "v2-grc-014",
+    "type": "multi",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "hard",
+    "prompt": "Which two of the following are recognized methods for testing a business continuity or disaster recovery plan before a real disruption occurs? (Choose two.)",
+    "explanation": "Recognized BC/DR test types range from low-impact, discussion-based tabletop exercises to a full interruption test that actually shifts production operations to the alternate site. Simply filing an approved plan away, or waiting for a real disaster to discover whether it works, are the opposite of testing — they provide no advance validation at all.",
+    "options": [
+      { "id": "a", "text": "A tabletop exercise in which key stakeholders discuss and walk through a hypothetical disruption scenario without affecting live production systems", "correct": true, "explanation": "Correct. A tabletop exercise is a recognized, low-impact discussion-based test method." },
+      { "id": "b", "text": "A full interruption test that actually fails production operations over to the alternate/disaster recovery site", "correct": true, "explanation": "Correct. A full interruption test is the most realistic, highest-impact recognized test method." },
+      { "id": "c", "text": "Filing the plan in a shared drive and considering it validated once it has been written and approved", "correct": false, "explanation": "Writing and approving a plan is not the same as testing whether it actually works in practice." },
+      { "id": "d", "text": "Waiting until an actual disaster occurs to discover, for the first time, whether the plan works", "correct": false, "explanation": "This is the opposite of testing beforehand; discovering flaws only during a real disaster defeats the purpose of advance validation." }
+    ]
+  },
+  {
+    "id": "v2-grc-015",
+    "type": "multi",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "hard",
+    "prompt": "Regarding the relationship between risk appetite and risk tolerance, which two statements are accurate? (Choose two.)",
+    "explanation": "Risk appetite is the broad, strategic statement of how much risk an organization is generally willing to accept in pursuit of its objectives, while risk tolerance is the more granular acceptable range of variation around a specific target or threshold for a particular risk area, and can reasonably vary from one area to another rather than being forced into one uniform figure.",
+    "options": [
+      { "id": "a", "text": "Risk appetite describes the broad, overall amount of risk an organization is generally willing to accept in pursuit of its objectives", "correct": true, "explanation": "Correct. Appetite is the high-level, strategic statement of willingness to accept risk." },
+      { "id": "b", "text": "Risk tolerance describes the acceptable range of variation around a specific target or threshold for a particular risk, and is typically more granular than the organization's overall appetite", "correct": true, "explanation": "Correct. Tolerance operationalizes appetite into specific, measurable acceptable ranges." },
+      { "id": "c", "text": "Risk appetite and risk tolerance are simply two different names for the exact same concept, applied at the exact same level of detail", "correct": false, "explanation": "Appetite and tolerance are related but distinct: appetite is the broad, strategic statement, while tolerance is the specific, granular acceptable range." },
+      { "id": "d", "text": "Risk tolerance must be identical across every department and risk category in the organization, with no permitted variation", "correct": false, "explanation": "Risk tolerance can reasonably vary by department or risk category, just as overall appetite can, rather than being forced to a single uniform figure everywhere." }
+    ]
+  },
+  {
+    "id": "v2-grc-016",
+    "type": "boolean",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "hard",
+    "prompt": "True or false: A business impact analysis (BIA) is primarily focused on determining the technical root cause of a security incident that has already occurred, rather than estimating the potential operational and financial impact of future disruptions to critical business functions.",
+    "answer": false,
+    "explanation": "This is false. A business impact analysis (BIA) is a forward-looking planning exercise that identifies an organization's critical business functions and estimates the operational and financial impact if each were disrupted, informing recovery priorities like RTOs. Determining the technical root cause of a security incident that already happened is the role of root-cause analysis or a post-incident (lessons-learned) review, not a BIA."
+  },
+  {
+    "id": "v2-grc-017",
+    "type": "matching",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "Match each risk treatment strategy to the scenario that best illustrates it.",
+    "explanation": "Avoidance eliminates the risky activity entirely, transfer shifts the impact to another party through a contract or arrangement, mitigation reduces likelihood or impact through controls while the activity continues, and acceptance means knowingly proceeding without further action because the cost of additional controls would outweigh the potential loss.",
+    "left": [
+      { "id": "rt-avoid", "text": "Risk avoidance" },
+      { "id": "rt-transfer", "text": "Risk transfer" },
+      { "id": "rt-mitigate", "text": "Risk mitigation" },
+      { "id": "rt-accept", "text": "Risk acceptance" }
+    ],
+    "right": [
+      { "id": "sc-avoid", "text": "A company cancels a planned public API integration entirely after concluding the resulting data exposure risk cannot be brought within acceptable limits" },
+      { "id": "sc-transfer", "text": "A company outsources its payroll processing to a third-party firm that contractually assumes responsibility for any resulting processing errors" },
+      { "id": "sc-mitigate", "text": "A company deploys multifactor authentication and more frequent patching to reduce the likelihood of a known vulnerability being exploited, while continuing to operate the affected system" },
+      { "id": "sc-accept", "text": "Leadership reviews a minor, low-impact risk and decides to take no further action, since the cost of additional controls would exceed the potential loss" }
+    ],
+    "pairs": [
+      { "left": "rt-avoid", "right": "sc-avoid" },
+      { "left": "rt-transfer", "right": "sc-transfer" },
+      { "left": "rt-mitigate", "right": "sc-mitigate" },
+      { "left": "rt-accept", "right": "sc-accept" }
+    ]
+  },
+  {
+    "id": "v2-grc-018",
+    "type": "ordering",
+    "topicId": "governance-risk-compliance",
+    "difficulty": "medium",
+    "prompt": "Arrange the following steps of the risk management process in the order an organization typically performs them.",
+    "explanation": "The risk management process begins by identifying risks that could affect the organization's objectives, then assessing each risk's likelihood and potential impact, then treating each risk by choosing to avoid, transfer, mitigate, or accept it, and finally monitoring treated and residual risks on an ongoing basis, since risk levels and the environment continue to change over time.",
+    "items": [
+      { "id": "rm1", "text": "Identify — discover and document risks that could affect the organization's objectives" },
+      { "id": "rm2", "text": "Assess — analyze each identified risk's likelihood and potential impact" },
+      { "id": "rm3", "text": "Treat — respond to each risk by avoiding, transferring, mitigating, or accepting it" },
+      { "id": "rm4", "text": "Monitor — continuously track treated and residual risks, and watch for new risks over time" }
+    ],
+    "correctOrder": ["rm1", "rm2", "rm3", "rm4"]
+  }
+]
