@@ -388,32 +388,32 @@
       "topicId": "threats-vulnerabilities-mitigations",
       "type": "single",
       "difficulty": "easy",
-      "prompt": "A database administrator who was recently placed on a performance improvement plan quietly exports a copy of the customer records table to a personal cloud storage account, using login credentials that are still fully authorized for her job role. Which type of threat actor does this scenario describe?",
-      "explanation": "She is using her own legitimate, still-valid access to misuse data before any offboarding has occurred. Misuse of authorized access by someone already inside the organization is the defining trait of an insider threat, regardless of motive.",
+      "prompt": "A contractor's engagement with an organization ended three months ago, but IT never deactivated the VPN and file-share credentials issued for the project. Using that still-active access, the former contractor logs in overnight and copies a large portion of the company's proprietary source code repository to a personal external drive. Which type of threat actor does this scenario describe?",
+      "explanation": "The former contractor is using access that was already granted for legitimate work but was never revoked after the engagement ended, and is misusing that lingering authorized access from within the organization's systems. Misuse of authorized access, even by someone whose relationship with the organization has technically ended, is the defining trait of an insider threat.",
       "options": [
         {
           "id": "a",
           "text": "Insider threat",
           "correct": true,
-          "explanation": "Correct: she has authorized access and is misusing it from inside the organization, which is exactly what defines an insider threat."
+          "explanation": "Correct: the former contractor is misusing access that was legitimately granted but never revoked, which is exactly what defines an insider threat."
         },
         {
           "id": "b",
           "text": "Hacktivist",
           "correct": false,
-          "explanation": "Incorrect: hacktivists act publicly for ideological reasons and are typically external attackers, not employees using their own accounts quietly."
+          "explanation": "Incorrect: hacktivists act publicly for ideological reasons and are typically external attackers, not someone quietly using leftover authorized credentials."
         },
         {
           "id": "c",
           "text": "Nation-state actor",
           "correct": false,
-          "explanation": "Incorrect: nation-state actors are external, government-sponsored groups pursuing strategic objectives, not employees exporting data with their own credentials."
+          "explanation": "Incorrect: nation-state actors are external, government-sponsored groups pursuing strategic objectives, not a former contractor using credentials that were never deactivated."
         },
         {
           "id": "d",
           "text": "Unskilled attacker (script kiddie)",
           "correct": false,
-          "explanation": "Incorrect: this term describes an external attacker with limited skill using off-the-shelf tools, not an internal employee with authorized access."
+          "explanation": "Incorrect: this term describes an external attacker with limited skill using off-the-shelf tools, not someone with legitimately issued, still-active internal credentials."
         }
       ]
     },
@@ -1172,32 +1172,32 @@
       "type": "single",
       "topicId": "security-architecture",
       "difficulty": "easy",
-      "prompt": "Before storing any document, an organization requires staff to label it as Public, Internal, Confidential, or Restricted. What is the primary purpose of applying these labels?",
-      "explanation": "Data classification labels drive the handling, storage, and access-control requirements that apply to information based on its sensitivity, so that more sensitive data receives stronger protection than less sensitive data.",
+      "prompt": "A security architect explains that sensitive data must be protected differently depending on whether it is sitting on a disk, moving across a network connection, or currently loaded into a running application's memory for processing. Which set of terms correctly names these three states, in that order?",
+      "explanation": "Data at rest is stored data on a disk or other storage medium, typically protected with full-disk or file-level encryption. Data in transit is data actively moving across a network, typically protected with TLS or another transport encryption protocol. Data in use is data currently loaded in memory and being actively processed, which is harder to protect and may rely on techniques such as secure enclaves or memory encryption.",
       "options": [
         {
           "id": "a",
-          "text": "To determine the handling, storage, and access controls appropriate to the sensitivity of the information",
+          "text": "Data at rest, data in transit, data in use",
           "correct": true,
-          "explanation": "Correct. Classification labels exist to drive proportionate protection and handling requirements based on data sensitivity."
+          "explanation": "Correct. These are the three recognized states of data, each requiring a different primary protection approach."
         },
         {
           "id": "b",
-          "text": "To decide which file-compression algorithm is used when archiving the document",
+          "text": "Data at rest, data in use, data in transit",
           "correct": false,
-          "explanation": "Classification labels are about sensitivity and handling requirements, not compression algorithm selection."
+          "explanation": "Incorrect: this places the states out of order relative to the scenario, which describes storage, then network movement, then active processing."
         },
         {
           "id": "c",
-          "text": "To automatically assign the document's storage server to a specific VLAN",
+          "text": "Data in transit, data at rest, data in use",
           "correct": false,
-          "explanation": "Classification labels do not directly control network VLAN assignment."
+          "explanation": "Incorrect: this places data in transit first, but the scenario describes stored data first, not data moving across a network."
         },
         {
           "id": "d",
-          "text": "To satisfy a backup rotation schedule requirement",
+          "text": "Data classification, data masking, data tokenization",
           "correct": false,
-          "explanation": "Backup rotation schedules are a separate operational concern from data classification labeling."
+          "explanation": "Incorrect: these are data protection techniques, not the three states in which data can exist."
         }
       ]
     },
@@ -1219,7 +1219,7 @@
       "type": "single",
       "topicId": "security-architecture",
       "difficulty": "medium",
-      "prompt": "A cloud engineering team defines all of its servers, networks, and security group rules as version-controlled template files that are automatically applied through an automated deployment pipeline, rather than being configured by hand through a console. From a security standpoint, which of the following is the primary benefit of this Infrastructure as Code (IaC) approach?",
+      "prompt": "A DevOps team maintains their entire cloud environment's configuration in a version-controlled repository, and any change to a server or network setting is made by editing and re-applying that code rather than logging into individual systems to make the change by hand. From a security standpoint, which of the following is the primary benefit of this Infrastructure as Code (IaC) approach?",
       "explanation": "Because IaC templates are version-controlled and peer-reviewed like any other code, security-relevant configuration can be tested and reapplied consistently across environments, reducing configuration drift and the human error that comes with manual, one-off changes.",
       "options": [
         {
@@ -1464,23 +1464,23 @@
       "topicId": "security-architecture",
       "difficulty": "medium",
       "prompt": "An organization's primary data center suffers a catastrophic failure. Arrange the following disaster recovery steps in the correct order, from first to last.",
-      "explanation": "A sound disaster recovery process first confirms and declares the disaster, fails operations over to a redundant site, restores or verifies the data needed there, validates that everything actually works before relying on it, and only then communicates that normal operations have resumed.",
+      "explanation": "A sound disaster recovery process first confirms and declares the disaster, then confirms the DR site's data is current and ready before cutting production traffic over to it — pointing users at a site whose data has not yet been confirmed ready is not defensible — then fails traffic over to that verified site, then runs application-level tests to confirm everything actually works correctly for end users now that they are relying on it, and only then communicates that normal operations have resumed.",
       "items": [
         {
           "id": "o-declare",
           "text": "Detect the outage and formally declare a disaster, activating the disaster recovery plan"
         },
         {
+          "id": "o-restore",
+          "text": "Confirm the DR site's infrastructure is online and that its replicated data set is current and intact, ready to serve production traffic"
+        },
+        {
           "id": "o-failover",
           "text": "Fail over application and network traffic to the redundant secondary (DR) site"
         },
         {
-          "id": "o-restore",
-          "text": "Restore or verify the most recent backup or replicated data set at the DR site"
-        },
-        {
           "id": "o-validate",
-          "text": "Validate data integrity and confirm that applications are functioning correctly at the DR site"
+          "text": "Run application-level tests to confirm that applications are functioning correctly for end users now that traffic is running from the DR site"
         },
         {
           "id": "o-notify",
@@ -1489,8 +1489,8 @@
       ],
       "correctOrder": [
         "o-declare",
-        "o-failover",
         "o-restore",
+        "o-failover",
         "o-validate",
         "o-notify"
       ]
@@ -2722,32 +2722,32 @@
       "type": "single",
       "topicId": "governance-risk-compliance",
       "difficulty": "medium",
-      "prompt": "A hospital's patient-scheduling system is fully backed up every 8 hours. If the system fails immediately before the next scheduled backup, the hospital could lose up to 8 hours of newly entered scheduling data. Which metric does this 8-hour figure represent?",
-      "explanation": "Recovery point objective (RPO) is the maximum acceptable amount of data loss, measured as a period of time, based on how far back the most recent recoverable backup or copy of the data goes — distinct from RTO, which concerns downtime rather than data loss.",
+      "prompt": "A regional retail chain's risk team estimates that a point-of-sale system outage costs the company $30,000 in lost sales each time it occurs (single loss expectancy, or SLE), and that this type of outage happens about 4 times per year (annualized rate of occurrence, or ARO). What is the annualized loss expectancy (ALE) for this risk?",
+      "explanation": "Annualized loss expectancy is calculated as SLE × ARO (single loss expectancy multiplied by annualized rate of occurrence). Here, $30,000 × 4 = $120,000 per year, which quantifies the expected yearly cost of this risk for use in cost-justifying controls.",
       "options": [
         {
           "id": "a",
-          "text": "Recovery point objective (RPO)",
+          "text": "$120,000",
           "correct": true,
-          "explanation": "Correct. RPO measures the maximum acceptable data loss window, driven here by the 8-hour backup interval."
+          "explanation": "Correct. $30,000 SLE × 4 ARO = $120,000 ALE."
         },
         {
           "id": "b",
-          "text": "Recovery time objective (RTO)",
+          "text": "$30,000",
           "correct": false,
-          "explanation": "RTO measures how long a system may remain down before restoration, not how much data could be lost since the last backup."
+          "explanation": "This is just the single loss expectancy (SLE) for one occurrence; it doesn't account for the annualized rate of occurrence."
         },
         {
           "id": "c",
-          "text": "Mean time between failures (MTBF)",
+          "text": "$7,500",
           "correct": false,
-          "explanation": "MTBF measures the average operating time between one failure and the next; it is unrelated to a backup-driven data-loss window."
+          "explanation": "This would result from dividing rather than multiplying SLE by ARO, which is not how ALE is calculated."
         },
         {
           "id": "d",
-          "text": "Annualized rate of occurrence (ARO)",
+          "text": "$34,000",
           "correct": false,
-          "explanation": "ARO estimates how often a risk event is expected to occur per year; it does not describe a data-loss window tied to backup frequency."
+          "explanation": "This does not match the correct calculation of SLE ($30,000) multiplied by ARO (4); it appears to add the two figures instead."
         }
       ]
     },
