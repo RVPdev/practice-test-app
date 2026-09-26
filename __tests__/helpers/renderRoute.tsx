@@ -2,23 +2,26 @@ import type React from 'react';
 import { Stack } from 'expo-router';
 import { renderRouter, type RenderRouterOptions } from 'expo-router/testing-library';
 import { RepositoryProvider } from '@/data/RepositoryProvider';
-import { createMemoryKv } from '@/data/kv';
+import { createMemoryKv, type KVStore } from '@/data/kv';
 import type { Repository } from '@/data/repository';
 import { createStorageRepository } from '@/data/storage';
 import { ConfirmProvider } from '@/ui/ConfirmProvider';
+import { ThemeModeProvider } from '@/ui/ThemeModeProvider';
 
 /** A fresh repository backed by an in-memory KV store, isolated per test. */
 export function createTestRepository(): Repository {
   return createStorageRepository(createMemoryKv());
 }
 
-function testRootLayout(repository: Repository) {
+function testRootLayout(repository: Repository, themeStore: KVStore) {
   return function TestRootLayout() {
     return (
       <RepositoryProvider repository={repository}>
-        <ConfirmProvider>
-          <Stack />
-        </ConfirmProvider>
+        <ThemeModeProvider store={themeStore}>
+          <ConfirmProvider>
+            <Stack />
+          </ConfirmProvider>
+        </ThemeModeProvider>
       </RepositoryProvider>
     );
   };
@@ -54,14 +57,19 @@ function testRootLayout(repository: Repository) {
  * `rootSettings` becomes the test root layout's `unstable_settings` - pass the
  * real `app/_layout`'s export to test behavior that depends on it (e.g. the
  * stack anchor under a deep-linked screen).
+ *
+ * `themeStore` backs the test layout's `ThemeModeProvider`; defaults to a
+ * fresh in-memory store per call so existing callers that don't pass it stay
+ * isolated exactly as before.
  */
 export async function renderAppRoute(
   repository: Repository,
   routes: Record<string, React.ComponentType>,
   options: RenderRouterOptions = {},
   rootSettings?: Record<string, unknown>,
+  themeStore: KVStore = createMemoryKv(),
 ) {
-  const _layout = { default: testRootLayout(repository), unstable_settings: rootSettings };
+  const _layout = { default: testRootLayout(repository, themeStore), unstable_settings: rootSettings };
   const pending = renderRouter({ ...routes, _layout }, options);
   const result = await pending;
   return Object.assign(result, {
