@@ -16,7 +16,10 @@ type Loaded = { state: SessionState; set: QuestionSet };
 function reducer(loaded: Loaded | null, action: SessionAction | { type: 'LOAD'; loaded: Loaded }) {
   if (action.type === 'LOAD') return action.loaded;
   if (!loaded) return loaded;
-  return { ...loaded, state: sessionReducer(loaded.state, action) };
+  // Keep the same object for a no-op (e.g. every non-expiring TICK) so React bails out;
+  // a fresh one would re-run the timer effect, which ticks again, forever.
+  const state = sessionReducer(loaded.state, action);
+  return state === loaded.state ? loaded : { ...loaded, state };
 }
 
 export function useSessionRunner() {

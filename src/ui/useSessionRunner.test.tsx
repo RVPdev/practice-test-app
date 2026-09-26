@@ -1,9 +1,10 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it, jest } from '@jest/globals';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
 import { resolveRunConfig } from '@/core/config';
 import type { QuestionSet } from '@/core/schema';
 import { startSession } from '@/core/session';
+import type { RunMode } from '@/core/types';
 import { RepositoryProvider } from '@/data/RepositoryProvider';
 import { createMemoryKv } from '@/data/kv';
 import { createStorageRepository } from '@/data/storage';
@@ -19,11 +20,12 @@ const set: QuestionSet = {
   ],
 };
 
-async function harness() {
+async function harness(mode: RunMode = 'practice') {
   const repository = createStorageRepository(createMemoryKv());
   await repository.saveSet(set, 'imported');
-  const config = resolveRunConfig(set, 'practice', undefined, 7);
-  const session = startSession(set, 'practice', config, Date.now());
+  const overrides = mode === 'mock' ? { timeLimitMinutes: 90 } : undefined;
+  const config = resolveRunConfig(set, mode, overrides, 7);
+  const session = startSession(set, mode, config, Date.now());
   await repository.saveInProgress(session);
 
   const wrapper = ({ children }: { children: ReactNode }) => (
@@ -69,6 +71,20 @@ describe('useSessionRunner', () => {
     const attempts = await repository.listAttempts('set-1');
     expect(attempts).toHaveLength(1);
     expect(attempts[0].answers).toHaveLength(2);
+  });
+
+  // A timed session's clock must not feed back into itself: a no-op TICK used to hand
+  // back a fresh object, re-running the timer effect, which ticked again, forever.
+  it('settles once a timed mock session has loaded', async () => {
+    const { repository, wrapper } = await harness('mock');
+    const saveInProgress = jest.spyOn(repository, 'saveInProgress');
+    const { result } = await renderHook(() => useSessionRunner(), { wrapper });
+    await waitFor(() => expect(result.current.loading).toBe(false));
+    expect(result.current.remaining).not.toBeNull();
+
+    const settled = saveInProgress.mock.calls.length;
+    await act(async () => new Promise((resolve) => setTimeout(resolve, 50)));
+    expect(saveInProgress.mock.calls.length).toBe(settled);
   });
 
   // The results screen navigates on this id and immediately reads the attempt back, so
