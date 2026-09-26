@@ -54,11 +54,9 @@ export function useSessionRunner() {
   }, [loaded, repository]);
 
   // The clock is derived from the absolute deadline, never from a counter.
+  const timed = !!loaded?.state.deadlineAt && loaded.state.status === 'active';
   useEffect(() => {
-    if (!loaded?.state.deadlineAt || loaded.state.status !== 'active') {
-      setRemaining(null);
-      return;
-    }
+    if (!loaded || !timed) return;
     const tick = () => {
       const now = Date.now();
       setRemaining(remainingMs(loaded.state, now));
@@ -67,7 +65,7 @@ export function useSessionRunner() {
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, [loaded]);
+  }, [loaded, timed]);
 
   const finish = useCallback(
     async (state: SessionState, set: QuestionSet) => {
@@ -113,7 +111,7 @@ export function useSessionRunner() {
     question,
     optionOrder,
     itemOrder,
-    remaining,
+    remaining: timed ? remaining : null,
     finishedAttemptId,
     answer: (response: string[]) => {
       if (question) dispatch({ type: 'ANSWER', questionId: question.id, response });

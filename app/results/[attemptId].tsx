@@ -12,9 +12,15 @@ export default function ResultsScreen() {
   const { attemptId } = useLocalSearchParams<{ attemptId: string }>();
   const repository = useRepository();
   const router = useRouter();
-  const [attempt, setAttempt] = useState<Attempt | null>(null);
-  const [set, setSet] = useState<QuestionSet | null>(null);
-  const [loading, setLoading] = useState(true);
+  // Tagged with the id it was loaded for, so "loading" is derived rather than reset by hand.
+  const [loaded, setLoaded] = useState<{
+    attemptId: string;
+    attempt: Attempt | null;
+    set: QuestionSet | null;
+  } | null>(null);
+  const loading = loaded?.attemptId !== attemptId;
+  const attempt = loaded?.attempt ?? null;
+  const set = loaded?.set ?? null;
 
   const goHome = () => {
     // Only dismiss if there's a dismissable stack; otherwise navigate home directly.
@@ -27,14 +33,11 @@ export default function ResultsScreen() {
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
     (async () => {
       const loadedAttempt = await repository.getAttempt(attemptId);
       const loadedSet = loadedAttempt ? await repository.getSet(loadedAttempt.setId) : null;
       if (cancelled) return;
-      setAttempt(loadedAttempt);
-      setSet(loadedSet);
-      setLoading(false);
+      setLoaded({ attemptId, attempt: loadedAttempt, set: loadedSet });
     })();
     return () => {
       cancelled = true;
