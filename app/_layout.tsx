@@ -8,10 +8,18 @@ import { RepositoryProvider } from '@/data/RepositoryProvider';
 import { ThemeModeProvider } from '@/ui/ThemeModeProvider';
 import { useTheme } from '@/ui/theme';
 
+// A screen opened straight at its own URL (browser refresh, a reloaded background
+// tab, a shared link) would otherwise be alone in the stack, so its back arrow and
+// every router.back() had nothing to return to. Keep the tabs underneath it.
 export const unstable_settings = {
   anchor: '(tabs)',
 };
 
+// react-navigation's web renderer marks the outgoing screen aria-hidden as
+// soon as a route changes, but never blurs whatever element still has DOM
+// focus inside it (e.g. the button that was pressed to trigger the
+// navigation) - Chrome then warns "Blocked aria-hidden on an element
+// because its descendant retained focus". Do the blur ourselves.
 function useBlurOnNavigateWeb() {
   const pathname = usePathname();
   useLayoutEffect(() => {
