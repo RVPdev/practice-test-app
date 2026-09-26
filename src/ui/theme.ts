@@ -24,11 +24,18 @@ export type Theme = {
   textMuted: string;
   accent: string;
   accentText: string;
+  highlight: string;
+  highlightText: string;
   positive: string;
   positiveSurface: string;
   negative: string;
   negativeSurface: string;
 };
+
+export const shadows = {
+  card: '0 1px 2px rgba(0, 0, 0, 0.06)',
+  raised: '0 4px 12px rgba(0, 0, 0, 0.12)',
+} as const;
 
 export const lightTheme: Theme = {
   background: '#f6f7f9',
@@ -37,8 +44,10 @@ export const lightTheme: Theme = {
   border: '#d9dde4',
   text: '#12161c',
   textMuted: '#5d6472',
-  accent: '#2f5bd7',
+  accent: '#1e3a5f',
   accentText: '#ffffff',
+  highlight: '#c2760c',
+  highlightText: '#ffffff',
   positive: '#1c7a4a',
   positiveSurface: '#e4f4ea',
   negative: '#b3261e',
@@ -52,8 +61,10 @@ export const darkTheme: Theme = {
   border: '#2d333c',
   text: '#f2f4f7',
   textMuted: '#a2abb8',
-  accent: '#6d92f5',
-  accentText: '#0f1216',
+  accent: '#3a5d8a',
+  accentText: '#ffffff',
+  highlight: '#f0a839',
+  highlightText: '#1e1b4b',
   positive: '#5fd39b',
   positiveSurface: '#123526',
   negative: '#ff8a80',
