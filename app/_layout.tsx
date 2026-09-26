@@ -43,7 +43,7 @@ export default function RootLayout() {
                 contentStyle: { backgroundColor: theme.background },
               }}
             >
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'Library' }} />
               <Stack.Screen name="set/[setId]" options={{ title: 'Set' }} />
               <Stack.Screen name="session/[attemptId]" options={{ title: 'Session', headerBackVisible: false }} />
               <Stack.Screen name="results/[attemptId]" options={{ title: 'Results' }} />
