@@ -50,7 +50,7 @@ describe('SettingsView', () => {
     );
     await waitFor(() => expect(screen.getByTestId('theme-mode-dark')).toBeTruthy());
 
-    fireEvent.press(screen.getByTestId('theme-mode-dark'));
+    await fireEvent.press(screen.getByTestId('theme-mode-dark'));
 
     await waitFor(async () => expect(await store.getItem(THEME_MODE_KEY)).toBe('dark'));
     const activeLabel = await screen.findByText('Dark');

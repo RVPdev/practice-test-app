@@ -3,8 +3,13 @@ import { afterEach, describe, expect, it, jest } from '@jest/globals';
 // Scoped to this file only: theme.ts's default (system) path calls the real
 // useColorScheme, whose Jest default is untested/implicit. Pin it to a known
 // value so the "system" and "no provider" cases are deterministic instead of
-// depending on that default. jest.mock calls are hoisted above the imports
-// above by babel-plugin-jest-hoist, so this applies before theme.ts loads.
+// depending on that default.
+//
+// This is a Proxy, not a simple `{ ...jest.requireActual('react-native'), useColorScheme: ... }`
+// spread, because the spread eagerly evaluates every export on module load -
+// including native-backed getters (e.g. DevMenu) that crash under Jest when
+// touched outside a real native runtime. The Proxy only forwards the actual
+// module lazily, on first access to a property other than useColorScheme.
 jest.mock('react-native', () => {
   let actual: any;
   return new Proxy(

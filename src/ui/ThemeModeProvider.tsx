@@ -53,11 +53,15 @@ export function ThemeModeProvider({
 
   useEffect(() => {
     let cancelled = false;
-    kv.getItem(THEME_MODE_KEY).then((stored) => {
-      if (cancelled) return;
-      if (isThemeMode(stored)) setModeState(stored);
-      setReady(true);
-    });
+    kv.getItem(THEME_MODE_KEY)
+      .then((stored) => {
+        if (cancelled) return;
+        if (isThemeMode(stored)) setModeState(stored);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setReady(true);
+      });
     return () => {
       cancelled = true;
     };
@@ -66,7 +70,7 @@ export function ThemeModeProvider({
   const setMode = useCallback(
     (next: ThemeMode) => {
       setModeState(next);
-      void kv.setItem(THEME_MODE_KEY, next);
+      kv.setItem(THEME_MODE_KEY, next).catch(() => {});
     },
     [kv],
   );

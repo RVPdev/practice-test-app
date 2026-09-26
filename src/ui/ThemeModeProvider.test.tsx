@@ -67,7 +67,7 @@ describe('ThemeModeProvider', () => {
     );
     await waitFor(() => expect(screen.getByTestId('mode').props.children).toBe('system'));
 
-    fireEvent.press(screen.getByTestId('set-dark'));
+    await fireEvent.press(screen.getByTestId('set-dark'));
 
     await waitFor(() => expect(screen.getByTestId('mode').props.children).toBe('dark'));
     expect(await store.getItem(THEME_MODE_KEY)).toBe('dark');
@@ -82,10 +82,10 @@ describe('ThemeModeProvider', () => {
     );
     await waitFor(() => expect(screen.getByTestId('mode').props.children).toBe('system'));
 
-    fireEvent.press(screen.getByTestId('set-dark'));
-    fireEvent.press(screen.getByTestId('set-light'));
-    fireEvent.press(screen.getByTestId('set-system'));
-    fireEvent.press(screen.getByTestId('set-dark'));
+    await fireEvent.press(screen.getByTestId('set-dark'));
+    await fireEvent.press(screen.getByTestId('set-light'));
+    await fireEvent.press(screen.getByTestId('set-system'));
+    await fireEvent.press(screen.getByTestId('set-dark'));
 
     await waitFor(() => expect(screen.getByTestId('mode').props.children).toBe('dark'));
     expect(await store.getItem(THEME_MODE_KEY)).toBe('dark');
