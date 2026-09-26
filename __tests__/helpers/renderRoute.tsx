@@ -50,13 +50,19 @@ function testRootLayout(repository: Repository) {
  * every *subsequent* test in the file - later renders silently mount to a
  * null tree. If a test needs to inspect two different routes, split it into
  * two `it()` blocks instead.
+ *
+ * `rootSettings` becomes the test root layout's `unstable_settings` - pass the
+ * real `app/_layout`'s export to test behavior that depends on it (e.g. the
+ * stack anchor under a deep-linked screen).
  */
 export async function renderAppRoute(
   repository: Repository,
   routes: Record<string, React.ComponentType>,
   options: RenderRouterOptions = {},
+  rootSettings?: Record<string, unknown>,
 ) {
-  const pending = renderRouter({ ...routes, _layout: testRootLayout(repository) }, options);
+  const _layout = { default: testRootLayout(repository), unstable_settings: rootSettings };
+  const pending = renderRouter({ ...routes, _layout }, options);
   const result = await pending;
   return Object.assign(result, {
     getPathname: pending.getPathname,
