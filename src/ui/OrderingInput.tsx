@@ -69,9 +69,12 @@ export function OrderingInput({
   // result once a drag ends.
   const orderRef = useSharedValue<string[]>(order);
   const orderKey = order.join('|');
+  // Keyed on content, not identity: `order` is a fresh array on most renders (e.g. the
+  // mock timer's tick), and re-syncing then would snap back a row mid-drag.
   useEffect(() => {
-    orderRef.value = order;
-  }, [orderKey]);
+    orderRef.set(order);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orderKey, orderRef]);
 
   return (
     <View style={{ height: order.length * ROW_HEIGHT, marginTop: spacing.sm }}>
@@ -133,14 +136,14 @@ function Row({
   const startY = useSharedValue(0);
 
   useAnimatedReaction(
-    () => orderRef.value.indexOf(id),
+    () => orderRef.get().indexOf(id),
     (current, previous) => {
       // -1 means this row's id isn't in orderRef yet (a fresh mount, still holding the
       // previous question's order for one tick before the sync effect catches up) - do
       // not spring to a nonsense position for that transient state.
       if (current < 0) return;
-      if (current !== previous && !isDragging.value) {
-        translateY.value = withSpring(current * ROW_HEIGHT);
+      if (current !== previous && !isDragging.get()) {
+        translateY.set(withSpring(current * ROW_HEIGHT));
       }
     },
   );
@@ -148,37 +151,37 @@ function Row({
   const pan = Gesture.Pan()
     .enabled(!disabled)
     .onStart(() => {
-      isDragging.value = true;
-      startY.value = translateY.value;
+      isDragging.set(true);
+      startY.set(translateY.get());
     })
     .onUpdate((event) => {
-      translateY.value = startY.value + event.translationY;
-      const currentIndex = orderRef.value.indexOf(id);
+      translateY.set(startY.get() + event.translationY);
+      const currentIndex = orderRef.get().indexOf(id);
       const targetIndex = clamp(
-        Math.round(translateY.value / ROW_HEIGHT),
+        Math.round(translateY.get() / ROW_HEIGHT),
         0,
-        orderRef.value.length - 1,
+        orderRef.get().length - 1,
       );
       if (targetIndex !== currentIndex) {
-        orderRef.value = reorder(orderRef.value, currentIndex, targetIndex);
+        orderRef.set(reorder(orderRef.get(), currentIndex, targetIndex));
       }
     })
     .onEnd(() => {
-      isDragging.value = false;
-      const finalIndex = orderRef.value.indexOf(id);
-      translateY.value = withSpring(finalIndex * ROW_HEIGHT);
-      runOnJS(onChange)(orderRef.value);
+      isDragging.set(false);
+      const finalIndex = orderRef.get().indexOf(id);
+      translateY.set(withSpring(finalIndex * ROW_HEIGHT));
+      runOnJS(onChange)(orderRef.get());
     });
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: translateY.value }, { scale: isDragging.value ? 1.03 : 1 }],
-    zIndex: isDragging.value ? 1 : 0,
-    elevation: isDragging.value ? 4 : 0,
+    transform: [{ translateY: translateY.get() }, { scale: isDragging.get() ? 1.03 : 1 }],
+    zIndex: isDragging.get() ? 1 : 0,
+    elevation: isDragging.get() ? 4 : 0,
     // react-native-web deprecated the shadow* style props in favor of the CSS `boxShadow`
     // shorthand; native platforms still need shadow*.
     ...(IS_WEB
-      ? { boxShadow: isDragging.value ? '0px 4px 8px rgba(0, 0, 0, 0.2)' : 'none' }
-      : { shadowOpacity: isDragging.value ? 0.2 : 0, shadowRadius: 8 }),
+      ? { boxShadow: isDragging.get() ? '0px 4px 8px rgba(0, 0, 0, 0.2)' : 'none' }
+      : { shadowOpacity: isDragging.get() ? 0.2 : 0, shadowRadius: 8 }),
   }));
 
   return (
