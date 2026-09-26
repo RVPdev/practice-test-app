@@ -51,6 +51,18 @@ describe('MatchingInput', () => {
     expect(screen.getByTestId('left-l2').props.accessibilityLabel).toContain('incorrect');
   });
 
+  // A role-less View's label is ignored by screen readers on web (ARIA forbids naming a
+  // generic element), which hid the pairing state and the correct/incorrect verdict.
+  it('exposes each slot as a named group so its pairing state is announced', async () => {
+    await render(
+      <MatchingInput question={question} response={['l1:r1']} revealed={false} onChange={() => {}} />,
+    );
+    expect(
+      screen.getByRole('group', { name: 'Latency, paired with Time for one request' }),
+    ).toBeTruthy();
+    expect(screen.getByRole('group', { name: 'Throughput, not paired' })).toBeTruthy();
+  });
+
   it('disables dragging once revealed', async () => {
     await render(
       <MatchingInput question={question} response={['l1:r1']} revealed onChange={() => {}} />,

@@ -90,6 +90,9 @@ export function MatchingInput({
               onLayout={() => measureSlot(item.id)}
               testID={`left-${item.id}`}
               accessible
+              // Without a role, react-native-web renders a generic div, whose label screen
+              // readers ignore - taking "paired with…"/"correct" with it.
+              role="group"
               accessibilityLabel={label}
               accessibilityState={{ disabled: revealed }}
               style={{
