@@ -1,4 +1,5 @@
 import { useColorScheme } from 'react-native';
+import { useThemeMode } from './ThemeModeProvider';
 
 export const spacing = { xs: 4, sm: 8, md: 16, lg: 24, xl: 32 } as const;
 export const radius = { sm: 8, md: 12, lg: 20, pill: 999 } as const;
@@ -60,5 +61,8 @@ export const darkTheme: Theme = {
 };
 
 export function useTheme(): Theme {
-  return useColorScheme() === 'dark' ? darkTheme : lightTheme;
+  const { mode } = useThemeMode();
+  const scheme = useColorScheme();
+  const effective = mode === 'system' ? scheme : mode;
+  return effective === 'dark' ? darkTheme : lightTheme;
 }

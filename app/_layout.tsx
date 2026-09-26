@@ -5,6 +5,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ConsentGate } from '@/ui/ConsentGate';
 import { ConfirmProvider } from '@/ui/ConfirmProvider';
 import { RepositoryProvider } from '@/data/RepositoryProvider';
+import { ThemeModeProvider } from '@/ui/ThemeModeProvider';
 import { useTheme } from '@/ui/theme';
 
 // A screen opened straight at its own URL (browser refresh, a reloaded background
@@ -27,7 +28,7 @@ function useBlurOnNavigateWeb() {
   }, [pathname]);
 }
 
-export default function RootLayout() {
+function AppRoot() {
   useBlurOnNavigateWeb();
   const theme = useTheme();
   return (
@@ -55,5 +56,13 @@ export default function RootLayout() {
         </ConfirmProvider>
       </RepositoryProvider>
     </GestureHandlerRootView>
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <ThemeModeProvider>
+      <AppRoot />
+    </ThemeModeProvider>
   );
 }
