@@ -1,7 +1,7 @@
 import type { QuestionSet } from '@/core/schema';
 import type { Attempt, SessionState } from '@/core/types';
 import type { KVStore } from './kv';
-import type { Repository, SaveMode, SetSource, SetSummary } from './repository';
+import type { Repository, SetSource, SetSummary } from './repository';
 
 export const KEY_PREFIX = 'pt:';
 

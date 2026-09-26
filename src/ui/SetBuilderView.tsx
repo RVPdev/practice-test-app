@@ -1,7 +1,7 @@
 // src/ui/SetBuilderView.tsx
 import { useState } from 'react';
 import { Switch, Text, TextInput, View } from 'react-native';
-import type { Question, QuestionSet, QuestionType, Topic } from '@/core/schema';
+import type { Question, QuestionSet, QuestionType } from '@/core/schema';
 import type { ValidationError } from '@/core/validate';
 import { DEFAULT_EXAM } from '@/core/config';
 import { makeSetId, nextSequentialId, uniqueSlug } from '@/core/id';
