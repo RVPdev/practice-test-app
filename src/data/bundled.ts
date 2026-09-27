@@ -3,11 +3,26 @@ import type { Repository } from './repository';
 import cloudBasics from '../../assets/sets/sample-cloud-basics.json';
 import allTypes from '../../assets/sets/sample-all-types.json';
 import comptiaCore1 from '../../content/comptia-a-plus-core-1.json';
+import comptiaCore2 from '../../content/comptia-a-plus-core-2.json';
+import comptiaCore2Vol2 from '../../content/comptia-a-plus-core-2-220-1202-vol2.json';
+import comptiaSecurityPlus from '../../content/comptia-security-plus-sy0-701.json';
+import comptiaSecurityPlusVol2 from '../../content/comptia-security-plus-sy0-701-vol2.json';
 import quickCore2 from '../../content/quick-comptia-a-plus-core-2.json';
 import quickSecurityPlus from '../../content/quick-comptia-security-plus.json';
 import quickNetworkPlus from '../../content/quick-comptia-network-plus.json';
 
-export const BUNDLED_SETS: unknown[] = [cloudBasics, allTypes, comptiaCore1, quickCore2, quickSecurityPlus, quickNetworkPlus];
+export const BUNDLED_SETS: unknown[] = [
+  cloudBasics,
+  allTypes,
+  comptiaCore1,
+  comptiaCore2,
+  comptiaCore2Vol2,
+  comptiaSecurityPlus,
+  comptiaSecurityPlusVol2,
+  quickCore2,
+  quickSecurityPlus,
+  quickNetworkPlus,
+];
 
 /**
  * Writes every bundled set into the repository. Re-running replaces the set
