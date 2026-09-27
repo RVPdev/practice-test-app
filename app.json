@@ -37,7 +37,7 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true,
-      "baseUrl": "/practice-test-app"
+      "baseUrl": "/practice-test-app/app"
     }
   }
 }
