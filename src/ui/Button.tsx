@@ -23,6 +23,9 @@ export function Button({
     <Pressable
       accessibilityRole="button"
       accessibilityState={{ disabled }}
+      // accessibilityState.selected is a native-only translation - react-native-web's
+      // createDOMProps only reads the flat aria-selected prop, never the object form.
+      aria-selected={variant === 'highlight'}
       testID={testID}
       disabled={disabled}
       onPress={onPress}

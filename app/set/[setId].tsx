@@ -1,4 +1,4 @@
-import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
+import { Redirect, useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Text } from 'react-native';
 import { resolveRunConfig } from '@/core/config';
@@ -18,7 +18,9 @@ export default function SetDetailScreen() {
   const repository = useRepository();
   const router = useRouter();
   const confirm = useConfirm();
-  const [set, setSet] = useState<QuestionSet | null>(null);
+  // undefined = still loading, null = confirmed not to exist (a stale/bad set id) -
+  // collapsing these into one falsy value left an unmatched id stuck on "Loading…" forever.
+  const [set, setSet] = useState<QuestionSet | null | undefined>(undefined);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [deletable, setDeletable] = useState(false);
   const [source, setSource] = useState<SetSource | null>(null);
@@ -44,12 +46,16 @@ export default function SetDetailScreen() {
     }, [repository, setId]),
   );
 
-  if (!set) {
+  if (set === undefined) {
     return (
       <Screen>
         <Text>Loading…</Text>
       </Screen>
     );
+  }
+
+  if (set === null) {
+    return <Redirect href="/" />;
   }
 
   const start = async (mode: RunMode, overrides: RunOverrides) => {
