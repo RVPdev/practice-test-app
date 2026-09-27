@@ -5,12 +5,15 @@ import { lightTheme } from '@/ui/theme';
 let capturedScreenOptions: Record<string, unknown> | undefined;
 
 jest.mock('expo-router', () => {
-  const actual = jest.requireActual('expo-router');
+  const actual = jest.requireActual<Record<string, unknown>>('expo-router');
   function MockTabs(props: { screenOptions?: Record<string, unknown> }) {
     capturedScreenOptions = props.screenOptions;
     return null;
   }
-  MockTabs.Screen = () => null;
+  function MockTabsScreen() {
+    return null;
+  }
+  MockTabs.Screen = MockTabsScreen;
   return { ...actual, Tabs: MockTabs };
 });
 
