@@ -46,7 +46,7 @@ export const lightTheme: Theme = {
   textMuted: '#5d6472',
   accent: '#1e3a5f',
   accentText: '#ffffff',
-  highlight: '#c2760c',
+  highlight: '#b45309',
   highlightText: '#ffffff',
   positive: '#1c7a4a',
   positiveSurface: '#e4f4ea',

@@ -76,7 +76,7 @@ describe('palette (Phase 2: navy + amber)', () => {
   it('uses navy for the structural accent and amber for the highlight, in both modes', () => {
     expect(lightTheme.accent).toBe('#1e3a5f');
     expect(lightTheme.accentText).toBe('#ffffff');
-    expect(lightTheme.highlight).toBe('#c2760c');
+    expect(lightTheme.highlight).toBe('#b45309');
     expect(lightTheme.highlightText).toBe('#ffffff');
 
     expect(darkTheme.accent).toBe('#3a5d8a');
