@@ -25,15 +25,22 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx expo export -p web
-      # web.output: "static" only emits HTML for routes known at build time, so a
-      # hard refresh or direct link to a runtime-only route (a user-created set,
-      # a session/results attempt id) has no matching file on a plain static
-      # host. Falling back to the app shell on 404 lets the client-side router
-      # take over and render the right screen from the real URL.
-      - run: cp dist/index.html dist/404.html
+      # The landing page lives at the site root; the app moves under /app
+      # (app.json's baseUrl). web.output: "static" only emits HTML for
+      # routes known at build time, so a hard refresh or direct link to a
+      # runtime-only route (a user-created set, a session/results attempt
+      # id) has no matching file — falling back to the app shell on 404
+      # lets the client-side router take over and render the right screen.
+      - name: Assemble site (landing page at root, app under /app)
+        run: |
+          mkdir -p site
+          cp -r dist site/app
+          cp site/app/index.html site/app/404.html
+          cp web/landing.html site/index.html
+          cp site/app/index.html site/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
   deploy:
     needs: build
