@@ -33,7 +33,7 @@ import { cleanup, render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
 import { createMemoryKv } from '@/data/kv';
 import { KEY_PREFIX } from '@/data/storage';
-import { darkTheme, lightTheme, shadows, useTheme } from './theme';
+import { darkTheme, lightTheme, shadows, type, useTheme } from './theme';
 import { ThemeModeProvider } from './ThemeModeProvider';
 
 afterEach(() => {
@@ -90,6 +90,18 @@ describe('palette (Phase 2: navy + amber)', () => {
     expect(lightTheme.negative).toBe('#b3261e');
     expect(darkTheme.positive).toBe('#5fd39b');
     expect(darkTheme.negative).toBe('#ff8a80');
+  });
+});
+
+describe('type scale', () => {
+  it('uses Sora for headings and Inter for body text, via loaded font files rather than a synthesized weight', () => {
+    expect(type.title).toMatchObject({ fontFamily: 'Sora_700Bold' });
+    expect(type.heading).toMatchObject({ fontFamily: 'Sora_600SemiBold' });
+    expect(type.body).toMatchObject({ fontFamily: 'Inter_400Regular' });
+    expect(type.label).toMatchObject({ fontFamily: 'Inter_600SemiBold' });
+    expect(type.caption).toMatchObject({ fontFamily: 'Inter_400Regular' });
+    expect(type.mono).toMatchObject({ fontFamily: 'Inter_600SemiBold' });
+    expect(type.title).not.toHaveProperty('fontWeight');
   });
 });
 

@@ -5,14 +5,14 @@ export const spacing = { xs: 4, sm: 8, md: 16, lg: 24, xl: 32 } as const;
 export const radius = { sm: 8, md: 12, lg: 20, pill: 999 } as const;
 
 export const type = {
-  title: { fontSize: 26, fontWeight: '700' as const, lineHeight: 32 },
-  heading: { fontSize: 19, fontWeight: '600' as const, lineHeight: 25 },
-  body: { fontSize: 16, fontWeight: '400' as const, lineHeight: 23 },
-  label: { fontSize: 14, fontWeight: '600' as const, lineHeight: 19 },
-  caption: { fontSize: 13, fontWeight: '400' as const, lineHeight: 18 },
+  title: { fontSize: 26, fontFamily: 'Sora_700Bold', lineHeight: 32 },
+  heading: { fontSize: 19, fontFamily: 'Sora_600SemiBold', lineHeight: 25 },
+  body: { fontSize: 16, fontFamily: 'Inter_400Regular', lineHeight: 23 },
+  label: { fontSize: 14, fontFamily: 'Inter_600SemiBold', lineHeight: 19 },
+  caption: { fontSize: 13, fontFamily: 'Inter_400Regular', lineHeight: 18 },
   // `as const` sits on the element, not the array: React Native's TextStyle wants a
   // mutable `FontVariant[]`, so a `readonly` tuple would not narrow.
-  mono: { fontSize: 18, fontWeight: '600' as const, fontVariant: ['tabular-nums' as const] },
+  mono: { fontSize: 18, fontFamily: 'Inter_600SemiBold', fontVariant: ['tabular-nums' as const] },
 };
 
 export type Theme = {
