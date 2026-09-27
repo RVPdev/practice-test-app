@@ -24,7 +24,7 @@ describe('SettingsView', () => {
     expect(screen.getByTestId('theme-mode-dark')).toBeTruthy();
   });
 
-  it('marks the persisted active mode with the primary-variant text color', async () => {
+  it('marks the persisted active mode with the highlight-variant text color', async () => {
     await render(
       <ThemeModeProvider store={createMemoryKv({ [THEME_MODE_KEY]: 'dark' })}>
         <SettingsView />
@@ -34,7 +34,7 @@ describe('SettingsView', () => {
     const inactiveLabel = screen.getByText('Light');
 
     expect(activeLabel.props.style).toEqual(
-      expect.arrayContaining([expect.objectContaining({ color: darkTheme.accentText })]),
+      expect.arrayContaining([expect.objectContaining({ color: darkTheme.highlightText })]),
     );
     expect(inactiveLabel.props.style).toEqual(
       expect.arrayContaining([expect.objectContaining({ color: darkTheme.text })]),
@@ -55,7 +55,7 @@ describe('SettingsView', () => {
     await waitFor(async () => expect(await store.getItem(THEME_MODE_KEY)).toBe('dark'));
     const activeLabel = await screen.findByText('Dark');
     expect(activeLabel.props.style).toEqual(
-      expect.arrayContaining([expect.objectContaining({ color: darkTheme.accentText })]),
+      expect.arrayContaining([expect.objectContaining({ color: darkTheme.highlightText })]),
     );
   });
 });

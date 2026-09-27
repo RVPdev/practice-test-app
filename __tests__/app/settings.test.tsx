@@ -55,7 +55,7 @@ describe('Settings screen (app/(tabs)/settings.tsx)', () => {
 
     const activeLabel = await view.findByText('Dark');
     expect(activeLabel.props.style).toEqual(
-      expect.arrayContaining([expect.objectContaining({ color: darkTheme.accentText })]),
+      expect.arrayContaining([expect.objectContaining({ color: darkTheme.highlightText })]),
     );
   });
 });

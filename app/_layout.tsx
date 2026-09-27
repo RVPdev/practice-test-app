@@ -43,6 +43,7 @@ function AppRoot() {
               screenOptions={{
                 headerStyle: { backgroundColor: theme.surface },
                 headerTintColor: theme.text,
+                headerTitleStyle: { fontFamily: 'Sora_600SemiBold' },
                 headerShadowVisible: false,
                 contentStyle: { backgroundColor: theme.background },
               }}

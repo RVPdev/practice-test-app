@@ -30,4 +30,14 @@ describe('TabsLayout', () => {
     expect(capturedScreenOptions?.tabBarActiveTintColor).toBe(lightTheme.highlight);
     expect(capturedScreenOptions?.tabBarActiveTintColor).not.toBe(lightTheme.accent);
   });
+
+  it('styles the header title and tab labels with the app fonts', async () => {
+    await render(<TabsLayout />);
+    expect(capturedScreenOptions?.headerTitleStyle).toEqual(
+      expect.objectContaining({ fontFamily: 'Sora_600SemiBold' }),
+    );
+    expect(capturedScreenOptions?.tabBarLabelStyle).toEqual(
+      expect.objectContaining({ fontFamily: 'Inter_600SemiBold' }),
+    );
+  });
 });

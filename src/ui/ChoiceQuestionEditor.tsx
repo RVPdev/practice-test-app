@@ -17,6 +17,7 @@ export function ChoiceQuestionEditor({
   const theme = useTheme();
 
   const inputStyle = {
+    ...type.body,
     borderWidth: 1,
     borderColor: theme.border,
     borderRadius: radius.sm,
@@ -63,13 +64,13 @@ export function ChoiceQuestionEditor({
       <View style={{ flexDirection: 'row', gap: spacing.sm }}>
         <Button
           title="Single answer"
-          variant={question.type === 'single' ? 'primary' : 'secondary'}
+          variant={question.type === 'single' ? 'highlight' : 'secondary'}
           onPress={() => onChange({ ...question, type: 'single' })}
           testID="choice-type-single"
         />
         <Button
           title="Multiple answers"
-          variant={question.type === 'multi' ? 'primary' : 'secondary'}
+          variant={question.type === 'multi' ? 'highlight' : 'secondary'}
           onPress={() => onChange({ ...question, type: 'multi' })}
           testID="choice-type-multi"
         />
