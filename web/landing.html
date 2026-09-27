@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrepLocker</title>
+<meta name="description" content="PrepLocker: privacy-first CompTIA A+, Security+ and Network+ practice exams that run on your device.">
+<link rel="icon" href="./app/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --text:#12161c;
+    --text-muted:#5d6472;
+    --bg:#f6f7f9;
+    --surface:#ffffff;
+    --border:#d9dde4;
+    --navy:#1e3a5f;
+    --navy-text:#ffffff;
+    --amber:#b45309;
+    --amber-tint:#f7e6cc;
+    --good:#1c7a4a;
+    --good-tint:#e4f4ea;
+    --shadow-card:0 1px 2px rgba(0,0,0,0.06);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --text:#f2f4f7;
+      --text-muted:#a2abb8;
+      --bg:#0f1216;
+      --surface:#181c22;
+      --border:#2d333c;
+      --navy:#3a5d8a;
+      --navy-text:#ffffff;
+      --amber:#f0a839;
+      --amber-tint:#3a2a14;
+      --good:#5fd39b;
+      --good-tint:#123526;
+      --shadow-card:0 1px 3px rgba(0,0,0,0.4);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --text:#f2f4f7;
+    --text-muted:#a2abb8;
+    --bg:#0f1216;
+    --surface:#181c22;
+    --border:#2d333c;
+    --navy:#3a5d8a;
+    --navy-text:#ffffff;
+    --amber:#f0a839;
+    --amber-tint:#3a2a14;
+    --good:#5fd39b;
+    --good-tint:#123526;
+    --shadow-card:0 1px 3px rgba(0,0,0,0.4);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Inter", ui-sans-serif, system-ui, sans-serif;
+    line-height:1.55;
+    padding-inline:20px;
+  }
+  .wrap{max-width:1040px;margin-inline:auto;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:"Sora", ui-sans-serif, system-ui, sans-serif;font-weight:700;text-wrap:balance;margin:0;}
+  h2,h3{font-weight:600;}
+  .data{font-family:"Inter", ui-monospace, monospace;font-weight:600;font-variant-numeric:tabular-nums;}
+
+  .badges{display:flex;gap:8px;flex-wrap:wrap;}
+  .badge{
+    font-size:13px;font-weight:600;color:var(--amber);background:var(--amber-tint);
+    padding:5px 11px;border-radius:8px;
+  }
+
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:22px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;font-family:"Sora";}
+  .brand svg{flex:none;color:var(--navy);}
+  nav .navlink{
+    font-size:14px;color:var(--text-muted);text-decoration:none;
+    border:1px solid var(--border);padding:8px 16px;border-radius:8px;
+  }
+
+  .hero{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;
+    padding-block:24px 64px;align-items:center;
+  }
+  .hero h1{font-size:clamp(32px,4.4vw,50px);line-height:1.1;margin-top:18px;}
+  .hero p.lede{
+    font-size:17px;color:var(--text-muted);max-width:46ch;margin-top:18px;
+  }
+  .cta-row{display:flex;gap:14px;align-items:center;margin-top:28px;flex-wrap:wrap;}
+  .btn{
+    font-family:"Inter";font-weight:600;font-size:15px;
+    padding:13px 22px;border-radius:8px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--navy);color:var(--navy-text);}
+  .btn-ghost{border-color:var(--border);color:var(--text);}
+  .fineprint{font-size:13px;color:var(--text-muted);margin-top:12px;}
+
+  .examcard{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:12px;padding:22px;position:relative;
+    box-shadow:var(--shadow-card);
+  }
+  .examcard .code{font-size:12px;color:var(--text-muted);letter-spacing:.02em;}
+  .examcard .q{font-size:15px;margin-top:10px;font-weight:500;}
+  .opt{
+    display:flex;align-items:center;gap:10px;
+    border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-top:9px;font-size:14px;
+  }
+  .opt .box{width:15px;height:15px;border:1.5px solid var(--text-muted);border-radius:4px;flex:none;}
+  .opt.correct{border-color:var(--good);background:var(--good-tint);}
+  .opt.correct .box{border-color:var(--good);background:var(--good);}
+  .scorewrap{
+    display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--border);
+  }
+  .ring{width:52px;height:52px;flex:none;}
+  .scorewrap .num{font-size:20px;}
+  .scorewrap .lbl{font-size:12.5px;color:var(--text-muted);}
+  .examcard .lockbadge{
+    position:absolute;top:-11px;right:18px;background:var(--amber-tint);color:var(--amber);
+    font-size:11px;font-weight:600;padding:5px 10px;border-radius:8px;
+    display:flex;align-items:center;gap:6px;
+  }
+
+  section{padding-block:56px;border-top:1px solid var(--border);}
+  section h2{font-size:clamp(24px,3vw,32px);max-width:28ch;}
+  section p.section-lede{color:var(--text-muted);max-width:60ch;margin-top:14px;font-size:15.5px;}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:32px;border-radius:12px;overflow:hidden;}
+  .pillar{background:var(--surface);padding:26px 22px;}
+  .pillar h3{font-size:17px;}
+  .pillar p{font-size:14px;color:var(--text-muted);margin-top:8px;}
+
+  .pricelist{margin-top:30px;border-top:1px solid var(--border);}
+  .price-row{
+    display:flex;align-items:baseline;justify-content:space-between;
+    padding:18px 0;border-bottom:1px solid var(--border);gap:20px;
+  }
+  .price-row .name{font-size:16px;font-weight:500;}
+  .price-row .tag{font-size:12px;color:var(--text-muted);display:block;margin-top:3px;}
+  .price-row .amount{font-size:18px;font-weight:600;white-space:nowrap;}
+  .price-row .amount.free{color:var(--good);}
+  .price-row .amount.soon{color:var(--text-muted);font-weight:500;}
+  .price-note{margin-top:18px;font-size:14px;color:var(--text-muted);}
+
+  details{border-bottom:1px solid var(--border);padding-block:16px;}
+  details summary{
+    cursor:pointer;font-weight:500;font-size:15.5px;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{content:"+";color:var(--text-muted);font-size:18px;flex:none;font-weight:400;}
+  details[open] summary::after{content:"\2013";}
+  details p{margin:12px 0 2px;font-size:14.5px;color:var(--text-muted);max-width:64ch;}
+
+  .closing{
+    text-align:center;padding-block:64px;
+  }
+  .closing h2{margin-inline:auto;}
+  .closing .cta-row{justify-content:center;}
+
+  footer.wrap{
+    border-top:1px solid var(--border);padding-block:26px;
+    font-size:13px;color:var(--text-muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;padding-block:12px 40px;}
+    .pillars{grid-template-columns:1fr;}
+    nav .navlink{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <div class="brand">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M8 11V7.5a4 4 0 0 1 8 0V11" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="16" r="1.4" fill="currentColor"/>
+    </svg>
+    PrepLocker
+  </div>
+  <a class="navlink" href="./app/">Open the app ↗</a>
+</nav>
+
+<div class="wrap hero">
+  <div>
+    <div class="badges">
+      <span class="badge">CompTIA A+</span>
+      <span class="badge">Security+</span>
+      <span class="badge">Network+</span>
+    </div>
+    <h1>The CompTIA practice exam that never leaves your device.</h1>
+    <p class="lede">Timed mock exams and untimed practice for A+, Security+, and Network+. Pay once per exam — no subscription, no renewal, ever.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="./app/">Try Core 1 free</a>
+      <a class="btn btn-ghost" href="#pricing">See pricing</a>
+    </div>
+    <p class="fineprint">Full 86-question A+ Core 1 exam, free. No account needed to start.</p>
+  </div>
+  <div class="examcard">
+    <div class="lockbadge">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2.2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11" stroke="currentColor" stroke-width="2.2"/></svg>
+      on-device
+    </div>
+    <span class="code data">220-1201 · Mock Exam · Q14 of 86</span>
+    <p class="q">Which RAID level provides disk mirroring for fault tolerance?</p>
+    <div class="opt"><span class="box"></span> RAID 0</div>
+    <div class="opt correct"><span class="box"></span> RAID 1</div>
+    <div class="opt"><span class="box"></span> RAID 5</div>
+    <div class="scorewrap">
+      <svg class="ring" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="15.5" fill="none" stroke="var(--border)" stroke-width="3"/>
+        <circle cx="18" cy="18" r="15.5" fill="none" stroke="var(--good)" stroke-width="3"
+          stroke-dasharray="97.4" stroke-dashoffset="21" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+      </svg>
+      <div>
+        <div class="num data">78%</div>
+        <div class="lbl">current attempt · passing at 72%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="wrap" id="privacy">
+  <h2>Nothing about your studying leaves your device.</h2>
+  <p class="section-lede">Every other practice app in this category asks for an account before you can answer one question. PrepLocker doesn't have anywhere to send your data, because it doesn't have a server.</p>
+  <div class="pillars">
+    <div class="pillar">
+      <h3>On-device, always</h3>
+      <p>Your question sets, attempt history, and scores live only on your phone or in your browser. Nothing is uploaded, nothing is tracked.</p>
+    </div>
+    <div class="pillar">
+      <h3>Build your own sets</h3>
+      <p>Import or export question sets as JSON, or build one from scratch in the app — for any exam or quiz, not just CompTIA.</p>
+    </div>
+    <div class="pillar">
+      <h3>Pay once per exam</h3>
+      <p>No monthly fee, no renewal, no expiration. Unlock an exam and it's yours for as long as you need it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="pricing">
+  <h2>One price. No subscription. No expiration.</h2>
+  <div class="pricelist">
+    <div class="price-row">
+      <div>
+        <span class="name">CompTIA A+ Core 1</span>
+        <span class="tag data">220-1201 · 86 questions</span>
+      </div>
+      <span class="amount free data">Free</span>
+    </div>
+    <div class="price-row">
+      <div>
+        <span class="name">CompTIA A+ Core 2</span>
+        <span class="tag data">220-1202</span>
+      </div>
+      <span class="amount soon data">Coming soon</span>
+    </div>
+    <div class="price-row">
+      <div>
+        <span class="name">CompTIA Security+</span>
+        <span class="tag data">SY0-701</span>
+      </div>
+      <span class="amount soon data">Coming soon</span>
+    </div>
+    <div class="price-row">
+      <div>
+        <span class="name">Security+ Vol. 2</span>
+        <span class="tag data">90 questions</span>
+      </div>
+      <span class="amount soon data">Coming soon</span>
+    </div>
+  </div>
+  <p class="price-note">Core 1 is free today. Everything else is coming soon — always a one-time unlock, no subscription, ever.</p>
+</section>
+
+<section class="wrap" id="faq">
+  <h2>Before you install</h2>
+  <div style="margin-top:28px;">
+    <details open>
+      <summary>Is this affiliated with CompTIA?</summary>
+      <p>No. PrepLocker is an independently built practice app, not affiliated with or endorsed by CompTIA.</p>
+    </details>
+    <details>
+      <summary>Do I need an account?</summary>
+      <p>No. There's nothing to sign up for and nothing to log into — open the app and start practicing.</p>
+    </details>
+    <details>
+      <summary>What happens to my data?</summary>
+      <p>It stays on your device. There's no server storing it, so it can't be seen, shared, or exposed in a breach.</p>
+    </details>
+    <details>
+      <summary>Can I use this for exams other than CompTIA?</summary>
+      <p>Yes — build your own question sets in the app, or import and export sets as JSON, for any exam or quiz you want to study.</p>
+    </details>
+    <details>
+      <summary>Is Core 1 really free, no catch?</summary>
+      <p>Yes — the full 86-question Core 1 exam is free. You only pay if you choose to unlock additional exams.</p>
+    </details>
+    <details>
+      <summary>What platforms does this work on?</summary>
+      <p>Web, iOS, and Android, from one app.</p>
+    </details>
+  </div>
+</section>
+
+<section class="wrap closing" style="border-top:none;">
+  <h2>Start with the free Core 1 exam.</h2>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="./app/">Try Core 1 free</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  PrepLocker — not affiliated with or endorsed by CompTIA.
+</footer>
+
+</body>
+</html>
