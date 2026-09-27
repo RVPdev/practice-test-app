@@ -23,7 +23,7 @@ jest.mock('react-native', () => {
         if (!actual) {
           actual = jest.requireActual('react-native');
         }
-        return (actual as Record<string, any>)[prop];
+        return (actual as Record<PropertyKey, any>)[prop];
       },
     },
   );
