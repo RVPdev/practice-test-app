@@ -23,7 +23,7 @@ export function SettingsView() {
           <Button
             key={option.mode}
             title={option.label}
-            variant={mode === option.mode ? 'primary' : 'secondary'}
+            variant={mode === option.mode ? 'highlight' : 'secondary'}
             onPress={() => setMode(option.mode)}
             testID={`theme-mode-${option.mode}`}
           />

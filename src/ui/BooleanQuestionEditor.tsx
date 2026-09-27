@@ -15,6 +15,7 @@ export function BooleanQuestionEditor({
 }) {
   const theme = useTheme();
   const inputStyle = {
+    ...type.body,
     borderWidth: 1,
     borderColor: theme.border,
     borderRadius: radius.sm,
@@ -48,13 +49,13 @@ export function BooleanQuestionEditor({
       <View style={{ flexDirection: 'row', gap: spacing.sm }}>
         <Button
           title={question.labels?.true ?? 'True'}
-          variant={question.answer ? 'primary' : 'secondary'}
+          variant={question.answer ? 'highlight' : 'secondary'}
           onPress={() => onChange({ ...question, answer: true })}
           testID="boolean-answer-true"
         />
         <Button
           title={question.labels?.false ?? 'False'}
-          variant={!question.answer ? 'primary' : 'secondary'}
+          variant={!question.answer ? 'highlight' : 'secondary'}
           onPress={() => onChange({ ...question, answer: false })}
           testID="boolean-answer-false"
         />

@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { radius, spacing, type, useTheme, type Theme } from './theme';
 
-type Variant = 'primary' | 'secondary' | 'danger';
+type Variant = 'primary' | 'secondary' | 'danger' | 'highlight';
 
 export function Button({
   title,
@@ -39,6 +39,9 @@ export function Button({
 function tone(theme: Theme, variant: Variant) {
   if (variant === 'primary') {
     return { background: theme.accent, text: theme.accentText, border: theme.accent };
+  }
+  if (variant === 'highlight') {
+    return { background: theme.highlight, text: theme.highlightText, border: theme.highlight };
   }
   if (variant === 'danger') {
     return { background: theme.negativeSurface, text: theme.negative, border: theme.negative };
