@@ -50,6 +50,16 @@ describe('Set detail screen (app/set/[setId].tsx)', () => {
     await waitFor(() => expect(view.getByText('Networking Basics')).toBeTruthy());
   });
 
+  // A stale/bad set id (e.g. a bookmark to a since-deleted or never-existing set)
+  // resolves the fetch to null, same as "still loading" - without distinguishing
+  // the two, this screen got stuck on "Loading…" forever with no way out.
+  it('redirects home for a set id that does not exist', async () => {
+    const repository = createTestRepository();
+    const view = await renderAppRoute(repository, routes, { initialUrl: '/set/no-such-set' });
+
+    await waitFor(() => expect(view.getPathname()).toBe('/'));
+  });
+
   it('shows edit/export/delete for an imported set', async () => {
     const repository = createTestRepository();
     await repository.saveSet(makeSet({ id: 'imported-1', title: 'Imported' }), 'imported');
