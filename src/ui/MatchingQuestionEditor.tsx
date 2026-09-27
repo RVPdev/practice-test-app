@@ -19,6 +19,7 @@ export function MatchingQuestionEditor({
   const theme = useTheme();
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const inputStyle = {
+    ...type.body,
     borderWidth: 1,
     borderColor: theme.border,
     borderRadius: radius.sm,

@@ -54,6 +54,7 @@ export function SetDetailView({
   };
 
   const inputStyle = {
+    ...type.body,
     borderWidth: 1,
     borderColor: theme.border,
     borderRadius: radius.sm,

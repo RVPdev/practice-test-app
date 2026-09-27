@@ -29,6 +29,7 @@ export function QuestionMetaFields({
 }) {
   const theme = useTheme();
   const inputStyle = {
+    ...type.body,
     borderWidth: 1,
     borderColor: theme.border,
     borderRadius: radius.sm,
