@@ -31,6 +31,11 @@ jobs:
       # runtime-only route (a user-created set, a session/results attempt
       # id) has no matching file — falling back to the app shell on 404
       # lets the client-side router take over and render the right screen.
+      #
+      # GitHub Pages only serves the site-root 404.html (not per-directory
+      # ones), so site/404.html — not site/app/404.html — is the file that
+      # actually rescues /app/* deep links and refreshes. Keep it as a copy
+      # of the app shell; do not replace it with a landing-page-styled 404.
       - name: Assemble site (landing page at root, app under /app)
         run: |
           mkdir -p site
