@@ -1,6 +1,7 @@
 import { ActivityIndicator, Text, View } from 'react-native';
 import type { Attempt } from '@/core/types';
 import { Card } from './Card';
+import { ListRow } from './ListRow';
 import { formatDate, formatPercent } from './format';
 import { Screen } from './Screen';
 import { spacing, type, useTheme } from './theme';
@@ -32,26 +33,33 @@ export function HistoryView({
           </Text>
         </Card>
       ) : (
-        attempts.map((item) => (
-          <Card key={item.id} testID={`history-${item.id}`} onPress={() => onOpenAttempt(item.id)}>
-            <Text style={[type.heading, { color: theme.text }]}>
-              {setTitles[item.setId] ?? item.setId}
-            </Text>
-            <View style={{ flexDirection: 'row', gap: spacing.sm }}>
-              <Text style={[type.caption, { color: theme.textMuted, flex: 1 }]}>
-                {`${item.mode === 'mock' ? 'Mock test' : 'Practice'} · ${formatDate(item.finishedAt)}`}
+        <Card>
+          {attempts.map((item, index) => (
+            <ListRow
+              key={item.id}
+              testID={`history-${item.id}`}
+              onPress={() => onOpenAttempt(item.id)}
+              isLast={index === attempts.length - 1}
+            >
+              <Text style={[type.heading, { color: theme.text }]}>
+                {setTitles[item.setId] ?? item.setId}
               </Text>
-              <Text
-                style={[
-                  type.label,
-                  { color: item.mode === 'mock' && !item.score.passed ? theme.negative : theme.text },
-                ]}
-              >
-                {formatPercent(item.score.percent)}
-              </Text>
-            </View>
-          </Card>
-        ))
+              <View style={{ flexDirection: 'row', gap: spacing.sm }}>
+                <Text style={[type.caption, { color: theme.textMuted, flex: 1 }]}>
+                  {`${item.mode === 'mock' ? 'Mock test' : 'Practice'} · ${formatDate(item.finishedAt)}`}
+                </Text>
+                <Text
+                  style={[
+                    type.label,
+                    { color: item.mode === 'mock' && !item.score.passed ? theme.negative : theme.text },
+                  ]}
+                >
+                  {formatPercent(item.score.percent)}
+                </Text>
+              </View>
+            </ListRow>
+          ))}
+        </Card>
       )}
     </Screen>
   );

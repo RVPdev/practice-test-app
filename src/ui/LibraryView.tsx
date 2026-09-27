@@ -3,6 +3,7 @@ import type { RunMode } from '@/core/types';
 import type { SetSummary } from '@/data/repository';
 import { Button } from './Button';
 import { Card } from './Card';
+import { ListRow } from './ListRow';
 import { formatDate, formatPercent } from './format';
 import { Screen } from './Screen';
 import { spacing, type, useTheme } from './theme';
@@ -68,24 +69,31 @@ export function LibraryView({
           </Text>
         </Card>
       ) : (
-        sets.map((set) => (
-          <Card key={set.id} testID={`set-card-${set.id}`} onPress={() => onOpenSet(set.id)}>
-            <Text style={[type.heading, { color: theme.text }]}>{set.title}</Text>
-            {set.description ? (
-              <Text style={[type.caption, { color: theme.textMuted }]} numberOfLines={2}>
-                {set.description}
-              </Text>
-            ) : null}
-            <Text style={[type.caption, { color: theme.textMuted }]}>
-              {`${set.questionCount} questions · ${set.topicCount} topics`}
-            </Text>
-            {set.attemptCount > 0 && set.bestPercent !== null ? (
+        <Card>
+          {sets.map((set, index) => (
+            <ListRow
+              key={set.id}
+              testID={`set-card-${set.id}`}
+              onPress={() => onOpenSet(set.id)}
+              isLast={index === sets.length - 1}
+            >
+              <Text style={[type.heading, { color: theme.text }]}>{set.title}</Text>
+              {set.description ? (
+                <Text style={[type.caption, { color: theme.textMuted }]} numberOfLines={2}>
+                  {set.description}
+                </Text>
+              ) : null}
               <Text style={[type.caption, { color: theme.textMuted }]}>
-                {`Best ${formatPercent(set.bestPercent)} · last ${formatDate(set.lastAttemptAt ?? '')}`}
+                {`${set.questionCount} questions · ${set.topicCount} topics`}
               </Text>
-            ) : null}
-          </Card>
-        ))
+              {set.attemptCount > 0 && set.bestPercent !== null ? (
+                <Text style={[type.caption, { color: theme.textMuted }]}>
+                  {`Best ${formatPercent(set.bestPercent)} · last ${formatDate(set.lastAttemptAt ?? '')}`}
+                </Text>
+              ) : null}
+            </ListRow>
+          ))}
+        </Card>
       )}
     </Screen>
   );
