@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, View, type ViewStyle } from 'react-native';
-import { radius, spacing, useTheme } from './theme';
+import { radius, shadows, spacing, useTheme } from './theme';
 
 export function Card({
   children,
@@ -45,5 +45,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     gap: spacing.xs,
+    boxShadow: shadows.card,
   },
 });
