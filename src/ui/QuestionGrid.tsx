@@ -38,7 +38,7 @@ export function QuestionGrid({
               justifyContent: 'center',
               borderRadius: radius.sm,
               borderWidth: current ? 2 : 1,
-              borderColor: current ? theme.accent : theme.border,
+              borderColor: current ? theme.highlight : theme.border,
               backgroundColor: answered ? theme.surfaceAlt : theme.surface,
             }}
           >

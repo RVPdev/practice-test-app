@@ -59,7 +59,9 @@ export function Feedback({ question, response }: { question: Question; response:
           accessibilityRole="link"
           onPress={() => Linking.openURL(question.reference!.url)}
         >
-          <Text style={[type.caption, { color: theme.accent }]}>{question.reference.label}</Text>
+          <Text style={[type.caption, { color: theme.text, textDecorationLine: 'underline' }]}>
+            {question.reference.label}
+          </Text>
         </Pressable>
       ) : null}
     </View>

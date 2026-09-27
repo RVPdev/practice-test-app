@@ -2,6 +2,7 @@ import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import type { SessionState } from '@/core/types';
 import { QuestionGrid } from './QuestionGrid';
+import { lightTheme } from './theme';
 
 const state = {
   questionIds: ['q-1', 'q-2', 'q-3'],
@@ -31,5 +32,12 @@ describe('QuestionGrid', () => {
     await render(<QuestionGrid state={state} onGoto={onGoto} />);
     await fireEvent.press(screen.getByTestId('grid-cell-2'));
     expect(onGoto).toHaveBeenCalledWith(2);
+  });
+
+  it('marks the current cell with the highlight color', async () => {
+    await render(<QuestionGrid state={state} onGoto={() => {}} />);
+    expect(screen.getByTestId('grid-cell-1').props.style).toEqual(
+      expect.objectContaining({ borderColor: lightTheme.highlight }),
+    );
   });
 });

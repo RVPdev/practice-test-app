@@ -1,4 +1,7 @@
 import { Stack, usePathname } from 'expo-router';
+import { useFonts } from 'expo-font';
+import { Inter_400Regular, Inter_600SemiBold } from '@expo-google-fonts/inter';
+import { Sora_600SemiBold, Sora_700Bold } from '@expo-google-fonts/sora';
 import { useLayoutEffect } from 'react';
 import { Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -60,6 +63,17 @@ function AppRoot() {
 }
 
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    Sora_600SemiBold,
+    Sora_700Bold,
+    Inter_400Regular,
+    Inter_600SemiBold,
+  });
+
+  // Fall through to the OS-fallback font rather than hang on a blank screen
+  // forever if font loading ever genuinely errors (a corrupted bundled asset).
+  if (!fontsLoaded && !fontError) return null;
+
   return (
     <ThemeModeProvider>
       <AppRoot />

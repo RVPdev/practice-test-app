@@ -1,21 +1,23 @@
-import { Pressable, StyleSheet, View, type ViewStyle } from 'react-native';
-import { radius, shadows, spacing, useTheme } from './theme';
+import { Pressable, View, type ViewStyle } from 'react-native';
+import { spacing, useTheme } from './theme';
 
-export function Card({
+export function ListRow({
   children,
   onPress,
   testID,
+  isLast = false,
   style,
 }: {
   children: React.ReactNode;
   onPress?: () => void;
   testID?: string;
+  isLast?: boolean;
   style?: ViewStyle;
 }) {
   const theme = useTheme();
   const base = [
-    styles.card,
-    { backgroundColor: theme.surface, borderColor: theme.border },
+    { padding: spacing.md, gap: spacing.xs },
+    !isLast ? { borderBottomWidth: 1, borderBottomColor: theme.border } : null,
     style,
   ];
 
@@ -38,13 +40,3 @@ export function Card({
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    padding: spacing.md,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    gap: spacing.xs,
-    boxShadow: shadows.card,
-  },
-});

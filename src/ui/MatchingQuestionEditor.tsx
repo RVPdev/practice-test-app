@@ -163,7 +163,7 @@ export function MatchingQuestionEditor({
                 padding: spacing.sm,
                 borderRadius: radius.sm,
                 borderWidth: selectedLeft === item.id ? 2 : 1,
-                borderColor: selectedLeft === item.id ? theme.accent : theme.border,
+                borderColor: selectedLeft === item.id ? theme.highlight : theme.border,
               }}
             >
               <Text style={{ color: theme.text }}>{item.text || item.id}</Text>

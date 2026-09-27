@@ -2,6 +2,7 @@ import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import type { Question } from '@/core/schema';
 import { QuestionCard } from './QuestionCard';
+import { lightTheme } from './theme';
 
 const single: Question = {
   id: 'q-1',
@@ -116,6 +117,15 @@ describe('QuestionCard', () => {
       <QuestionCard question={futureType} response={[]} revealed={false} optionOrder={[]} onChange={() => {}} />,
     );
     expect(screen.getByTestId('unsupported-question')).toBeTruthy();
+  });
+
+  it('marks a selected, unrevealed option with the highlight color', async () => {
+    await render(
+      <QuestionCard question={single} response={['a']} revealed={false} optionOrder={['a', 'b']} onChange={() => {}} />,
+    );
+    expect(screen.getByTestId('option-a').props.style).toEqual(
+      expect.objectContaining({ borderColor: lightTheme.highlight }),
+    );
   });
 });
 

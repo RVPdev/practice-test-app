@@ -33,7 +33,7 @@ import { cleanup, render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
 import { createMemoryKv } from '@/data/kv';
 import { KEY_PREFIX } from '@/data/storage';
-import { darkTheme, lightTheme, useTheme } from './theme';
+import { darkTheme, lightTheme, shadows, type, useTheme } from './theme';
 import { ThemeModeProvider } from './ThemeModeProvider';
 
 afterEach(() => {
@@ -69,5 +69,45 @@ describe('useTheme', () => {
     );
     await screen.findByTestId('bg');
     expect(screen.getByTestId('bg').props.children).toBe(darkTheme.background);
+  });
+});
+
+describe('palette (Phase 2: navy + amber)', () => {
+  it('uses navy for the structural accent and amber for the highlight, in both modes', () => {
+    expect(lightTheme.accent).toBe('#1e3a5f');
+    expect(lightTheme.accentText).toBe('#ffffff');
+    expect(lightTheme.highlight).toBe('#b45309');
+    expect(lightTheme.highlightText).toBe('#ffffff');
+
+    expect(darkTheme.accent).toBe('#3a5d8a');
+    expect(darkTheme.accentText).toBe('#ffffff');
+    expect(darkTheme.highlight).toBe('#f0a839');
+    expect(darkTheme.highlightText).toBe('#1e1b4b');
+  });
+
+  it('leaves correctness colors untouched by the new brand palette', () => {
+    expect(lightTheme.positive).toBe('#1c7a4a');
+    expect(lightTheme.negative).toBe('#b3261e');
+    expect(darkTheme.positive).toBe('#5fd39b');
+    expect(darkTheme.negative).toBe('#ff8a80');
+  });
+});
+
+describe('type scale', () => {
+  it('uses Sora for headings and Inter for body text, via loaded font files rather than a synthesized weight', () => {
+    expect(type.title).toMatchObject({ fontFamily: 'Sora_700Bold' });
+    expect(type.heading).toMatchObject({ fontFamily: 'Sora_600SemiBold' });
+    expect(type.body).toMatchObject({ fontFamily: 'Inter_400Regular' });
+    expect(type.label).toMatchObject({ fontFamily: 'Inter_600SemiBold' });
+    expect(type.caption).toMatchObject({ fontFamily: 'Inter_400Regular' });
+    expect(type.mono).toMatchObject({ fontFamily: 'Inter_600SemiBold' });
+    expect(type.title).not.toHaveProperty('fontWeight');
+  });
+});
+
+describe('shadows', () => {
+  it('exports card and raised elevation levels as boxShadow strings', () => {
+    expect(shadows.card).toBe('0 1px 2px rgba(0, 0, 0, 0.06)');
+    expect(shadows.raised).toBe('0 4px 12px rgba(0, 0, 0, 0.12)');
   });
 });

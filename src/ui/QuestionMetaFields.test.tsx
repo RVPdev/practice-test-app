@@ -2,6 +2,7 @@ import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import type { Topic } from '@/core/schema';
 import { QuestionMetaFields } from './QuestionMetaFields';
+import { lightTheme } from './theme';
 
 const topics: Topic[] = [{ id: 'hardware', name: 'Hardware' }];
 
@@ -123,5 +124,22 @@ describe('QuestionMetaFields', () => {
     );
     await fireEvent.changeText(screen.getByTestId('question-explanation'), '');
     expect(onChangeExplanation).toHaveBeenCalledWith(undefined);
+  });
+
+  it('marks a selected topic chip with the highlight color', async () => {
+    await render(
+      <QuestionMetaFields
+        topics={topics}
+        topicId="hardware"
+        difficulty={undefined}
+        explanation={undefined}
+        onChangeTopicId={noop}
+        onChangeDifficulty={noop}
+        onChangeExplanation={noop}
+      />,
+    );
+    expect(screen.getByTestId('topic-chip-hardware').props.style).toEqual(
+      expect.objectContaining({ borderColor: lightTheme.highlight, backgroundColor: lightTheme.highlight }),
+    );
   });
 });

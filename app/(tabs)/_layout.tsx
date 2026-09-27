@@ -10,7 +10,7 @@ export default function TabsLayout() {
         headerTintColor: theme.text,
         headerShadowVisible: false,
         tabBarStyle: { backgroundColor: theme.surface, borderTopColor: theme.border },
-        tabBarActiveTintColor: theme.accent,
+        tabBarActiveTintColor: theme.highlight,
         tabBarInactiveTintColor: theme.textMuted,
       }}
     >
