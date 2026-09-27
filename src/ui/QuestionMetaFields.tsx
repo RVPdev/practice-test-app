@@ -41,11 +41,11 @@ export function QuestionMetaFields({
     padding: spacing.sm,
     borderRadius: radius.sm,
     borderWidth: selected ? 2 : 1,
-    borderColor: selected ? theme.accent : theme.border,
-    backgroundColor: selected ? theme.accent : theme.surface,
+    borderColor: selected ? theme.highlight : theme.border,
+    backgroundColor: selected ? theme.highlight : theme.surface,
   });
 
-  const chipTextColor = (selected: boolean) => (selected ? theme.accentText : theme.text);
+  const chipTextColor = (selected: boolean) => (selected ? theme.highlightText : theme.text);
 
   return (
     <View style={{ gap: spacing.md }}>

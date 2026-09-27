@@ -3,6 +3,7 @@ import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import type { MatchingQuestion, Topic } from '@/core/schema';
 import { MatchingQuestionEditor } from './MatchingQuestionEditor';
+import { lightTheme } from './theme';
 
 const question: MatchingQuestion = {
   id: 'q1',
@@ -88,5 +89,13 @@ describe('MatchingQuestionEditor', () => {
     await render(<MatchingQuestionEditor question={question} topics={topics} onChange={onChange} />);
     await fireEvent.changeText(screen.getByTestId('question-explanation'), 'Because reasons');
     expect(onChange).toHaveBeenCalledWith({ ...question, explanation: 'Because reasons' });
+  });
+
+  it('marks a selected left chip with the highlight color', async () => {
+    await render(<MatchingQuestionEditor question={question} topics={topics} onChange={jest.fn()} />);
+    await fireEvent.press(screen.getByTestId('pair-left-chip-l1'));
+    expect(screen.getByTestId('pair-left-chip-l1').props.style).toEqual(
+      expect.objectContaining({ borderColor: lightTheme.highlight }),
+    );
   });
 });

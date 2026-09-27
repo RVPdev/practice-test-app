@@ -125,7 +125,7 @@ function ChoiceList({
               ? theme.negative
               : theme.border
           : selected
-            ? theme.accent
+            ? theme.highlight
             : theme.border;
         const background = revealed
           ? choice.correct
