@@ -55,6 +55,7 @@ function AppRoot() {
               <Stack.Screen name="import" options={{ title: 'Import a set', presentation: 'modal' }} />
               <Stack.Screen name="builder/new" options={{ title: 'Create a set', presentation: 'modal' }} />
               <Stack.Screen name="builder/[setId]" options={{ title: 'Edit set' }} />
+              <Stack.Screen name="hidden-sets" options={{ title: 'Hidden exams' }} />
             </Stack>
           </ConsentGate>
         </ConfirmProvider>
