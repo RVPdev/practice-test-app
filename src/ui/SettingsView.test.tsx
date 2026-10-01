@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from '@jest/globals';
+import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { createMemoryKv } from '@/data/kv';
 import { KEY_PREFIX } from '@/data/storage';
@@ -57,5 +57,26 @@ describe('SettingsView', () => {
     expect(activeLabel.props.style).toEqual(
       expect.arrayContaining([expect.objectContaining({ color: darkTheme.highlightText })]),
     );
+  });
+
+  it('renders a "Hidden exams" link with no count badge by default', async () => {
+    await render(
+      <ThemeModeProvider store={createMemoryKv()}>
+        <SettingsView />
+      </ThemeModeProvider>,
+    );
+    expect(screen.getByText('Hidden exams')).toBeTruthy();
+  });
+
+  it('shows a count badge and calls onOpenHiddenSets when pressed', async () => {
+    const onOpenHiddenSets = jest.fn();
+    await render(
+      <ThemeModeProvider store={createMemoryKv()}>
+        <SettingsView hiddenCount={2} onOpenHiddenSets={onOpenHiddenSets} />
+      </ThemeModeProvider>,
+    );
+    expect(screen.getByText('Hidden exams (2)')).toBeTruthy();
+    await fireEvent.press(screen.getByTestId('hidden-exams-link'));
+    expect(onOpenHiddenSets).toHaveBeenCalled();
   });
 });

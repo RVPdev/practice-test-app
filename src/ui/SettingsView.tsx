@@ -10,7 +10,13 @@ const OPTIONS: { mode: ThemeMode; label: string }[] = [
   { mode: 'system', label: 'System' },
 ];
 
-export function SettingsView() {
+export function SettingsView({
+  hiddenCount = 0,
+  onOpenHiddenSets = () => {},
+}: {
+  hiddenCount?: number;
+  onOpenHiddenSets?: () => void;
+}) {
   const theme = useTheme();
   const { mode, setMode } = useThemeMode();
 
@@ -29,6 +35,14 @@ export function SettingsView() {
           />
         ))}
       </View>
+
+      <Text style={[type.label, { color: theme.textMuted }]}>Library</Text>
+      <Button
+        title={hiddenCount > 0 ? `Hidden exams (${hiddenCount})` : 'Hidden exams'}
+        variant="secondary"
+        onPress={onOpenHiddenSets}
+        testID="hidden-exams-link"
+      />
     </Screen>
   );
 }
