@@ -19,7 +19,7 @@ const summary = (over: Partial<SetSummary> = {}): SetSummary => ({
 });
 
 describe('LibraryView', () => {
-  it('lists each set with its question and topic counts', async () => {
+  it('lists each set with its question count', async () => {
     await render(
       <LibraryView
         sets={[summary()]}
@@ -30,7 +30,7 @@ describe('LibraryView', () => {
       />,
     );
     expect(screen.getByText('Cloud Basics')).toBeTruthy();
-    expect(screen.getByText('40 questions · 3 topics')).toBeTruthy();
+    expect(screen.getByText('40 questions')).toBeTruthy();
   });
 
   it('shows the best score and last attempt when there is history', async () => {
@@ -120,5 +120,68 @@ describe('LibraryView resume banner', () => {
     );
     await fireEvent.press(screen.getByTestId('discard-session'));
     expect(onDiscard).toHaveBeenCalled();
+  });
+});
+
+describe('LibraryView grouping and search', () => {
+  const secPlusFull = summary({
+    id: 'comptia-security-plus-sy0-701',
+    title: 'Security+ Full',
+  });
+  const secPlusQuick = summary({
+    id: 'quick-comptia-security-plus-sy0-701',
+    title: 'Security+ Quick',
+  });
+  const myImported = summary({ id: 'imported-1', title: 'My Own Set', source: 'imported' });
+
+  const base = {
+    loading: false,
+    onOpenSet: () => {},
+    onImport: () => {},
+    onCreate: () => {},
+  };
+
+  it('groups sets into family sections with a count, in catalog order', async () => {
+    await render(<LibraryView {...base} sets={[secPlusQuick, secPlusFull, myImported]} />);
+    expect(screen.getByText('▾ Security+ (2)')).toBeTruthy();
+    expect(screen.getByText('▾ My sets (1)')).toBeTruthy();
+  });
+
+  it('does not render a family section when none of its sets are present', async () => {
+    await render(<LibraryView {...base} sets={[secPlusFull]} />);
+    expect(screen.queryByText(/A\+ Core 2/)).toBeNull();
+  });
+
+  it('collapsing a family hides its sets, and toggling again shows them', async () => {
+    await render(<LibraryView {...base} sets={[secPlusFull]} />);
+    expect(screen.getByTestId(`set-card-${secPlusFull.id}`)).toBeTruthy();
+
+    await fireEvent.press(screen.getByTestId('family-toggle-security'));
+    expect(screen.queryByTestId(`set-card-${secPlusFull.id}`)).toBeNull();
+
+    await fireEvent.press(screen.getByTestId('family-toggle-security'));
+    expect(screen.getByTestId(`set-card-${secPlusFull.id}`)).toBeTruthy();
+  });
+
+  it('search filters across families and hides the section headers while active', async () => {
+    await render(<LibraryView {...base} sets={[secPlusFull, myImported]} />);
+
+    await fireEvent.changeText(screen.getByTestId('set-search'), 'Own');
+
+    expect(screen.getByTestId(`set-card-${myImported.id}`)).toBeTruthy();
+    expect(screen.queryByTestId(`set-card-${secPlusFull.id}`)).toBeNull();
+    expect(screen.queryByText(/▾ Security\+/)).toBeNull();
+  });
+
+  it('shows a no-matches message for a search with no hits', async () => {
+    await render(<LibraryView {...base} sets={[secPlusFull]} />);
+    await fireEvent.changeText(screen.getByTestId('set-search'), 'nothing matches this');
+    expect(screen.getByText('No sets match "nothing matches this".')).toBeTruthy();
+  });
+
+  it('treats a whitespace-only search as empty and keeps showing grouped sections', async () => {
+    await render(<LibraryView {...base} sets={[secPlusFull]} />);
+    await fireEvent.changeText(screen.getByTestId('set-search'), '   ');
+    expect(screen.getByText('▾ Security+ (1)')).toBeTruthy();
   });
 });
