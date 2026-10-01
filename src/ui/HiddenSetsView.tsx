@@ -22,7 +22,7 @@ export function HiddenSetsView({
       <View style={{ gap: spacing.xs }}>
         <Text style={[type.title, { color: theme.text }]}>Hidden exams</Text>
         <Text style={[type.caption, { color: theme.textMuted }]}>
-          Free exams you've hidden from your library. Restoring brings back their attempt history too.
+          Free exams you&apos;ve hidden from your library. Restoring brings back their attempt history too.
         </Text>
       </View>
 
