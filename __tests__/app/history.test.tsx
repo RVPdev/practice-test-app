@@ -74,4 +74,18 @@ describe('History screen (app/(tabs)/history.tsx)', () => {
     await waitFor(() => expect(view.queryByTestId('history-loading')).toBeNull());
     expect(view.queryByTestId(`history-${attempt.id}`)).toBeNull();
   });
+
+  it('shows the real title (not the raw set id) for an attempt on a hidden bundled set', async () => {
+    const repository = createTestRepository();
+    const bundledSet: QuestionSet = { ...set, id: 'bundled-set-1', title: 'Security+ SY0-701' };
+    await repository.saveSet(bundledSet, 'bundled');
+    await repository.saveAttempt({ ...attempt, id: 'att-2', setId: 'bundled-set-1' });
+    await repository.hideBundledSet('bundled-set-1');
+
+    const view = await renderAppRoute(repository, routes, { initialUrl: '/history' });
+
+    await waitFor(() => expect(view.getByTestId('history-att-2')).toBeTruthy());
+    expect(view.getByText('Security+ SY0-701')).toBeTruthy();
+    expect(view.queryByText('bundled-set-1')).toBeNull();
+  });
 });

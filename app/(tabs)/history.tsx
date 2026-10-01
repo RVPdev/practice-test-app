@@ -17,11 +17,11 @@ export default function HistoryScreen() {
       let cancelled = false;
       if (!ready) return;
       setLoading(true);
-      Promise.all([repository.listAttempts(), repository.listSets()])
-        .then(([loadedAttempts, sets]) => {
+      Promise.all([repository.listAttempts(), repository.listSets(), repository.listHiddenSets()])
+        .then(([loadedAttempts, sets, hiddenSets]) => {
           if (cancelled) return;
           setAttempts(loadedAttempts);
-          setSetTitles(Object.fromEntries(sets.map((s) => [s.id, s.title])));
+          setSetTitles(Object.fromEntries([...sets, ...hiddenSets].map((s) => [s.id, s.title])));
         })
         .finally(() => {
           if (!cancelled) setLoading(false);
