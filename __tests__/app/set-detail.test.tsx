@@ -168,6 +168,7 @@ describe('Set detail screen (app/set/[setId].tsx)', () => {
 
     await fireEvent.press(view.getByTestId('delete-set'));
     await waitFor(() => expect(view.getByTestId('confirm-dialog')).toBeTruthy());
+    expect(view.getByText('Remove this free exam?')).toBeTruthy();
     await fireEvent.press(view.getByTestId('confirm-button-remove'));
 
     await waitFor(() => expect(view.getPathname()).toBe('/'));
