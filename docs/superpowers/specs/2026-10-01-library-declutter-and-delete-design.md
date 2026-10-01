@@ -115,9 +115,14 @@ listHiddenSets(): Promise<SetSummary[]>;
   before hiding).
 
 `listSets()` changes to exclude any id present in the hidden list. Every existing
-call site (library screen, set-detail "does this still exist" check, etc.) keeps its
-current signature and gets the filtered view automatically — no caller changes
-needed beyond the library screen itself.
+call site keeps its current signature and gets the filtered view automatically, but
+a caller that uses `listSets()` as an id → title/metadata *lookup* rather than purely
+a list to render needs to also consult `listHiddenSets()`, since a hidden id now
+resolves to nothing from `listSets()` alone. This surfaced in `history.tsx`, which
+builds its `setId → title` map from `listSets()` only: once a set's attempts can
+outlive its visibility (by design — see above), that map silently drops the title
+for any attempt against a now-hidden set and falls back to showing the raw set id.
+Fixed by merging `listSets()` and `listHiddenSets()` into the title lookup.
 
 `deleteSet` is **unchanged**: still throws for `source === 'bundled'`. Hiding and
 deleting remain two distinct operations with two distinct guarantees; this spec does
@@ -174,11 +179,15 @@ shows current content, not stale content from before it was hidden.
 
 ## 5. Error handling
 
-- `hideBundledSet`/`restoreBundledSet` on a nonexistent or wrong-source id throw,
-  consistent with `deleteSet`'s existing behavior — these are programmer-error
-  guards (the UI never offers hide on a non-bundled set, or restore on a
-  non-hidden one), not user-facing validation, so no new confirm/toast copy is
-  needed for the throw path itself.
+- `hideBundledSet` on a nonexistent or wrong-source id throws, consistent with
+  `deleteSet`'s existing behavior — a programmer-error guard (the UI never offers
+  hide on a non-bundled set), not user-facing validation, so no new confirm/toast
+  copy is needed for the throw path itself.
+- `restoreBundledSet` on an id that isn't currently hidden (nonexistent, never
+  hidden, or already restored) is a no-op — it just removes the id from the hidden
+  list if present, same as §3.2. The UI never offers restore on a non-hidden set,
+  but unlike `hideBundledSet` there's no guard to bypass, so there's nothing to
+  throw on.
 - Hidden-exams screen handles a `listHiddenSets()` rejection the same way
   `LibraryView` already handles a `listSets()` rejection today (there isn't
   explicit handling today beyond the loading state resolving — this spec doesn't
