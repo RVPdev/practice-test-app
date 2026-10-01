@@ -71,7 +71,7 @@ describe('Set detail screen (app/set/[setId].tsx)', () => {
     expect(view.getByTestId('delete-set')).toBeTruthy();
   });
 
-  it('hides edit/export/delete for a bundled set', async () => {
+  it('hides edit/export but shows the delete (hide) action for a bundled set', async () => {
     const repository = createTestRepository();
     await repository.saveSet(makeSet({ id: 'bundled-1', title: 'Bundled' }), 'bundled');
 
@@ -80,7 +80,7 @@ describe('Set detail screen (app/set/[setId].tsx)', () => {
     await waitFor(() => expect(view.getByText('Bundled')).toBeTruthy());
     expect(view.queryByTestId('edit-set')).toBeNull();
     expect(view.queryByTestId('export-set')).toBeNull();
-    expect(view.queryByTestId('delete-set')).toBeNull();
+    expect(view.getByTestId('delete-set')).toBeTruthy();
   });
 
   it('starts a mock session and navigates to it', async () => {
@@ -136,5 +136,48 @@ describe('Set detail screen (app/set/[setId].tsx)', () => {
 
     expect(await repository.getSet('set-1')).toBeNull();
     await waitFor(() => expect(view.getPathname()).toBe('/'));
+  });
+
+  it('hides a bundled set after confirmation, keeping its history, and it reappears via restore', async () => {
+    const repository = createTestRepository();
+    await repository.saveSet(makeSet({ id: 'bundled-1', title: 'Bundled' }), 'bundled');
+    await repository.saveAttempt({
+      id: 'att_1',
+      setId: 'bundled-1',
+      setVersion: '1.0.0',
+      mode: 'practice',
+      startedAt: '2026-09-06T14:00:00.000Z',
+      finishedAt: '2026-09-06T14:30:00.000Z',
+      config: {
+        questionCount: 1,
+        timeLimitMinutes: null,
+        passingScore: 70,
+        shuffleQuestions: true,
+        shuffleOptions: true,
+        seed: 1,
+      },
+      score: { correct: 1, total: 1, percent: 100, passed: true },
+      byTopic: [{ topicId: 'vpc', correct: 1, total: 1 }],
+      answers: [{ questionId: 'q-1', response: [], correct: true, timeMs: 1000 }],
+    });
+
+    const view = await renderAppRoute(repository, routes, { initialUrl: '/' });
+    await waitFor(() => expect(view.getByTestId('set-card-bundled-1')).toBeTruthy());
+    await fireEvent.press(view.getByTestId('set-card-bundled-1'));
+    await waitFor(() => expect(view.getByTestId('delete-set')).toBeTruthy());
+
+    await fireEvent.press(view.getByTestId('delete-set'));
+    await waitFor(() => expect(view.getByTestId('confirm-dialog')).toBeTruthy());
+    await fireEvent.press(view.getByTestId('confirm-button-remove'));
+
+    await waitFor(() => expect(view.getPathname()).toBe('/'));
+    const visible = await repository.listSets();
+    expect(visible.find((s) => s.id === 'bundled-1')).toBeUndefined();
+    const hidden = await repository.listHiddenSets();
+    expect(hidden.find((s) => s.id === 'bundled-1')).toBeTruthy();
+    expect(await repository.listAttempts('bundled-1')).toHaveLength(1);
+
+    await repository.restoreBundledSet('bundled-1');
+    expect((await repository.listSets()).find((s) => s.id === 'bundled-1')).toBeTruthy();
   });
 });

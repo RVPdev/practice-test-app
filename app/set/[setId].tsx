@@ -22,7 +22,6 @@ export default function SetDetailScreen() {
   // collapsing these into one falsy value left an unmatched id stuck on "Loading…" forever.
   const [set, setSet] = useState<QuestionSet | null | undefined>(undefined);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
-  const [deletable, setDeletable] = useState(false);
   const [source, setSource] = useState<SetSource | null>(null);
 
   useFocusEffect(
@@ -37,7 +36,6 @@ export default function SetDetailScreen() {
         setSet(loadedSet);
         setAttempts(loadedAttempts);
         const matched = summaries.find((s) => s.id === setId);
-        setDeletable(matched?.source === 'imported');
         setSource(matched?.source ?? null);
       });
       return () => {
@@ -57,6 +55,9 @@ export default function SetDetailScreen() {
   if (set === null) {
     return <Redirect href="/" />;
   }
+
+  const deletable = source === 'imported';
+  const hideable = source === 'bundled';
 
   const start = async (mode: RunMode, overrides: RunOverrides) => {
     const existing = await repository.getInProgress();
@@ -108,12 +109,31 @@ export default function SetDetailScreen() {
     );
   };
 
+  const hide = () => {
+    confirm(
+      'Remove this free exam?',
+      `"${set.title}" will disappear from your library, but your attempt history is kept, and you can bring it back anytime from Settings → Hidden exams.`,
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Remove',
+          style: 'destructive',
+          onPress: async () => {
+            await repository.hideBundledSet(set.id);
+            router.back();
+          },
+        },
+      ],
+    );
+  };
+
   return (
     <SetDetailView
       set={set}
       attempts={attempts}
       onStart={start}
       onDelete={deletable ? remove : undefined}
+      onHide={hideable ? hide : undefined}
       onEdit={deletable ? () => router.push(`/builder/${encodeURIComponent(set.id)}`) : undefined}
       onExport={deletable ? exportCurrentSet : undefined}
       onOpenAttempt={(attemptId) => router.push(`/results/${encodeURIComponent(attemptId)}`)}
