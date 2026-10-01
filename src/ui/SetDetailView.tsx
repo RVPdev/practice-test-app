@@ -14,6 +14,7 @@ export function SetDetailView({
   attempts,
   onStart,
   onDelete,
+  onHide,
   onEdit,
   onExport,
   onOpenAttempt,
@@ -22,6 +23,7 @@ export function SetDetailView({
   attempts: Attempt[];
   onStart: (mode: RunMode, overrides: RunOverrides) => void;
   onDelete?: () => void;
+  onHide?: () => void;
   onEdit?: () => void;
   onExport?: () => void;
   onOpenAttempt: (attemptId: string) => void;
@@ -177,6 +179,8 @@ export function SetDetailView({
       ) : null}
       {onDelete ? (
         <Button title="Delete this set" variant="danger" onPress={onDelete} testID="delete-set" />
+      ) : onHide ? (
+        <Button title="Delete this set" variant="danger" onPress={onHide} testID="delete-set" />
       ) : null}
     </Screen>
   );

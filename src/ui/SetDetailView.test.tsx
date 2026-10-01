@@ -90,4 +90,41 @@ describe('SetDetailView', () => {
     expect(onEdit).toHaveBeenCalled();
     expect(onExport).toHaveBeenCalled();
   });
+
+  it('shows and wires the delete action when onDelete is provided', async () => {
+    const onDelete = jest.fn();
+    await render(
+      <SetDetailView set={set} attempts={[]} onStart={() => {}} onOpenAttempt={() => {}} onDelete={onDelete} />,
+    );
+    await fireEvent.press(screen.getByTestId('delete-set'));
+    expect(onDelete).toHaveBeenCalled();
+  });
+
+  it('shows and wires the hide action, via the same delete-set button, when onHide is provided', async () => {
+    const onHide = jest.fn();
+    await render(
+      <SetDetailView set={set} attempts={[]} onStart={() => {}} onOpenAttempt={() => {}} onHide={onHide} />,
+    );
+    await fireEvent.press(screen.getByTestId('delete-set'));
+    expect(onHide).toHaveBeenCalled();
+  });
+
+  it('never renders both the delete and hide actions at once', async () => {
+    const onDelete = jest.fn();
+    const onHide = jest.fn();
+    await render(
+      <SetDetailView
+        set={set}
+        attempts={[]}
+        onStart={() => {}}
+        onOpenAttempt={() => {}}
+        onDelete={onDelete}
+        onHide={onHide}
+      />,
+    );
+    expect(screen.getAllByTestId('delete-set')).toHaveLength(1);
+    await fireEvent.press(screen.getByTestId('delete-set'));
+    expect(onDelete).toHaveBeenCalled();
+    expect(onHide).not.toHaveBeenCalled();
+  });
 });
