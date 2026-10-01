@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it } from '@jest/globals';
 import { cleanup, fireEvent, waitFor } from '@testing-library/react-native';
+import { Text } from 'react-native';
 import SettingsScreen from '../../app/(tabs)/settings';
+import type { QuestionSet } from '@/core/schema';
 import { createMemoryKv } from '@/data/kv';
 import { KEY_PREFIX } from '@/data/storage';
 import { darkTheme } from '@/ui/theme';
@@ -10,7 +12,22 @@ afterEach(() => {
   cleanup();
 });
 
-const routes = { settings: SettingsScreen };
+function StubHiddenSetsScreen() {
+  return <Text>stub hidden sets screen</Text>;
+}
+
+const routes = { settings: SettingsScreen, 'hidden-sets': StubHiddenSetsScreen };
+
+const makeSet = (over: Partial<QuestionSet> = {}): QuestionSet =>
+  ({
+    schemaVersion: 1,
+    id: 'bundled-1',
+    title: 'Bundled',
+    topics: [],
+    exam: { questionCount: 1, timeLimitMinutes: null, passingScore: 70 },
+    questions: [{ id: 'q-1', type: 'boolean', prompt: 'True?', answer: true }],
+    ...over,
+  }) as QuestionSet;
 const THEME_MODE_KEY = `${KEY_PREFIX}themeMode`;
 
 describe('Settings screen (app/(tabs)/settings.tsx)', () => {
@@ -57,5 +74,18 @@ describe('Settings screen (app/(tabs)/settings.tsx)', () => {
     expect(activeLabel.props.style).toEqual(
       expect.arrayContaining([expect.objectContaining({ color: darkTheme.highlightText })]),
     );
+  });
+
+  it('shows a hidden-exams count and navigates there when tapped', async () => {
+    const repository = createTestRepository();
+    await repository.saveSet(makeSet(), 'bundled');
+    await repository.hideBundledSet('bundled-1');
+
+    const view = await renderAppRoute(repository, routes, { initialUrl: '/settings' });
+    await waitFor(() => expect(view.getByText('Hidden exams (1)')).toBeTruthy());
+
+    await fireEvent.press(view.getByTestId('hidden-exams-link'));
+
+    await waitFor(() => expect(view.getPathname()).toBe('/hidden-sets'));
   });
 });
