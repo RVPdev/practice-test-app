@@ -2,7 +2,8 @@ import { describe, expect, it } from '@jest/globals';
 import { validateSet } from '@/core/validate';
 import { createMemoryKv } from './kv';
 import { createStorageRepository } from './storage';
-import { BUNDLED_SETS, seedBundledSets } from './bundled';
+import { BUNDLED_FAMILIES, BUNDLED_SETS, familyForSet, groupSetsByFamily, seedBundledSets } from './bundled';
+import type { SetSummary } from './repository';
 
 describe('bundled sets', () => {
   it('ships at least two sets', () => {
@@ -75,5 +76,78 @@ describe('bundled sets', () => {
     expect(retrievedAttempt).not.toBeNull();
     expect(retrievedAttempt?.id).toBe('att_test_reseed');
     expect(retrievedAttempt?.setId).toBe(setId);
+  });
+});
+
+describe('familyForSet', () => {
+  it('resolves every id in BUNDLED_FAMILIES to its own family label', () => {
+    for (const family of BUNDLED_FAMILIES) {
+      for (const id of family.setIds) {
+        expect(familyForSet({ id, title: 'irrelevant', source: 'bundled' })).toBe(family.label);
+      }
+    }
+  });
+
+  it("falls back to the set's own title for a bundled id with no family entry", () => {
+    expect(familyForSet({ id: 'future-exam-xyz', title: 'Future Exam', source: 'bundled' })).toBe(
+      'Future Exam',
+    );
+  });
+
+  it('always resolves an imported set to "My sets", regardless of its id', () => {
+    expect(
+      familyForSet({ id: 'comptia-a-plus-core-1-220-1201', title: 'Copy', source: 'imported' }),
+    ).toBe('My sets');
+  });
+});
+
+describe('groupSetsByFamily', () => {
+  const make = (over: Partial<SetSummary>): SetSummary => ({
+    id: 'x',
+    title: 'X',
+    description: null,
+    version: null,
+    questionCount: 1,
+    topicCount: 0,
+    source: 'bundled',
+    attemptCount: 0,
+    bestPercent: null,
+    lastAttemptAt: null,
+    ...over,
+  });
+
+  it('orders a known family before "My sets", and its own sets by catalog order', () => {
+    const groups = groupSetsByFamily([
+      make({ id: 'quick-comptia-security-plus-sy0-701', title: 'Quick Sec+' }),
+      make({ id: 'comptia-security-plus-sy0-701', title: 'Sec+' }),
+      make({ id: 'imported-1', title: 'Mine', source: 'imported' }),
+    ]);
+    expect(groups.map((g) => g.family)).toEqual(['Security+', 'My sets']);
+    expect(groups[0].sets.map((s) => s.id)).toEqual([
+      'comptia-security-plus-sy0-701',
+      'quick-comptia-security-plus-sy0-701',
+    ]);
+  });
+
+  it('omits a family entirely when none of its sets are present', () => {
+    const groups = groupSetsByFamily([make({ id: 'comptia-security-plus-sy0-701', title: 'Sec+' })]);
+    expect(groups.map((g) => g.family)).not.toContain('A+ Core 2');
+  });
+
+  it('groups an unmapped bundled id under its own title instead of dropping it', () => {
+    const groups = groupSetsByFamily([make({ id: 'future-exam-xyz', title: 'Future Exam' })]);
+    expect(groups).toEqual([
+      { family: 'Future Exam', sets: [expect.objectContaining({ id: 'future-exam-xyz' })] },
+    ]);
+  });
+
+  it('does not crash when a catalog entry references an id absent from the input list', () => {
+    // Security+'s vol2/quick ids aren't in the input - only the full exam is.
+    const groups = groupSetsByFamily([make({ id: 'comptia-security-plus-sy0-701', title: 'Sec+' })]);
+    expect(groups.find((g) => g.family === 'Security+')?.sets).toHaveLength(1);
+  });
+
+  it('returns no groups for an empty input', () => {
+    expect(groupSetsByFamily([])).toEqual([]);
   });
 });
