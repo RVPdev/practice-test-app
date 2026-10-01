@@ -8,6 +8,7 @@ export const KEY_PREFIX = 'pt:';
 const INDEX_KEY = `${KEY_PREFIX}index`;
 const IN_PROGRESS_KEY = `${KEY_PREFIX}inprogress`;
 const TERMS_ACCEPTED_KEY = `${KEY_PREFIX}termsAccepted`;
+const HIDDEN_BUNDLED_KEY = `${KEY_PREFIX}hiddenBundled`;
 const setKey = (id: string) => `${KEY_PREFIX}set:${id}`;
 const attemptsKey = (setId: string) => `${KEY_PREFIX}attempts:${setId}`;
 
@@ -38,6 +39,7 @@ export function createStorageRepository(kv: KVStore): Repository {
 
   const readIndex = () => read<IndexEntry[]>(INDEX_KEY, []);
   const readAttempts = (setId: string) => read<Attempt[]>(attemptsKey(setId), []);
+  const readHiddenIds = () => read<string[]>(HIDDEN_BUNDLED_KEY, []);
 
   const toEntry = (set: QuestionSet, source: SetSource): IndexEntry => ({
     id: set.id,
@@ -48,6 +50,19 @@ export function createStorageRepository(kv: KVStore): Repository {
     topicCount: set.topics?.length ?? 0,
     source,
   });
+
+  async function summarize(entry: IndexEntry): Promise<SetSummary> {
+    const attempts = await readAttempts(entry.id);
+    const best = attempts.reduce<number | null>(
+      (max, a) => (max === null || a.score.percent > max ? a.score.percent : max),
+      null,
+    );
+    const last = attempts.reduce<string | null>(
+      (latest, a) => (latest === null || a.finishedAt > latest ? a.finishedAt : latest),
+      null,
+    );
+    return { ...entry, attemptCount: attempts.length, bestPercent: best, lastAttemptAt: last };
+  }
 
   /** Newest first. A free function rather than a method, so no call site depends on `this`. */
   async function listAll(setId?: string): Promise<Attempt[]> {
@@ -68,25 +83,16 @@ export function createStorageRepository(kv: KVStore): Repository {
   return {
     async listSets() {
       const index = await readIndex();
-      const summaries: SetSummary[] = [];
-      for (const entry of index) {
-        const attempts = await readAttempts(entry.id);
-        const best = attempts.reduce<number | null>(
-          (max, a) => (max === null || a.score.percent > max ? a.score.percent : max),
-          null,
-        );
-        const last = attempts.reduce<string | null>(
-          (latest, a) => (latest === null || a.finishedAt > latest ? a.finishedAt : latest),
-          null,
-        );
-        summaries.push({
-          ...entry,
-          attemptCount: attempts.length,
-          bestPercent: best,
-          lastAttemptAt: last,
-        });
-      }
-      return summaries;
+      const hidden = new Set(await readHiddenIds());
+      const visible = index.filter((entry) => !hidden.has(entry.id));
+      return Promise.all(visible.map(summarize));
+    },
+
+    async listHiddenSets() {
+      const index = await readIndex();
+      const hidden = new Set(await readHiddenIds());
+      const hiddenEntries = index.filter((entry) => hidden.has(entry.id));
+      return Promise.all(hiddenEntries.map(summarize));
     },
 
     async getSet(setId) {
@@ -125,6 +131,23 @@ export function createStorageRepository(kv: KVStore): Repository {
         INDEX_KEY,
         index.filter((e) => e.id !== setId),
       );
+    },
+
+    async hideBundledSet(setId) {
+      const index = await readIndex();
+      const entry = index.find((e) => e.id === setId);
+      if (!entry || entry.source !== 'bundled') {
+        throw new Error(`"${setId}" is not a bundled set and cannot be hidden`);
+      }
+      const hidden = new Set(await readHiddenIds());
+      hidden.add(setId);
+      await write(HIDDEN_BUNDLED_KEY, [...hidden]);
+    },
+
+    async restoreBundledSet(setId) {
+      const hidden = new Set(await readHiddenIds());
+      hidden.delete(setId);
+      await write(HIDDEN_BUNDLED_KEY, [...hidden]);
     },
 
     listAttempts(setId) {

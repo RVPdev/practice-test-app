@@ -168,6 +168,72 @@ describe('createStorageRepository', () => {
     expect((await repo.getSet('set-1'))?.title).toBe('Set One v2');
   });
 
+  describe('hiding and restoring bundled sets', () => {
+    it('hides a bundled set so it no longer appears in listSets', async () => {
+      await repo.saveSet(makeSet(), 'bundled');
+      await repo.hideBundledSet('set-1');
+      expect(await repo.listSets()).toEqual([]);
+    });
+
+    it("keeps a hidden set's content and attempts, returning it via listHiddenSets", async () => {
+      await repo.saveSet(makeSet(), 'bundled');
+      await repo.saveAttempt(makeAttempt());
+      await repo.hideBundledSet('set-1');
+
+      const hidden = await repo.listHiddenSets();
+      expect(hidden).toHaveLength(1);
+      expect(hidden[0].id).toBe('set-1');
+      expect(hidden[0].attemptCount).toBe(1);
+      expect(await repo.getSet('set-1')).not.toBeNull();
+    });
+
+    it("restores a hidden set so it reappears in listSets with its history intact", async () => {
+      await repo.saveSet(makeSet(), 'bundled');
+      await repo.saveAttempt(makeAttempt());
+      await repo.hideBundledSet('set-1');
+
+      await repo.restoreBundledSet('set-1');
+
+      const sets = await repo.listSets();
+      expect(sets).toHaveLength(1);
+      expect(sets[0].id).toBe('set-1');
+      expect(sets[0].attemptCount).toBe(1);
+      expect(await repo.listHiddenSets()).toEqual([]);
+    });
+
+    it('refuses to hide an imported set', async () => {
+      await repo.saveSet(makeSet(), 'imported');
+      await expect(repo.hideBundledSet('set-1')).rejects.toThrow('bundled');
+    });
+
+    it('refuses to hide a set id that does not exist', async () => {
+      await expect(repo.hideBundledSet('no-such-set')).rejects.toThrow();
+    });
+
+    it('is idempotent - hiding an already-hidden set does not duplicate it', async () => {
+      await repo.saveSet(makeSet(), 'bundled');
+      await repo.hideBundledSet('set-1');
+      await repo.hideBundledSet('set-1');
+      expect(await repo.listHiddenSets()).toHaveLength(1);
+    });
+
+    it('restoring a set that was never hidden is a harmless no-op', async () => {
+      await repo.saveSet(makeSet(), 'bundled');
+      await expect(repo.restoreBundledSet('set-1')).resolves.toBeUndefined();
+      expect(await repo.listSets()).toHaveLength(1);
+    });
+
+    it('hides and restores a set with zero attempts without error', async () => {
+      await repo.saveSet(makeSet(), 'bundled');
+      await repo.hideBundledSet('set-1');
+      const hidden = await repo.listHiddenSets();
+      expect(hidden[0].attemptCount).toBe(0);
+      expect(hidden[0].bestPercent).toBeNull();
+      await repo.restoreBundledSet('set-1');
+      expect(await repo.listSets()).toHaveLength(1);
+    });
+  });
+
   it('saves and clears the in-progress session', async () => {
     const snapshot = { attemptId: 'att_x', setId: 'set-1', index: 2 } as unknown as SessionState;
     await repo.saveInProgress(snapshot);

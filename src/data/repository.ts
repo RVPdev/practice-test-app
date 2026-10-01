@@ -24,6 +24,9 @@ export interface Repository {
   /** Returns the id the set was stored under - a copy gets a new one. */
   saveSet(set: QuestionSet, source: SetSource, mode?: SaveMode): Promise<string>;
   deleteSet(setId: string): Promise<void>;
+  hideBundledSet(setId: string): Promise<void>;
+  restoreBundledSet(setId: string): Promise<void>;
+  listHiddenSets(): Promise<SetSummary[]>;
   listAttempts(setId?: string): Promise<Attempt[]>;
   getAttempt(attemptId: string): Promise<Attempt | null>;
   saveAttempt(attempt: Attempt): Promise<void>;
