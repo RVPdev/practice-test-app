@@ -1,3 +1,4 @@
+import { canonicalPair, canonicalRightIds } from './matching';
 import type { Question } from './schema';
 import type { AnswerRecord, Attempt, Score, SessionState, TopicScore } from './types';
 
@@ -25,6 +26,12 @@ export function correctResponse(question: Question): string[] {
 
 export function isCorrect(question: Question, response: string[]): boolean {
   if (response.length === 0) return false;
+  if (question.type === 'matching') {
+    // Chips sharing a text are one answer, so compare by answer rather than by chip id.
+    const canonical = canonicalRightIds(question.right);
+    const normalise = (entries: string[]) => entries.map((e) => canonicalPair(canonical, e));
+    return sameSet(normalise(response), normalise(correctResponse(question)));
+  }
   const expected = correctResponse(question);
   // Ordering is the one type where the sequence itself is the answer.
   return question.type === 'ordering'

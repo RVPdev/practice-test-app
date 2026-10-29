@@ -51,6 +51,38 @@ describe('MatchingInput', () => {
     expect(screen.getByTestId('left-l2').props.accessibilityLabel).toContain('incorrect');
   });
 
+  it('marks interchangeable duplicate chips correct whichever one was placed', async () => {
+    const reused: MatchingQuestion = {
+      ...question,
+      left: [
+        { id: 'l1', text: 'Fence' },
+        { id: 'l2', text: 'Generator' },
+        { id: 'l3', text: 'Firewall' },
+      ],
+      right: [
+        { id: 'r1', text: 'Physical' },
+        { id: 'r1b', text: 'Physical' },
+        { id: 'r2', text: 'Technical' },
+      ],
+      pairs: [
+        { left: 'l1', right: 'r1' },
+        { left: 'l2', right: 'r1b' },
+        { left: 'l3', right: 'r2' },
+      ],
+    };
+    await render(
+      <MatchingInput
+        question={reused}
+        response={['l1:r1b', 'l2:r1', 'l3:r1b']}
+        revealed
+        onChange={() => {}}
+      />,
+    );
+    expect(screen.getByTestId('left-l1').props.accessibilityLabel).toContain(', correct');
+    expect(screen.getByTestId('left-l2').props.accessibilityLabel).toContain(', correct');
+    expect(screen.getByTestId('left-l3').props.accessibilityLabel).toContain('incorrect');
+  });
+
   // A role-less View's label is ignored by screen readers on web (ARIA forbids naming a
   // generic element), which hid the pairing state and the correct/incorrect verdict.
   it('exposes each slot as a named group so its pairing state is announced', async () => {

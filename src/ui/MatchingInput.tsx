@@ -10,6 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import type { MatchingQuestion } from '@/core/schema';
 import {
+  canonicalRightIds,
   clearPair,
   findSlotAt,
   parsePairs,
@@ -38,6 +39,9 @@ export function MatchingInput({
   const theme = useTheme();
   const pairs = parsePairs(response);
   const expected = parsePairs(question.pairs.map((p) => `${p.left}:${p.right}`));
+  const canonical = canonicalRightIds(question.right);
+  const sameAnswer = (a: string | undefined, b: string | undefined) =>
+    a !== undefined && b !== undefined && (canonical.get(a) ?? a) === (canonical.get(b) ?? b);
   const rightText = new Map(question.right.map((item) => [item.id, item.text]));
   const placedRightIds = new Set(pairs.values());
   const bank = question.right.filter((item) => !placedRightIds.has(item.id));
@@ -72,7 +76,7 @@ export function MatchingInput({
       <View style={{ gap: spacing.sm }}>
         {question.left.map((item) => {
           const pairedRight = pairs.get(item.id);
-          const correct = revealed && pairedRight === expected.get(item.id);
+          const correct = revealed && sameAnswer(pairedRight, expected.get(item.id));
           const label = [
             item.text,
             pairedRight ? `paired with ${rightText.get(pairedRight) ?? pairedRight}` : 'not paired',

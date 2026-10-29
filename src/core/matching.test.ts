@@ -1,5 +1,13 @@
 import { describe, expect, it } from '@jest/globals';
-import { clearPair, findSlotAt, parsePairs, serialisePairs, setPair } from './matching';
+import {
+  canonicalPair,
+  canonicalRightIds,
+  clearPair,
+  findSlotAt,
+  parsePairs,
+  serialisePairs,
+  setPair,
+} from './matching';
 
 describe('parsePairs / serialisePairs', () => {
   it('round-trips left:right entries', () => {
@@ -65,5 +73,35 @@ describe('findSlotAt', () => {
 
   it('treats the box edges as inclusive', () => {
     expect(findSlotAt(layout, 100, 50)).toBe('l1');
+  });
+});
+
+describe('canonicalRightIds / canonicalPair', () => {
+  const right = [
+    { id: 'r1', text: 'Physical' },
+    { id: 'r2', text: 'Technical' },
+    { id: 'r1b', text: 'Physical' },
+    { id: 'r3', text: ' Physical ' },
+  ];
+  const canonical = canonicalRightIds(right);
+
+  it('maps chips with the same text onto the first chip carrying that text', () => {
+    expect(canonical.get('r1')).toBe('r1');
+    expect(canonical.get('r1b')).toBe('r1');
+    expect(canonical.get('r3')).toBe('r1');
+  });
+
+  it('leaves chips with distinct text as their own answer', () => {
+    expect(canonical.get('r2')).toBe('r2');
+  });
+
+  it('rewrites only the right id of a pair', () => {
+    expect(canonicalPair(canonical, 'l4:r1b')).toBe('l4:r1');
+    expect(canonicalPair(canonical, 'l4:r2')).toBe('l4:r2');
+  });
+
+  it('passes malformed or unknown entries through untouched', () => {
+    expect(canonicalPair(canonical, 'not-a-pair')).toBe('not-a-pair');
+    expect(canonicalPair(canonical, 'l1:ghost')).toBe('l1:ghost');
   });
 });

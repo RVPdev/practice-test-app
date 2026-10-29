@@ -31,6 +31,28 @@ export function clearPair(pairs: Map<string, string>, leftId: string): Map<strin
   return next;
 }
 
+// A matching answer bank has to hold one chip per placement, so a question whose answer is
+// reused ("Physical" for two rows) lists that answer several times under different ids. Chips
+// with the same text are the same answer, so they are scored as interchangeable: this maps
+// each right item to the first right item sharing its text.
+export function canonicalRightIds(right: { id: string; text: string }[]): Map<string, string> {
+  const firstByText = new Map<string, string>();
+  return new Map(
+    right.map((item) => {
+      const key = item.text.trim();
+      if (!firstByText.has(key)) firstByText.set(key, item.id);
+      return [item.id, firstByText.get(key) as string] as const;
+    }),
+  );
+}
+
+/** Rewrites a `left:right` entry so its right id is the canonical one for that answer text. */
+export function canonicalPair(canonical: Map<string, string>, entry: string): string {
+  const parts = entry.split(':');
+  if (parts.length !== 2) return entry;
+  return `${parts[0]}:${canonical.get(parts[1]) ?? parts[1]}`;
+}
+
 export type Rect = { pageX: number; pageY: number; width: number; height: number };
 
 export function findSlotAt(layout: Record<string, Rect>, x: number, y: number): string | null {

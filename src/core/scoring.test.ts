@@ -90,6 +90,46 @@ describe('isCorrect', () => {
   });
 });
 
+describe('isCorrect with a reused matching answer', () => {
+  const reused: Question = {
+    id: 'q-reuse',
+    type: 'matching',
+    prompt: 'Categorise',
+    left: [
+      { id: 'l1', text: 'Fence' },
+      { id: 'l2', text: 'Generator' },
+      { id: 'l3', text: 'Firewall' },
+    ],
+    right: [
+      { id: 'r1', text: 'Physical' },
+      { id: 'r1b', text: 'Physical' },
+      { id: 'r2', text: 'Technical' },
+    ],
+    pairs: [
+      { left: 'l1', right: 'r1' },
+      { left: 'l2', right: 'r1b' },
+      { left: 'l3', right: 'r2' },
+    ],
+  };
+
+  it('accepts the identical chips in either order', () => {
+    expect(isCorrect(reused, ['l1:r1', 'l2:r1b', 'l3:r2'])).toBe(true);
+    expect(isCorrect(reused, ['l1:r1b', 'l2:r1', 'l3:r2'])).toBe(true);
+  });
+
+  it('still rejects a row given a different answer', () => {
+    expect(isCorrect(reused, ['l1:r1', 'l2:r2', 'l3:r1b'])).toBe(false);
+  });
+
+  it('still rejects an incomplete response', () => {
+    expect(isCorrect(reused, ['l1:r1b', 'l2:r1'])).toBe(false);
+  });
+
+  it('leaves correctResponse as the authored pairs', () => {
+    expect(correctResponse(reused)).toEqual(['l1:r1', 'l2:r1b', 'l3:r2']);
+  });
+});
+
 describe('correctResponse', () => {
   it('returns the canonical answer for each type', () => {
     expect(correctResponse(single)).toEqual(['a']);
